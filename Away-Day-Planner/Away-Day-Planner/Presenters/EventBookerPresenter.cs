@@ -17,7 +17,7 @@ namespace Away_Day_Planner.Presenters
         {
             this.clientModel = clientModel;
             this.eventBookerView = eventBookerView;
-            //eventBookerView.register(this);
+            eventBookerView.register(this);
         }
 
     }
