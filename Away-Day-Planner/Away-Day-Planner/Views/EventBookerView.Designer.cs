@@ -97,6 +97,7 @@ namespace Away_Day_Planner.Views
             this.buttonAddActivity.TabIndex = 6;
             this.buttonAddActivity.Text = "Add New Activity";
             this.buttonAddActivity.UseVisualStyleBackColor = true;
+            this.buttonAddActivity.Click += new System.EventHandler(this.buttonAddActivity_Click);
             // 
             // labelTitle
             // 

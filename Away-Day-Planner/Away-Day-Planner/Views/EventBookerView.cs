@@ -24,5 +24,13 @@ namespace Away_Day_Planner.Views
         {
             this.eventBookerPresenter = eventBookerPresenter;
         }
+
+        private void buttonAddActivity_Click(object sender, EventArgs e)
+        {
+            AddActivityView addActivityView = new AddActivityView();
+            this.Hide();
+            addActivityView.ShowDialog();
+            this.Show();
+        }
     }
 }
