@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Away_Day_Planner.Views
 {
-    public partial class EventBookerView : Form
+    public partial class EventBookerView : Form, IEventBookerView
     {
         public EventBookerView()
         {
