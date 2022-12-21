@@ -267,7 +267,7 @@ namespace Away_Day_Planner.Views
             this.Controls.Add(this.labelSelectActivity);
             this.Controls.Add(this.labelAddActivity);
             this.Name = "AddActivityView";
-            this.Text = "AddActivityView";
+            this.Text = "Away Day Planner";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Away_Day_Planner.Views
 {
-    public partial class AddActivityView : Form
+    public partial class AddActivityView : Form, IAddActivityView
     {
         public AddActivityView()
         {
