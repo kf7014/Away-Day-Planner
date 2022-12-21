@@ -230,6 +230,7 @@ namespace Away_Day_Planner.Views
             this.buttonAddActivity.TabIndex = 21;
             this.buttonAddActivity.Text = "Add Activity";
             this.buttonAddActivity.UseVisualStyleBackColor = true;
+            this.buttonAddActivity.Click += new System.EventHandler(this.buttonAddActivity_Click);
             // 
             // buttonAddCustomActivity
             // 
@@ -239,6 +240,7 @@ namespace Away_Day_Planner.Views
             this.buttonAddCustomActivity.TabIndex = 22;
             this.buttonAddCustomActivity.Text = "Add Custom Activity";
             this.buttonAddCustomActivity.UseVisualStyleBackColor = true;
+            this.buttonAddCustomActivity.Click += new System.EventHandler(this.buttonAddCustomActivity_Click);
             // 
             // AddActivityView
             // 

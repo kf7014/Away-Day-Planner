@@ -26,5 +26,19 @@ namespace Away_Day_Planner.Views
         {
 
         }
+
+        private void buttonAddActivity_Click(object sender, EventArgs e)
+        {
+            //NEEDS FORM SECURITY ADDING
+
+            this.Close();
+        }
+
+        private void buttonAddCustomActivity_Click(object sender, EventArgs e)
+        {
+            //NEEDS FORM SECURITY ADDING
+
+            this.Close();
+        }
     }
 }
