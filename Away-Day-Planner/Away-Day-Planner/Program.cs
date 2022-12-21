@@ -23,7 +23,7 @@ namespace Away_Day_Planner
             ClientModel clientModel = new ClientModel();
             EventBookerView eventBookerView = new EventBookerView();
             EventBookerPresenter eventBookerPresenter = new EventBookerPresenter(eventBookerView, clientModel);
-            Application.Run(eventBookerView);     
+            Application.Run(eventBookerView);  
         }
     }
 }
