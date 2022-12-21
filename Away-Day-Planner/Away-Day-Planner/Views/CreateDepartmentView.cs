@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Away_Day_Planner.Views
 {
-    public partial class CreateDepartmentView : Form
+    public partial class CreateDepartmentView : Form, ICreateDepartmentView
     {
         public CreateDepartmentView()
         {

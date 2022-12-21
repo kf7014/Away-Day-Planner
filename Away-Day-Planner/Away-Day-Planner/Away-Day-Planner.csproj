@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="Views\IAddActivityView.cs" />
     <Compile Include="Views\ICreateClientView.cs" />
+    <Compile Include="Views\ICreateDepartmentView.cs" />
     <Compile Include="Views\IEventBookerView.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
