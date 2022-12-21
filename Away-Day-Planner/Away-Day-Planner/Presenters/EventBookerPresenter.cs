@@ -12,5 +12,13 @@ namespace Away_Day_Planner.Presenters
     {
         IEventBookerView eventBookerView;
         IClientModel clientModel;
+
+        public EventBookerPresenter(IEventBookerView eventBookerView, IClientModel clientModel)
+        {
+            this.clientModel = clientModel;
+            this.eventBookerView = eventBookerView;
+            //eventBookerView.register(this);
+        }
+
     }
 }
