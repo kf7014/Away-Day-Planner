@@ -20,13 +20,11 @@ namespace Away_Day_Planner
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Create Model, View and Presenter for EventBooker
-            ClientModel clientModel = new ClientModel();
-            EventBookerView eventBookerView = new EventBookerView();
-            EventBookerPresenter eventBookerPresenter = new EventBookerPresenter(eventBookerView, clientModel);
 
             //Create Model, View and Presenter for ClientDepartmentSelection
-            ClientDepartmentSelectionView clientDepartmentSelectionView = new ClientDepartmentSelectionView();
+            ClientDepartmentSelectionView clientDepartmentSelectionView = new ClientDepartmentSelectionView();           
+            ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter = new ClientDepartmentSelectionPresenter(clientDepartmentSelectionView);
+
 
             //System point of entry
             Application.Run(clientDepartmentSelectionView);  

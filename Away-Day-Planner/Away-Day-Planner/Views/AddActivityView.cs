@@ -47,7 +47,7 @@ namespace Away_Day_Planner.Views
             this.addActivityPresenter = addActivityPresenter;
 
             //CONSOLE CODE TO BE DELETED
-            Console.WriteLine("current presenter: " + addActivityPresenter);
+            Console.WriteLine("presenter: " + addActivityPresenter);
         }
     }
 }
