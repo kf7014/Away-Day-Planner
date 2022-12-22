@@ -31,6 +31,7 @@ namespace Away_Day_Planner.Views
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
             AddActivityView addActivityView = new AddActivityView();
+            AddActivityPresenter addActivityPresenter = new AddActivityPresenter(addActivityView);
             addActivityView.ShowDialog();         
         }
     }
