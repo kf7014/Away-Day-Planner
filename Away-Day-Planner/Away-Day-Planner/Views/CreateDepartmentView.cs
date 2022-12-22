@@ -23,6 +23,9 @@ namespace Away_Day_Planner.Views
         public void register(CreateDepartmentPresenter createDepartmentPresenter)
         {
             this.createDepartmentPresenter = createDepartmentPresenter;
+
+            //CONSOLE CODE TO BE DELETED
+            Console.WriteLine("current presenter: " + createDepartmentPresenter);
         }
 
         private void buttonAddDepartment_Click(object sender, EventArgs e)

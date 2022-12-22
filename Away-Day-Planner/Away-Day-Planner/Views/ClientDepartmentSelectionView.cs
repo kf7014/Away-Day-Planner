@@ -43,6 +43,9 @@ namespace Away_Day_Planner.Views
         public void register(ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter)
         {
             this.clientDepartmentSelectionPresenter = clientDepartmentSelectionPresenter;
+
+            //CONSOLE CODE TO BE DELETED
+            Console.WriteLine("current presenter: " + clientDepartmentSelectionPresenter);
         }
     }
 }
