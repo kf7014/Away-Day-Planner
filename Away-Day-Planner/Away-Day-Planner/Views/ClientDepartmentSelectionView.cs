@@ -24,12 +24,14 @@ namespace Away_Day_Planner.Views
         private void buttonCreateClient_Click(object sender, EventArgs e)
         {
             CreateClientView createClientView = new CreateClientView();
+            CreateClientPresenter createClientPresenter = new CreateClientPresenter(createClientView);
             createClientView.ShowDialog();
         }
 
         private void buttonCreateDepartment_Click(object sender, EventArgs e)
         {
             CreateDepartmentView createDepartmentView = new CreateDepartmentView();
+            CreateDepartmentPresenter createDepartmentPresenter = new CreateDepartmentPresenter(createDepartmentView);
             createDepartmentView.ShowDialog();
         }
 
