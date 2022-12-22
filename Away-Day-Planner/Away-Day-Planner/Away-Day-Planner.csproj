@@ -54,7 +54,7 @@
     <Compile Include="Presenters\EventBookerPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\AddActivityPresenter.cs" />
+    <Compile Include="Presenters\AddActivityPresenter.cs" />
     <Compile Include="Views\AddActivityView.cs">
       <SubType>Form</SubType>
     </Compile>
