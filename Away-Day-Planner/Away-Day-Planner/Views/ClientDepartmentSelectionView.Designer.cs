@@ -81,6 +81,7 @@ namespace Away_Day_Planner.Views
             this.buttonConfirm.TabIndex = 4;
             this.buttonConfirm.Text = "Confirm Selection";
             this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // labelOrChoice
             // 

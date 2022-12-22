@@ -28,5 +28,13 @@ namespace Away_Day_Planner.Views
             CreateDepartmentView createDepartmentView = new CreateDepartmentView();
             createDepartmentView.ShowDialog();
         }
+
+        private void buttonConfirm_Click(object sender, EventArgs e)
+        {
+            EventBookerView eventBookerView = new EventBookerView();
+            this.Hide();
+            eventBookerView.ShowDialog();
+            this.Show();
+        }
     }
 }
