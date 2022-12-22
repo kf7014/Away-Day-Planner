@@ -82,6 +82,7 @@
       <DependentUpon>EventBookerView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\IAddActivityView.cs" />
+    <Compile Include="Views\IClientDepartmentSelectionView.cs" />
     <Compile Include="Views\ICreateClientView.cs" />
     <Compile Include="Views\ICreateDepartmentView.cs" />
     <Compile Include="Views\IEventBookerView.cs" />
