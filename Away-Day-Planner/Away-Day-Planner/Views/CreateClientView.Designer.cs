@@ -62,12 +62,13 @@ namespace Away_Day_Planner.Views
             // 
             // buttonAddClient
             // 
-            this.buttonAddClient.Location = new System.Drawing.Point(111, 335);
+            this.buttonAddClient.Location = new System.Drawing.Point(105, 329);
             this.buttonAddClient.Name = "buttonAddClient";
-            this.buttonAddClient.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddClient.Size = new System.Drawing.Size(95, 34);
             this.buttonAddClient.TabIndex = 3;
             this.buttonAddClient.Text = "Add Client";
             this.buttonAddClient.UseVisualStyleBackColor = true;
+            this.buttonAddClient.Click += new System.EventHandler(this.buttonAddClient_Click);
             // 
             // CreateClientView
             // 

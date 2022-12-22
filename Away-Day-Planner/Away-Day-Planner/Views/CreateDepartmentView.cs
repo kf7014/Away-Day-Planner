@@ -16,5 +16,12 @@ namespace Away_Day_Planner.Views
         {
             InitializeComponent();
         }
+
+        private void buttonAddDepartment_Click(object sender, EventArgs e)
+        {
+            //NEEDS FORM SECURITY ADDING
+
+            this.Close();
+        }
     }
 }

@@ -87,6 +87,7 @@ namespace Away_Day_Planner.Views
             this.buttonAddDepartment.TabIndex = 6;
             this.buttonAddDepartment.Text = "Add Department";
             this.buttonAddDepartment.UseVisualStyleBackColor = true;
+            this.buttonAddDepartment.Click += new System.EventHandler(this.buttonAddDepartment_Click);
             // 
             // CreateDepartmentView
             // 
