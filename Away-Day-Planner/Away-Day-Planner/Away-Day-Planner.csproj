@@ -51,12 +51,40 @@
     <Compile Include="Presenters\EventBookerPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AddActivityView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddActivityView.Designer.cs">
+      <DependentUpon>AddActivityView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClientDepartmentSelectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ClientDepartmentSelectionView.Designer.cs">
+      <DependentUpon>ClientDepartmentSelectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateClientView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CreateClientView.Designer.cs">
+      <DependentUpon>CreateClientView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateDepartmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CreateDepartmentView.Designer.cs">
+      <DependentUpon>CreateDepartmentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EventBookerView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\EventBookerView.Designer.cs">
       <DependentUpon>EventBookerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\IAddActivityView.cs" />
+    <Compile Include="Views\IClientDepartmentSelectionView.cs" />
+    <Compile Include="Views\ICreateClientView.cs" />
+    <Compile Include="Views\ICreateDepartmentView.cs" />
     <Compile Include="Views\IEventBookerView.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,6 +95,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AddActivityView.resx">
+      <DependentUpon>AddActivityView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ClientDepartmentSelectionView.resx">
+      <DependentUpon>ClientDepartmentSelectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CreateClientView.resx">
+      <DependentUpon>CreateClientView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CreateDepartmentView.resx">
+      <DependentUpon>CreateDepartmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EventBookerView.resx">
+      <DependentUpon>EventBookerView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
