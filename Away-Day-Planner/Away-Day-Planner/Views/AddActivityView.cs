@@ -12,6 +12,7 @@ namespace Away_Day_Planner.Views
 {
     public partial class AddActivityView : Form, IAddActivityView
     {
+        private AddActivityPresenter addActivityPresenter;
         public AddActivityView()
         {
             InitializeComponent();
@@ -39,6 +40,11 @@ namespace Away_Day_Planner.Views
             //NEEDS FORM SECURITY ADDING
 
             this.Close();
+        }
+
+        public void register(AddActivityPresenter addActivityPresenter)
+        {
+            this.addActivityPresenter = addActivityPresenter;
         }
     }
 }

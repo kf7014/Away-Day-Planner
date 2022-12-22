@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Away_Day_Planner.Views
 {
-    interface IAddActivityView
+    public interface IAddActivityView
     {
-        //Register view to presenter will go here
+        //Register view to presenter
+        void register(AddActivityPresenter addActivityPresenter);
     }
 }
