@@ -57,6 +57,12 @@
     <Compile Include="Views\AddActivityView.Designer.cs">
       <DependentUpon>AddActivityView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ClientDepartmentSelectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ClientDepartmentSelectionView.Designer.cs">
+      <DependentUpon>ClientDepartmentSelectionView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreateClientView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <EmbeddedResource Include="Views\AddActivityView.resx">
       <DependentUpon>AddActivityView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ClientDepartmentSelectionView.resx">
+      <DependentUpon>ClientDepartmentSelectionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CreateClientView.resx">
       <DependentUpon>CreateClientView.cs</DependentUpon>
