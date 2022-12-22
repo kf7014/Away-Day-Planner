@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Away_Day_Planner.Presenters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace Away_Day_Planner.Views
 {
     public partial class ClientDepartmentSelectionView : Form, IClientDepartmentSelectionView
     {
+        private ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter;
+
         public ClientDepartmentSelectionView()
         {
             InitializeComponent();
@@ -35,6 +38,11 @@ namespace Away_Day_Planner.Views
             this.Hide();
             eventBookerView.ShowDialog();
             this.Show();
+        }
+
+        public void register(ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter)
+        {
+            this.clientDepartmentSelectionPresenter = clientDepartmentSelectionPresenter;
         }
     }
 }
