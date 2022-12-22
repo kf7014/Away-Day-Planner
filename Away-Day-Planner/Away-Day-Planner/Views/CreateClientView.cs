@@ -7,14 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Away_Day_Planner.Presenters;
 
 namespace Away_Day_Planner.Views
 {
     public partial class CreateClientView : Form, ICreateClientView
     {
+        private CreateClientPresenter createClientPresenter;
+
         public CreateClientView()
         {
             InitializeComponent();
+        }
+
+        public void register(CreateClientPresenter createClientPresenter)
+        {
+            this.createClientPresenter = createClientPresenter;
+
+            //CONSOLE CODE TO BE DELETED
+            Console.WriteLine("presenter: " + createClientPresenter);
         }
 
         private void buttonAddClient_Click(object sender, EventArgs e)

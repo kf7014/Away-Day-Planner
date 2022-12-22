@@ -23,11 +23,15 @@ namespace Away_Day_Planner.Views
         public void register(EventBookerPresenter eventBookerPresenter)
         {
             this.eventBookerPresenter = eventBookerPresenter;
+            
+            //CONSOLE CODE TO BE DELETED
+            Console.WriteLine("presenter: " + eventBookerPresenter);
         }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
             AddActivityView addActivityView = new AddActivityView();
+            AddActivityPresenter addActivityPresenter = new AddActivityPresenter(addActivityView);
             addActivityView.ShowDialog();         
         }
     }
