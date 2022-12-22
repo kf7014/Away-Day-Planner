@@ -85,7 +85,7 @@ namespace Away_Day_Planner.Views
             // labelOrChoice
             // 
             this.labelOrChoice.AutoSize = true;
-            this.labelOrChoice.Location = new System.Drawing.Point(472, 198);
+            this.labelOrChoice.Location = new System.Drawing.Point(482, 199);
             this.labelOrChoice.Name = "labelOrChoice";
             this.labelOrChoice.Size = new System.Drawing.Size(35, 13);
             this.labelOrChoice.TabIndex = 5;
@@ -99,6 +99,7 @@ namespace Away_Day_Planner.Views
             this.buttonCreateClient.TabIndex = 6;
             this.buttonCreateClient.Text = "Create New Client";
             this.buttonCreateClient.UseVisualStyleBackColor = true;
+            this.buttonCreateClient.Click += new System.EventHandler(this.buttonCreateClient_Click);
             // 
             // buttonCreateDepartment
             // 
@@ -108,6 +109,7 @@ namespace Away_Day_Planner.Views
             this.buttonCreateDepartment.TabIndex = 7;
             this.buttonCreateDepartment.Text = "Create New Department";
             this.buttonCreateDepartment.UseVisualStyleBackColor = true;
+            this.buttonCreateDepartment.Click += new System.EventHandler(this.buttonCreateDepartment_Click);
             // 
             // ClientDepartmentSelectionView
             // 

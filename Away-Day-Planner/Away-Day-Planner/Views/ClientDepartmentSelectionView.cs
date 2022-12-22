@@ -16,5 +16,17 @@ namespace Away_Day_Planner.Views
         {
             InitializeComponent();
         }
+
+        private void buttonCreateClient_Click(object sender, EventArgs e)
+        {
+            CreateClientView createClientView = new CreateClientView();
+            createClientView.ShowDialog();
+        }
+
+        private void buttonCreateDepartment_Click(object sender, EventArgs e)
+        {
+            CreateDepartmentView createDepartmentView = new CreateDepartmentView();
+            createDepartmentView.ShowDialog();
+        }
     }
 }
