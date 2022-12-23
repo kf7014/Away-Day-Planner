@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using Away_Day_Planner.Views;
 using Away_Day_Planner.Models.EventBooker;
 using Away_Day_Planner.Presenters;
+using System.Collections;
+using Away_Day_Planner.Utilities;
 
 namespace Away_Day_Planner
 {
@@ -15,8 +17,12 @@ namespace Away_Day_Planner
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+
+            ArgumentParser arg_p = new ArgumentParser(args);
+            arg_p.SetSettings();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
