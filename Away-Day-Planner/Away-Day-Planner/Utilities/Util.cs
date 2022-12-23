@@ -8,9 +8,7 @@ namespace Away_Day_Planner.Utilities
 {
     internal class Util
     {
-        public static void Print<T>(T x)
-        {
-            Console.WriteLine(x);
-        }
+        public static void Print<T>(T x){Console.WriteLine(x);}
+        public static void Debug_Print<T>(T x) { if(AppSettings.Instance.VERBOSE) Console.WriteLine(x);}
     }
 }
