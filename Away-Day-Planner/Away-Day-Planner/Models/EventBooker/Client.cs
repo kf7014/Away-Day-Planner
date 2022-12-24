@@ -42,5 +42,12 @@ namespace Away_Day_Planner.Models.EventBooker
             get { return Name; }
             set { Name = value; }
         }
+
+        public Client(string name, int noOfHoursAway, bool hasClientDispute)
+        {
+            Name = name;
+            NoOfHoursAway = noOfHoursAway;
+            HasClientDispute = hasClientDispute;            
+        }
     }
 }
