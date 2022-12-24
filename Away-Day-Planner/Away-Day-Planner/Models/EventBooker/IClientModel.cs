@@ -8,5 +8,6 @@ namespace Away_Day_Planner.Models.EventBooker
 {
     public interface IClientModel
     {
+        Client[] getClientList();
     }
 }

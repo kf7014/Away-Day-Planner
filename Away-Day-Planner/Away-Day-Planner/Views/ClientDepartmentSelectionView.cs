@@ -54,5 +54,11 @@ namespace Away_Day_Planner.Views
             //CONSOLE CODE TO BE DELETED
             Console.WriteLine("presenter: " + clientDepartmentSelectionPresenter);
         }
+
+        public void setClientList(string[] names)
+        {
+            listBoxClient.DataSource = names;
+        }
+
     }
 }

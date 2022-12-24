@@ -18,6 +18,18 @@ namespace Away_Day_Planner.Presenters
             this.clientDepartmentSelectionView = clientDepartmentSelectionView;
             this.clientModel = clientModel;
             clientDepartmentSelectionView.register(this);
+            populateScreen();
+        }
+
+        private void populateScreen()
+        {
+            Client[] list = clientModel.getClientList();
+            String[] names = new String[list.Length];
+            for(int i=0; i<list.Length; i++)
+            {
+                names[i] = list[i].name;
+            }
+            clientDepartmentSelectionView.setClientList(names);
         }
 
     }
