@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
-    class Client
+    public class Client
     {
         private int Id;
         public int id
