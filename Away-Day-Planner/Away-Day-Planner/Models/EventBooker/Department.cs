@@ -13,5 +13,10 @@ namespace Away_Day_Planner.Models.EventBooker
 
         private string Name;
         public string name { get => Name; set => Name = value; }
+
+        public Department(String name)
+        {
+            Name = name;
+        }
     }
 }
