@@ -14,12 +14,12 @@ namespace Away_Day_Planner.Models.EventBooker
             get { return Id; }
         }
 
-        //private ICollection<IDepartment> Departments;
-        //public ICollection<IDepartment> departments
-        //{
-        //    get { return Departments; }
-        //    set { Departments = value; }
-        //}
+        private ICollection<IDepartment> Departments;
+        public ICollection<IDepartment> departments
+        {
+            get { return Departments; }
+            set { Departments = value; }
+        }
 
 
         private bool HasClientDispute;

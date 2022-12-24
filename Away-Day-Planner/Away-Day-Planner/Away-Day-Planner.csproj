@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="Models\EventBooker\Client.cs" />
     <Compile Include="Models\EventBooker\ClientModel.cs" />
+    <Compile Include="Models\EventBooker\Department.cs" />
     <Compile Include="Models\EventBooker\IClientModel.cs" />
+    <Compile Include="Models\EventBooker\IDepartment.cs" />
     <Compile Include="Presenters\ClientDepartmentSelectionPresenter.cs" />
     <Compile Include="Presenters\CreateClientPresenter.cs" />
     <Compile Include="Presenters\CreateDepartmentPresenter.cs" />
