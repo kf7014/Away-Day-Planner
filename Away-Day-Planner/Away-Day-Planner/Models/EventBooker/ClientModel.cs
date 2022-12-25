@@ -12,8 +12,8 @@ namespace Away_Day_Planner.Models.EventBooker
         public ClientModel()
         {
             clientList = new List<Client>();
-            clientList.Add(new Client(1, "Kieran", 1, false));
-            clientList.Add(new Client(2, "Sandra", 2, false));
+            clientList.Add(new Client(0, "Kieran", 1, false));
+            clientList.Add(new Client(1, "Sandra", 2, false));
 
             //Add data to department dummy
             clientList[0].departments.Add(new Department("Test Department"));

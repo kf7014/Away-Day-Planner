@@ -13,5 +13,6 @@ namespace Away_Day_Planner.Views
         void register(ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter);
         void setClientList(string[] names);
         void setDepartmentList(string[] names);
+        int selectedClientIndex { get; set; }
     }
 }

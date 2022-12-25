@@ -33,9 +33,12 @@ namespace Away_Day_Planner.Presenters
             clientDepartmentSelectionView.setClientList(names);
 
             //Populate departmentList box
-            //ID of Client currently still needs manually changing to set form
-            IDepartment[] departmentList = clientModel.getClientDepartments(1);
-            Console.WriteLine("Department List: " + departmentList);
+            listBoxClientSelectionEvent();
+        }
+
+        public void listBoxClientSelectionEvent()
+        {
+            IDepartment[] departmentList = clientModel.getClientDepartments(clientDepartmentSelectionView.selectedClientIndex);
             String[] departmentNames = new String[departmentList.Length];
             for (int i = 0; i < departmentList.Length; i++)
             {
