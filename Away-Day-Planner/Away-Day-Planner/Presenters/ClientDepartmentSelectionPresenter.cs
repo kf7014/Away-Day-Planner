@@ -23,6 +23,7 @@ namespace Away_Day_Planner.Presenters
 
         private void populateScreen()
         {
+            //Populate clientList box
             Client[] list = clientModel.getClientList();
             String[] names = new String[list.Length];
             for(int i=0; i<list.Length; i++)
@@ -30,6 +31,17 @@ namespace Away_Day_Planner.Presenters
                 names[i] = list[i].name;
             }
             clientDepartmentSelectionView.setClientList(names);
+
+            //Populate departmentList box
+            //ID of Client currently still needs manually changing to set form
+            IDepartment[] departmentList = clientModel.getClientDepartments(1);
+            Console.WriteLine("Department List: " + departmentList);
+            String[] departmentNames = new String[departmentList.Length];
+            for (int i = 0; i < departmentList.Length; i++)
+            {
+                departmentNames[i] = departmentList[i].name;
+            }
+            clientDepartmentSelectionView.setDepartmentList(departmentNames);
         }
 
     }

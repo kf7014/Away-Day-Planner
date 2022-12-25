@@ -60,5 +60,9 @@ namespace Away_Day_Planner.Views
             listBoxClient.DataSource = names;
         }
 
+        public void setDepartmentList(string[] names)
+        {
+            listBoxDepartment.DataSource = names;
+        }
     }
 }

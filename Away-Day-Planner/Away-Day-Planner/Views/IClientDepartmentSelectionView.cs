@@ -12,5 +12,6 @@ namespace Away_Day_Planner.Views
         //Register view to presenter
         void register(ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter);
         void setClientList(string[] names);
+        void setDepartmentList(string[] names);
     }
 }
