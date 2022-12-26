@@ -22,5 +22,12 @@ namespace Away_Day_Planner.Utilities
             get { lock (_lock) { return (bool)this["VERBOSE"]; }}
             set { lock (_lock) { this["VERBOSE"] = (bool)value; }} 
         }
+
+        [UserScopedSetting()]
+        public String DATABASE_STRING
+        {
+            get { lock (_lock) { return (String)this["DATABASE_STRING"]; }}
+            private set { lock (_lock) { this["DATABASE_STRING"] = (String)value; }}
+        }
     }
 }
