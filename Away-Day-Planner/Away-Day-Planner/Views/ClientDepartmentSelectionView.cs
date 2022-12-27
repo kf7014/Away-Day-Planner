@@ -21,6 +21,22 @@ namespace Away_Day_Planner.Views
             InitializeComponent();
         }
 
+        public int selectedClientIndex
+        {
+            set { }
+            get { return listBoxClient.SelectedIndex; }
+        }
+
+
+
+
+
+
+
+
+
+
+
         private void buttonCreateClient_Click(object sender, EventArgs e)
         {
             CreateClientView createClientView = new CreateClientView();
@@ -53,6 +69,21 @@ namespace Away_Day_Planner.Views
 
             //CONSOLE CODE TO BE DELETED
             Console.WriteLine("presenter: " + clientDepartmentSelectionPresenter);
+        }
+
+        public void setClientList(string[] names)
+        {
+            listBoxClient.DataSource = names;
+        }
+
+        public void setDepartmentList(string[] names)
+        {
+            listBoxDepartment.DataSource = names;
+        }
+
+        private void listBoxClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            clientDepartmentSelectionPresenter.listBoxClientSelectionEvent();
         }
     }
 }

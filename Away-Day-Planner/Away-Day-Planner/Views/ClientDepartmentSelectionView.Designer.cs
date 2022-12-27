@@ -64,6 +64,7 @@ namespace Away_Day_Planner.Views
             this.listBoxClient.Name = "listBoxClient";
             this.listBoxClient.Size = new System.Drawing.Size(179, 238);
             this.listBoxClient.TabIndex = 2;
+            this.listBoxClient.SelectedIndexChanged += new System.EventHandler(this.listBoxClient_SelectedIndexChanged);
             // 
             // listBoxDepartment
             // 
