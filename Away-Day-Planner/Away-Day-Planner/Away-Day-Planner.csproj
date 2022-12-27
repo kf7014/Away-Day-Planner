@@ -74,6 +74,11 @@
     <Compile Include="Database\DatabaseInterface.cs" />
     <Compile Include="Database\EntityContext.cs" />
     <Compile Include="Database\IDatabaseInterface.cs" />
+    <Compile Include="Models\ClientDepartment\Client.cs" />
+    <Compile Include="Models\ClientDepartment\ClientModel.cs" />
+    <Compile Include="Models\ClientDepartment\Department.cs" />
+    <Compile Include="Models\ClientDepartment\IClientModel.cs" />
+    <Compile Include="Models\ClientDepartment\IDepartment.cs" />
     <Compile Include="Presenters\ClientDepartmentSelectionPresenter.cs" />
     <Compile Include="Presenters\CreateClientPresenter.cs" />
     <Compile Include="Presenters\CreateDepartmentPresenter.cs" />
@@ -167,7 +172,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\ClientDepartment\" />
     <Folder Include="Models\EventBooker\" />
     <Folder Include="Security\" />
     <Folder Include="Testing\" />
