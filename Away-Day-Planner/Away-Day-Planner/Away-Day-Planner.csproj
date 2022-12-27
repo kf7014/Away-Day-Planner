@@ -79,6 +79,7 @@
     <Compile Include="Models\ClientDepartment\Department.cs" />
     <Compile Include="Models\ClientDepartment\IClientModel.cs" />
     <Compile Include="Models\ClientDepartment\IDepartment.cs" />
+    <Compile Include="Models\EventBooker\Activity.cs" />
     <Compile Include="Models\EventBooker\Contractor.cs" />
     <Compile Include="Models\EventBooker\ContractorModel.cs" />
     <Compile Include="Models\EventBooker\FacilitatorTeam.cs" />
