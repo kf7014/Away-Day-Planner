@@ -79,6 +79,12 @@
     <Compile Include="Models\ClientDepartment\Department.cs" />
     <Compile Include="Models\ClientDepartment\IClientModel.cs" />
     <Compile Include="Models\ClientDepartment\IDepartment.cs" />
+    <Compile Include="Models\EventBooker\Contractor.cs" />
+    <Compile Include="Models\EventBooker\ContractorModel.cs" />
+    <Compile Include="Models\EventBooker\FacilitatorTeam.cs" />
+    <Compile Include="Models\EventBooker\IActivity.cs" />
+    <Compile Include="Models\EventBooker\IContractorModel.cs" />
+    <Compile Include="Models\EventBooker\IPerson.cs" />
     <Compile Include="Presenters\AddActivityPresenter.cs" />
     <Compile Include="Presenters\ClientDepartmentSelectionPresenter.cs" />
     <Compile Include="Presenters\CreateClientPresenter.cs" />
@@ -172,7 +178,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\EventBooker\" />
     <Folder Include="Security\" />
     <Folder Include="Testing\" />
   </ItemGroup>
