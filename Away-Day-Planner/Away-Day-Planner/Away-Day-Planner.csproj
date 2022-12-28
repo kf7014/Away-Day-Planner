@@ -85,11 +85,13 @@
     <Compile Include="Models\EventBooker\Event.cs" />
     <Compile Include="Models\EventBooker\EventModel.cs" />
     <Compile Include="Models\EventBooker\Facilitator.cs" />
+    <Compile Include="Models\EventBooker\FacilitatorModel.cs" />
     <Compile Include="Models\EventBooker\FacilitatorTeam.cs" />
     <Compile Include="Models\EventBooker\FacilitatorTeamModel.cs" />
     <Compile Include="Models\EventBooker\IActivity.cs" />
     <Compile Include="Models\EventBooker\IContractorModel.cs" />
     <Compile Include="Models\EventBooker\IEventModel.cs" />
+    <Compile Include="Models\EventBooker\IFacilitatorModel.cs" />
     <Compile Include="Models\EventBooker\IFacilitatorTeamModel.cs" />
     <Compile Include="Models\EventBooker\IPerson.cs" />
     <Compile Include="Presenters\AddActivityPresenter.cs" />
