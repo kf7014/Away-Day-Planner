@@ -10,5 +10,6 @@ namespace Away_Day_Planner.Utilities
     {
         public static void Print<T>(T x){Console.WriteLine(x);}
         public static void Debug_Print<T>(T x) { if(AppSettings.Instance.VERBOSE) Console.WriteLine(x);}
+        public static void TPrint<T>(T x, string tag) { Console.WriteLine(tag + " : " + x); }
     }
 }

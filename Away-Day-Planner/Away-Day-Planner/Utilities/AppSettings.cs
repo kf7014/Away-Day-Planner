@@ -18,16 +18,17 @@ namespace Away_Day_Planner.Utilities
 
         [UserScopedSetting()]
         [DefaultSettingValue("false")]
-        public Boolean VERBOSE { 
+        public bool VERBOSE { 
             get { lock (_lock) { return (bool)this["VERBOSE"]; }}
             set { lock (_lock) { this["VERBOSE"] = (bool)value; }} 
         }
 
         [UserScopedSetting()]
-        public String DATABASE_STRING
+        [DefaultSettingValue("false")]
+        public bool LOGGING
         {
-            get { lock (_lock) { return (String)this["DATABASE_STRING"]; }}
-            private set { lock (_lock) { this["DATABASE_STRING"] = (String)value; }}
+            get { lock (_lock) { return (bool)this["LOGGING"]; }}
+            set { lock (_lock) { this["LOGGING"] = (bool)value; }}
         }
     }
 }

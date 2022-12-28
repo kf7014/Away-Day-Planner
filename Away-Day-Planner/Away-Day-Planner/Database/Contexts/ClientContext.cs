@@ -17,11 +17,6 @@ namespace Away_Day_Planner.Database.Contexts
            // public DbSet<Ix> x { get; set;}
         }
 
-        public void Debug()
-        {
-            Util.Print("ENTITY_CONTEXT");
-        }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
