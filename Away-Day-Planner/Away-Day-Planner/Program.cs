@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Away_Day_Planner.Views;
-using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Presenters;
 using System.Collections;
 using Away_Day_Planner.Utilities;

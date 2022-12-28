@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Away_Day_Planner.Presenters;
-using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Models.ClientDepartment;
 
 namespace Away_Day_Planner.Views
 {

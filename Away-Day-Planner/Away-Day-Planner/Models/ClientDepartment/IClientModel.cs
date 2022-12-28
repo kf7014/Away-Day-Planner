@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Away_Day_Planner.Models.EventBooker
+namespace Away_Day_Planner.Models.ClientDepartment
 {
     public interface IClientModel
     {
