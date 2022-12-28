@@ -84,6 +84,7 @@
     <Compile Include="Models\EventBooker\ContractorModel.cs" />
     <Compile Include="Models\EventBooker\Event.cs" />
     <Compile Include="Models\EventBooker\EventModel.cs" />
+    <Compile Include="Models\EventBooker\Facilitator.cs" />
     <Compile Include="Models\EventBooker\FacilitatorTeam.cs" />
     <Compile Include="Models\EventBooker\FacilitatorTeamModel.cs" />
     <Compile Include="Models\EventBooker\IActivity.cs" />
