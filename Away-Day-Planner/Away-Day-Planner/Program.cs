@@ -8,6 +8,9 @@ using Away_Day_Planner.Models.EventBooker;
 using Away_Day_Planner.Presenters;
 using System.Collections;
 using Away_Day_Planner.Utilities;
+using Away_Day_Planner.Database;
+using System.Security.Cryptography.X509Certificates;
+using System.Data.Entity;
 
 namespace Away_Day_Planner
 {

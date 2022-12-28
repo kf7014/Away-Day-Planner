@@ -72,8 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DatabaseInterface.cs" />
-    <Compile Include="Database\EntityContext.cs" />
+    <Compile Include="Database\Contexts\DepartmentContext.cs" />
+    <Compile Include="Database\Contexts\ClientContext.cs" />
     <Compile Include="Database\IDatabaseInterface.cs" />
+    <Compile Include="Database\IResults.cs" />
+    <Compile Include="Database\Results.cs" />
     <Compile Include="Models\ClientDepartment\Client.cs" />
     <Compile Include="Models\ClientDepartment\ClientModel.cs" />
     <Compile Include="Models\ClientDepartment\Department.cs" />
