@@ -13,7 +13,8 @@ namespace Away_Day_Planner.Utilities
         private readonly ArrayList argument_array = new ArrayList();
         private enum VALID_ARG
         {
-            VERBOSE
+            VERBOSE,
+            LOGGING
         }
         private readonly IDictionary<string, VALID_ARG> argument_dictionary = new Dictionary<string, VALID_ARG>()
         {
@@ -21,9 +22,12 @@ namespace Away_Day_Planner.Utilities
             {"DEBUG", VALID_ARG.VERBOSE},
             {"V", VALID_ARG.VERBOSE},
             {"VERBOSE", VALID_ARG.VERBOSE},
+
+            {"L", VALID_ARG.LOGGING },
+            {"LOG", VALID_ARG.LOGGING },
+            {"LOGGING", VALID_ARG.LOGGING }
         };
 
-        private AppSettings app_settings = AppSettings.Instance;
         public ArgumentParser(string[] argument_array) 
         {
             this.ParseArguments(argument_array);
@@ -67,6 +71,7 @@ namespace Away_Day_Planner.Utilities
                 switch (arg)
                 {
                     case VALID_ARG.VERBOSE: AppSettings.Instance.VERBOSE = true; break;
+                    case VALID_ARG.LOGGING: AppSettings.Instance.LOGGING = true; break;
                     default: return;
                 }
             }
