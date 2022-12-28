@@ -1,4 +1,5 @@
 ﻿using Away_Day_Planner.Database.Contexts;
+using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
 using System;
 using System.Collections.Generic;
