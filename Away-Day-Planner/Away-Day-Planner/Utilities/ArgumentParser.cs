@@ -10,12 +10,12 @@ namespace Away_Day_Planner.Utilities
 {
     internal class ArgumentParser
     {
-        private ArrayList argument_array = new ArrayList();
+        private readonly ArrayList argument_array = new ArrayList();
         private enum VALID_ARG
         {
             VERBOSE
         }
-        private IDictionary<string, VALID_ARG> argument_dictionary = new Dictionary<string, VALID_ARG>()
+        private readonly IDictionary<string, VALID_ARG> argument_dictionary = new Dictionary<string, VALID_ARG>()
         {
             {"D", VALID_ARG.VERBOSE},
             {"DEBUG", VALID_ARG.VERBOSE},
