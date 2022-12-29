@@ -146,9 +146,6 @@
     <Compile Include="Views\ICreateClientView.cs" />
     <Compile Include="Views\ICreateDepartmentView.cs" />
     <Compile Include="Views\IEventBookerView.cs" />
-    <EmbeddedResource Include="Migrations\202212290010283_ClientDepartment.resx">
-      <DependentUpon>202212290010283_ClientDepartment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

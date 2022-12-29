@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
     public class Contractor
     {
         private int Id;
+        [Key]
         public int id
         {
             get { return Id; }
@@ -16,6 +18,7 @@ namespace Away_Day_Planner.Models.EventBooker
         }
 
         private String Name;
+        [Required, MinLength(2), MaxLength(50)]
         public String name
         {
             get { return Name; }
