@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
     public class Activity : IActivity
     {
         private int Id;
+        [Key]
         public int id
         {
             get { return Id; }
@@ -16,6 +19,7 @@ namespace Away_Day_Planner.Models.EventBooker
         }
 
         private String Name;
+        [Required, MinLength(2), MaxLength(50)]
         public String name
         {
             get { return Name; }
@@ -23,6 +27,7 @@ namespace Away_Day_Planner.Models.EventBooker
         }
 
         private String Type;
+        [Required, MinLength(2), MaxLength(50)]
         public String type
         {
             get { return Type; }
@@ -36,6 +41,7 @@ namespace Away_Day_Planner.Models.EventBooker
             set { Price = value; }
         }
 
+        [Required]
         private Boolean FacilitatorRequired;
         public Boolean facilitatorRequired
         {
@@ -43,6 +49,7 @@ namespace Away_Day_Planner.Models.EventBooker
             set { FacilitatorRequired = value; }
         }
 
+        [Required]
         private Boolean IsBooked;
         public Boolean isBooked
         {
@@ -50,6 +57,7 @@ namespace Away_Day_Planner.Models.EventBooker
             set { IsBooked = value; }
         }
 
+        //Needs mapping to FacilitatorTeam with Annotations
         private ICollection<FacilitatorTeam> AllocatedFacilitatorTeams;
         public ICollection<FacilitatorTeam> allocatedFacilitatorTeams
         {
