@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
     public class Event
     {
         private int Id;
+        [Key]
         public int id
         {
             get { return Id; }
@@ -22,8 +24,8 @@ namespace Away_Day_Planner.Models.EventBooker
             set { ActivitiesList = value; }
         }
 
-        private ICollection<DateTime> AvailableDaysFlexibilityList;
-        public ICollection<DateTime> availableDaysFlexibilityList
+        private ICollection<IDate> AvailableDaysFlexibilityList;
+        public ICollection<IDate> availableDaysFlexibilityList
         {
             get { return AvailableDaysFlexibilityList; }
             set { AvailableDaysFlexibilityList = value; }
@@ -36,6 +38,7 @@ namespace Away_Day_Planner.Models.EventBooker
             set { NoOfAttendees = value; }
         }
 
+        [Required]
         private Boolean IsBooked;
         public Boolean isBooked
         {
