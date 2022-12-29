@@ -8,7 +8,9 @@ namespace Away_Day_Planner.Models.ClientDepartment
 {
     public interface IDepartment
     {
-        int id { get; }
+        int id { get; set; }
         String name { get; set; }
+        Client Client { get; set; }
+        int ClientFK { get; set; }
     }
 }
