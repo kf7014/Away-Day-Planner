@@ -25,9 +25,8 @@ namespace Away_Day_Planner.Models.EventBooker
             set { FacilitatorsList = value; }
         }
 
-        //Needs linking up for foreign keys
-        private ICollection<DateTime> BookedDays;
-        public ICollection<DateTime> bookedDays
+        private ICollection<IDate> BookedDays;
+        public ICollection<IDate> bookedDays
         {
             get { return BookedDays; }
             set { BookedDays = value; }

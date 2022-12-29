@@ -24,9 +24,8 @@ namespace Away_Day_Planner.Models.EventBooker
             set { ActivitiesList = value; }
         }
 
-        //Needs linking up to dates
-        private ICollection<DateTime> AvailableDaysFlexibilityList;
-        public ICollection<DateTime> availableDaysFlexibilityList
+        private ICollection<IDate> AvailableDaysFlexibilityList;
+        public ICollection<IDate> availableDaysFlexibilityList
         {
             get { return AvailableDaysFlexibilityList; }
             set { AvailableDaysFlexibilityList = value; }
