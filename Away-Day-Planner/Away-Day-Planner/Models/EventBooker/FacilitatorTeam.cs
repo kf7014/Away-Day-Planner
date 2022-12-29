@@ -18,7 +18,6 @@ namespace Away_Day_Planner.Models.EventBooker
             set { Id = value; }
         }
 
-        //Needs linking up for foreign keys
         private ICollection<IPerson> FacilitatorsList;
         public ICollection<IPerson> facilitatorsList
         {
