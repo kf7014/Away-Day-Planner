@@ -20,8 +20,15 @@ namespace Away_Day_Planner.Database
 
         public Dictionary<Type, DbContext> DbContextMap => new Dictionary<Type, DbContext>() 
         {
-            {typeof(Client), new ClientContext()},
-            {typeof(Department), new DepartmentContext()},
+            {typeof(Client), new EntitiesContext()},
+            {typeof(Department), new EntitiesContext()},
+            {typeof(Activity), new EntitiesContext()},
+            {typeof(FacilitatorTeam), new EntitiesContext()},
+            {typeof(Facilitator), new EntitiesContext()},
+            {typeof(Event), new EntitiesContext()},
+            {typeof(Contractor), new EntitiesContext()},
+            {typeof(EventFlexibilityDate), new EntitiesContext()},
+            {typeof(BookedFacilitatorTeamDate), new EntitiesContext()},
         };
 
         public void Add<T>(T entity) where T : class
