@@ -45,5 +45,15 @@ namespace Away_Day_Planner.Models.EventBooker
             get { return IsBooked; }
             set { IsBooked = value; }
         }
+
+        public Event(int id, ICollection<IActivity> activitiesList, ICollection<IDate> eventFlexibilityDates, int noOfAttendees, Boolean isBooked)
+        {
+            Id = id;
+            ActivitiesList = activitiesList;
+            AvailableDaysFlexibilityList = eventFlexibilityDates;
+            NoOfAttendees = noOfAttendees;
+            IsBooked = isBooked;
+
+        }
     }
 }
