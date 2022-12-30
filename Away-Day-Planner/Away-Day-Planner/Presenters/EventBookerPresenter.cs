@@ -33,8 +33,8 @@ namespace Away_Day_Planner.Presenters
                 activityListNames[i] = activityList[i].name;
             }
 
+            //Sets activityList datasource in view
             eventBookerView.setActivityList(activityListNames);
         }
-
     }
 }

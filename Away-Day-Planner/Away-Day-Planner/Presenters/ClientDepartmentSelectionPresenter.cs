@@ -30,6 +30,8 @@ namespace Away_Day_Planner.Presenters
             {
                 names[i] = list[i].name;
             }
+
+            //Sets Clientlist as datasource in view
             clientDepartmentSelectionView.setClientList(names);
 
             //Populate departmentList box
