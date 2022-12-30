@@ -11,14 +11,29 @@ namespace Away_Day_Planner.Presenters
 {
     public class EventBookerPresenter
     {
-        IEventBookerView eventBookerView;
-        IEventModel eventModel;
+        private IEventBookerView eventBookerView;
+        private IEventModel eventModel;
 
         public EventBookerPresenter(IEventBookerView eventBookerView, IEventModel eventModel)
         {
             this.eventModel = eventModel;
             this.eventBookerView = eventBookerView;
             eventBookerView.register(this);
+            populateScreen();
+        }
+
+        private void populateScreen()
+        {
+            //Populate activityList box
+            //Currently uses hardcoded event ID, NEEDS CHANGING
+            IActivity[] activityList = eventModel.getEventActivityList(0);
+            String[] activityListNames = new string[activityList.Length];
+            for(int i=0; i<activityList.Length; i++)
+            {
+                activityListNames[i] = activityList[i].name;
+            }
+
+            //eventBookerView.setActivityList(activityListNames);
         }
 
     }
