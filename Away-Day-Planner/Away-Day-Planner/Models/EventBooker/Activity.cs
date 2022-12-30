@@ -57,7 +57,6 @@ namespace Away_Day_Planner.Models.EventBooker
             set { IsBooked = value; }
         }
 
-        //Needs mapping to FacilitatorTeam with Annotations
         private ICollection<FacilitatorTeam> AllocatedFacilitatorTeams;
         public ICollection<FacilitatorTeam> allocatedFacilitatorTeams
         {
@@ -69,5 +68,17 @@ namespace Away_Day_Planner.Models.EventBooker
         public virtual Event Event { get; set; }
         [ForeignKey("Event")]
         public int EventFK { get; set; }
+
+
+        public Activity(int id, String name, String type, Decimal price, Boolean facilitatorRequired, Boolean isBooked, ICollection<FacilitatorTeam> facilitatorTeam)
+        {
+            Id = id;
+            Name = name;
+            Type = type;
+            Price = price;
+            FacilitatorRequired = facilitatorRequired;
+            IsBooked = isBooked;
+            AllocatedFacilitatorTeams = facilitatorTeam;
+        }
     }
 }
