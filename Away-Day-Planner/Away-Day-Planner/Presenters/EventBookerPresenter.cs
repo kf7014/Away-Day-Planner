@@ -33,7 +33,7 @@ namespace Away_Day_Planner.Presenters
                 activityListNames[i] = activityList[i].name;
             }
 
-            //eventBookerView.setActivityList(activityListNames);
+            eventBookerView.setActivityList(activityListNames);
         }
 
     }

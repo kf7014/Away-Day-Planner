@@ -34,5 +34,10 @@ namespace Away_Day_Planner.Views
             AddActivityPresenter addActivityPresenter = new AddActivityPresenter(addActivityView);
             addActivityView.ShowDialog();         
         }
+
+        public void setActivityList(String[] activityListNames)
+        {
+            listBoxActivities.DataSource = activityListNames;
+        }
     }
 }
