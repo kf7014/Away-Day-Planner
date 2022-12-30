@@ -25,6 +25,7 @@ namespace Away_Day_Planner.Models.EventBooker
             //Populate dummy data
             activityList.Add(new Activity(0, "Test Activity", "Meal", 10, true, false, facilitatorTeams));
             eventList.Add(new Event(0,activityList,eventFlexibilityDates,10,false));
+            Console.WriteLine("Index 0: " + activityList[0].name);
         }
     }
 }

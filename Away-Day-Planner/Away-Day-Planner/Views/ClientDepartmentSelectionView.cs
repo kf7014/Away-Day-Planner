@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Away_Day_Planner.Presenters;
 using Away_Day_Planner.Models.ClientDepartment;
+using Away_Day_Planner.Models.EventBooker;
 
 namespace Away_Day_Planner.Views
 {
@@ -55,9 +56,9 @@ namespace Away_Day_Planner.Views
         {
 
             //Create Model and View for EventBooker
-            ClientModel clientModel = new ClientModel();
+            EventModel eventModel = new EventModel();
             EventBookerView eventBookerView = new EventBookerView();
-            EventBookerPresenter eventBookerPresenter = new EventBookerPresenter(eventBookerView, clientModel);
+            EventBookerPresenter eventBookerPresenter = new EventBookerPresenter(eventBookerView, eventModel);
             this.Hide();
             eventBookerView.ShowDialog();
             this.Show();
