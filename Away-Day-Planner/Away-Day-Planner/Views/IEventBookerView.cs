@@ -10,5 +10,6 @@ namespace Away_Day_Planner.Views
     public interface IEventBookerView
     {
         void register(EventBookerPresenter eventBookerPresenter);
+        void setActivityList(String[] activityListNames);
     }
 }
