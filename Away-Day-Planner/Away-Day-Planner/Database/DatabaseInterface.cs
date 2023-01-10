@@ -13,37 +13,24 @@ namespace Away_Day_Planner.Database
         {
             {"InvalidType", new Exception("Oops, there was an unknown model type")},
             {"TypeMismatch", new Exception("Oops, you cannot update an entity with a different object")},
-            {"NegativeID", new Exception("Oops, and ID cannot be negative")},
+            {"NegativeID", new Exception("Oops, an ID cannot be negative")},
             {"InvalidRange", new Exception("Oops, Upper range cannot be lower than lower range")},
             {"NullEntity", new Exception("Object provided was null")},
-        };
-
-        public Dictionary<Type, DbContext> DbContextMap => new Dictionary<Type, DbContext>() 
-        {
-            {typeof(Client), new EntitiesContext()},
-            {typeof(Department), new EntitiesContext()},
-            {typeof(Activity), new EntitiesContext()},
-            {typeof(FacilitatorTeam), new EntitiesContext()},
-            {typeof(Facilitator), new EntitiesContext()},
-            {typeof(Event), new EntitiesContext()},
-            {typeof(Contractor), new EntitiesContext()},
-            {typeof(EventFlexibilityDate), new EntitiesContext()},
-            {typeof(BookedFacilitatorTeamDate), new EntitiesContext()},
         };
 
         public void Add<T>(T entity) where T : class
         {
             if (entity == null) throw Errors["NullEntity"];
-            using (DbContext context = GetContext(entity.GetType()))
+            using (DbContext context = GetContext())
             {
 
             }
         }
 
-        public void Delete<T>(T e_type) where T : Type
+        public void Delete<T>(T entity) where T : class
         {
-            if (e_type == null) throw Errors["InvalidType"];
-            using (DbContext context = GetContext(e_type))
+            if (entity == null) throw Errors["NullEntity"];
+            using (DbContext context = GetContext())
             {
 
             }
@@ -56,7 +43,7 @@ namespace Away_Day_Planner.Database
             if (e_type != new_entity.GetType()) throw Errors["TypeMismatch"];
             if (e_type == null) throw Errors["NullEntity"];
 
-            using (DbContext context = GetContext(e_type))
+            using (DbContext context = GetContext())
             {
 
             }
@@ -68,7 +55,7 @@ namespace Away_Day_Planner.Database
             if(id < 0) throw Errors["NegativeID"];
 
             IResults results = Results.Empty;
-            using (DbContext context = GetContext(e_type))
+            using (DbContext context = GetContext())
             {
 
             }
@@ -80,16 +67,16 @@ namespace Away_Day_Planner.Database
             if (e_type == null) throw Errors["InvalidType"];
 
             IResults results = Results.Empty;
-            using (DbContext context = GetContext(e_type))
+            using (DbContext context = GetContext())
             {
 
             }
             return results;
         }
 
-        public DbContext GetContext(Type x)
+        public DbContext GetContext()
         {
-            return DbContextMap[x];
+            return new EntitiesContext();
         }
 
         public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
@@ -99,7 +86,7 @@ namespace Away_Day_Planner.Database
             if (start_id > stop_id) throw Errors["InvalidRange"];
 
             IResults results = Results.Empty;
-            using (DbContext context = GetContext(e_type))
+            using (DbContext context = GetContext())
             {
 
             }

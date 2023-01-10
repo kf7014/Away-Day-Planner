@@ -11,15 +11,13 @@ namespace Away_Day_Planner.Database
 {
     internal interface IDatabaseInterface
     {
-        Dictionary<Type, DbContext> DbContextMap { get; }
-
-        DbContext GetContext(Type x);
+        DbContext GetContext();
 
         void Add<T>(T e_type) where T : class;
         IResults Get<T>(T e_type, int id) where T : Type;
         IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type;
         IResults GetAll<T>(T e_type) where T : Type;
         void Update<T>(T old_entity, T new_entity) where T : class;
-        void Delete<T>(T e_type) where T : Type;
+        void Delete<T>(T e_type) where T : class;
     }
 }
