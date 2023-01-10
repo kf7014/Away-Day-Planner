@@ -19,5 +19,6 @@ namespace Away_Day_Planner.Database
         IResults GetAll<T>(T e_type) where T : Type;
         void Update<T>(T old_entity, T new_entity) where T : class;
         void Delete<T>(T e_type) where T : class;
+        int GetNextID<T>(T e_type) where T : Type;
     }
 }

@@ -4,6 +4,9 @@ using Away_Day_Planner.Models.EventBooker;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Remoting.Messaging;
 
 namespace Away_Day_Planner.Database
 {
@@ -32,7 +35,7 @@ namespace Away_Day_Planner.Database
             if (entity == null) throw Errors["NullEntity"];
             using (DbContext context = GetContext())
             {
-
+                    
             }
         }
 
@@ -69,14 +72,32 @@ namespace Away_Day_Planner.Database
             IResults results = Results.Empty;
             using (DbContext context = GetContext())
             {
-
             }
             return results;
         }
 
-        public DbContext GetContext()
+        public EntitiesContext GetContext()
         {
             return new EntitiesContext();
+        }
+        public DbSet GetDBSet(Type T)
+        {
+            using (EntitiesContext dbc = GetContext()) 
+            {
+                Dictionary<Type, DbSet> dict = new Dictionary<Type, DbSet>()
+                {
+                    { typeof(Client),                   dbc.Clients},
+                    { typeof(Department),               dbc.Departments},
+                    { typeof(Activity),                 dbc.Activities},
+                    { typeof(FacilitatorTeam),          dbc.FacilitatorTeams},
+                    { typeof(Facilitator),              dbc.Facilitators},
+                    { typeof(Event),                    dbc.Events},
+                    { typeof(Contractor),               dbc.Contractors},
+                    { typeof(EventFlexibilityDate),     dbc.EventFlexibilityDates},
+                    { typeof(BookedFacilitatorTeamDate),dbc.BookedFacilitatorTeamDates},
+                };
+                return dict[T.GetType()];
+            }
         }
 
         public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
@@ -91,6 +112,14 @@ namespace Away_Day_Planner.Database
 
             }
             return results;
+        }
+
+        public int GetNextID<T>(T e_type) where T : Type
+        {
+            if(e_type == null) throw Errors["InvalidType"];
+
+            DbSet<T> dbs = GetDBSet(e_type).Cast<T>();
+            return (int)dbs.Max(x => x.GetField("id").GetValue(null));
         }
     }
 }

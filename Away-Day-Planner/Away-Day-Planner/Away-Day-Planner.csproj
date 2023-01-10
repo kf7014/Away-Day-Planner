@@ -76,6 +76,10 @@
     <Compile Include="Database\IDatabaseInterface.cs" />
     <Compile Include="Database\IResults.cs" />
     <Compile Include="Database\Results.cs" />
+    <Compile Include="Handler\IEvent.cs" />
+    <Compile Include="Handler\EventHandler.cs" />
+    <Compile Include="Handler\Handler.cs" />
+    <Compile Include="Handler\IHandler.cs" />
     <Compile Include="Models\ClientDepartment\Client.cs" />
     <Compile Include="Models\ClientDepartment\ClientModel.cs" />
     <Compile Include="Models\ClientDepartment\Department.cs" />
