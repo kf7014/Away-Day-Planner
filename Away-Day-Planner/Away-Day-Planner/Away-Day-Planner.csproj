@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DatabaseAbstraction.cs" />
     <Compile Include="Database\DatabaseInterface.cs" />
     <Compile Include="Database\Contexts\EntitiesContext.cs" />
     <Compile Include="Database\IDatabaseInterface.cs" />
