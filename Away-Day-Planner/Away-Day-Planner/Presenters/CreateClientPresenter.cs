@@ -22,11 +22,15 @@ namespace Away_Day_Planner.Presenters
 
         public void buttonAddClientClickEvent()
         {
-            //TODO: Complete functionality for buttonAddClientClickEvent
-
             String clientName = createClientView.ClientName;
-            //clientModel.addNewClient();
-            Console.WriteLine("Client would be added");
+            int noOfHoursAway = Convert.ToInt32(createClientView.NumberOfHoursAway);
+            bool hadClientDispute = createClientView.HadClientDispute;
+            Console.WriteLine("Client would be added with following details: ");
+            Console.WriteLine("Name: " + clientName);
+            Console.WriteLine("No Of Hours Away: " + noOfHoursAway);
+            Console.WriteLine("Had Client Dispute: " + hadClientDispute);
+
+            clientModel.addNewClient(clientName, noOfHoursAway, hadClientDispute);
         }
     }
 }
