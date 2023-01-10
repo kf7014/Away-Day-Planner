@@ -25,7 +25,7 @@ namespace Away_Day_Planner.Database
 
         public void addNewDepartment(String name, int clientFK)
         {
-            Department newDepartment = new Department("New DB Test Department", clientFK);
+            Department newDepartment = new Department(name, clientFK);
             databaseInterface.Add(newDepartment);
         }
     }

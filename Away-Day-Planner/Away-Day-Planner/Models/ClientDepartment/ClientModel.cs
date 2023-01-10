@@ -17,7 +17,8 @@ namespace Away_Day_Planner.Models.ClientDepartment
             //TODO: This could be moved to program.cs, especially if theres a lot of classes doing it
             databaseAbstraction.addNewClient("Kieran New Method", 1, false);
             databaseAbstraction.addNewClient("Sandra New Method", 1, true);
-            
+            //TODO: Change dummy FK when autoincrement stuff added to DatabaseInterface
+            databaseAbstraction.addNewDepartment("New DB Test Department", 10);
             
             
             clientList = new List<Client>();
