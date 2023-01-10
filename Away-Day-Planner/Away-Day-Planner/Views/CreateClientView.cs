@@ -14,6 +14,11 @@ namespace Away_Day_Planner.Views
     public partial class CreateClientView : Form, ICreateClientView
     {
         private CreateClientPresenter createClientPresenter;
+        public String ClientName
+        {
+            set { textBoxClientName.Text = value; }
+            get { return textBoxClientName.Text; }
+        }
 
         public CreateClientView()
         {
@@ -31,7 +36,7 @@ namespace Away_Day_Planner.Views
         private void buttonAddClient_Click(object sender, EventArgs e)
         {
             //NEEDS FORM SECURITY ADDING
-
+            createClientPresenter.buttonAddClientClickEvent();
             this.Close();
         }
     }
