@@ -19,6 +19,16 @@ namespace Away_Day_Planner.Views
             set { textBoxClientName.Text = value; }
             get { return textBoxClientName.Text; }
         }
+        public decimal NumberOfHoursAway
+        {
+            set { numericUpDownNumberOfHoursAway.Value = value; }
+            get { return numericUpDownNumberOfHoursAway.Value; }
+        }
+        public bool HadClientDispute
+        {
+            set { checkBoxHadClientDispute.Checked = value; }
+            get { return checkBoxHadClientDispute.Checked; }
+        }
 
         public CreateClientView()
         {
