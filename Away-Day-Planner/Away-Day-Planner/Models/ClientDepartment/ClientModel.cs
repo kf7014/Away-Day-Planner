@@ -57,7 +57,6 @@ namespace Away_Day_Planner.Models.ClientDepartment
 
         public void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute)
         {
-            //TODO: Check if database abstraction is needed or if can go directly here.
             databaseAbstraction.addNewClient(clientName, noOfHoursAway, hasClientDispute);
         }
     }
