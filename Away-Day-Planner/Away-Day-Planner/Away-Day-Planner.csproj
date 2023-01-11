@@ -79,6 +79,7 @@
     <Compile Include="Database\IDatabaseInterface.cs" />
     <Compile Include="Database\IResults.cs" />
     <Compile Include="Database\Results.cs" />
+    <Compile Include="Handler\EventChainFactory.cs" />
     <Compile Include="Handler\IEvent.cs" />
     <Compile Include="Handler\EventHandler.cs" />
     <Compile Include="Handler\Handler.cs" />
