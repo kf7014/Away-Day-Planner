@@ -10,8 +10,23 @@ using System.Runtime.Remoting.Messaging;
 
 namespace Away_Day_Planner.Database
 {
-    internal class DatabaseInterface : IDatabaseInterface
+    public class DatabaseInterface : IDatabaseInterface
     {
+
+        public DbContext Context { get; set; }
+        public Dictionary<Type, DbSet> DBSetList {get; set;}
+
+
+        public DatabaseInterface() 
+        {
+            Context = new EntitiesContext();
+        }
+
+        public DatabaseInterface(DbContext context)
+        {
+            Context = context;
+        }
+
         private static readonly Dictionary<string, Exception> Errors = new Dictionary<string, Exception>() 
         {
             {"InvalidType", new Exception("Oops, there was an unknown model type")},
@@ -23,20 +38,24 @@ namespace Away_Day_Planner.Database
 
         public void Add<T>(T entity) where T : class
         {
-            if (entity == null) throw Errors["NullEntity"];
-            using (DbContext context = GetContext())
-            {
+            Add(entity, GetDBSet(entity).Cast<T>());
+        }
 
-            }
+        public void Add<T>(T entity, DbSet<T> dbs) where T : class
+        {
+            if (entity == null) throw Errors["NullEntity"];
+            dbs.Add(entity);
         }
 
         public void Delete<T>(T entity) where T : class
         {
+            Delete(entity, GetDBSet(entity).Cast<T>());
+        }
+
+        public void Delete<T>(T entity, DbSet<T> dbs) where T : class
+        {
             if (entity == null) throw Errors["NullEntity"];
-            using (DbContext context = GetContext())
-            {
-                    
-            }
+            dbs.Remove(entity);
         }
 
         public void Update<T>(T old_entity, T new_entity) where T : class
@@ -48,7 +67,7 @@ namespace Away_Day_Planner.Database
 
             using (DbContext context = GetContext())
             {
-
+                
             }
         }
 
@@ -58,9 +77,8 @@ namespace Away_Day_Planner.Database
             if(id < 0) throw Errors["NegativeID"];
 
             IResults results = Results.Empty;
-            using (DbContext context = GetContext())
+            using (var context = GetContext())
             {
-
             }
             return results;
         }
@@ -76,15 +94,18 @@ namespace Away_Day_Planner.Database
             return results;
         }
 
-        public EntitiesContext GetContext()
+        public DbContext GetContext()
         {
-            return new EntitiesContext();
+            return Context;
         }
-        public DbSet GetDBSet(Type T)
+
+        public DbSet GetDBSet<T>(T aClass) where T: class
         {
-            using (EntitiesContext dbc = GetContext()) 
+            if (Context.GetType() == typeof(EntitiesContext))
             {
-                Dictionary<Type, DbSet> dict = new Dictionary<Type, DbSet>()
+                using (EntitiesContext dbc = (EntitiesContext)GetContext())
+                {
+                    Dictionary<Type, DbSet> dict = new Dictionary<Type, DbSet>()
                 {
                     { typeof(Client),                   dbc.Clients},
                     { typeof(Department),               dbc.Departments},
@@ -96,8 +117,10 @@ namespace Away_Day_Planner.Database
                     { typeof(EventFlexibilityDate),     dbc.EventFlexibilityDates},
                     { typeof(BookedFacilitatorTeamDate),dbc.BookedFacilitatorTeamDates},
                 };
-                return dict[T.GetType()];
+                    return dict[aClass.GetType()];
+                }
             }
+            else return DBSetList[aClass.GetType()];
         }
 
         public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
@@ -120,6 +143,20 @@ namespace Away_Day_Planner.Database
 
             DbSet<T> dbs = GetDBSet(e_type).Cast<T>();
             return (int)dbs.Max(x => x.GetField("id").GetValue(null));
+        }
+
+        public void SaveChanges() 
+        {
+            GetContext().SaveChanges();
+        }
+
+        public void ClearSet<T>(DbSet set)
+        {
+            foreach (var x in set) 
+            {
+                set.Remove(x);
+            }
+            SaveChanges();
         }
     }
 }

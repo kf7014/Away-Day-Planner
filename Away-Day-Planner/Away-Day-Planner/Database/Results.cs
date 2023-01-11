@@ -11,7 +11,7 @@ namespace Away_Day_Planner.Database
     {
         public static IResults Empty = NullResults();
 
-        public int size { private set; get; }
+        public int Size { private set; get; }
 
         private ArrayList results = new ArrayList();
 
@@ -45,7 +45,7 @@ namespace Away_Day_Planner.Database
 
         public void SetResultsSize(int size)
         {
-            this.size = size;
+            this.Size = size;
         }
 
         public IList GetList()

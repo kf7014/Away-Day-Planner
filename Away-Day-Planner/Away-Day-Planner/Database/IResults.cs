@@ -8,9 +8,9 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Away_Day_Planner.Database
 {
-    internal interface IResults
+    public interface IResults
     {
-        int size { get; }
+        int Size { get; }
 
         void SetResults(IList objs);
         void AddToResults<T>(T obj);
