@@ -37,6 +37,9 @@ namespace Away_Day_Planner.Views
             this.passwordTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.registerHereLabel = new System.Windows.Forms.LinkLabel();
+            this.loginHeading = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userLogin
@@ -92,11 +95,44 @@ namespace Away_Day_Planner.Views
             this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = "Password: ";
             // 
+            // loginButton
+            // 
+            this.loginButton.Location = new System.Drawing.Point(360, 313);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(75, 23);
+            this.loginButton.TabIndex = 5;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // registerHereLabel
+            // 
+            this.registerHereLabel.AutoSize = true;
+            this.registerHereLabel.Location = new System.Drawing.Point(312, 279);
+            this.registerHereLabel.Name = "registerHereLabel";
+            this.registerHereLabel.Size = new System.Drawing.Size(133, 13);
+            this.registerHereLabel.TabIndex = 6;
+            this.registerHereLabel.TabStop = true;
+            this.registerHereLabel.Text = "New user? Reigster HERE";
+            // 
+            // loginHeading
+            // 
+            this.loginHeading.AutoSize = true;
+            this.loginHeading.Location = new System.Drawing.Point(330, 139);
+            this.loginHeading.Name = "loginHeading";
+            this.loginHeading.Size = new System.Drawing.Size(124, 13);
+            this.loginHeading.TabIndex = 7;
+            this.loginHeading.Text = "Login to Booking System";
+            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loginHeading);
+            this.Controls.Add(this.registerHereLabel);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.title);
@@ -118,5 +154,8 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.ToolTip passwordTooltip;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.LinkLabel registerHereLabel;
+        private System.Windows.Forms.Label loginHeading;
     }
 }

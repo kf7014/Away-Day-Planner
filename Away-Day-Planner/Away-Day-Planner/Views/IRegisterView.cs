@@ -7,9 +7,9 @@ using Away_Day_Planner.Presenters;
 
 namespace Away_Day_Planner.Views
 {
-    public interface ILoginView
+    public interface IRegisterView
     {
-        void register(CreateLoginPresenter createLoginPresenter);
-        void register(LoginUserPresenter loginUserPresenter);
+        void register(CreateRegisterPresenter createRegisterPresenter);
+        void register(RegisterUserPresenter registerUserPresenter);
     }
 }

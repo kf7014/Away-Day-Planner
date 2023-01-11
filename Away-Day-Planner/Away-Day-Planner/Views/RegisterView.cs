@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Away_Day_Planner.Views
 {
-    public partial class LoginView : Form
+    public partial class RegisterView : Form
     {
-        public LoginView()
+        public RegisterView()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
