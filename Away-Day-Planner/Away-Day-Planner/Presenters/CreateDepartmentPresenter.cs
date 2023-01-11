@@ -33,5 +33,16 @@ namespace Away_Day_Planner.Presenters
 
             createDepartmentView.setClientList(names);
         }
+
+        public void buttonAddDepartmentClickEvent()
+        {
+            String clientName = createDepartmentView.ClientName;
+            String departmentName = createDepartmentView.DepartmentName;
+            Console.WriteLine("Department would be added with following details: ");
+            Console.WriteLine("Department Name " + departmentName);
+            Console.WriteLine("Associated Client: " + clientName);
+
+            //clientModel.addNewDepartment(departmentName, clientId);
+        }
     }
 }

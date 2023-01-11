@@ -15,10 +15,10 @@ namespace Away_Day_Planner.Views
     {
         private CreateDepartmentPresenter createDepartmentPresenter;
 
-        public int ClientName
+        public String ClientName
         {
-            set { comboBoxClientSelection.SelectedIndex = value;  }
-            get { return comboBoxClientSelection.SelectedIndex; }
+            set { comboBoxClientSelection.Text = value;  }
+            get { return comboBoxClientSelection.Text; }
         }
         public String DepartmentName
         {
@@ -47,7 +47,7 @@ namespace Away_Day_Planner.Views
         private void buttonAddDepartment_Click(object sender, EventArgs e)
         {
             //NEEDS FORM SECURITY ADDING
-
+            createDepartmentPresenter.buttonAddDepartmentClickEvent();
             this.Close();
         }
     }
