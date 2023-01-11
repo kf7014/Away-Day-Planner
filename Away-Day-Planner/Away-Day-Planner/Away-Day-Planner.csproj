@@ -196,6 +196,9 @@
     <EmbeddedResource Include="Views\EventBookerView.resx">
       <DependentUpon>EventBookerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
