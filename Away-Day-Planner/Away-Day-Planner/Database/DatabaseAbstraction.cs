@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,5 +29,16 @@ namespace Away_Day_Planner.Database
             Department newDepartment = new Department(name, clientFK);
             databaseInterface.Add(newDepartment);
         }
+
+        public Client[] getAllClients()
+        {
+            IResults results = databaseInterface.GetAll(typeof(Client));
+            ArrayList resultsArrayList = (ArrayList)results.GetList();
+
+            List<Client> resultsList = new List<Client>(resultsArrayList.Count);
+            foreach (Client client in resultsArrayList) resultsList.Add(client);
+
+            return resultsList.ToArray();
+       }
     }
 }
