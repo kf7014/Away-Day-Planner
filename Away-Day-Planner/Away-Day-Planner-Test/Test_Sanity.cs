@@ -27,10 +27,10 @@ namespace Away_Day_Planner_Test
 // General Tests
 // Boundary Tests
 // Sanity Checks
-// Expected output
-// Unexpected output
+// Expected output handling
+// Unexpected output handling
 
 // Split the test sections into folders
 // One Test Class per Concrete Class
 
-// Maybe one test class per integration between classes later.
+// Maybe one test class per integration between classes later.  

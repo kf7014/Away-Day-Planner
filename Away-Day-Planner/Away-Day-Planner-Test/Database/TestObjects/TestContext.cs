@@ -11,5 +11,10 @@ namespace Away_Day_Planner_Test.Database.TestObjects
     {
         public TestContext() : base() { } 
         public virtual DbSet<ObjectWithID>? ObjectsWithID { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

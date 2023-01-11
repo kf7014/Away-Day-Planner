@@ -2,29 +2,28 @@
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Messaging;
 
 namespace Away_Day_Planner.Database
 {
     public class DatabaseInterface : IDatabaseInterface
     {
-
-        public DbContext Context { get; set; }
+        
         public Dictionary<Type, DbSet> DBSetList {get; set;}
-
+        public Type ContextType { get; set;}
+        public DbContext Context { get; set; }
 
         public DatabaseInterface() 
         {
-            Context = new EntitiesContext();
+            ContextType = typeof(EntitiesContext);
         }
 
         public DatabaseInterface(DbContext context)
         {
-            Context = context;
+            ContextType = context.GetType();
         }
 
         private static readonly Dictionary<string, Exception> Errors = new Dictionary<string, Exception>() 
@@ -34,74 +33,140 @@ namespace Away_Day_Planner.Database
             {"NegativeID", new Exception("Oops, an ID cannot be negative")},
             {"InvalidRange", new Exception("Oops, Upper range cannot be lower than lower range")},
             {"NullEntity", new Exception("Object provided was null")},
+            {"NoID", new Exception("Object does not contain id field (Case sensitive)")},
+
         };
 
         public void Add<T>(T entity) where T : class
         {
-            Add(entity, GetDBSet(entity).Cast<T>());
+            Add(entity, GetSet(entity));
         }
 
         public void Add<T>(T entity, DbSet<T> dbs) where T : class
         {
+            using(var context = GetContext())
+            {
+                if (entity == null) throw Errors["NullEntity"];
+                dbs.Add(entity);
+                context.SaveChanges();
+            }
+        }
+
+        public void AddNoDispose<T>(T entity, DbSet<T> dbs) where T : class
+        {
             if (entity == null) throw Errors["NullEntity"];
             dbs.Add(entity);
+            Context.SaveChanges();
         }
 
         public void Delete<T>(T entity) where T : class
         {
-            Delete(entity, GetDBSet(entity).Cast<T>());
+            Delete(entity, GetSet(entity));
         }
 
         public void Delete<T>(T entity, DbSet<T> dbs) where T : class
         {
+            using (var context = GetContext())
+            {
+                if (entity == null) throw Errors["NullEntity"];
+                dbs.Remove(entity);
+                context.SaveChanges();
+            }
+        }
+
+        public void DeleteNoDispose<T>(T entity, DbSet<T> dbs) where T : class
+        {
             if (entity == null) throw Errors["NullEntity"];
             dbs.Remove(entity);
+            Context.SaveChanges();
         }
 
         public void Update<T>(T old_entity, T new_entity) where T : class
         {
-            Type e_type = old_entity.GetType();
+            if (old_entity.GetType() != new_entity.GetType()) throw Errors["TypeMismatch"];
+            if (old_entity == null || new_entity == null) throw Errors["NullEntity"];
 
-            if (e_type != new_entity.GetType()) throw Errors["TypeMismatch"];
-            if (e_type == null) throw Errors["NullEntity"];
-
-            using (DbContext context = GetContext())
+            using(var context = GetContext())
             {
-                
+                Delete(old_entity);
+                Add(new_entity);
+                context.SaveChanges();
             }
         }
 
         public IResults Get<T>(T e_type, int id) where T : Type
         {
-            if (e_type == null) throw Errors["InvalidType"];
-            if(id < 0) throw Errors["NegativeID"];
+            return Get(e_type, id, GetSet(e_type));
+        }
 
-            IResults results = Results.Empty;
-            using (var context = GetContext())
+        public IResults Get<T>(Type e_type, int id, DbSet<T> dbs) where T : class
+        {
+            using(var context = GetContext())
             {
+                if (e_type == null) throw Errors["InvalidType"];
+                if (id < 0) throw Errors["NegativeID"];
+
+                Results results = new Results();
+                results.AddToResults(dbs.Find(id));
+                return results;
             }
-            return results;
         }
 
         public IResults GetAll<T>(T e_type) where T : Type
         {
-            if (e_type == null) throw Errors["InvalidType"];
-
-            IResults results = Results.Empty;
-            using (DbContext context = GetContext())
+            using (var context = GetContext())
             {
+                return new Results(context.Set<T>().ToList());
             }
-            return results;
+        }
+        public IResults GetAllFromSet<T>(DbSet<T> dbs) where T : class
+        {
+            using (var context = GetContext())
+            {
+                return new Results(dbs.ToList());
+            }
+        }
+        public IResults GetAllFromSetNoDispose<T>(DbSet<T> dbs) where T : class
+        {
+            return new Results(dbs.ToList());
+        }
+
+
+        public DbSet<T> GetSet<T>(T e_type) where T : class 
+        { 
+            return GetDBSet(e_type).Cast<T>();
+        } 
+
+        public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
+        {
+            return GetRange(e_type, start_id, stop_id, GetSet(e_type));
+        }
+        public IResults GetRange<T>(T e_type, int start_id, int stop_id, DbSet<T> dbs) where T : Type
+        {
+            if (e_type == null) throw Errors["InvalidType"];
+            if (start_id < 0 || stop_id < 0) throw Errors["NegativeID"];
+            if (start_id > stop_id) throw Errors["InvalidRange"];
+
+            using (var context = GetContext())
+            {
+                IResults results = Results.Empty;
+                for(int i = start_id; i <= stop_id; i++)
+                {
+                    results.AddToResults(dbs.Find(i));
+                }
+                return results;
+            }
         }
 
         public DbContext GetContext()
         {
+            Context = (DbContext)Activator.CreateInstance(ContextType);
             return Context;
         }
 
         public DbSet GetDBSet<T>(T aClass) where T: class
         {
-            if (Context.GetType() == typeof(EntitiesContext))
+            if (ContextType.GetType() == typeof(EntitiesContext))
             {
                 using (EntitiesContext dbc = (EntitiesContext)GetContext())
                 {
@@ -120,29 +185,25 @@ namespace Away_Day_Planner.Database
                     return dict[aClass.GetType()];
                 }
             }
-            else return DBSetList[aClass.GetType()];
-        }
-
-        public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
-        {
-            if (e_type == null) throw Errors["InvalidType"];
-            if (start_id < 0 || stop_id < 0) throw Errors["NegativeID"];
-            if (start_id > stop_id) throw Errors["InvalidRange"];
-
-            IResults results = Results.Empty;
-            using (DbContext context = GetContext())
+            else
             {
-
+                using(var context = GetContext())
+                {
+                    return DBSetList[aClass.GetType()];
+                }
             }
-            return results;
         }
 
         public int GetNextID<T>(T e_type) where T : Type
         {
             if(e_type == null) throw Errors["InvalidType"];
+            if (e_type.GetField("id") == null) throw Errors["NoID"];
 
-            DbSet<T> dbs = GetDBSet(e_type).Cast<T>();
-            return (int)dbs.Max(x => x.GetField("id").GetValue(null));
+            using (var context = GetContext())
+            {
+                DbSet<T> dbs = GetSet(e_type);
+                return (int)dbs.Max(x => x.GetField("id").GetValue(null));
+            }
         }
 
         public void SaveChanges() 
@@ -152,11 +213,23 @@ namespace Away_Day_Planner.Database
 
         public void ClearSet<T>(DbSet set)
         {
-            foreach (var x in set) 
+            using (var context = GetContext())
             {
-                set.Remove(x);
+                foreach (var x in set)
+                {
+                    set.Remove(x);
+                }
+                SaveChanges();
             }
-            SaveChanges();
+        }
+
+        public void DisposeContext() 
+        {
+            GetContext().Dispose();
+        }
+        public void DisposeContext(DbContext ctx)
+        {
+            ctx.Dispose();
         }
     }
 }

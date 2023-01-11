@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,6 @@ namespace Away_Day_Planner_Test.Database.TestObjects
     {
         [Key]
         public int id { get; set; }
-
 
         public ObjectWithID(int id)
         {
