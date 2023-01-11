@@ -28,6 +28,11 @@ namespace Away_Day_Planner.Views
             Console.WriteLine("presenter: " + createDepartmentPresenter);
         }
 
+        public void setClientList(string[] names)
+        {
+            comboBoxClientSelection.DataSource = names;
+        }
+
         private void buttonAddDepartment_Click(object sender, EventArgs e)
         {
             //NEEDS FORM SECURITY ADDING

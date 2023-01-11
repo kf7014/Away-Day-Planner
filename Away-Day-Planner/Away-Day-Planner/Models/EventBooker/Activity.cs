@@ -69,6 +69,7 @@ namespace Away_Day_Planner.Models.EventBooker
         [ForeignKey("Event")]
         public int EventFK { get; set; }
 
+        //TODO: Add ContractorFK
 
         public Activity(int id, String name, String type, Decimal price, Boolean facilitatorRequired, Boolean isBooked, ICollection<FacilitatorTeam> facilitatorTeam)
         {
