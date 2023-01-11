@@ -32,6 +32,17 @@ namespace Away_Day_Planner.Views
             get { return textBoxDepartmentName.Text; }
         }
 
+        public int ClientName
+        {
+            set { comboBoxClientSelection.SelectedIndex = value;  }
+            get { return comboBoxClientSelection.SelectedIndex; }
+        }
+        public String DepartmentName
+        {
+            set { textBoxDepartmentName.Text = value; }
+            get { return textBoxDepartmentName.Text; }
+        }
+
         public CreateDepartmentView()
         {
             InitializeComponent();
