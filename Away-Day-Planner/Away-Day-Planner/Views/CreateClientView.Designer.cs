@@ -33,6 +33,10 @@ namespace Away_Day_Planner.Views
             this.labelClientName = new System.Windows.Forms.Label();
             this.textBoxClientName = new System.Windows.Forms.TextBox();
             this.buttonAddClient = new System.Windows.Forms.Button();
+            this.labelNoOfHoursAway = new System.Windows.Forms.Label();
+            this.numericUpDownNumberOfHoursAway = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxHadClientDispute = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfHoursAway)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -70,17 +74,48 @@ namespace Away_Day_Planner.Views
             this.buttonAddClient.UseVisualStyleBackColor = true;
             this.buttonAddClient.Click += new System.EventHandler(this.buttonAddClient_Click);
             // 
+            // labelNoOfHoursAway
+            // 
+            this.labelNoOfHoursAway.AutoSize = true;
+            this.labelNoOfHoursAway.Location = new System.Drawing.Point(12, 139);
+            this.labelNoOfHoursAway.Name = "labelNoOfHoursAway";
+            this.labelNoOfHoursAway.Size = new System.Drawing.Size(170, 13);
+            this.labelNoOfHoursAway.TabIndex = 4;
+            this.labelNoOfHoursAway.Text = "Distance (Number of hours away) :";
+            // 
+            // numericUpDownNumberOfHoursAway
+            // 
+            this.numericUpDownNumberOfHoursAway.Location = new System.Drawing.Point(197, 137);
+            this.numericUpDownNumberOfHoursAway.Name = "numericUpDownNumberOfHoursAway";
+            this.numericUpDownNumberOfHoursAway.Size = new System.Drawing.Size(65, 20);
+            this.numericUpDownNumberOfHoursAway.TabIndex = 5;
+            // 
+            // checkBoxHadClientDispute
+            // 
+            this.checkBoxHadClientDispute.AutoSize = true;
+            this.checkBoxHadClientDispute.Location = new System.Drawing.Point(11, 181);
+            this.checkBoxHadClientDispute.Name = "checkBoxHadClientDispute";
+            this.checkBoxHadClientDispute.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxHadClientDispute.Size = new System.Drawing.Size(166, 17);
+            this.checkBoxHadClientDispute.TabIndex = 7;
+            this.checkBoxHadClientDispute.Text = "?Have had dispute with client";
+            this.checkBoxHadClientDispute.UseVisualStyleBackColor = true;
+            // 
             // CreateClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 450);
+            this.Controls.Add(this.checkBoxHadClientDispute);
+            this.Controls.Add(this.numericUpDownNumberOfHoursAway);
+            this.Controls.Add(this.labelNoOfHoursAway);
             this.Controls.Add(this.buttonAddClient);
             this.Controls.Add(this.textBoxClientName);
             this.Controls.Add(this.labelClientName);
             this.Controls.Add(this.labelTitle);
             this.Name = "CreateClientView";
             this.Text = "Away Day Planner";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfHoursAway)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +127,8 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label labelClientName;
         private System.Windows.Forms.TextBox textBoxClientName;
         private System.Windows.Forms.Button buttonAddClient;
+        private System.Windows.Forms.Label labelNoOfHoursAway;
+        private System.Windows.Forms.NumericUpDown numericUpDownNumberOfHoursAway;
+        private System.Windows.Forms.CheckBox checkBoxHadClientDispute;
     }
 }

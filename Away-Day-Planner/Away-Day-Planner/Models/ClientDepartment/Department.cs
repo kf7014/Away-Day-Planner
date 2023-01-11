@@ -24,9 +24,10 @@ namespace Away_Day_Planner.Models.ClientDepartment
         [ForeignKey("Client")]
         public int ClientFK { get; set; }
 
-        public Department(String name)
+        public Department(String name, int clientFK)
         {
             Name = name;
+            ClientFK = clientFK;
         }
     }
 }

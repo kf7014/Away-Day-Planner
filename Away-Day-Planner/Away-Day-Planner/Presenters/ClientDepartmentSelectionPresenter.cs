@@ -41,6 +41,12 @@ namespace Away_Day_Planner.Presenters
         public void listBoxClientSelectionEvent()
         {
             IDepartment[] departmentList = clientModel.getClientDepartments(clientDepartmentSelectionView.selectedClientIndex);
+            
+            if(departmentList == null)
+            {
+                return;
+            }
+
             String[] departmentNames = new String[departmentList.Length];
             for (int i = 0; i < departmentList.Length; i++)
             {

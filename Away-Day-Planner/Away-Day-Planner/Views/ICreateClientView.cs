@@ -11,5 +11,8 @@ namespace Away_Day_Planner.Views
     {
         //Register view to presenter
         void register(CreateClientPresenter createClientPresenter);
+        String ClientName { get; set; }
+        decimal NumberOfHoursAway { get; set; }
+        bool HadClientDispute { get; set; }
     }
 }
