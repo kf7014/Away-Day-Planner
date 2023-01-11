@@ -11,24 +11,28 @@ namespace Away_Day_Planner.Database
     {
         public static IResults Empty = NullResults();
 
-        public int size { private set; get; }
+        public int Size { private set; get; }
 
-        private ArrayList results = new ArrayList();
+        private IList results;
 
         private static Results NullResults()
         {
-            Results   _null    = new Results();
-            ArrayList _results = new ArrayList();
-            int       _size    = _results.Count;
-
+            Results _null = new Results();
+            int _size = 0;
             _null.SetResultsSize(_size);
-            _null.SetResults(_results);
-
             return _null;
+        }
+
+        public Results(){}
+
+        public Results(IList resultList)
+        {
+            SetResults(resultList);
         }
 
         public void AddToResults<T>(T obj)
         {
+            Console.WriteLine(obj.ToString());
             results.Add(obj);
         }
 
@@ -39,13 +43,13 @@ namespace Away_Day_Planner.Database
 
         public void SetResults(IList list)
         {
-            results = (ArrayList)list;
+            results = list;
             SetResultsSize(results.Count);
         }
 
         public void SetResultsSize(int size)
         {
-            this.size = size;
+            this.Size = size;
         }
 
         public IList GetList()
