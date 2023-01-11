@@ -26,22 +26,29 @@ namespace Away_Day_Planner.Presenters
             //Populate combobox with clients
             Client[] list = clientModel.getClientList();
             String[] names = new String[list.Length];
+            int[] keys = new int[list.Length];
+
             for (int i = 0; i < list.Length; i++)
             {
                 names[i] = list[i].name;
+                keys[i] = list[i].id;
             }
-
-            createDepartmentView.setClientList(names);
+            if(names.Length != 0 && list.Length != 0)
+            {
+                createDepartmentView.setClientList(names, keys);
+            }
+            
         }
 
         public void buttonAddDepartmentClickEvent()
         {
             String clientName = createDepartmentView.ClientName;
+            int selectedClientId = createDepartmentView.SelectedClientId;
             String departmentName = createDepartmentView.DepartmentName;
             Console.WriteLine("Department would be added with following details: ");
             Console.WriteLine("Department Name " + departmentName);
             Console.WriteLine("Associated Client: " + clientName);
-
+            Console.WriteLine("Associated Client Key: " + selectedClientId);
             //clientModel.addNewDepartment(departmentName, clientId);
         }
     }

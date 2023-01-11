@@ -28,8 +28,8 @@ namespace Away_Day_Planner.Models.ClientDepartment
             //clientList.Add(new Client(1, "Sandra", 2, false));
 
             ////Add data to department dummy
-            //clientList[0].departments.Add(new Department("Test Department"));
-            //clientList[1].departments.Add(new Department("Sandras Department"));
+            //clientList[0].departments.Add(new Department("Test Department", 0));
+            //clientList[1].departments.Add(new Department("Sandras Department", 1));
 
 
         }
