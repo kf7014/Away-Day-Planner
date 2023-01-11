@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,8 +50,10 @@ namespace Away_Day_Planner.Models.ClientDepartment
 
         public Client[] getClientList()
         {
-            return clientList.ToArray();                
+            Client[] clientsList = databaseAbstraction.getAllClients();
+            return clientsList;
         }
+
 
         public void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute)
         {
