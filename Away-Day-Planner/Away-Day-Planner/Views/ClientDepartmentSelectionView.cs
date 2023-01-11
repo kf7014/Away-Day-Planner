@@ -41,7 +41,8 @@ namespace Away_Day_Planner.Views
         private void buttonCreateDepartment_Click(object sender, EventArgs e)
         {
             CreateDepartmentView createDepartmentView = new CreateDepartmentView();
-            CreateDepartmentPresenter createDepartmentPresenter = new CreateDepartmentPresenter(createDepartmentView);
+            ClientModel clientModel = new ClientModel();
+            CreateDepartmentPresenter createDepartmentPresenter = new CreateDepartmentPresenter(createDepartmentView, clientModel);
             createDepartmentView.ShowDialog();
         }
 
