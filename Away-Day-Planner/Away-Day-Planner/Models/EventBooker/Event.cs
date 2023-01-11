@@ -46,6 +46,8 @@ namespace Away_Day_Planner.Models.EventBooker
             set { IsBooked = value; }
         }
 
+        //TODO: FK to department  
+
         public Event(int id)
         {
             Id = id;
