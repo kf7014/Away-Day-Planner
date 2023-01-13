@@ -18,7 +18,8 @@ namespace Away_Day_Planner.Models.ClientDepartment
             databaseAbstraction.addNewClient("Kieran New Method", 1, false);
             databaseAbstraction.addNewClient("Sandra New Method", 1, true);
             //TODO: Change dummy FK when autoincrement stuff added to DatabaseInterface
-            databaseAbstraction.addNewDepartment("New DB Test Department", 10);
+
+            //databaseAbstraction.addNewDepartment("New DB Test Department", client);
             
             
             clientList = new List<Client>();

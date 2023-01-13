@@ -23,9 +23,11 @@ namespace Away_Day_Planner.Database
             databaseInterface.Add(newClient); 
         }
 
-        public void addNewDepartment(String name, int clientFK)
+        public void addNewDepartment(String name, Client client)
         {
-            Department newDepartment = new Department(name, clientFK);
+            int clientFK = client.id;
+
+            Department newDepartment = new Department(name, client, clientFK);
             databaseInterface.Add(newDepartment);
         }
     }
