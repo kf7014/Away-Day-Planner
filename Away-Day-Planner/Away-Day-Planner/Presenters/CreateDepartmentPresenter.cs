@@ -4,17 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Away_Day_Planner.Views;
+using Away_Day_Planner.Models.ClientDepartment;
 
 namespace Away_Day_Planner.Presenters
 {
     public class CreateDepartmentPresenter
     {
-        ICreateDepartmentView createDepartmentView;
+        private ICreateDepartmentView createDepartmentView;
+        private IClientModel clientModel;
 
-        public CreateDepartmentPresenter(ICreateDepartmentView createDepartmentView)
+        public CreateDepartmentPresenter(ICreateDepartmentView createDepartmentView, IClientModel clientModel)
         {
             this.createDepartmentView = createDepartmentView;
-            createDepartmentView.register(this);
+            this.clientModel = clientModel;
+            createDepartmentView.register(this);            
         }
     }
 }
