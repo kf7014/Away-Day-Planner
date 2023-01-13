@@ -5,7 +5,6 @@ using Away_Day_Planner.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects.DataClasses;
 using System.Data.Entity.Validation;
 using System.Linq;
 
@@ -105,14 +104,12 @@ namespace Away_Day_Planner.Database
             }
         }
         // Returns An entity by its ID.
-        public T Get<T>(T e_type, int id) where T : Type
+        public (T, DbContext) Get<T>(T e_type, int id) where T : Type
         {
-            using (var context = GetContext())
-            {
-                if (e_type == null) throw Errors["InvalidType"];
-                if (id < 0) throw Errors["NegativeID"];
-                return context.Set<T>().Find(id);
-            }
+            DbContext context = GetContext();
+            if (e_type == null) throw Errors["InvalidType"];
+            if (id < 0) throw Errors["NegativeID"];
+            return (context.Set<T>().Find(id), context);
         }
         // Retuns entity by its id from specific DbSet
         public T Get<T>(Type e_type, int id, DbSet<T> dbs) where T : class
@@ -123,12 +120,10 @@ namespace Away_Day_Planner.Database
             return dbs.Find(id);
         }
         // Returns full dbset based on the type provided
-        public DbSet<T> GetAll<T>() where T : class
+        public (DbSet<T>, DbContext) GetAll<T>() where T : class
         {
-            using (var context = GetContext())
-            {
-                return context.Set<T>();
-            }
+            DbContext context = GetContext();
+            return (context.Set<T>(), context);
         }
         public DbSet<T> GetAll<T>(DbSet<T> dbs) where T : class
         {
@@ -200,7 +195,7 @@ namespace Away_Day_Planner.Database
         {
             GetContext().SaveChanges();
         }
-        public void ClearSet<T>(T type) where T : Type
+        public void ClearSet<T>() where T : Type
         {
             using (var context = GetContext())
             {
