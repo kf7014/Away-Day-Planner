@@ -89,7 +89,7 @@ namespace Away_Day_Planner_Test.Database
 
             foreach (ObjectWithID obj in objectList) dbi.Add(obj, mockSet.Object);
 
-            IResults returnedData = dbi.GetAllFromSet(mockSet.Object);
+            IResults returnedData = dbi.GetAll(mockSet.Object);
             Assert.IsNotNull(returnedData);
 
             string testStr = "(Size : "+returnedData.GetList().Count+")\n";

@@ -1,10 +1,12 @@
 ﻿using Away_Day_Planner.Database.Contexts;
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 
 namespace Away_Day_Planner.Database
@@ -39,7 +41,12 @@ namespace Away_Day_Planner.Database
 
         public void Add<T>(T entity) where T : class
         {
-            Add(entity, GetSet(entity));
+            using (var context = GetContext())
+            {
+                if (entity == null) throw Errors["NullEntity"];
+                context.Set<T>().Add(entity);
+                SaveChanges(context);
+            }
         }
 
         public void Add<T>(T entity, DbSet<T> dbs) where T : class
@@ -48,39 +55,27 @@ namespace Away_Day_Planner.Database
             {
                 if (entity == null) throw Errors["NullEntity"];
                 dbs.Add(entity);
-                context.SaveChanges();
+                SaveChanges(context);
             }
         }
-
-        public void AddNoDispose<T>(T entity, DbSet<T> dbs) where T : class
-        {
-            if (entity == null) throw Errors["NullEntity"];
-            dbs.Add(entity);
-            Context.SaveChanges();
-        }
-
         public void Delete<T>(T entity) where T : class
         {
-            Delete(entity, GetSet(entity));
+            using (var context = GetContext())
+            {
+                if (entity == null) throw Errors["NullEntity"];
+                context.Set<T>().Remove(entity);
+                SaveChanges(context);
+            }
         }
-
         public void Delete<T>(T entity, DbSet<T> dbs) where T : class
         {
             using (var context = GetContext())
             {
                 if (entity == null) throw Errors["NullEntity"];
                 dbs.Remove(entity);
-                context.SaveChanges();
+                SaveChanges(context);
             }
         }
-
-        public void DeleteNoDispose<T>(T entity, DbSet<T> dbs) where T : class
-        {
-            if (entity == null) throw Errors["NullEntity"];
-            dbs.Remove(entity);
-            Context.SaveChanges();
-        }
-
         public void Update<T>(T old_entity, T new_entity) where T : class
         {
             if (old_entity.GetType() != new_entity.GetType()) throw Errors["TypeMismatch"];
@@ -90,28 +85,42 @@ namespace Away_Day_Planner.Database
             {
                 Delete(old_entity);
                 Add(new_entity);
-                context.SaveChanges();
+                SaveChanges(context);
             }
         }
+        public void Update<T>(T old_entity, T new_entity, DbSet<T> dbs) where T : class
+        {
+            if (old_entity.GetType() != new_entity.GetType()) throw Errors["TypeMismatch"];
+            if (old_entity == null || new_entity == null) throw Errors["NullEntity"];
 
+            using (var context = GetContext())
+            {
+                Delete(old_entity, dbs);
+                Add(new_entity, dbs);
+                SaveChanges(context);
+            }
+        }
         public IResults Get<T>(T e_type, int id) where T : Type
         {
-            return Get(e_type, id, GetSet(e_type));
-        }
-
-        public IResults Get<T>(Type e_type, int id, DbSet<T> dbs) where T : class
-        {
-            using(var context = GetContext())
+            using (var context = GetContext())
             {
                 if (e_type == null) throw Errors["InvalidType"];
                 if (id < 0) throw Errors["NegativeID"];
 
                 Results results = new Results();
-                results.AddToResults(dbs.Find(id));
+                results.AddToResults(context.Set<T>().Find(id));
                 return results;
             }
         }
+        public IResults Get<T>(Type e_type, int id, DbSet<T> dbs) where T : class
+        {
+            if (e_type == null) throw Errors["InvalidType"];
+            if (id < 0) throw Errors["NegativeID"];
 
+            Results results = new Results();
+            results.AddToResults(dbs.Find(id));
+            return results;
+        }
         public IResults GetAll<T>(T e_type) where T : Type
         {
             using (var context = GetContext())
@@ -119,24 +128,14 @@ namespace Away_Day_Planner.Database
                 return new Results(context.Set<T>().ToList());
             }
         }
-        public IResults GetAllFromSet<T>(DbSet<T> dbs) where T : class
-        {
-            using (var context = GetContext())
-            {
-                return new Results(dbs.ToList());
-            }
-        }
-        public IResults GetAllFromSetNoDispose<T>(DbSet<T> dbs) where T : class
+        public IResults GetAll<T>(DbSet<T> dbs) where T : class
         {
             return new Results(dbs.ToList());
         }
-
-
-        public DbSet<T> GetSet<T>(T e_type) where T : class 
+        private DbSet<T> GetSet<T>(T e_type) where T : class 
         { 
             return GetDBSet(e_type).Cast<T>();
         } 
-
         public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
         {
             return GetRange(e_type, start_id, stop_id, GetSet(e_type));
@@ -152,19 +151,17 @@ namespace Away_Day_Planner.Database
                 IResults results = Results.Empty;
                 for(int i = start_id; i <= stop_id; i++)
                 {
-                    results.AddToResults(dbs.Find(i));
+                    results.AddToResults(context.Set<T>().Find(i));
                 }
                 return results;
             }
         }
-
         public DbContext GetContext()
         {
             Context = (DbContext)Activator.CreateInstance(ContextType);
             return Context;
         }
-
-        public DbSet GetDBSet<T>(T aClass) where T: class
+        private DbSet GetDBSet<T>(T aClass) where T: class
         {
             using (EntitiesContext dbc = (EntitiesContext)GetContext())
             {
@@ -183,7 +180,6 @@ namespace Away_Day_Planner.Database
                 return dict[aClass.GetType()];
             }
         }
-
         public int GetNextID<T>(T e_type) where T : Type
         {
             if(e_type == null) throw Errors["InvalidType"];
@@ -191,16 +187,19 @@ namespace Away_Day_Planner.Database
 
             using (var context = GetContext())
             {
-                DbSet<T> dbs = GetSet(e_type);
-                return (int)dbs.Max(x => x.GetField("id").GetValue(null));
+                return (int)context.Set<T>().Max(x => x.GetField("id").GetValue(null));
             }
         }
-
+        public int GetNextID<T>(T e_type, DbSet<T> dbs) where T : Type
+        {
+            if (e_type == null) throw Errors["InvalidType"];
+            if (e_type.GetField("id") == null) throw Errors["NoID"];
+            return (int)dbs.Max(x => x.GetField("id").GetValue(null));
+        }
         public void SaveChanges() 
         {
             GetContext().SaveChanges();
         }
-
         public void ClearSet<T>(DbSet set)
         {
             using (var context = GetContext())
@@ -212,7 +211,6 @@ namespace Away_Day_Planner.Database
                 SaveChanges();
             }
         }
-
         public void DisposeContext() 
         {
             GetContext().Dispose();
@@ -220,6 +218,29 @@ namespace Away_Day_Planner.Database
         public void DisposeContext(DbContext ctx)
         {
             ctx.Dispose();
+        }
+        private void SaveChanges<T>(T context) where T : DbContext 
+        {
+            try
+            {
+                context.SaveChanges();
+            }
+            catch(DbEntityValidationException ex)
+            {
+                if (AppSettings.Instance.VERBOSE)
+                {
+                    foreach (var e in ex.EntityValidationErrors)
+                    {
+                        Util.Print(e.Entry.Entity.GetType().Name, "EntityType");
+                        Util.Print(e.Entry.State, "ValidationErrors");
+                        foreach (var ve in e.ValidationErrors)
+                        {
+                            Util.Print("Property: " + ve.PropertyName + " Error: " + ve.ErrorMessage, "    -Property Errors");
+                        }
+                    }
+                }
+                throw;
+            }
         }
     }
 }
