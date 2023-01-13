@@ -11,6 +11,7 @@ namespace Away_Day_Planner.Database
 {
     internal interface IDatabaseInterface
     {
+        // Implements CRUD features
         DbContext GetContext();
         void Add<T>(T e_type) where T : class;
         T Get<T>(T e_type, int id) where T : Type;

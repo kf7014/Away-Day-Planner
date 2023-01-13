@@ -9,6 +9,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Away_Day_Planner.Database
 {
+    // Used to return a list of results with some added functionality
     public interface IResults
     {
         int Size { set; get; }

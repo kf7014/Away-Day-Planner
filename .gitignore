@@ -361,3 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Away-Day-Planner/Away-Day-Planner/Away-Day-Planner.csproj

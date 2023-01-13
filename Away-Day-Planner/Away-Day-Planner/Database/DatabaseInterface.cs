@@ -3,7 +3,6 @@ using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
 using Away_Day_Planner.Utilities;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -13,60 +12,60 @@ namespace Away_Day_Planner.Database
 {
     public class DatabaseInterface : IDatabaseInterface
     {
-        
-        public Dictionary<Type, DbSet> DBSetList {get; set;}
+        // Load the relevent exceptions for this class from the utility functions
+        private readonly Dictionary<string, Exception> Errors = ErrorList.DatabaseErrors;
+
+        // Store the Type of context currently in use
         public Type ContextType { get; set;}
+
+        // Store the Context object currently in use
         public DbContext Context { get; set; }
 
+        // Constructor, Sets the default ContextType to the default context
         public DatabaseInterface() 
         {
             ContextType = typeof(EntitiesContext);
         }
-
+        // Constructor, Allows to set a custom Context
         public DatabaseInterface(DbContext context)
         {
             ContextType = context.GetType();
         }
-
-        private static readonly Dictionary<string, Exception> Errors = new Dictionary<string, Exception>() 
-        {
-            {"InvalidType", new Exception("Oops, there was an unknown model type")},
-            {"TypeMismatch", new Exception("Oops, you cannot update an entity with a different object")},
-            {"NegativeID", new Exception("Oops, an ID cannot be negative")},
-            {"InvalidRange", new Exception("Oops, Upper range cannot be lower than lower range")},
-            {"NullEntity", new Exception("Object provided was null")},
-            {"NoID", new Exception("Object does not contain id field (Case sensitive)")},
-
-        };
-
+        // Adds an entity to its associated DbSet in the Interfaces current context
         public void Add<T>(T entity) where T : class
         {
             using (var context = GetContext())
             {
+                if (AppSettings.Instance.VERBOSE) Util.Print("Adding " + entity.ToString(), "Database");
                 if (entity == null) throw Errors["NullEntity"];
                 context.Set<T>().Add(entity);
                 SaveChanges(context);
             }
         }
 
+        // Adds an entity to a specified DbSet
         public void Add<T>(T entity, DbSet<T> dbs) where T : class
         {
             using(var context = GetContext())
             {
+                if (AppSettings.Instance.VERBOSE) Util.Print("Adding " + entity.ToString(), "Database");
                 if (entity == null) throw Errors["NullEntity"];
                 dbs.Add(entity);
                 SaveChanges(context);
             }
         }
+        // Deletes an entity from its DbSet in the current context
         public void Delete<T>(T entity) where T : class
         {
             using (var context = GetContext())
             {
+                if (AppSettings.Instance.VERBOSE) Util.Print("Removing " + entity.ToString(), "Database");
                 if (entity == null) throw Errors["NullEntity"];
                 context.Set<T>().Remove(entity);
                 SaveChanges(context);
             }
         }
+        // Deletes a specific entity from a specified DbSet
         public void Delete<T>(T entity, DbSet<T> dbs) where T : class
         {
             using (var context = GetContext())
@@ -76,6 +75,10 @@ namespace Away_Day_Planner.Database
                 SaveChanges(context);
             }
         }
+        /*
+            Updates an entity
+            Assumes immutable data structure, removes old entity and adds new entity.
+         */
         public void Update<T>(T old_entity, T new_entity) where T : class
         {
             if (old_entity.GetType() != new_entity.GetType()) throw Errors["TypeMismatch"];
@@ -100,6 +103,7 @@ namespace Away_Day_Planner.Database
                 SaveChanges(context);
             }
         }
+        // Returns An entity by its ID.
         public T Get<T>(T e_type, int id) where T : Type
         {
             using (var context = GetContext())
@@ -109,6 +113,7 @@ namespace Away_Day_Planner.Database
                 return context.Set<T>().Find(id);
             }
         }
+        // Retuns entity by its id from specific DbSet
         public T Get<T>(Type e_type, int id, DbSet<T> dbs) where T : class
         {
             if (e_type == null) throw Errors["InvalidType"];
@@ -116,6 +121,7 @@ namespace Away_Day_Planner.Database
 
             return dbs.Find(id);
         }
+        // Returns full dbset based on the type provided
         public DbSet<T> GetAll<T>(T e_type) where T : Type
         {
             using (var context = GetContext())
@@ -127,15 +133,13 @@ namespace Away_Day_Planner.Database
         {
             return dbs;
         }
+        // Alias for GetAll, but includes a cast from DbSet to DbSet<T>
         private DbSet<T> GetSet<T>(T e_type) where T : class 
         { 
             return GetDBSet(e_type).Cast<T>();
-        } 
-        public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
-        {
-            return GetRange(e_type, start_id, stop_id, GetSet(e_type));
         }
-        public IResults GetRange<T>(T e_type, int start_id, int stop_id, DbSet<T> dbs) where T : Type
+        // Returns a range from an ID to another ID, inclusive of both upper and lower IDs specified, returns a Results object
+        public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
         {
             if (e_type == null) throw Errors["InvalidType"];
             if (start_id < 0 || stop_id < 0) throw Errors["NegativeID"];
@@ -152,11 +156,13 @@ namespace Away_Day_Planner.Database
                 
             }
         }
+        // Retunrs the current Database Interfaces context in use. for use externally in more advanced context queries
         public DbContext GetContext()
         {
             Context = (DbContext)Activator.CreateInstance(ContextType);
             return Context;
         }
+        // Gets a DbSet from the default context
         private DbSet GetDBSet<T>(T aClass) where T: class
         {
             using (EntitiesContext dbc = (EntitiesContext)GetContext())
@@ -176,6 +182,7 @@ namespace Away_Day_Planner.Database
                 return dict[aClass.GetType()];
             }
         }
+        // Gets the next ID of an entity, used for incremental IDs
         public int GetNextID<T>(T e_type) where T : Type
         {
             if(e_type == null) throw Errors["InvalidType"];
@@ -192,29 +199,32 @@ namespace Away_Day_Planner.Database
             if (e_type.GetField("id") == null) throw Errors["NoID"];
             return (int)dbs.Max(x => x.GetField("id").GetValue(null));
         }
+        // Enforces a save for any entities in transaction
         public void SaveChanges() 
         {
             GetContext().SaveChanges();
         }
-        public void ClearSet<T>(DbSet set)
+        public void ClearSet<T>(T type) where T : Type
         {
             using (var context = GetContext())
             {
-                foreach (var x in set)
+                foreach (var x in context.Set<T>())
                 {
-                    set.Remove(x);
+                    Delete(x);
                 }
-                SaveChanges();
             }
         }
+        //Enforce a dispose
         public void DisposeContext() 
         {
             GetContext().Dispose();
         }
+        // Enforce a disposal of the context
         public void DisposeContext(DbContext ctx)
         {
             ctx.Dispose();
         }
+        // Save the current contexts changes, includes a verbosity check for debug output
         private void SaveChanges<T>(T context) where T : DbContext 
         {
             try

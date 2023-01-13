@@ -8,14 +8,18 @@ using System.Threading.Tasks;
 
 namespace Away_Day_Planner.Utilities
 {
+    // Parses command line argument "app.exe -v -xyz"
     internal class ArgumentParser
     {
         private readonly ArrayList argument_array = new ArrayList();
+
+        // Defines what arguments are valid
         private enum VALID_ARG
         {
             VERBOSE,
             LOGGING
         }
+        // Defines what command line flags are associated with each valid argument
         private readonly IDictionary<string, VALID_ARG> argument_dictionary = new Dictionary<string, VALID_ARG>()
         {
             {"D", VALID_ARG.VERBOSE},
@@ -32,6 +36,7 @@ namespace Away_Day_Planner.Utilities
         {
             this.ParseArguments(argument_array);
         }
+        // Parses the arguments from the arg string into an array which can then be interpreted by other methods
         private void ParseArguments(string[] arr)
         {
             foreach (string arg in arr) 
@@ -46,24 +51,28 @@ namespace Away_Day_Planner.Utilities
                 }
             }
         }
+        // Checks if a command line argument exists in the dictionary
         private bool key_exists(string key)
         {
             return argument_dictionary.ContainsKey(key);
         }
+        // Checks if the argument was enabled and stored in the arguments array
         private bool array_contains(VALID_ARG x) 
         {
             return argument_array.Contains(x);
         }
-
+        // Returns the arguments array
         public IList GetArguments()
         {
             return argument_array;
         }
+        // Returns the arguments array as a string of its contents
         public string ArgumentsAsString() 
         {
             if (argument_array.Count is 0) return "Empty";
             else return String.Join(", ", argument_array.ToArray());
         }
+        // Applies the relevant settings to the global settings instance if the argument was enabled at command line
         public void SetSettings()
         {
             foreach(VALID_ARG arg in argument_array)
