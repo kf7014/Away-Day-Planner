@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Away_Day_Planner.Utilities
 {
+    // Provides static dictionaries that allow for easier use of exceptions that might arise multiple times
     public class ErrorList
     {
         public static readonly Dictionary<string, Exception> Errors = new Dictionary<string, Exception>()
