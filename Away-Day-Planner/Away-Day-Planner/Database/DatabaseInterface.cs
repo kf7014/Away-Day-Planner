@@ -134,11 +134,6 @@ namespace Away_Day_Planner.Database
         {
             return dbs;
         }
-        // Alias for GetAll, but includes a cast from DbSet to DbSet<T>
-        private DbSet<T> GetSet<T>(T e_type) where T : class 
-        { 
-            return GetDBSet(e_type).Cast<T>();
-        }
         // Returns a range from an ID to another ID, inclusive of both upper and lower IDs specified, returns a Results object
         public IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type
         {
@@ -164,7 +159,7 @@ namespace Away_Day_Planner.Database
             return Context;
         }
         // Gets a DbSet from the default context
-        private DbSet GetDBSet<T>(T aClass) where T: class
+        private DbSet<T> GetSet<T>(T aClass) where T: class
         {
             using (EntitiesContext dbc = (EntitiesContext)GetContext())
             {
@@ -180,7 +175,7 @@ namespace Away_Day_Planner.Database
                     { typeof(EventFlexibilityDate),     dbc.EventFlexibilityDates},
                     { typeof(BookedFacilitatorTeamDate),dbc.BookedFacilitatorTeamDates},
                 };
-                return dict[aClass.GetType()];
+                return dict[aClass.GetType()].Cast<T>();
             }
         }
         // Gets the next ID of an entity, used for incremental IDs
