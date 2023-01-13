@@ -166,11 +166,9 @@ namespace Away_Day_Planner.Database
 
         public DbSet GetDBSet<T>(T aClass) where T: class
         {
-            if (ContextType.GetType() == typeof(EntitiesContext))
+            using (EntitiesContext dbc = (EntitiesContext)GetContext())
             {
-                using (EntitiesContext dbc = (EntitiesContext)GetContext())
-                {
-                    Dictionary<Type, DbSet> dict = new Dictionary<Type, DbSet>()
+                Dictionary<Type, DbSet> dict = new Dictionary<Type, DbSet>()
                 {
                     { typeof(Client),                   dbc.Clients},
                     { typeof(Department),               dbc.Departments},
@@ -182,15 +180,7 @@ namespace Away_Day_Planner.Database
                     { typeof(EventFlexibilityDate),     dbc.EventFlexibilityDates},
                     { typeof(BookedFacilitatorTeamDate),dbc.BookedFacilitatorTeamDates},
                 };
-                    return dict[aClass.GetType()];
-                }
-            }
-            else
-            {
-                using(var context = GetContext())
-                {
-                    return DBSetList[aClass.GetType()];
-                }
+                return dict[aClass.GetType()];
             }
         }
 
