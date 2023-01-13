@@ -5,6 +5,7 @@ using Away_Day_Planner.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects.DataClasses;
 using System.Data.Entity.Validation;
 using System.Linq;
 
@@ -122,7 +123,7 @@ namespace Away_Day_Planner.Database
             return dbs.Find(id);
         }
         // Returns full dbset based on the type provided
-        public DbSet<T> GetAll<T>(T e_type) where T : Type
+        public DbSet<T> GetAll<T>() where T : class
         {
             using (var context = GetContext())
             {
