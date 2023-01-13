@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace Away_Day_Planner.Database
         public static IResults Empty = NullResults();
 
         public int Size { private set; get; }
+        int IResults.Size { get; set; }
 
         private IList results;
 
@@ -55,6 +57,16 @@ namespace Away_Day_Planner.Database
         public IList GetList()
         {
             return results;
+        }
+
+        public IQueryable AsQueryable()
+        {
+            return results.AsQueryable();
+        }
+
+        public IEnumerable AsEnumerable()
+        {
+            throw new NotImplementedException();
         }
     }
 }

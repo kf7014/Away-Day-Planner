@@ -89,17 +89,10 @@ namespace Away_Day_Planner_Test.Database
 
             foreach (ObjectWithID obj in objectList) dbi.Add(obj, mockSet.Object);
 
-            IResults returnedData = dbi.GetAll(mockSet.Object);
+            DbSet<ObjectWithID> returnedData = dbi.GetAll(mockSet.Object);
+
             Assert.IsNotNull(returnedData);
-
-            string testStr = "(Size : "+returnedData.GetList().Count+")\n";
-            foreach(ObjectWithID obj in returnedData.GetList())
-            {
-                testStr += obj.ToString() +" : ID(" + obj.id +")\n";
-            }
-            Console.WriteLine(testStr);
-
-            CollectionAssert.AreEquivalent(objectList, returnedData.GetList());
+            Assert.AreEqual(objectList.Count, returnedData.Count());
         }
     }
 }

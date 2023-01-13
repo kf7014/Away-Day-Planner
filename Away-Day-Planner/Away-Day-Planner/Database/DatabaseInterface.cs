@@ -100,37 +100,32 @@ namespace Away_Day_Planner.Database
                 SaveChanges(context);
             }
         }
-        public IResults Get<T>(T e_type, int id) where T : Type
+        public T Get<T>(T e_type, int id) where T : Type
         {
             using (var context = GetContext())
             {
                 if (e_type == null) throw Errors["InvalidType"];
                 if (id < 0) throw Errors["NegativeID"];
-
-                Results results = new Results();
-                results.AddToResults(context.Set<T>().Find(id));
-                return results;
+                return context.Set<T>().Find(id);
             }
         }
-        public IResults Get<T>(Type e_type, int id, DbSet<T> dbs) where T : class
+        public T Get<T>(Type e_type, int id, DbSet<T> dbs) where T : class
         {
             if (e_type == null) throw Errors["InvalidType"];
             if (id < 0) throw Errors["NegativeID"];
 
-            Results results = new Results();
-            results.AddToResults(dbs.Find(id));
-            return results;
+            return dbs.Find(id);
         }
-        public IResults GetAll<T>(T e_type) where T : Type
+        public DbSet<T> GetAll<T>(T e_type) where T : Type
         {
             using (var context = GetContext())
             {
-                return new Results(context.Set<T>().ToList());
+                return context.Set<T>();
             }
         }
-        public IResults GetAll<T>(DbSet<T> dbs) where T : class
+        public DbSet<T> GetAll<T>(DbSet<T> dbs) where T : class
         {
-            return new Results(dbs.ToList());
+            return dbs;
         }
         private DbSet<T> GetSet<T>(T e_type) where T : class 
         { 
@@ -154,6 +149,7 @@ namespace Away_Day_Planner.Database
                     results.AddToResults(context.Set<T>().Find(i));
                 }
                 return results;
+                
             }
         }
         public DbContext GetContext()
