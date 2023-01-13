@@ -17,7 +17,27 @@ namespace Away_Day_Planner.Presenters
         {
             this.createDepartmentView = createDepartmentView;
             this.clientModel = clientModel;
-            createDepartmentView.register(this);            
+            createDepartmentView.register(this);
+            populateScreen();
+        }
+
+        private void populateScreen()
+        {
+            //Populate combobox with clients
+            Client[] list = clientModel.getClientList();
+            String[] names = new String[list.Length];
+            int[] keys = new int[list.Length];
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                names[i] = list[i].name;
+                keys[i] = list[i].id;
+            }
+            if (names.Length != 0 && list.Length != 0)
+            {
+                createDepartmentView.setClientList(names, keys);
+            }
+
         }
     }
 }
