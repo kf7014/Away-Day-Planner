@@ -11,5 +11,9 @@ namespace Away_Day_Planner.Views
     {
         //Register view to presenter
         void register(CreateDepartmentPresenter createDepartmentPresenter);
+        void setClientList(string[] names, int[] keys);
+        String ClientName { get; set; }
+        int SelectedClientId { get; set; }
+        String DepartmentName { get; set; }
     }
 }
