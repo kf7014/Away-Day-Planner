@@ -13,10 +13,10 @@ namespace Away_Day_Planner.Models.ClientDepartment
         List<Client> clientList; 
         public ClientModel()
         {
-            //Create dummy database data at runtime
-            //TODO: This could be moved to program.cs, especially if theres a lot of classes doing it
-            databaseAbstraction.addNewClient("Kieran New Method", 1, false);
-            databaseAbstraction.addNewClient("Sandra New Method", 1, true);
+            ////Create dummy database data at runtime
+            ////TODO: This could be moved to program.cs, especially if theres a lot of classes doing it
+            //databaseAbstraction.addNewClient("Kieran New Method", 1, false);
+            //databaseAbstraction.addNewClient("Sandra New Method", 1, true);
             //TODO: Change dummy FK when autoincrement stuff added to DatabaseInterface
 
             //databaseAbstraction.addNewDepartment("New DB Test Department", client);
@@ -49,13 +49,25 @@ namespace Away_Day_Planner.Models.ClientDepartment
 
         public Client[] getClientList()
         {
-            return clientList.ToArray();                
+            Client[] clientList = databaseAbstraction.getAllClients();
+            return clientList;
         }
 
         public void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute)
         {
             //TODO: Check if database abstraction is needed or if can go directly here.
             databaseAbstraction.addNewClient(clientName, noOfHoursAway, hasClientDispute);
+        }
+
+        public void addNewDepartment(String departmentName, Client client)
+        {
+            databaseAbstraction.addNewDepartment(departmentName, client);
+        }
+
+        public Client getClient(int clientId)
+        {
+            Client client = databaseAbstraction.getClient(clientId);
+            return client;
         }
     }
 }

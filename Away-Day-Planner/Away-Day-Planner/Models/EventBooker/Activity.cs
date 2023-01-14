@@ -64,7 +64,7 @@ namespace Away_Day_Planner.Models.EventBooker
             set { AllocatedFacilitatorTeams = value; }
         }
 
-        [Required]
+        
         public virtual Event Event { get; set; }
         [ForeignKey("Event")]
         public int EventFK { get; set; }
