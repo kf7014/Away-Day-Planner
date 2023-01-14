@@ -25,7 +25,10 @@ namespace Away_Day_Planner.Views
         public int SelectedClientId
         {
             set { clientKeys[comboBoxClientSelection.SelectedIndex] = value; }
-            get { return clientKeys[comboBoxClientSelection.SelectedIndex]; }
+            get 
+            { 
+                return (clientKeys[comboBoxClientSelection.SelectedIndex]); 
+            }
         }
 
         public String DepartmentName
@@ -50,14 +53,23 @@ namespace Away_Day_Planner.Views
         private void buttonAddDepartment_Click(object sender, EventArgs e)
         {
             //NEEDS FORM SECURITY ADDING
-
+            //createDepartmentPresenter.buttonAddClientClickEvent();
             this.Close();
         }
 
         public void setClientList(string[] names, int[] keys)
         {
             comboBoxClientSelection.DataSource = names;
-            this.clientKeys = keys;
+            if(keys != null)
+            {
+                this.clientKeys = keys;
+                Console.WriteLine("First ran");
+            } else
+            {
+                this.clientKeys = new int[0];
+                Console.WriteLine("Second ran");
+            }
+            
             Console.WriteLine(clientKeys);
         }
     }

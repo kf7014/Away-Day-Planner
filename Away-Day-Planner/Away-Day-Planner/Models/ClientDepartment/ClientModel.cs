@@ -49,7 +49,8 @@ namespace Away_Day_Planner.Models.ClientDepartment
 
         public Client[] getClientList()
         {
-            return clientList.ToArray();                
+            Client[] clientList = databaseAbstraction.getAllClients();
+            return clientList;
         }
 
         public void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute)

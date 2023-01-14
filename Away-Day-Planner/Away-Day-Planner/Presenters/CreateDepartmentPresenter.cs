@@ -33,11 +33,23 @@ namespace Away_Day_Planner.Presenters
                 names[i] = list[i].name;
                 keys[i] = list[i].id;
             }
-            if (names.Length != 0 && list.Length != 0)
-            {
-                createDepartmentView.setClientList(names, keys);
-            }
 
+            
+            createDepartmentView.setClientList(names, keys);
+            
+
+        }
+
+        public void buttonAddClientClickEvent()
+        {
+            String clientName = createDepartmentView.ClientName;
+            int selectedClientId = createDepartmentView.SelectedClientId;
+            String departmentName = createDepartmentView.DepartmentName;
+            Console.WriteLine("Department would be added with following details: ");
+            Console.WriteLine("Department Name " + departmentName);
+            Console.WriteLine("Associated Client: " + clientName);
+            Console.WriteLine("Associated Client Key: " + selectedClientId);
+            //clientModel.addNewDepartment(departmentName, clientId);
         }
     }
 }
