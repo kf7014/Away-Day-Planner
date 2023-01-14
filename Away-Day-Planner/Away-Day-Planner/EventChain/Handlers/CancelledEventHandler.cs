@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Away_Day_Planner.Handler
+namespace Away_Day_Planner.EventChain.Handlers
 {
-    internal class EventChainFactory
+    internal class CancelledEventHandler : Handler
     {
     }
 }
