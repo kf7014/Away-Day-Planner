@@ -21,5 +21,6 @@ namespace Away_Day_Planner.Database
         void Delete<T>(T e_type) where T : class;
         int GetNextID<T>() where T : class, IObjWithID;
         void ClearSet<T>() where T : class;
+        void DisposeContext(DbContext ctx);
     }
 }

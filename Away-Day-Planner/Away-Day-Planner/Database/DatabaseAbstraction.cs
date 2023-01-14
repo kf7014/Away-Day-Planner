@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,14 @@ namespace Away_Day_Planner.Database
 
             Department newDepartment = new Department(name, client, clientFK);
             databaseInterface.Add(newDepartment);
+        }
+
+        public Client[] getAllClients()
+        {
+            Tuple<DbSet<Client>,DbContext> result = databaseInterface.GetAll<Client>().ToTuple();
+            Client[] clients = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return clients;
         }
     }
 }

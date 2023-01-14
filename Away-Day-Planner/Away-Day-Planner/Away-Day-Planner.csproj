@@ -77,6 +77,7 @@
     <Compile Include="Database\DatabaseInterface.cs" />
     <Compile Include="Database\Contexts\EntitiesContext.cs" />
     <Compile Include="Database\IDatabaseInterface.cs" />
+    <Compile Include="Database\IObjWithID.cs" />
     <Compile Include="Database\IResults.cs" />
     <Compile Include="Database\Results.cs" />
     <Compile Include="Handler\EventChainFactory.cs" />

@@ -9,7 +9,7 @@ namespace Away_Day_Planner.Models.ClientDepartment
 {
     public class Client
     {
-        
+
         private int Id;
         [Key]
         public int id
@@ -26,7 +26,7 @@ namespace Away_Day_Planner.Models.ClientDepartment
             set { Departments = value; }
         }
 
-        
+
         private bool HasClientDispute;
         [Required]
         public bool hasClientDispute
@@ -35,7 +35,7 @@ namespace Away_Day_Planner.Models.ClientDepartment
             set { HasClientDispute = value; }
         }
 
-        
+
         private int NoOfHoursAway;
         [Required]
         public int noOfHoursAway
@@ -44,13 +44,16 @@ namespace Away_Day_Planner.Models.ClientDepartment
             set { NoOfHoursAway = value; }
         }
 
-        
+
         private String Name;
         [Required, MinLength(2), MaxLength(50)]
         public String name
         {
             get { return Name; }
             set { Name = value; }
+        }
+        public Client()
+        {
         }
 
         public Client(int id, string name, int noOfHoursAway, bool hasClientDispute)
