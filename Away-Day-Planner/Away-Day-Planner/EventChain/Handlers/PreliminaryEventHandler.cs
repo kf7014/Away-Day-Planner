@@ -8,5 +8,9 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     internal class PreliminaryEventHandler : Handler
     {
+        public override void HandleEvent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

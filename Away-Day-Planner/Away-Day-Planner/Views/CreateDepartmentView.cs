@@ -46,8 +46,6 @@ namespace Away_Day_Planner.Views
         {
             this.createDepartmentPresenter = createDepartmentPresenter;
 
-            //CONSOLE CODE TO BE DELETED
-            Console.WriteLine("presenter: " + createDepartmentPresenter);
         }
 
         private void buttonAddDepartment_Click(object sender, EventArgs e)
@@ -63,11 +61,9 @@ namespace Away_Day_Planner.Views
             if(keys != null)
             {
                 this.clientKeys = keys;
-                Console.WriteLine("First ran");
             } else
             {
                 this.clientKeys = new int[0];
-                Console.WriteLine("Second ran");
             }
             
             Console.WriteLine(clientKeys);

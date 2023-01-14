@@ -62,8 +62,6 @@ namespace Away_Day_Planner.Views
         {
             this.clientDepartmentSelectionPresenter = clientDepartmentSelectionPresenter;
 
-            //CONSOLE CODE TO BE DELETED
-            Console.WriteLine("presenter: " + clientDepartmentSelectionPresenter);
         }
 
         public void setClientList(string[] names)

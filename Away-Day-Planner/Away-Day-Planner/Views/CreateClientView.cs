@@ -39,8 +39,6 @@ namespace Away_Day_Planner.Views
         {
             this.createClientPresenter = createClientPresenter;
 
-            //CONSOLE CODE TO BE DELETED
-            Console.WriteLine("presenter: " + createClientPresenter);
         }
 
         private void buttonAddClient_Click(object sender, EventArgs e)

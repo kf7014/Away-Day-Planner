@@ -8,5 +8,9 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     internal class CancelledEventHandler : Handler
     {
+        public override void HandleEvent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

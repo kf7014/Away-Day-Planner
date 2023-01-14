@@ -24,8 +24,6 @@ namespace Away_Day_Planner.Views
         {
             this.eventBookerPresenter = eventBookerPresenter;
             
-            //CONSOLE CODE TO BE DELETED
-            Console.WriteLine("presenter: " + eventBookerPresenter);
         }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
