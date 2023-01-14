@@ -43,7 +43,7 @@ namespace Away_Day_Planner.Models.EventBooker
             set { EmailAddress = value; }
         }
 
-        [Required]
+        
         public virtual FacilitatorTeam FacilitatorTeam { get; set; }
         [ForeignKey("FacilitatorTeam")]
         public int FacilitatorTeamFK { get; set; }

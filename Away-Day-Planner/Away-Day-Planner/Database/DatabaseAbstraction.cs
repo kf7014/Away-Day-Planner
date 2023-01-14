@@ -28,7 +28,7 @@ namespace Away_Day_Planner.Database
         {
             int clientFK = client.id;
 
-            Department newDepartment = new Department(name, client, clientFK);
+            Department newDepartment = new Department(name, clientFK);
             databaseInterface.Add(newDepartment);
         }
 
