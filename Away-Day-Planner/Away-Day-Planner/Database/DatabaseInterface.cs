@@ -174,14 +174,12 @@ namespace Away_Day_Planner.Database
             }
         }
         // Gets the next ID of an entity, used for incremental IDs
-        public int GetNextID<T>(T e_type) where T : Type
+        public int GetNextID<T>() where T : class, IObjWithID
         {
-            if(e_type == null) throw Errors["InvalidType"];
-            if (e_type.GetField("id") == null) throw Errors["NoID"];
-
+            if (typeof(T).GetField("id") == null) throw Errors["NoID"];
             using (var context = GetContext())
             {
-                return (int)context.Set<T>().Max(x => x.GetField("id").GetValue(null));
+                return (int)context.Set<T>().Max(x => x.id);
             }
         }
         public int GetNextID<T>(T e_type, DbSet<T> dbs) where T : Type
@@ -195,7 +193,7 @@ namespace Away_Day_Planner.Database
         {
             GetContext().SaveChanges();
         }
-        public void ClearSet<T>() where T : Type
+        public void ClearSet<T>() where T : class
         {
             using (var context = GetContext())
             {

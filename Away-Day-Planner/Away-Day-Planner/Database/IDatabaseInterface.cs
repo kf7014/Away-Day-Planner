@@ -19,7 +19,7 @@ namespace Away_Day_Planner.Database
         IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type;
         void Update<T>(T old_entity, T new_entity) where T : class;
         void Delete<T>(T e_type) where T : class;
-        int GetNextID<T>(T e_type) where T : Type;
-        void ClearSet<T>() where T : Type;
+        int GetNextID<T>() where T : class, IObjWithID;
+        void ClearSet<T>() where T : class;
     }
 }

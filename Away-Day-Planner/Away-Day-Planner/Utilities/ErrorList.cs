@@ -11,7 +11,7 @@ namespace Away_Day_Planner.Utilities
     {
         public static readonly Dictionary<string, Exception> Errors = new Dictionary<string, Exception>()
         {
-
+            {"Null", new Exception("Oops, Null Object")}
         };
         public static readonly Dictionary<string, Exception> DatabaseErrors = new Dictionary<string, Exception>()
         {
