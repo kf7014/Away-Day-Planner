@@ -11,5 +11,7 @@ namespace Away_Day_Planner.Models.ClientDepartment
         Client[] getClientList();
         IDepartment[] getClientDepartments(int clientId);
         void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute);
+        void addNewDepartment(String departmentName, Client client);
+        Client getClient(int clientId);
     }
 }

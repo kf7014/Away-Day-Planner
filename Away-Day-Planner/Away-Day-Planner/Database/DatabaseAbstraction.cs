@@ -39,5 +39,13 @@ namespace Away_Day_Planner.Database
             databaseInterface.DisposeContext(result.Item2);
             return clients;
         }
+
+        public Client getClient(int clientId)
+        {
+            Tuple<Client,DbContext> result = databaseInterface.Get<Client>(clientId).ToTuple();
+            Client client = result.Item1;
+            databaseInterface.DisposeContext(result.Item2);
+            return client;
+        }
     }
 }

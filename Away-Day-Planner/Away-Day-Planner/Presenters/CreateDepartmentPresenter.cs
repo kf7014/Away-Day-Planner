@@ -49,7 +49,9 @@ namespace Away_Day_Planner.Presenters
             Console.WriteLine("Department Name " + departmentName);
             Console.WriteLine("Associated Client: " + clientName);
             Console.WriteLine("Associated Client Key: " + selectedClientId);
-            //clientModel.addNewDepartment(departmentName, clientId);
+
+            Client client = clientModel.getClient(selectedClientId);
+            clientModel.addNewDepartment(departmentName, client);
         }
     }
 }

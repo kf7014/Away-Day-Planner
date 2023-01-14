@@ -53,7 +53,7 @@ namespace Away_Day_Planner.Views
         private void buttonAddDepartment_Click(object sender, EventArgs e)
         {
             //NEEDS FORM SECURITY ADDING
-            //createDepartmentPresenter.buttonAddClientClickEvent();
+            createDepartmentPresenter.buttonAddClientClickEvent();
             this.Close();
         }
 

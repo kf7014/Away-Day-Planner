@@ -104,11 +104,17 @@ namespace Away_Day_Planner.Database
             }
         }
         // Returns An entity by its ID.
-        public (T, DbContext) Get<T>(T e_type, int id) where T : Type
+        //public (T, DbContext) Get<T>(T e_type, int id) where T : Type
+        //{
+        //    DbContext context = GetContext();
+        //    if (e_type == null) throw Errors["InvalidType"];
+        //    if (id < 0) throw Errors["NegativeID"];
+        //    return (context.Set<T>().Find(id), context);
+        //}
+
+        public (T, DbContext) Get<T>(int id) where T : class
         {
             DbContext context = GetContext();
-            if (e_type == null) throw Errors["InvalidType"];
-            if (id < 0) throw Errors["NegativeID"];
             return (context.Set<T>().Find(id), context);
         }
         // Retuns entity by its id from specific DbSet

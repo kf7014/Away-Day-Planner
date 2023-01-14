@@ -14,7 +14,7 @@ namespace Away_Day_Planner.Database
         // Implements CRUD features
         DbContext GetContext();
         void Add<T>(T e_type) where T : class;
-        (T, DbContext) Get<T>(T e_type, int id) where T : Type;
+        (T, DbContext) Get<T>(int id) where T : class;
         (DbSet<T>, DbContext) GetAll<T>() where T : class;
         IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type;
         void Update<T>(T old_entity, T new_entity) where T : class;
