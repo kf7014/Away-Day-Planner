@@ -19,8 +19,8 @@ namespace Away_Day_Planner.Database
 
         public void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute)
         {
-            //TODO: Replace placeholder ID when new method added to Database Interface
-            Client newClient = new Client(10, clientName, noOfHoursAway, hasClientDispute);
+            Client newClient = new Client(clientName, noOfHoursAway, hasClientDispute);
+            Console.WriteLine("Client supposed to be added");
             databaseInterface.Add(newClient); 
         }
 
