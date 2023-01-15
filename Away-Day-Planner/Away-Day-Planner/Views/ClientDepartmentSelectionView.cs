@@ -31,11 +31,7 @@ namespace Away_Day_Planner.Views
 
         private void buttonCreateClient_Click(object sender, EventArgs e)
         {
-            //TODO: Move out of view and into presenter
-            CreateClientView createClientView = new CreateClientView();
-            ClientModel clientModel = new ClientModel();
-            CreateClientPresenter createClientPresenter = new CreateClientPresenter(createClientView, clientModel);
-            createClientView.ShowDialog();
+            clientDepartmentSelectionPresenter.buttonCreateClientClickEvent();
         }
 
         private void buttonCreateDepartment_Click(object sender, EventArgs e)
