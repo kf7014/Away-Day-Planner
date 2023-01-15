@@ -64,5 +64,14 @@ namespace Away_Day_Planner.Presenters
             populateScreen();
         }
 
+        public void buttonCreateDepartmentClickEvent()
+        {
+            CreateDepartmentView createDepartmentView = new CreateDepartmentView();
+            ClientModel clientModel = new ClientModel();
+            CreateDepartmentPresenter createDepartmentPresenter = new CreateDepartmentPresenter(createDepartmentView, clientModel);
+            createDepartmentView.ShowDialog();
+            populateScreen();
+        }
+
     }
 }
