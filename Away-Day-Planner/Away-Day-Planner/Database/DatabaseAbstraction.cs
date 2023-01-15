@@ -47,5 +47,23 @@ namespace Away_Day_Planner.Database
             databaseInterface.DisposeContext(result.Item2);
             return client;
         }
+
+        public Department[] getClientDepartments(int clientId)
+        {
+            Tuple<DbSet<Department>, DbContext> result = databaseInterface.GetAll<Department>().ToTuple();
+            Department[] departments = result.Item1.ToArray();
+            List<Department> clientDepartments = new List<Department>();
+            foreach(Department department in departments)
+            {
+                if (department.ClientFK == clientId)
+                {
+                    clientDepartments.Add(department);
+                }
+            }
+
+            return clientDepartments.ToArray();
+        }
+
+
     }
 }

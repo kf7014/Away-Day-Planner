@@ -22,7 +22,10 @@ namespace Away_Day_Planner.Models.ClientDepartment
         public virtual Client Client { get; set; }
         [ForeignKey("Client")]
         public int ClientFK { get; set; }
+        public Department()
+        {
 
+        }
         public Department(String name, int clientFK)
         {
             Name = name;

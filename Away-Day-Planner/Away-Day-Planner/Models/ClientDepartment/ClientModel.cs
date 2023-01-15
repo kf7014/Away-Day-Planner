@@ -36,15 +36,18 @@ namespace Away_Day_Planner.Models.ClientDepartment
 
         public IDepartment[] getClientDepartments(int clientId)
         {
-            for(int i=0; i<clientList.Count; i++)
-            {
-                if(clientList[i].id == clientId)
-                {
-                    return clientList[i].departments.ToArray();
-                }
-            }
+            //for(int i=0; i<clientList.Count; i++)
+            //{
+            //    if(clientList[i].id == clientId)
+            //    {
+            //        return clientList[i].departments.ToArray();
+            //    }
+            //}
 
-            return null;
+            //return null;
+
+            Department[] clientDepartments = databaseAbstraction.getClientDepartments(clientId);
+            return clientDepartments;
         }
 
         public Client[] getClientList()
