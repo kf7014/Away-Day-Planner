@@ -28,7 +28,7 @@ namespace Away_Day_Planner.Models.EventBooker
 
         public EventModel()
         {
-            //Demo code to be replaced by db stuff
+            //TODO: Demo code to be replaced by db stuff
 
             facilitatorTeams = new List<FacilitatorTeam>();
             eventList = new List<Event>();
@@ -51,6 +51,12 @@ namespace Away_Day_Planner.Models.EventBooker
                 }
             }
             return null;
+        }
+
+        public void setParents(int clientId, int departmentId)
+        {
+            this.clientId = clientId;
+            this.departmentId = departmentId;
         }
     }
 }

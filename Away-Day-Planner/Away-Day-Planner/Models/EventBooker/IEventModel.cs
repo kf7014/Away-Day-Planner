@@ -11,6 +11,6 @@ namespace Away_Day_Planner.Models.EventBooker
         IActivity[] getEventActivityList(int eventId);
         int clientId { get; set; }
         int departmentId { get; set; }
-
+        void setParents(int clientId, int departmentId);
     }
 }
