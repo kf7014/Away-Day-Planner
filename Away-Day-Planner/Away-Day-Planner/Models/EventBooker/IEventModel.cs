@@ -13,5 +13,6 @@ namespace Away_Day_Planner.Models.EventBooker
         int departmentId { get; set; }
         void setParents(int clientId, int departmentId);
         ActivityTemplate[] getActivityTemplates();
+        RewardTemplate[] getRewardTemplates();
     }
 }

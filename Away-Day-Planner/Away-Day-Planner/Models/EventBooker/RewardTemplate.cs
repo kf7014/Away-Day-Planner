@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
-    class RewardTemplate : IRewardTemplate
+    public class RewardTemplate : IRewardTemplate
     {
         private int Id;
         [Key]

@@ -51,5 +51,10 @@ namespace Away_Day_Planner.Views
         {
             comboBoxSelectActivity.DataSource = activityNames;
         }
+
+        public void setRewardTemplateList(string[] rewardNames)
+        {
+            comboBoxRewardsRequired.DataSource = rewardNames;
+        }
     }
 }

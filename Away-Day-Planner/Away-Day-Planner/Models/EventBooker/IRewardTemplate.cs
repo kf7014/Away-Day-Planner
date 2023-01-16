@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
-    interface IRewardTemplate
+    public interface IRewardTemplate
     {
         int id { get; set; }
         String name { get; set; }

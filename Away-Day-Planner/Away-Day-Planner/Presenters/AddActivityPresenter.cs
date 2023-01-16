@@ -33,8 +33,19 @@ namespace Away_Day_Planner.Views
                 Console.WriteLine("Name " + activityTemplates[i].name);
             }
 
-            Console.WriteLine("Names: " + activityNames);
             addActivityView.setActivityTemplateList(activityNames);
+
+            //Populate rewards dropdown
+            RewardTemplate[] rewardTemplates = eventModel.getRewardTemplates();
+            String[] rewardNames = new string[rewardTemplates.Length];
+            
+            for (int i = 0; i < rewardTemplates.Length; i++)
+            {
+                rewardNames[i] = rewardTemplates[i].name;
+                Console.WriteLine("Name " + rewardTemplates[i].name);
+            }
+
+            addActivityView.setRewardTemplateList(rewardNames);
         }
     }
 }

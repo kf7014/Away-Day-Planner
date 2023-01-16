@@ -72,5 +72,13 @@ namespace Away_Day_Planner.Database
             databaseInterface.DisposeContext(result.Item2);
             return activityTemplates;
         }
+
+        public RewardTemplate[] getRewardTemplates()
+        {
+            Tuple<DbSet<RewardTemplate>, DbContext> result = databaseInterface.GetAll<RewardTemplate>().ToTuple();
+            RewardTemplate[] rewardTemplates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return rewardTemplates;
+        }
     }
 }
