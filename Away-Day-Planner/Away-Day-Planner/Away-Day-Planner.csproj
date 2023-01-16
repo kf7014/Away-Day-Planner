@@ -95,6 +95,7 @@
     <Compile Include="Models\ClientDepartment\IClientModel.cs" />
     <Compile Include="Models\ClientDepartment\IDepartment.cs" />
     <Compile Include="Models\EventBooker\Activity.cs" />
+    <Compile Include="Models\EventBooker\ActivityTemplate.cs" />
     <Compile Include="Models\EventBooker\Contractor.cs" />
     <Compile Include="Models\EventBooker\ContractorModel.cs" />
     <Compile Include="Models\EventBooker\BookedFacilitatorTeamDate.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Models\EventBooker\FacilitatorTeam.cs" />
     <Compile Include="Models\EventBooker\FacilitatorTeamModel.cs" />
     <Compile Include="Models\EventBooker\IActivity.cs" />
+    <Compile Include="Models\EventBooker\IActivityTemplate.cs" />
     <Compile Include="Models\EventBooker\IContractorModel.cs" />
     <Compile Include="Models\EventBooker\IDate.cs" />
     <Compile Include="Models\EventBooker\IEventModel.cs" />
