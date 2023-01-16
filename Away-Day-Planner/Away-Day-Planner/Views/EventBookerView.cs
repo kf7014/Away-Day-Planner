@@ -15,6 +15,12 @@ namespace Away_Day_Planner.Views
     {
         private EventBookerPresenter eventBookerPresenter;
 
+        public String pageTitle
+        {
+            get { return labelTitle.Text; }
+            set { labelTitle.Text = value; }
+        }
+
         public EventBookerView()
         {
             InitializeComponent();

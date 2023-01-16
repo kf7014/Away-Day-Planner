@@ -12,9 +12,23 @@ namespace Away_Day_Planner.Models.EventBooker
         List<FacilitatorTeam> facilitatorTeams;
         List<Event> eventList;
 
+        private int ClientId;
+        public int clientId
+        {
+            get { return ClientId;  }
+            set { ClientId = value; }           
+        }
+
+        private int DepartmentId;
+        public int departmentId
+        {
+            get { return DepartmentId; }
+            set { DepartmentId = value; }
+        }
+
         public EventModel()
         {
-            //Demo code to be replaced by db stuff
+            //TODO: Demo code to be replaced by db stuff
 
             facilitatorTeams = new List<FacilitatorTeam>();
             eventList = new List<Event>();
@@ -37,6 +51,13 @@ namespace Away_Day_Planner.Models.EventBooker
                 }
             }
             return null;
+        }
+
+        //Sets clientId and departmentId to that of parent which event is being set to
+        public void setParents(int clientId, int departmentId)
+        {
+            this.clientId = clientId;
+            this.departmentId = departmentId;
         }
     }
 }

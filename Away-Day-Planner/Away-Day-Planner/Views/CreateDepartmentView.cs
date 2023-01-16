@@ -26,7 +26,7 @@ namespace Away_Day_Planner.Views
         {
             set { clientKeys[comboBoxClientSelection.SelectedIndex] = value; }
             get 
-            { 
+            {
                 return (clientKeys[comboBoxClientSelection.SelectedIndex]); 
             }
         }
