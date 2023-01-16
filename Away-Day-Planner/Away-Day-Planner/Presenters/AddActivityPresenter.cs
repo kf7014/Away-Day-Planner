@@ -46,6 +46,7 @@ namespace Away_Day_Planner.Views
             }
 
             addActivityView.setRewardTemplateList(rewardNames);
+            addActivityView.setCustomRewardTemplateList(rewardNames);
         }
     }
 }
