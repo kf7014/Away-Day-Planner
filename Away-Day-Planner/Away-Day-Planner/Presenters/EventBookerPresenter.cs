@@ -13,10 +13,12 @@ namespace Away_Day_Planner.Presenters
     {
         private IEventBookerView eventBookerView;
         private IEventModel eventModel;
+        private IClientModel clientModel;
 
-        public EventBookerPresenter(IEventBookerView eventBookerView, IEventModel eventModel)
+        public EventBookerPresenter(IEventBookerView eventBookerView, IEventModel eventModel, IClientModel clientModel)
         {
             this.eventModel = eventModel;
+            this.clientModel = clientModel;
             this.eventBookerView = eventBookerView;
             eventBookerView.register(this);
             populateScreen();
@@ -45,7 +47,11 @@ namespace Away_Day_Planner.Presenters
         {
             int clientId = eventModel.clientId;
             int departmentId = eventModel.departmentId;
-            eventBookerView.pageTitle = "Booking event for Client " + clientId + " and Department " + departmentId;
+
+            
+            Client client = clientModel.getClient(clientId + 1);
+
+            eventBookerView.pageTitle = "Booking event for " + client.name + " and Department " + departmentId;
         }
     }
 }

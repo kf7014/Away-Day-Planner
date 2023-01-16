@@ -44,9 +44,10 @@ namespace Away_Day_Planner.Views
 
             //Create Model and View for EventBooker
             EventModel eventModel = new EventModel();
+            ClientModel clientModel = new ClientModel();
             eventModel.setParents(listBoxClient.SelectedIndex, listBoxDepartment.SelectedIndex);
             EventBookerView eventBookerView = new EventBookerView();
-            EventBookerPresenter eventBookerPresenter = new EventBookerPresenter(eventBookerView, eventModel);
+            EventBookerPresenter eventBookerPresenter = new EventBookerPresenter(eventBookerView, eventModel, clientModel);
             this.Hide();
             eventBookerView.ShowDialog();
             this.Show();
