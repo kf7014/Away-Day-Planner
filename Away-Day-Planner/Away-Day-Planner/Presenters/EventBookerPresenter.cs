@@ -50,8 +50,13 @@ namespace Away_Day_Planner.Presenters
 
             
             Client client = clientModel.getClient(clientId + 1);
+            IDepartment[] departments = clientModel.getClientDepartments(clientId + 1);
 
-            eventBookerView.pageTitle = "Booking event for " + client.name + " and Department " + departmentId;
+            Console.WriteLine("Test: " + eventModel.departmentId);
+
+            Department department = (Department)departments[eventModel.departmentId];
+
+            eventBookerView.pageTitle = "Booking event for " + client.name + " and Department " + department.name;
         }
     }
 }
