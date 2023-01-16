@@ -40,8 +40,8 @@ namespace Away_Day_Planner.Presenters
 
         public void listBoxClientSelectionEvent()
         {
-            IDepartment[] departmentList = clientModel.getClientDepartments(clientDepartmentSelectionView.selectedClientIndex);
-            
+            IDepartment[] departmentList = clientModel.getClientDepartments(clientDepartmentSelectionView.selectedClientIndex + 1);
+
             if(departmentList == null)
             {
                 return;
@@ -53,6 +53,24 @@ namespace Away_Day_Planner.Presenters
                 departmentNames[i] = departmentList[i].name;
             }
             clientDepartmentSelectionView.setDepartmentList(departmentNames);
+        }
+
+        public void buttonCreateClientClickEvent()
+        {
+            CreateClientView createClientView = new CreateClientView();
+            ClientModel clientModel = new ClientModel();
+            CreateClientPresenter createClientPresenter = new CreateClientPresenter(createClientView, clientModel);
+            createClientView.ShowDialog();
+            populateScreen();
+        }
+
+        public void buttonCreateDepartmentClickEvent()
+        {
+            CreateDepartmentView createDepartmentView = new CreateDepartmentView();
+            ClientModel clientModel = new ClientModel();
+            CreateDepartmentPresenter createDepartmentPresenter = new CreateDepartmentPresenter(createDepartmentView, clientModel);
+            createDepartmentView.ShowDialog();
+            populateScreen();
         }
 
     }

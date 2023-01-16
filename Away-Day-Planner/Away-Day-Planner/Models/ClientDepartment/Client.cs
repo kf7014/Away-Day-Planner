@@ -56,9 +56,8 @@ namespace Away_Day_Planner.Models.ClientDepartment
         {
         }
 
-        public Client(int id, string name, int noOfHoursAway, bool hasClientDispute)
+        public Client(string name, int noOfHoursAway, bool hasClientDispute)
         {
-            Id = id;
             Name = name;
             NoOfHoursAway = noOfHoursAway;
             HasClientDispute = hasClientDispute;
