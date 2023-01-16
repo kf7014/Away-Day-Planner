@@ -12,6 +12,20 @@ namespace Away_Day_Planner.Models.EventBooker
         List<FacilitatorTeam> facilitatorTeams;
         List<Event> eventList;
 
+        private int ClientId;
+        public int clientId
+        {
+            get { return ClientId;  }
+            set { ClientId = clientId; }           
+        }
+
+        private int DepartmentId;
+        public int departmentId
+        {
+            get { return DepartmentId; }
+            set { DepartmentId = departmentId; }
+        }
+
         public EventModel()
         {
             //Demo code to be replaced by db stuff
