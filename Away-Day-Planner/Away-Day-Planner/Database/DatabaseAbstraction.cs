@@ -72,7 +72,5 @@ namespace Away_Day_Planner.Database
             databaseInterface.DisposeContext(result.Item2);
             return activityTemplates;
         }
-
-
     }
 }

@@ -22,6 +22,7 @@ namespace Away_Day_Planner.Database.Contexts
         public virtual DbSet<EventFlexibilityDate> EventFlexibilityDates { get; set; }
         public virtual DbSet<BookedFacilitatorTeamDate> BookedFacilitatorTeamDates { get; set; }
         public virtual DbSet<ActivityTemplate> ActivityTemplates { get; set; }
+        public virtual DbSet<RewardTemplate> RewardTemplates { get; set; }
 
         public EntitiesContext() : base("name=connection-string"){}
 

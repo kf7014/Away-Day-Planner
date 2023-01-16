@@ -25,6 +25,16 @@ namespace Away_Day_Planner.Views
         {
             //Populate template activities dropdown
             ActivityTemplate[] activityTemplates = eventModel.getActivityTemplates();
+            String[] activityNames = new string[activityTemplates.Length];
+            
+            for(int i=0; i<activityTemplates.Length; i++)
+            {
+                activityNames[i] = activityTemplates[i].name;
+                Console.WriteLine("Name " + activityTemplates[i].name);
+            }
+
+            Console.WriteLine("Names: " + activityNames);
+            addActivityView.setActivityTemplateList(activityNames);
         }
     }
 }

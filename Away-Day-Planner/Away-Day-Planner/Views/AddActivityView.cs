@@ -46,5 +46,10 @@ namespace Away_Day_Planner.Views
         {
             this.addActivityPresenter = addActivityPresenter;
         }
+
+        public void setActivityTemplateList(string[] activityNames)
+        {
+            comboBoxSelectActivity.DataSource = activityNames;
+        }
     }
 }
