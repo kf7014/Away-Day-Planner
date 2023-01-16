@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Away_Day_Planner.Views;
+using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Database;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
     public class EventModel : IEventModel
     {
+        DatabaseAbstraction databaseAbstraction = new DatabaseAbstraction();
         //Demo code to be replaced by db stuff
         List<FacilitatorTeam> facilitatorTeams;
         List<Event> eventList;
@@ -58,6 +62,12 @@ namespace Away_Day_Planner.Models.EventBooker
         {
             this.clientId = clientId;
             this.departmentId = departmentId;
+        }
+
+        public ActivityTemplate[] getActivityTemplates()
+        {
+            ActivityTemplate[] activityTemplates = databaseAbstraction.getActivityTemplates();
+            return activityTemplates;
         }
     }
 }

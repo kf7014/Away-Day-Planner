@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Away_Day_Planner.Models.ClientDepartment;
+using Away_Day_Planner.Models.EventBooker;
 
 namespace Away_Day_Planner.Database
 {
@@ -62,6 +63,14 @@ namespace Away_Day_Planner.Database
             }
 
             return clientDepartments.ToArray();
+        }
+
+        public ActivityTemplate[] getActivityTemplates()
+        {
+            Tuple<DbSet<ActivityTemplate>, DbContext> result = databaseInterface.GetAll<ActivityTemplate>().ToTuple();
+            ActivityTemplate[] activityTemplates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return activityTemplates;
         }
 
 
