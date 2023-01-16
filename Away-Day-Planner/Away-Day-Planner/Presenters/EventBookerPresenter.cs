@@ -24,6 +24,9 @@ namespace Away_Day_Planner.Presenters
 
         private void populateScreen()
         {
+            //Customise event form title to match client and department
+            setTitle();
+
             //Populate activityList box
             //Currently uses hardcoded event ID, NEEDS CHANGING
             IActivity[] activityList = eventModel.getEventActivityList(0);
@@ -35,6 +38,14 @@ namespace Away_Day_Planner.Presenters
 
             //Sets activityList datasource in view
             eventBookerView.setActivityList(activityListNames);
+        }
+
+        //Customise event form title to match client and department
+        private void setTitle()
+        {
+            int clientId = eventModel.clientId;
+            int departmentId = eventModel.departmentId;
+            eventBookerView.pageTitle = "Booking event for Client " + clientId + " and Department " + departmentId;
         }
     }
 }

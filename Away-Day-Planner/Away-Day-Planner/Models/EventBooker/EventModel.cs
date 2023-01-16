@@ -16,14 +16,14 @@ namespace Away_Day_Planner.Models.EventBooker
         public int clientId
         {
             get { return ClientId;  }
-            set { ClientId = clientId; }           
+            set { ClientId = value; }           
         }
 
         private int DepartmentId;
         public int departmentId
         {
             get { return DepartmentId; }
-            set { DepartmentId = departmentId; }
+            set { DepartmentId = value; }
         }
 
         public EventModel()
@@ -53,6 +53,7 @@ namespace Away_Day_Planner.Models.EventBooker
             return null;
         }
 
+        //Sets clientId and departmentId to that of parent which event is being set to
         public void setParents(int clientId, int departmentId)
         {
             this.clientId = clientId;
