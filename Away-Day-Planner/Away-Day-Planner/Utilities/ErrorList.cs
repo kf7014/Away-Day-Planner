@@ -22,5 +22,9 @@ namespace Away_Day_Planner.Utilities
             {"NullEntity", new Exception("Object provided was null")},
             {"NoID", new Exception("Object does not contain id field (Case sensitive)")},
         };
+        public static readonly Dictionary<string, Exception> EventErrors = new Dictionary<string, Exception>()
+        {
+            {"15Days", new Exception("Cannot Cancel within 15 days of event date!")}
+        };
     }
 }
