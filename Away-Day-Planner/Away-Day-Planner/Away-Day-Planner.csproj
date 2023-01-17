@@ -81,6 +81,7 @@
     <Compile Include="Database\IResults.cs" />
     <Compile Include="Database\Results.cs" />
     <Compile Include="EventChain\EventChainFactory.cs" />
+    <Compile Include="EventChain\Handlers\ArchivedEventHandler.cs" />
     <Compile Include="EventChain\Handlers\BaseEventHandler.cs" />
     <Compile Include="EventChain\Handlers\CancelledEventHandler.cs" />
     <Compile Include="EventChain\Handlers\GeneralEventHandler.cs" />
@@ -206,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Security\" />
-    <Folder Include="Testing\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

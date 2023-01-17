@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Away_Day_Planner.EventChain;
+using Away_Day_Planner.EventChain.Handlers;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
-    public class Event
+    public class Event : IEvent
     {
+        public EVENT_STATE EventState { get; set; }
+
         private int Id;
         [Key]
         public int id

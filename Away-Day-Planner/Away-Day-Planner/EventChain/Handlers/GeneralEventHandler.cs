@@ -8,9 +8,14 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     internal class GeneralEventHandler : Handler
     {
+        public void AddOption()
+        {
+
+        }
         public override void HandleEvent()
         {
-            throw new NotImplementedException();
+            Event.CurrentHandler = this;
+            Event.EventState = EVENT_STATE.EVENT;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Away_Day_Planner.EventChain.Handlers
         }
         public override void HandleEvent()
         {
-            throw new NotImplementedException();
+            Event.CurrentHandler = Successor;
         }
     }
 }
