@@ -74,7 +74,7 @@ namespace Away_Day_Planner.Views
             // 
             // registerNewUserButton
             // 
-            this.registerNewUserButton.Location = new System.Drawing.Point(344, 316);
+            this.registerNewUserButton.Location = new System.Drawing.Point(342, 349);
             this.registerNewUserButton.Name = "registerNewUserButton";
             this.registerNewUserButton.Size = new System.Drawing.Size(126, 23);
             this.registerNewUserButton.TabIndex = 10;
@@ -94,7 +94,7 @@ namespace Away_Day_Planner.Views
             // firstNameText
             // 
             this.firstNameText.AutoSize = true;
-            this.firstNameText.Location = new System.Drawing.Point(188, 180);
+            this.firstNameText.Location = new System.Drawing.Point(188, 200);
             this.firstNameText.Name = "firstNameText";
             this.firstNameText.Size = new System.Drawing.Size(63, 13);
             this.firstNameText.TabIndex = 12;
@@ -103,7 +103,7 @@ namespace Away_Day_Planner.Views
             // lastNameText
             // 
             this.lastNameText.AutoSize = true;
-            this.lastNameText.Location = new System.Drawing.Point(187, 218);
+            this.lastNameText.Location = new System.Drawing.Point(187, 242);
             this.lastNameText.Name = "lastNameText";
             this.lastNameText.Size = new System.Drawing.Size(64, 13);
             this.lastNameText.TabIndex = 13;
@@ -111,14 +111,14 @@ namespace Away_Day_Planner.Views
             // 
             // staffFirstName
             // 
-            this.staffFirstName.Location = new System.Drawing.Point(257, 177);
+            this.staffFirstName.Location = new System.Drawing.Point(257, 197);
             this.staffFirstName.Name = "staffFirstName";
             this.staffFirstName.Size = new System.Drawing.Size(111, 20);
             this.staffFirstName.TabIndex = 14;
             // 
             // staffLastName
             // 
-            this.staffLastName.Location = new System.Drawing.Point(258, 215);
+            this.staffLastName.Location = new System.Drawing.Point(258, 239);
             this.staffLastName.Name = "staffLastName";
             this.staffLastName.Size = new System.Drawing.Size(111, 20);
             this.staffLastName.TabIndex = 15;
@@ -126,7 +126,7 @@ namespace Away_Day_Planner.Views
             // emailText
             // 
             this.emailText.AutoSize = true;
-            this.emailText.Location = new System.Drawing.Point(203, 287);
+            this.emailText.Location = new System.Drawing.Point(202, 321);
             this.emailText.Name = "emailText";
             this.emailText.Size = new System.Drawing.Size(41, 13);
             this.emailText.TabIndex = 16;
@@ -135,7 +135,7 @@ namespace Away_Day_Planner.Views
             // usernameText
             // 
             this.usernameText.AutoSize = true;
-            this.usernameText.Location = new System.Drawing.Point(409, 180);
+            this.usernameText.Location = new System.Drawing.Point(410, 197);
             this.usernameText.Name = "usernameText";
             this.usernameText.Size = new System.Drawing.Size(58, 13);
             this.usernameText.TabIndex = 17;
@@ -143,14 +143,14 @@ namespace Away_Day_Planner.Views
             // 
             // staffEmail
             // 
-            this.staffEmail.Location = new System.Drawing.Point(257, 284);
+            this.staffEmail.Location = new System.Drawing.Point(256, 318);
             this.staffEmail.Name = "staffEmail";
             this.staffEmail.Size = new System.Drawing.Size(328, 20);
             this.staffEmail.TabIndex = 18;
             // 
             // staffUsername
             // 
-            this.staffUsername.Location = new System.Drawing.Point(473, 177);
+            this.staffUsername.Location = new System.Drawing.Point(473, 197);
             this.staffUsername.Name = "staffUsername";
             this.staffUsername.Size = new System.Drawing.Size(111, 20);
             this.staffUsername.TabIndex = 19;
@@ -158,7 +158,7 @@ namespace Away_Day_Planner.Views
             // roleText
             // 
             this.roleText.AutoSize = true;
-            this.roleText.Location = new System.Drawing.Point(432, 218);
+            this.roleText.Location = new System.Drawing.Point(432, 242);
             this.roleText.Name = "roleText";
             this.roleText.Size = new System.Drawing.Size(35, 13);
             this.roleText.TabIndex = 20;
@@ -170,14 +170,14 @@ namespace Away_Day_Planner.Views
             this.staffRole.Items.AddRange(new object[] {
             "Staff",
             ""});
-            this.staffRole.Location = new System.Drawing.Point(473, 215);
+            this.staffRole.Location = new System.Drawing.Point(473, 239);
             this.staffRole.Name = "staffRole";
             this.staffRole.Size = new System.Drawing.Size(111, 21);
             this.staffRole.TabIndex = 21;
             // 
             // staffPassword
             // 
-            this.staffPassword.Location = new System.Drawing.Point(258, 249);
+            this.staffPassword.Location = new System.Drawing.Point(256, 279);
             this.staffPassword.Name = "staffPassword";
             this.staffPassword.Size = new System.Drawing.Size(111, 20);
             this.staffPassword.TabIndex = 22;
@@ -185,7 +185,7 @@ namespace Away_Day_Planner.Views
             // passwordText
             // 
             this.passwordText.AutoSize = true;
-            this.passwordText.Location = new System.Drawing.Point(190, 252);
+            this.passwordText.Location = new System.Drawing.Point(188, 282);
             this.passwordText.Name = "passwordText";
             this.passwordText.Size = new System.Drawing.Size(56, 13);
             this.passwordText.TabIndex = 23;
@@ -195,61 +195,55 @@ namespace Away_Day_Planner.Views
             // 
             this.errorMessageFirstName.AutoSize = true;
             this.errorMessageFirstName.ForeColor = System.Drawing.Color.Red;
-            this.errorMessageFirstName.Location = new System.Drawing.Point(257, 161);
+            this.errorMessageFirstName.Location = new System.Drawing.Point(258, 181);
             this.errorMessageFirstName.Name = "errorMessageFirstName";
-            this.errorMessageFirstName.Size = new System.Drawing.Size(13, 13);
+            this.errorMessageFirstName.Size = new System.Drawing.Size(0, 13);
             this.errorMessageFirstName.TabIndex = 24;
-            this.errorMessageFirstName.Text = "1";
             // 
             // errorMessageLastName
             // 
             this.errorMessageLastName.AutoSize = true;
             this.errorMessageLastName.ForeColor = System.Drawing.Color.Red;
-            this.errorMessageLastName.Location = new System.Drawing.Point(257, 200);
+            this.errorMessageLastName.Location = new System.Drawing.Point(258, 220);
             this.errorMessageLastName.Name = "errorMessageLastName";
-            this.errorMessageLastName.Size = new System.Drawing.Size(13, 13);
+            this.errorMessageLastName.Size = new System.Drawing.Size(0, 13);
             this.errorMessageLastName.TabIndex = 25;
-            this.errorMessageLastName.Text = "1";
             // 
             // errorMessagePassword
             // 
             this.errorMessagePassword.AutoSize = true;
             this.errorMessagePassword.ForeColor = System.Drawing.Color.Red;
-            this.errorMessagePassword.Location = new System.Drawing.Point(257, 234);
+            this.errorMessagePassword.Location = new System.Drawing.Point(258, 263);
             this.errorMessagePassword.Name = "errorMessagePassword";
-            this.errorMessagePassword.Size = new System.Drawing.Size(13, 13);
+            this.errorMessagePassword.Size = new System.Drawing.Size(0, 13);
             this.errorMessagePassword.TabIndex = 26;
-            this.errorMessagePassword.Text = "1";
             // 
             // errorMessageEmail
             // 
             this.errorMessageEmail.AutoSize = true;
             this.errorMessageEmail.ForeColor = System.Drawing.Color.Red;
-            this.errorMessageEmail.Location = new System.Drawing.Point(257, 268);
+            this.errorMessageEmail.Location = new System.Drawing.Point(258, 302);
             this.errorMessageEmail.Name = "errorMessageEmail";
-            this.errorMessageEmail.Size = new System.Drawing.Size(13, 13);
+            this.errorMessageEmail.Size = new System.Drawing.Size(0, 13);
             this.errorMessageEmail.TabIndex = 27;
-            this.errorMessageEmail.Text = "1";
             // 
             // errorMessageUsername
             // 
             this.errorMessageUsername.AutoSize = true;
             this.errorMessageUsername.ForeColor = System.Drawing.Color.Red;
-            this.errorMessageUsername.Location = new System.Drawing.Point(473, 161);
+            this.errorMessageUsername.Location = new System.Drawing.Point(473, 181);
             this.errorMessageUsername.Name = "errorMessageUsername";
-            this.errorMessageUsername.Size = new System.Drawing.Size(13, 13);
+            this.errorMessageUsername.Size = new System.Drawing.Size(0, 13);
             this.errorMessageUsername.TabIndex = 28;
-            this.errorMessageUsername.Text = "1";
             // 
             // errorMessageRole
             // 
             this.errorMessageRole.AutoSize = true;
             this.errorMessageRole.ForeColor = System.Drawing.Color.Red;
-            this.errorMessageRole.Location = new System.Drawing.Point(473, 200);
+            this.errorMessageRole.Location = new System.Drawing.Point(473, 220);
             this.errorMessageRole.Name = "errorMessageRole";
-            this.errorMessageRole.Size = new System.Drawing.Size(13, 13);
+            this.errorMessageRole.Size = new System.Drawing.Size(0, 13);
             this.errorMessageRole.TabIndex = 29;
-            this.errorMessageRole.Text = "1";
             // 
             // RegisterView
             // 
