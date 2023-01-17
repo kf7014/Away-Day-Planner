@@ -13,6 +13,11 @@ namespace Away_Day_Planner.EventChain.Handlers
             throw new NotImplementedException();
         }
 
+        public void ChangeEventState()
+        {
+            throw new NotImplementedException();
+        }
+
         public void HandleEvent()
         {
             throw new NotImplementedException();

@@ -11,5 +11,6 @@ namespace Away_Day_Planner.EventChain.Handlers
         void SetSuccessor(IHandler h);
         void HandleEvent();
         void CancelEvent();
+        void ChangeEventState();
     }
 }

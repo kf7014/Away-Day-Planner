@@ -69,5 +69,9 @@ namespace Away_Day_Planner.Models.EventBooker
             Id = id;
             ActivitiesList = new List<IActivity>();
         }
+        public double DaysTillEvent(DateTime currentTime)
+        {
+            return (BookingDate.dateTime - currentTime).TotalDays;
+        }
     }
 }
