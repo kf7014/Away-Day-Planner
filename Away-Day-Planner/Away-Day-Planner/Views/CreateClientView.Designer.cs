@@ -112,7 +112,6 @@ namespace Away_Day_Planner.Views
             this.labelErrorClientName.Name = "labelErrorClientName";
             this.labelErrorClientName.Size = new System.Drawing.Size(0, 13);
             this.labelErrorClientName.TabIndex = 8;
-            this.labelErrorClientName.Click += new System.EventHandler(this.labelErrorClientName_Click);
             // 
             // labelErrorDistance
             // 
@@ -149,7 +148,6 @@ namespace Away_Day_Planner.Views
             this.Controls.Add(this.labelTitle);
             this.Name = "CreateClientView";
             this.Text = "Away Day Planner";
-            this.Load += new System.EventHandler(this.CreateClientView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfHoursAway)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

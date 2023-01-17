@@ -58,22 +58,11 @@ namespace Away_Day_Planner.Views
 
         private void buttonAddClient_Click(object sender, EventArgs e)
         {
-            //NEEDS FORM SECURITY ADDING
             bool success = createClientPresenter.buttonAddClientClickEvent();
             if (success)
             {
                 this.Close();
             } 
-        }
-
-        private void CreateClientView_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelErrorClientName_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

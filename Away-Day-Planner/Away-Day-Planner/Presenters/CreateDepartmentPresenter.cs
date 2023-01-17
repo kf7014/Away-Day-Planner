@@ -40,18 +40,49 @@ namespace Away_Day_Planner.Presenters
 
         }
 
-        public void buttonAddClientClickEvent()
+        public bool buttonAddDepartmentClickEvent()
         {
-            String clientName = createDepartmentView.ClientName;
-            int selectedClientId = createDepartmentView.SelectedClientId;
+            String clientName = createDepartmentView.ClientName;        
             String departmentName = createDepartmentView.DepartmentName;
-            Console.WriteLine("Department would be added with following details: ");
-            Console.WriteLine("Department Name " + departmentName);
-            Console.WriteLine("Associated Client: " + clientName);
-            Console.WriteLine("Associated Client Key: " + selectedClientId);
 
-            Client client = clientModel.getClient(selectedClientId);
-            clientModel.addNewDepartment(departmentName, client);
+            bool validationErrors = false;
+
+            if(clientName == null)
+            {
+                createDepartmentView.ErrorMessageClientSelection = "Client cannot be null";
+                validationErrors = true;
+            } else if(clientName == "")
+            {
+                createDepartmentView.ErrorMessageClientSelection = "Client cannot be empty";
+            }
+
+            if (departmentName.Length < 2)
+            {
+                createDepartmentView.ErrorMessageDepartmentName = "Department name must be longer than 2 characters";
+                validationErrors = true;
+            }
+            else if (departmentName.Length > 50)
+            {
+                createDepartmentView.ErrorMessageDepartmentName = "Department name must be shorter than 50 characters";
+                validationErrors = true;
+            }
+            else if (departmentName == null)
+            {
+                createDepartmentView.ErrorMessageDepartmentName = "Department name cannot be null";
+                validationErrors = true;
+            }
+
+            if(validationErrors == false)
+            {
+                int selectedClientId = createDepartmentView.SelectedClientId;
+                Client client = clientModel.getClient(selectedClientId);
+                clientModel.addNewDepartment(departmentName, client);
+                return true;
+            } else 
+            {
+                return false;
+            }
+            
         }
     }
 }

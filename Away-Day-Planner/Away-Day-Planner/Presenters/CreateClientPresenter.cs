@@ -25,10 +25,6 @@ namespace Away_Day_Planner.Presenters
             String clientName = createClientView.ClientName;
             int noOfHoursAway = Convert.ToInt32(createClientView.NumberOfHoursAway);
             bool hadClientDispute = createClientView.HadClientDispute;
-            Console.WriteLine("Client would be added with following details: ");
-            Console.WriteLine("Name: " + clientName);
-            Console.WriteLine("No Of Hours Away: " + noOfHoursAway);
-            Console.WriteLine("Had Client Dispute: " + hadClientDispute);
 
             bool validationErrors = false;           
 
