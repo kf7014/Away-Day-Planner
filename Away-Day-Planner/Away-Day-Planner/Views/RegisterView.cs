@@ -101,7 +101,7 @@ namespace Away_Day_Planner.Views
             registerUserPresenter.registerNewUserEvent();
         }
 
- 
+
         //registerNewUserButton
         //end of retrieving data from form//
 

@@ -59,80 +59,80 @@ namespace Away_Day_Planner.Presenters
                 createRegisterView.ErrorMessageLastName = "First name must be longer than 2 characters";
                 validationError = true;
             }
-            else if (firstName.Length > 50)
+            else if (lastName.Length > 50)
             {
                 createRegisterView.ErrorMessageLastName = "First name must be shorter than 50 characters";
                 validationError = true;
             }
-            else if (firstName == null)
+            else if (lastName == null)
             {
                 createRegisterView.ErrorMessageLastName = "Client name cannot be empty";
                 validationError = true;
             }
 
             //username
-            if (firstName.Length < 5)
+            if (username.Length < 5)
             {
                 createRegisterView.ErrorMessageUsername = "Username must be longer than 5 characters";
                 validationError = true;
             }
-            else if (firstName.Length > 20)
+            else if (username.Length > 20)
             {
                 createRegisterView.ErrorMessageUsername = "Username must be shorter than 20 characters";
                 validationError = true;
             }
-            else if (firstName == null)
+            else if (username == null)
             {
                 createRegisterView.ErrorMessageUsername = "Username cannot be empty";
                 validationError = true;
             }
 
             //user email
-            if (firstName.Length < 10)
+            if (userEmail.Length < 10)
             {
                 createRegisterView.ErrorMessageEmail = "E-mail must be longer than 10 characters";
                 validationError = true;
             }
-            else if (firstName.Length > 50)
+            else if (userEmail.Length > 50)
             {
                 createRegisterView.ErrorMessageEmail = "E-mail name must be shorter than 50 characters";
                 validationError = true;
             }
-            else if (firstName == null)
+            else if (userEmail == null)
             {
                 createRegisterView.ErrorMessageEmail = "E-mail name cannot be empty";
                 validationError = true;
             }
 
             //user password
-            if (firstName.Length < 8)
+            if (userPassword.Length < 8)
             {
                 createRegisterView.ErrorMessagePassword = "Password must be longer than 8 characters";
                 validationError = true;
             }
-            else if (firstName.Length > 50)
+            else if (userPassword.Length > 50)
             {
                 createRegisterView.ErrorMessagePassword = "Password name must be shorter than 50 characters";
                 validationError = true;
             }
-            else if (firstName == null)
+            else if (userPassword == null)
             {
                 createRegisterView.ErrorMessagePassword = "Password name cannot be empty";
                 validationError = true;
             }
 
             //user role
-            if (firstName.Length < 2)
+            if (userRole.Length < 2)
             {
                 createRegisterView.ErrorMessageRole = "Role must be longer than 2 characters";
                 validationError = true;
             }
-            else if (firstName.Length > 20)
+            else if (userRole.Length > 20)
             {
                 createRegisterView.ErrorMessageRole = "Role must be shorter than 20 characters";
                 validationError = true;
             }
-            else if (firstName == null)
+            else if (userRole == null)
             {
                 createRegisterView.ErrorMessageRole = "Role name cannot be empty";
                 validationError = true;

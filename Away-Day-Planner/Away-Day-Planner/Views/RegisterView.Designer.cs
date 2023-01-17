@@ -197,8 +197,9 @@ namespace Away_Day_Planner.Views
             this.errorMessageFirstName.ForeColor = System.Drawing.Color.Red;
             this.errorMessageFirstName.Location = new System.Drawing.Point(257, 161);
             this.errorMessageFirstName.Name = "errorMessageFirstName";
-            this.errorMessageFirstName.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageFirstName.Size = new System.Drawing.Size(13, 13);
             this.errorMessageFirstName.TabIndex = 24;
+            this.errorMessageFirstName.Text = "1";
             // 
             // errorMessageLastName
             // 
@@ -206,8 +207,9 @@ namespace Away_Day_Planner.Views
             this.errorMessageLastName.ForeColor = System.Drawing.Color.Red;
             this.errorMessageLastName.Location = new System.Drawing.Point(257, 200);
             this.errorMessageLastName.Name = "errorMessageLastName";
-            this.errorMessageLastName.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageLastName.Size = new System.Drawing.Size(13, 13);
             this.errorMessageLastName.TabIndex = 25;
+            this.errorMessageLastName.Text = "1";
             // 
             // errorMessagePassword
             // 
@@ -215,8 +217,9 @@ namespace Away_Day_Planner.Views
             this.errorMessagePassword.ForeColor = System.Drawing.Color.Red;
             this.errorMessagePassword.Location = new System.Drawing.Point(257, 234);
             this.errorMessagePassword.Name = "errorMessagePassword";
-            this.errorMessagePassword.Size = new System.Drawing.Size(0, 13);
+            this.errorMessagePassword.Size = new System.Drawing.Size(13, 13);
             this.errorMessagePassword.TabIndex = 26;
+            this.errorMessagePassword.Text = "1";
             // 
             // errorMessageEmail
             // 
@@ -224,8 +227,9 @@ namespace Away_Day_Planner.Views
             this.errorMessageEmail.ForeColor = System.Drawing.Color.Red;
             this.errorMessageEmail.Location = new System.Drawing.Point(257, 268);
             this.errorMessageEmail.Name = "errorMessageEmail";
-            this.errorMessageEmail.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageEmail.Size = new System.Drawing.Size(13, 13);
             this.errorMessageEmail.TabIndex = 27;
+            this.errorMessageEmail.Text = "1";
             // 
             // errorMessageUsername
             // 
@@ -233,8 +237,9 @@ namespace Away_Day_Planner.Views
             this.errorMessageUsername.ForeColor = System.Drawing.Color.Red;
             this.errorMessageUsername.Location = new System.Drawing.Point(473, 161);
             this.errorMessageUsername.Name = "errorMessageUsername";
-            this.errorMessageUsername.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageUsername.Size = new System.Drawing.Size(13, 13);
             this.errorMessageUsername.TabIndex = 28;
+            this.errorMessageUsername.Text = "1";
             // 
             // errorMessageRole
             // 
@@ -242,8 +247,9 @@ namespace Away_Day_Planner.Views
             this.errorMessageRole.ForeColor = System.Drawing.Color.Red;
             this.errorMessageRole.Location = new System.Drawing.Point(473, 200);
             this.errorMessageRole.Name = "errorMessageRole";
-            this.errorMessageRole.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageRole.Size = new System.Drawing.Size(13, 13);
             this.errorMessageRole.TabIndex = 29;
+            this.errorMessageRole.Text = "1";
             // 
             // RegisterView
             // 
