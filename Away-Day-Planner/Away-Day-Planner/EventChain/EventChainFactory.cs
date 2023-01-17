@@ -20,7 +20,6 @@ namespace Away_Day_Planner.EventChain
         private ArchivedEventHandler NewArchivedHandler()       => Activator.CreateInstance<ArchivedEventHandler>();
 
         private IEvent _Event = null;
-        private IHandler _Base = null;
 
         public IList<IHandler> Handlers { get; private set; }
 
@@ -67,7 +66,6 @@ namespace Away_Day_Planner.EventChain
             _pay.SetSuccessor(_archive);
 
             _base.SetEvent(_Event);
-            _Base = _base;
 
             Handlers.Add(_base);
             Handlers.Add(_prelim);
