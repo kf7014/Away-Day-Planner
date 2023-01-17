@@ -9,14 +9,14 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     internal class CancelledEventHandler : Handler
     {
-        public double CalculateCancelledPercentage(DateTime TimeNow) {
+        public Decimal CalculateCancelledPercentage(DateTime TimeNow) {
             double DayDiff = Event.DaysTillEvent(TimeNow);
 
-            if (DayDiff > 60) return .20;
-            if (DayDiff <= 60 && DayDiff >= 30) return .50;
-            else return .75;
+            if (DayDiff > 60) return 0.20M;
+            if (DayDiff <= 60 && DayDiff >= 30) return 0.50M;
+            else return 0.75M;
         }
-        public double CalculateCancelledFee()
+        public Decimal CalculateCancelledFee()
         {
             DateTime currentTime = DateTime.Now;
             return CalculateCancelledPercentage(currentTime);
@@ -25,9 +25,14 @@ namespace Away_Day_Planner.EventChain.Handlers
         {
             Event.EventState = EVENT_STATE.PAYMENT;
         }
+        private void ApplyCancelledFeeDifference()
+        {
+            Event.price = Event.price * CalculateCancelledFee();
+        }
 
         public override void HandleEvent()
         {
+            ApplyCancelledFeeDifference();
             ChangeEventState();
             Successor.HandleEvent();
         }

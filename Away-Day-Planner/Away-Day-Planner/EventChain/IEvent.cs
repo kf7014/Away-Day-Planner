@@ -17,6 +17,8 @@ namespace Away_Day_Planner.EventChain
         EVENT_STATE EventState { get; set; }
         IDate bookingDate { get; set; }
         double DaysTillEvent(DateTime currentTime);
+        Decimal price { get; set; }
+        ICollection<IActivity> activitiesList { get; set; }
 
     }
 }
