@@ -58,18 +58,50 @@ namespace Away_Day_Planner.Views
             get { return staffRole.Text; }
             set { staffRole.Text = value; }
         }
+        //error messages
+        public String ErrorMessageFirstName
+        {
+            get { return errorMessageFirstName.Text; }
+            set { errorMessageFirstName.Text = value; }
+        }
+
+        public String ErrorMessageLastName
+        {
+            get { return errorMessageLastName.Text; }
+            set { errorMessageLastName.Text = value; }
+        }
+
+        public String ErrorMessageUsername
+        {
+            get { return errorMessageUsername.Text; }
+            set { errorMessageUsername.Text = value; }
+        }
+
+        public String ErrorMessageEmail
+        {
+            get { return errorMessageEmail.Text; }
+            set { errorMessageEmail.Text = value; }
+        }
+
+        public String ErrorMessagePassword
+        {
+            get { return errorMessagePassword.Text; }
+            set { errorMessagePassword.Text = value; }
+        }
+
+        public String ErrorMessageRole
+        {
+            get { return errorMessageRole.Text; }
+            set { errorMessageRole.Text = value; }
+        }
+
 
         private void registerNewUserButton_Click(object sender, EventArgs e)
         {
             registerUserPresenter.registerNewUserEvent();
-
-            Console.WriteLine(firstName);
-            Console.WriteLine(lastName);
-            Console.WriteLine(userPassword);
-            Console.WriteLine(userEmail);
-            Console.WriteLine(username);
-            Console.WriteLine(userRole);
         }
+
+ 
         //registerNewUserButton
         //end of retrieving data from form//
 

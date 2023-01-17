@@ -45,6 +45,12 @@ namespace Away_Day_Planner.Views
             this.staffRole = new System.Windows.Forms.ComboBox();
             this.staffPassword = new System.Windows.Forms.TextBox();
             this.passwordText = new System.Windows.Forms.Label();
+            this.errorMessageFirstName = new System.Windows.Forms.Label();
+            this.errorMessageLastName = new System.Windows.Forms.Label();
+            this.errorMessagePassword = new System.Windows.Forms.Label();
+            this.errorMessageEmail = new System.Windows.Forms.Label();
+            this.errorMessageUsername = new System.Windows.Forms.Label();
+            this.errorMessageRole = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // registerHeading
@@ -97,7 +103,7 @@ namespace Away_Day_Planner.Views
             // lastNameText
             // 
             this.lastNameText.AutoSize = true;
-            this.lastNameText.Location = new System.Drawing.Point(187, 214);
+            this.lastNameText.Location = new System.Drawing.Point(187, 218);
             this.lastNameText.Name = "lastNameText";
             this.lastNameText.Size = new System.Drawing.Size(64, 13);
             this.lastNameText.TabIndex = 13;
@@ -112,7 +118,7 @@ namespace Away_Day_Planner.Views
             // 
             // staffLastName
             // 
-            this.staffLastName.Location = new System.Drawing.Point(258, 211);
+            this.staffLastName.Location = new System.Drawing.Point(258, 215);
             this.staffLastName.Name = "staffLastName";
             this.staffLastName.Size = new System.Drawing.Size(111, 20);
             this.staffLastName.TabIndex = 15;
@@ -120,7 +126,7 @@ namespace Away_Day_Planner.Views
             // emailText
             // 
             this.emailText.AutoSize = true;
-            this.emailText.Location = new System.Drawing.Point(203, 283);
+            this.emailText.Location = new System.Drawing.Point(203, 287);
             this.emailText.Name = "emailText";
             this.emailText.Size = new System.Drawing.Size(41, 13);
             this.emailText.TabIndex = 16;
@@ -137,7 +143,7 @@ namespace Away_Day_Planner.Views
             // 
             // staffEmail
             // 
-            this.staffEmail.Location = new System.Drawing.Point(257, 280);
+            this.staffEmail.Location = new System.Drawing.Point(257, 284);
             this.staffEmail.Name = "staffEmail";
             this.staffEmail.Size = new System.Drawing.Size(328, 20);
             this.staffEmail.TabIndex = 18;
@@ -152,7 +158,7 @@ namespace Away_Day_Planner.Views
             // roleText
             // 
             this.roleText.AutoSize = true;
-            this.roleText.Location = new System.Drawing.Point(432, 214);
+            this.roleText.Location = new System.Drawing.Point(432, 218);
             this.roleText.Name = "roleText";
             this.roleText.Size = new System.Drawing.Size(35, 13);
             this.roleText.TabIndex = 20;
@@ -164,14 +170,14 @@ namespace Away_Day_Planner.Views
             this.staffRole.Items.AddRange(new object[] {
             "Staff",
             ""});
-            this.staffRole.Location = new System.Drawing.Point(473, 211);
+            this.staffRole.Location = new System.Drawing.Point(473, 215);
             this.staffRole.Name = "staffRole";
             this.staffRole.Size = new System.Drawing.Size(111, 21);
             this.staffRole.TabIndex = 21;
             // 
             // staffPassword
             // 
-            this.staffPassword.Location = new System.Drawing.Point(258, 245);
+            this.staffPassword.Location = new System.Drawing.Point(258, 249);
             this.staffPassword.Name = "staffPassword";
             this.staffPassword.Size = new System.Drawing.Size(111, 20);
             this.staffPassword.TabIndex = 22;
@@ -179,11 +185,65 @@ namespace Away_Day_Planner.Views
             // passwordText
             // 
             this.passwordText.AutoSize = true;
-            this.passwordText.Location = new System.Drawing.Point(190, 248);
+            this.passwordText.Location = new System.Drawing.Point(190, 252);
             this.passwordText.Name = "passwordText";
             this.passwordText.Size = new System.Drawing.Size(56, 13);
             this.passwordText.TabIndex = 23;
             this.passwordText.Text = "Password:";
+            // 
+            // errorMessageFirstName
+            // 
+            this.errorMessageFirstName.AutoSize = true;
+            this.errorMessageFirstName.ForeColor = System.Drawing.Color.Red;
+            this.errorMessageFirstName.Location = new System.Drawing.Point(257, 161);
+            this.errorMessageFirstName.Name = "errorMessageFirstName";
+            this.errorMessageFirstName.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageFirstName.TabIndex = 24;
+            // 
+            // errorMessageLastName
+            // 
+            this.errorMessageLastName.AutoSize = true;
+            this.errorMessageLastName.ForeColor = System.Drawing.Color.Red;
+            this.errorMessageLastName.Location = new System.Drawing.Point(257, 200);
+            this.errorMessageLastName.Name = "errorMessageLastName";
+            this.errorMessageLastName.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageLastName.TabIndex = 25;
+            // 
+            // errorMessagePassword
+            // 
+            this.errorMessagePassword.AutoSize = true;
+            this.errorMessagePassword.ForeColor = System.Drawing.Color.Red;
+            this.errorMessagePassword.Location = new System.Drawing.Point(257, 234);
+            this.errorMessagePassword.Name = "errorMessagePassword";
+            this.errorMessagePassword.Size = new System.Drawing.Size(0, 13);
+            this.errorMessagePassword.TabIndex = 26;
+            // 
+            // errorMessageEmail
+            // 
+            this.errorMessageEmail.AutoSize = true;
+            this.errorMessageEmail.ForeColor = System.Drawing.Color.Red;
+            this.errorMessageEmail.Location = new System.Drawing.Point(257, 268);
+            this.errorMessageEmail.Name = "errorMessageEmail";
+            this.errorMessageEmail.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageEmail.TabIndex = 27;
+            // 
+            // errorMessageUsername
+            // 
+            this.errorMessageUsername.AutoSize = true;
+            this.errorMessageUsername.ForeColor = System.Drawing.Color.Red;
+            this.errorMessageUsername.Location = new System.Drawing.Point(473, 161);
+            this.errorMessageUsername.Name = "errorMessageUsername";
+            this.errorMessageUsername.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageUsername.TabIndex = 28;
+            // 
+            // errorMessageRole
+            // 
+            this.errorMessageRole.AutoSize = true;
+            this.errorMessageRole.ForeColor = System.Drawing.Color.Red;
+            this.errorMessageRole.Location = new System.Drawing.Point(473, 200);
+            this.errorMessageRole.Name = "errorMessageRole";
+            this.errorMessageRole.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageRole.TabIndex = 29;
             // 
             // RegisterView
             // 
@@ -191,6 +251,12 @@ namespace Away_Day_Planner.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorMessageRole);
+            this.Controls.Add(this.errorMessageUsername);
+            this.Controls.Add(this.errorMessageEmail);
+            this.Controls.Add(this.errorMessagePassword);
+            this.Controls.Add(this.errorMessageLastName);
+            this.Controls.Add(this.errorMessageFirstName);
             this.Controls.Add(this.passwordText);
             this.Controls.Add(this.staffPassword);
             this.Controls.Add(this.staffRole);
@@ -232,5 +298,11 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.ComboBox staffRole;
         private System.Windows.Forms.TextBox staffPassword;
         private System.Windows.Forms.Label passwordText;
+        private System.Windows.Forms.Label errorMessageFirstName;
+        private System.Windows.Forms.Label errorMessageLastName;
+        private System.Windows.Forms.Label errorMessagePassword;
+        private System.Windows.Forms.Label errorMessageEmail;
+        private System.Windows.Forms.Label errorMessageUsername;
+        private System.Windows.Forms.Label errorMessageRole;
     }
 }
