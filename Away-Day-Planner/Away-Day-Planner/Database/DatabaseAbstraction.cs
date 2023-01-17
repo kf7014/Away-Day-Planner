@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Away_Day_Planner.Models.ClientDepartment;
+using Away_Day_Planner.Models.EventBooker;
 
 namespace Away_Day_Planner.Database
 {
@@ -64,6 +65,49 @@ namespace Away_Day_Planner.Database
             return clientDepartments.ToArray();
         }
 
+        public ActivityTemplate[] getActivityTemplates()
+        {
+            Tuple<DbSet<ActivityTemplate>, DbContext> result = databaseInterface.GetAll<ActivityTemplate>().ToTuple();
+            ActivityTemplate[] activityTemplates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return activityTemplates;
+        }
 
+        public RewardTemplate[] getRewardTemplates()
+        {
+            Tuple<DbSet<RewardTemplate>, DbContext> result = databaseInterface.GetAll<RewardTemplate>().ToTuple();
+            RewardTemplate[] rewardTemplates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return rewardTemplates;
+        }
+
+        public AdditionTemplate[] getAdditionTemplates()
+        {
+            Tuple<DbSet<AdditionTemplate>, DbContext> result = databaseInterface.GetAll<AdditionTemplate>().ToTuple();
+            AdditionTemplate[] additionTemplates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return additionTemplates;
+        }
+        public ActivityTemplate getActivityTemplate(int activityId)
+        {
+            Tuple<ActivityTemplate, DbContext> result = databaseInterface.Get<ActivityTemplate>(activityId).ToTuple();
+            ActivityTemplate activityTemplate = result.Item1;
+            databaseInterface.DisposeContext(result.Item2);
+            return activityTemplate;
+        }
+        public RewardTemplate getRewardTemplate(int rewardId)
+        {
+            Tuple<RewardTemplate, DbContext> result = databaseInterface.Get<RewardTemplate>(rewardId).ToTuple();
+            RewardTemplate rewardTemplate = result.Item1;
+            databaseInterface.DisposeContext(result.Item2);
+            return rewardTemplate;
+        }
+        public AdditionTemplate getAdditionTemplate(int additionId)
+        {
+            Tuple<AdditionTemplate, DbContext> result = databaseInterface.Get<AdditionTemplate>(additionId).ToTuple();
+            AdditionTemplate additionTemplate = result.Item1;
+            databaseInterface.DisposeContext(result.Item2);
+            return additionTemplate;
+        }     
     }
 }

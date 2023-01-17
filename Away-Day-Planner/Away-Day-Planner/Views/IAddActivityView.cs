@@ -10,5 +10,14 @@ namespace Away_Day_Planner.Views
     {
         //Register view to presenter
         void register(AddActivityPresenter addActivityPresenter);
+        void setActivityTemplateList(string[] activityNames);
+        void setRewardTemplateList(string[] rewardNames);
+        void setCustomRewardTemplateList(string[] rewardNames);
+        void setAdditionTemplateList(string[] additionNames);
+        void setCustomAdditionTemplateList(string[] additionNames);
+        int selectedActivity { set; get; }
+        int selectedReward { set; get; }
+        int selectedAddition { set; get; }
+        String totalPrice { set; get; }
     }
 }
