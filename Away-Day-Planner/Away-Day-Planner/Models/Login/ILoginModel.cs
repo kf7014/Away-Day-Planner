@@ -9,7 +9,7 @@ namespace Away_Day_Planner.Models.Login
     public interface ILoginModel
     {
 
-        void addNewUser(String firstName, String lastName, String username, String userEmail, byte[] userPassword, String userRole);
+        void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword, String userRole);
 
     }
 }

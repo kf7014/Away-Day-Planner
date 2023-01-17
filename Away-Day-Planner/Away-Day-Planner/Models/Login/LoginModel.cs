@@ -10,7 +10,7 @@ namespace Away_Day_Planner.Models.Login
     public class LoginModel : ILoginModel
     {
         DatabaseAbstraction databaseAbstraction = new DatabaseAbstraction();
-        public void addNewUser(string firstName, string lastName, string username, string userEmail, byte[] userPassword, string userRole)
+        public void addNewUser(string firstName, string lastName, string username, string userEmail, string userPassword, string userRole)
         {
             databaseAbstraction.addNewUser(firstName, lastName, username, userEmail, userPassword, userRole);
         }

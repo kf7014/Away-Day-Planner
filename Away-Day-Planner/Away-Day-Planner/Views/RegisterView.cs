@@ -39,7 +39,7 @@ namespace Away_Day_Planner.Views
         }
         public String userPassword
         {
-            get { return staffPassword.Text; }
+            get { return staffPassword.Text ; }
             set { staffPassword.Text = value; }
         }
         public String userEmail
@@ -62,6 +62,13 @@ namespace Away_Day_Planner.Views
         private void registerNewUserButton_Click(object sender, EventArgs e)
         {
             registerUserPresenter.registerNewUserEvent();
+
+            Console.WriteLine(firstName);
+            Console.WriteLine(lastName);
+            Console.WriteLine(userPassword);
+            Console.WriteLine(userEmail);
+            Console.WriteLine(username);
+            Console.WriteLine(userRole);
         }
         //registerNewUserButton
         //end of retrieving data from form//

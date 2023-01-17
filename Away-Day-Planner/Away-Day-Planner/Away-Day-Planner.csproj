@@ -84,6 +84,24 @@
     <Compile Include="Database\IObjWithID.cs" />
     <Compile Include="Database\IResults.cs" />
     <Compile Include="Database\Results.cs" />
+    <Compile Include="EventChain\EventChainFactory.cs" />
+    <Compile Include="EventChain\Handlers\BaseEventHandler.cs" />
+    <Compile Include="EventChain\Handlers\CancelledEventHandler.cs" />
+    <Compile Include="EventChain\Handlers\GeneralEventHandler.cs" />
+    <Compile Include="EventChain\Handlers\Handler.cs" />
+    <Compile Include="EventChain\Handlers\IHandler.cs" />
+    <Compile Include="EventChain\Handlers\PaymentEventHandler.cs" />
+    <Compile Include="EventChain\Handlers\PreliminaryEventHandler.cs" />
+    <Compile Include="EventChain\IEvent.cs" />
+    <Compile Include="Migrations\202301171702284_test.cs" />
+    <Compile Include="Migrations\202301171702284_test.designer.cs">
+      <DependentUpon>202301171702284_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301171726068_test1.cs" />
+    <Compile Include="Migrations\202301171726068_test1.designer.cs">
+      <DependentUpon>202301171726068_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CORChain\Handlers\Handler.cs" />
     <Compile Include="CORChain\Handlers\IHandler.cs" />
     <Compile Include="CORChain\IEvent.cs" />
@@ -185,6 +203,12 @@
     <Compile Include="Views\RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202301171702284_test.resx">
+      <DependentUpon>202301171702284_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301171726068_test1.resx">
+      <DependentUpon>202301171726068_test1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
