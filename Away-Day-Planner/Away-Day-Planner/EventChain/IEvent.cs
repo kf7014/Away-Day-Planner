@@ -1,4 +1,5 @@
 ﻿using Away_Day_Planner.EventChain.Handlers;
+using Away_Day_Planner.Models.EventBooker;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,8 @@ namespace Away_Day_Planner.EventChain
     public interface IEvent
     {
         EVENT_STATE EventState { get; set; }
+        IDate bookingDate { get; set; }
+        double DaysTillEvent(DateTime currentTime);
+
     }
 }
