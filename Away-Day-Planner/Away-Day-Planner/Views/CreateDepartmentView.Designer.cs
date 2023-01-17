@@ -59,6 +59,7 @@ namespace Away_Day_Planner.Views
             // 
             // comboBoxClientSelection
             // 
+            this.comboBoxClientSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxClientSelection.FormattingEnabled = true;
             this.comboBoxClientSelection.Location = new System.Drawing.Point(116, 88);
             this.comboBoxClientSelection.Name = "comboBoxClientSelection";
@@ -97,9 +98,8 @@ namespace Away_Day_Planner.Views
             this.labelErrorClientSelection.ForeColor = System.Drawing.Color.Red;
             this.labelErrorClientSelection.Location = new System.Drawing.Point(39, 123);
             this.labelErrorClientSelection.Name = "labelErrorClientSelection";
-            this.labelErrorClientSelection.Size = new System.Drawing.Size(63, 13);
+            this.labelErrorClientSelection.Size = new System.Drawing.Size(0, 13);
             this.labelErrorClientSelection.TabIndex = 7;
-            this.labelErrorClientSelection.Text = "Placeholder";
             // 
             // labelErrorDepartmentName
             // 
@@ -107,9 +107,8 @@ namespace Away_Day_Planner.Views
             this.labelErrorDepartmentName.ForeColor = System.Drawing.Color.Red;
             this.labelErrorDepartmentName.Location = new System.Drawing.Point(39, 198);
             this.labelErrorDepartmentName.Name = "labelErrorDepartmentName";
-            this.labelErrorDepartmentName.Size = new System.Drawing.Size(63, 13);
+            this.labelErrorDepartmentName.Size = new System.Drawing.Size(0, 13);
             this.labelErrorDepartmentName.TabIndex = 8;
-            this.labelErrorDepartmentName.Text = "Placeholder";
             // 
             // CreateDepartmentView
             // 
