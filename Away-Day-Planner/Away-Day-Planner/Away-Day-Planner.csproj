@@ -119,6 +119,8 @@
     <Compile Include="Models\EventBooker\IReward.cs" />
     <Compile Include="Models\EventBooker\Reward.cs" />
     <Compile Include="Models\EventBooker\RewardTemplate.cs" />
+    <Compile Include="Models\Login\IUser.cs" />
+    <Compile Include="Models\Login\User.cs" />
     <Compile Include="Presenters\AddActivityPresenter.cs" />
     <Compile Include="Presenters\ClientDepartmentSelectionPresenter.cs" />
     <Compile Include="Presenters\CreateClientPresenter.cs" />
