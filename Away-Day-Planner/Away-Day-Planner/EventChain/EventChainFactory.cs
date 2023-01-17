@@ -11,7 +11,7 @@ namespace Away_Day_Planner.EventChain
 {
     internal class EventChainFactory
     {
-        private Dictionary<string, Exception> Errors = ErrorList.Errors;
+        private readonly Dictionary<string, Exception> Errors = ErrorList.Errors;
         private BaseEventHandler NewBaseHandler()               => Activator.CreateInstance<BaseEventHandler>();
         private PreliminaryEventHandler NewPreliminaryHandler() => Activator.CreateInstance<PreliminaryEventHandler>();
         private GeneralEventHandler NewEventHandler()           => Activator.CreateInstance<GeneralEventHandler>();
@@ -21,6 +21,8 @@ namespace Away_Day_Planner.EventChain
         private IEvent _Event = null;
         private IHandler _Base = null;
 
+        public IList<IHandler> Handlers { get; private set; }
+
         public EventChainFactory(){}
         public EventChainFactory(IEvent e){
             _Event = e;
@@ -29,7 +31,6 @@ namespace Away_Day_Planner.EventChain
 
         public void SetEvent(IEvent e) { _Event = e; }
         public IEvent GetEvent() { return _Event; }
-
         public IHandler GetBase() { return _Base; }
         public IHandler GetEntry() { return GetBase(); }
         public IHandler GetStart() { return GetBase(); }
@@ -45,7 +46,9 @@ namespace Away_Day_Planner.EventChain
                |          |           |           |
                -----------------------------> Cancelled            
              */
+
             if (_Event == null) throw Errors["Null"];
+
             BaseEventHandler _base = NewBaseHandler();
             PreliminaryEventHandler _prelim = NewPreliminaryHandler();
             GeneralEventHandler _general = NewEventHandler();
@@ -63,6 +66,16 @@ namespace Away_Day_Planner.EventChain
 
             _base.SetEvent(_Event);
             _Base = _base;
+
+            Handlers.Add(_base);
+            Handlers.Add(_prelim);
+            Handlers.Add(_general);
+            Handlers.Add(_pay);
+            Handlers.Add(_cancel);
+
+            _Event.EventState = EVENT_STATE.BASE;
+            _Event.HandlerList = (List<IHandler>) Handlers;
+            _Event.CurrentHandler = _base;
         }
     }
 
