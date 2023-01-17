@@ -8,9 +8,8 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     public interface IHandler
     {
+        IHandler Successor { get; }
         void SetSuccessor(IHandler h);
-        void HandleEvent();
-        void CancelEvent();
-        void ChangeEventState();
+        void HandleEvent(IEvent e);
     }
 }

@@ -9,21 +9,9 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     internal class GeneralEventHandler : Handler
     {
-        public void AddOption(IActivity Activity)
+        public override void HandleEvent(IEvent Event)
         {
-            Event.activitiesList.Add(Activity);
-            Event.price += Activity.price;
-        }
-
-        public override void ChangeEventState()
-        {
-            Event.EventState = EVENT_STATE.PAYMENT;
-        }
-
-        public override void HandleEvent()
-        {
-            ChangeEventState();
-            Successor.HandleEvent();
+            Successor.HandleEvent(Event);
         }
     }
 }

@@ -8,15 +8,9 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     internal class PreliminaryEventHandler : Handler
     {
-        public override void ChangeEventState()
+        public override void HandleEvent(IEvent Event)
         {
-            Event.EventState = EVENT_STATE.EVENT;
-        }
-
-        public override void HandleEvent()
-        {
-            ChangeEventState();
-            Successor.HandleEvent();
+            Successor.HandleEvent(Event);
         }
     }
 }

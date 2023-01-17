@@ -8,18 +8,9 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     internal class PaymentEventHandler : Handler
     {
-        public override void HandleEvent()
+        public override void HandleEvent(IEvent Event)
         {
-            Successor.HandleEvent();
-        }
-        public Decimal GetPrice()
-        {
-            return Event.price;
-        }
-        public override void ChangeEventState()
-        {
-            ChangeEventState();
-            Event.EventState = EVENT_STATE.ARCHIVED;
+            Successor.HandleEvent(Event);
         }
     }
 }

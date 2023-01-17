@@ -8,17 +8,9 @@ namespace Away_Day_Planner.EventChain.Handlers
 {
     internal class ArchivedEventHandler : IHandler
     {
-        public void CancelEvent()
-        {
-            throw new NotImplementedException();
-        }
+        public IHandler Successor => throw new NotImplementedException();
 
-        public void ChangeEventState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void HandleEvent()
+        public void HandleEvent(IEvent e)
         {
             throw new NotImplementedException();
         }
