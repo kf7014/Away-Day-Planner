@@ -100,6 +100,7 @@
     <Compile Include="Models\EventBooker\Contractor.cs" />
     <Compile Include="Models\EventBooker\ContractorModel.cs" />
     <Compile Include="Models\EventBooker\BookedFacilitatorTeamDate.cs" />
+    <Compile Include="Models\EventBooker\Date.cs" />
     <Compile Include="Models\EventBooker\Event.cs" />
     <Compile Include="Models\EventBooker\EventFlexibilityDate.cs" />
     <Compile Include="Models\EventBooker\EventModel.cs" />
