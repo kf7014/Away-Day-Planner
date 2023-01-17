@@ -20,7 +20,7 @@ namespace Away_Day_Planner.EventChain.Handlers
         {
             CancelledSuccessor = h;
         }
-        public void CancelEvent()
+        public virtual void CancelEvent()
         {
             CancelledSuccessor.HandleEvent();
         }
