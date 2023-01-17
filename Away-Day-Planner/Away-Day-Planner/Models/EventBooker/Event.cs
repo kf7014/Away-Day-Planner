@@ -12,8 +12,6 @@ namespace Away_Day_Planner.Models.EventBooker
     public class Event : IEvent
     {
         public EVENT_STATE EventState { get; set; }
-        IHandler IEvent.CurrentHandler { get; set; }
-        List<IHandler> IEvent.HandlerList { get; set; }
 
         private int Id;
         [Key]

@@ -9,12 +9,10 @@ namespace Away_Day_Planner.EventChain
 {
     public enum EVENT_STATE
     {
-        BASE, PRELIMINARY, EVENT, PAYMENT, CANCELLED
+        BASE, PRELIMINARY, EVENT, PAYMENT, CANCELLED, ARCHIVED
     }
     public interface IEvent
     {
         EVENT_STATE EventState { get; set; }
-        IHandler CurrentHandler { get; set; }
-        List<IHandler> HandlerList { get; set; }
     }
 }
