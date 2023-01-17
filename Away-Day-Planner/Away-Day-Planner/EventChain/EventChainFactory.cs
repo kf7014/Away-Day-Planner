@@ -77,8 +77,6 @@ namespace Away_Day_Planner.EventChain
             Handlers.Add(_archive);
 
             _Event.EventState = EVENT_STATE.BASE;
-            _Event.HandlerList = (List<IHandler>) Handlers;
-            _Event.CurrentHandler = _base;
         }
     }
 
