@@ -108,31 +108,29 @@ namespace Away_Day_Planner.Views
             // 
             this.labelErrorClientName.AutoSize = true;
             this.labelErrorClientName.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorClientName.Location = new System.Drawing.Point(111, 118);
+            this.labelErrorClientName.Location = new System.Drawing.Point(45, 121);
             this.labelErrorClientName.Name = "labelErrorClientName";
-            this.labelErrorClientName.Size = new System.Drawing.Size(89, 13);
+            this.labelErrorClientName.Size = new System.Drawing.Size(0, 13);
             this.labelErrorClientName.TabIndex = 8;
-            this.labelErrorClientName.Text = "Error Client Name";
+            this.labelErrorClientName.Click += new System.EventHandler(this.labelErrorClientName_Click);
             // 
             // labelErrorDistance
             // 
             this.labelErrorDistance.AutoSize = true;
             this.labelErrorDistance.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorDistance.Location = new System.Drawing.Point(111, 186);
+            this.labelErrorDistance.Location = new System.Drawing.Point(45, 189);
             this.labelErrorDistance.Name = "labelErrorDistance";
-            this.labelErrorDistance.Size = new System.Drawing.Size(74, 13);
+            this.labelErrorDistance.Size = new System.Drawing.Size(0, 13);
             this.labelErrorDistance.TabIndex = 9;
-            this.labelErrorDistance.Text = "Error Distance";
             // 
             // labelErrorDispute
             // 
             this.labelErrorDispute.AutoSize = true;
             this.labelErrorDispute.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorDispute.Location = new System.Drawing.Point(111, 244);
+            this.labelErrorDispute.Location = new System.Drawing.Point(45, 251);
             this.labelErrorDispute.Name = "labelErrorDispute";
-            this.labelErrorDispute.Size = new System.Drawing.Size(68, 13);
+            this.labelErrorDispute.Size = new System.Drawing.Size(0, 13);
             this.labelErrorDispute.TabIndex = 10;
-            this.labelErrorDispute.Text = "Error Dispute";
             // 
             // CreateClientView
             // 
@@ -151,6 +149,7 @@ namespace Away_Day_Planner.Views
             this.Controls.Add(this.labelTitle);
             this.Name = "CreateClientView";
             this.Text = "Away Day Planner";
+            this.Load += new System.EventHandler(this.CreateClientView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfHoursAway)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
