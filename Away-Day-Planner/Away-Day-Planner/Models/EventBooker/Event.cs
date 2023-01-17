@@ -35,6 +35,13 @@ namespace Away_Day_Planner.Models.EventBooker
             set { BookingDate = value; }
         }
 
+        private Decimal Price;
+        public Decimal price
+        {
+            get { return Price; }
+            set { Price = value; }
+        }
+
         private ICollection<IDate> AvailableDaysFlexibilityList;
         public ICollection<IDate> availableDaysFlexibilityList
         {
