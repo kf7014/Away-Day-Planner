@@ -13,6 +13,7 @@ namespace Away_Day_Planner.Models.Login
         String lastName { get; set; }
         String username { get; set; }
         String userEmail { get; set; }
+        String userPassword { get; set; }
         String userRole{ get; set; }
 
 }
