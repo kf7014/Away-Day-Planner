@@ -15,5 +15,7 @@ namespace Away_Day_Planner.Views
         String ClientName { get; set; }
         int SelectedClientId { get; set; }
         String DepartmentName { get; set; }
+        String ErrorMessageClientSelection { get; set; }
+        String ErrorMessageDepartmentName { get; set; }
     }
 }

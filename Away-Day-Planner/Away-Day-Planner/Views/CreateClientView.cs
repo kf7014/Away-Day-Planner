@@ -29,6 +29,21 @@ namespace Away_Day_Planner.Views
             set { checkBoxHadClientDispute.Checked = value; }
             get { return checkBoxHadClientDispute.Checked; }
         }
+        public String ErrorMessageName
+        {
+            set { labelErrorClientName.Text = value; }
+            get { return labelErrorClientName.Text; }
+        }
+        public String ErrorMessageDistanceAway
+        {
+            set { labelErrorDistance.Text = value; }
+            get { return labelErrorDistance.Text; }
+        }
+        public String ErrorMessageDispute
+        {
+            set { labelErrorDispute.Text = value; }
+            get { return labelErrorDispute.Text; }
+        }
 
         public CreateClientView()
         {
@@ -43,9 +58,11 @@ namespace Away_Day_Planner.Views
 
         private void buttonAddClient_Click(object sender, EventArgs e)
         {
-            //NEEDS FORM SECURITY ADDING
-            createClientPresenter.buttonAddClientClickEvent();
-            this.Close();
+            bool success = createClientPresenter.buttonAddClientClickEvent();
+            if (success)
+            {
+                this.Close();
+            } 
         }
     }
 }

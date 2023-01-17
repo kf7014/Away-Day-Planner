@@ -37,6 +37,18 @@ namespace Away_Day_Planner.Views
             get { return textBoxDepartmentName.Text; }
         }
 
+        public String ErrorMessageClientSelection
+        {
+            set { labelErrorClientSelection.Text = value; }
+            get { return labelErrorClientSelection.Text; }
+        }
+
+        public String ErrorMessageDepartmentName
+        {
+            set { labelErrorDepartmentName.Text = value; }
+            get { return labelErrorDepartmentName.Text; }
+        }
+
         public CreateDepartmentView()
         {
             InitializeComponent();
@@ -50,9 +62,12 @@ namespace Away_Day_Planner.Views
 
         private void buttonAddDepartment_Click(object sender, EventArgs e)
         {
-            //NEEDS FORM SECURITY ADDING
-            createDepartmentPresenter.buttonAddClientClickEvent();
-            this.Close();
+            bool success = createDepartmentPresenter.buttonAddDepartmentClickEvent();
+            if (success)
+            {
+                this.Close();
+            }
+            
         }
 
         public void setClientList(string[] names, int[] keys)

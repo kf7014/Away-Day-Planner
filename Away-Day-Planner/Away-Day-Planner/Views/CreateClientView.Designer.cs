@@ -36,13 +36,16 @@ namespace Away_Day_Planner.Views
             this.labelNoOfHoursAway = new System.Windows.Forms.Label();
             this.numericUpDownNumberOfHoursAway = new System.Windows.Forms.NumericUpDown();
             this.checkBoxHadClientDispute = new System.Windows.Forms.CheckBox();
+            this.labelErrorClientName = new System.Windows.Forms.Label();
+            this.labelErrorDistance = new System.Windows.Forms.Label();
+            this.labelErrorDispute = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfHoursAway)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(116, 29);
+            this.labelTitle.Location = new System.Drawing.Point(119, 29);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(55, 13);
             this.labelTitle.TabIndex = 0;
@@ -77,7 +80,7 @@ namespace Away_Day_Planner.Views
             // labelNoOfHoursAway
             // 
             this.labelNoOfHoursAway.AutoSize = true;
-            this.labelNoOfHoursAway.Location = new System.Drawing.Point(12, 139);
+            this.labelNoOfHoursAway.Location = new System.Drawing.Point(12, 162);
             this.labelNoOfHoursAway.Name = "labelNoOfHoursAway";
             this.labelNoOfHoursAway.Size = new System.Drawing.Size(170, 13);
             this.labelNoOfHoursAway.TabIndex = 4;
@@ -85,7 +88,7 @@ namespace Away_Day_Planner.Views
             // 
             // numericUpDownNumberOfHoursAway
             // 
-            this.numericUpDownNumberOfHoursAway.Location = new System.Drawing.Point(197, 137);
+            this.numericUpDownNumberOfHoursAway.Location = new System.Drawing.Point(188, 160);
             this.numericUpDownNumberOfHoursAway.Name = "numericUpDownNumberOfHoursAway";
             this.numericUpDownNumberOfHoursAway.Size = new System.Drawing.Size(65, 20);
             this.numericUpDownNumberOfHoursAway.TabIndex = 5;
@@ -93,7 +96,7 @@ namespace Away_Day_Planner.Views
             // checkBoxHadClientDispute
             // 
             this.checkBoxHadClientDispute.AutoSize = true;
-            this.checkBoxHadClientDispute.Location = new System.Drawing.Point(11, 181);
+            this.checkBoxHadClientDispute.Location = new System.Drawing.Point(12, 221);
             this.checkBoxHadClientDispute.Name = "checkBoxHadClientDispute";
             this.checkBoxHadClientDispute.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxHadClientDispute.Size = new System.Drawing.Size(166, 17);
@@ -101,11 +104,41 @@ namespace Away_Day_Planner.Views
             this.checkBoxHadClientDispute.Text = "?Have had dispute with client";
             this.checkBoxHadClientDispute.UseVisualStyleBackColor = true;
             // 
+            // labelErrorClientName
+            // 
+            this.labelErrorClientName.AutoSize = true;
+            this.labelErrorClientName.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorClientName.Location = new System.Drawing.Point(45, 121);
+            this.labelErrorClientName.Name = "labelErrorClientName";
+            this.labelErrorClientName.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorClientName.TabIndex = 8;
+            // 
+            // labelErrorDistance
+            // 
+            this.labelErrorDistance.AutoSize = true;
+            this.labelErrorDistance.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorDistance.Location = new System.Drawing.Point(45, 189);
+            this.labelErrorDistance.Name = "labelErrorDistance";
+            this.labelErrorDistance.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorDistance.TabIndex = 9;
+            // 
+            // labelErrorDispute
+            // 
+            this.labelErrorDispute.AutoSize = true;
+            this.labelErrorDispute.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorDispute.Location = new System.Drawing.Point(45, 251);
+            this.labelErrorDispute.Name = "labelErrorDispute";
+            this.labelErrorDispute.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorDispute.TabIndex = 10;
+            // 
             // CreateClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 450);
+            this.Controls.Add(this.labelErrorDispute);
+            this.Controls.Add(this.labelErrorDistance);
+            this.Controls.Add(this.labelErrorClientName);
             this.Controls.Add(this.checkBoxHadClientDispute);
             this.Controls.Add(this.numericUpDownNumberOfHoursAway);
             this.Controls.Add(this.labelNoOfHoursAway);
@@ -130,5 +163,8 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label labelNoOfHoursAway;
         private System.Windows.Forms.NumericUpDown numericUpDownNumberOfHoursAway;
         private System.Windows.Forms.CheckBox checkBoxHadClientDispute;
+        private System.Windows.Forms.Label labelErrorClientName;
+        private System.Windows.Forms.Label labelErrorDistance;
+        private System.Windows.Forms.Label labelErrorDispute;
     }
 }

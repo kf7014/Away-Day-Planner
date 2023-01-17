@@ -35,6 +35,8 @@ namespace Away_Day_Planner.Views
             this.labelDepartmentName = new System.Windows.Forms.Label();
             this.textBoxDepartmentName = new System.Windows.Forms.TextBox();
             this.buttonAddDepartment = new System.Windows.Forms.Button();
+            this.labelErrorClientSelection = new System.Windows.Forms.Label();
+            this.labelErrorDepartmentName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -57,6 +59,7 @@ namespace Away_Day_Planner.Views
             // 
             // comboBoxClientSelection
             // 
+            this.comboBoxClientSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxClientSelection.FormattingEnabled = true;
             this.comboBoxClientSelection.Location = new System.Drawing.Point(116, 88);
             this.comboBoxClientSelection.Name = "comboBoxClientSelection";
@@ -66,7 +69,7 @@ namespace Away_Day_Planner.Views
             // labelDepartmentName
             // 
             this.labelDepartmentName.AutoSize = true;
-            this.labelDepartmentName.Location = new System.Drawing.Point(8, 145);
+            this.labelDepartmentName.Location = new System.Drawing.Point(12, 160);
             this.labelDepartmentName.Name = "labelDepartmentName";
             this.labelDepartmentName.Size = new System.Drawing.Size(102, 13);
             this.labelDepartmentName.TabIndex = 4;
@@ -74,7 +77,7 @@ namespace Away_Day_Planner.Views
             // 
             // textBoxDepartmentName
             // 
-            this.textBoxDepartmentName.Location = new System.Drawing.Point(116, 145);
+            this.textBoxDepartmentName.Location = new System.Drawing.Point(120, 160);
             this.textBoxDepartmentName.Name = "textBoxDepartmentName";
             this.textBoxDepartmentName.Size = new System.Drawing.Size(171, 20);
             this.textBoxDepartmentName.TabIndex = 5;
@@ -89,11 +92,31 @@ namespace Away_Day_Planner.Views
             this.buttonAddDepartment.UseVisualStyleBackColor = true;
             this.buttonAddDepartment.Click += new System.EventHandler(this.buttonAddDepartment_Click);
             // 
+            // labelErrorClientSelection
+            // 
+            this.labelErrorClientSelection.AutoSize = true;
+            this.labelErrorClientSelection.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorClientSelection.Location = new System.Drawing.Point(39, 123);
+            this.labelErrorClientSelection.Name = "labelErrorClientSelection";
+            this.labelErrorClientSelection.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorClientSelection.TabIndex = 7;
+            // 
+            // labelErrorDepartmentName
+            // 
+            this.labelErrorDepartmentName.AutoSize = true;
+            this.labelErrorDepartmentName.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorDepartmentName.Location = new System.Drawing.Point(39, 198);
+            this.labelErrorDepartmentName.Name = "labelErrorDepartmentName";
+            this.labelErrorDepartmentName.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorDepartmentName.TabIndex = 8;
+            // 
             // CreateDepartmentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 450);
+            this.Controls.Add(this.labelErrorDepartmentName);
+            this.Controls.Add(this.labelErrorClientSelection);
             this.Controls.Add(this.buttonAddDepartment);
             this.Controls.Add(this.textBoxDepartmentName);
             this.Controls.Add(this.labelDepartmentName);
@@ -115,5 +138,7 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label labelDepartmentName;
         private System.Windows.Forms.TextBox textBoxDepartmentName;
         private System.Windows.Forms.Button buttonAddDepartment;
+        private System.Windows.Forms.Label labelErrorClientSelection;
+        private System.Windows.Forms.Label labelErrorDepartmentName;
     }
 }
