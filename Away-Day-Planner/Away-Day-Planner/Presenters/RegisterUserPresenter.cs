@@ -7,12 +7,12 @@ using Away_Day_Planner.Views;
 
 namespace Away_Day_Planner.Presenters
 {
-    class RegisterUserPresenter
+    public class RegisterUserPresenter
     {
         IRegisterView createRegisterView;
 
 
-        public RegisterUserPresenter(IRegisterView registerView)
+        public RegisterUserPresenter(IRegisterView createRegisterView)
         {
             this.createRegisterView = createRegisterView;
             createRegisterView.register(this);

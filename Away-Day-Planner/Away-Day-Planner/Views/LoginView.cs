@@ -26,5 +26,10 @@ namespace Away_Day_Planner.Views
         {
 
         }
+
+        private void registerHereLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

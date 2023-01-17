@@ -38,21 +38,20 @@ namespace Away_Day_Planner.Views
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
-            this.registerHereLabel = new System.Windows.Forms.LinkLabel();
             this.loginHeading = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userLogin
             // 
             this.userLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.userLogin.Location = new System.Drawing.Point(315, 195);
+            this.userLogin.Location = new System.Drawing.Point(323, 177);
             this.userLogin.Name = "userLogin";
             this.userLogin.Size = new System.Drawing.Size(180, 20);
             this.userLogin.TabIndex = 0;
             // 
             // userPassword
             // 
-            this.userPassword.Location = new System.Drawing.Point(315, 256);
+            this.userPassword.Location = new System.Drawing.Point(323, 215);
             this.userPassword.Name = "userPassword";
             this.userPassword.Size = new System.Drawing.Size(180, 20);
             this.userPassword.TabIndex = 1;
@@ -61,10 +60,10 @@ namespace Away_Day_Planner.Views
             // title
             // 
             this.title.AutoSize = true;
-            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(251, 90);
+            this.title.Font = new System.Drawing.Font("Trebuchet MS", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Location = new System.Drawing.Point(251, 82);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(281, 37);
+            this.title.Size = new System.Drawing.Size(318, 46);
             this.title.TabIndex = 2;
             this.title.Text = "Away-Day-Planner";
             this.title.Click += new System.EventHandler(this.label1_Click);
@@ -80,7 +79,7 @@ namespace Away_Day_Planner.Views
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(248, 198);
+            this.usernameLabel.Location = new System.Drawing.Point(256, 180);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(61, 13);
             this.usernameLabel.TabIndex = 3;
@@ -89,7 +88,7 @@ namespace Away_Day_Planner.Views
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(250, 259);
+            this.passwordLabel.Location = new System.Drawing.Point(258, 218);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(59, 13);
             this.passwordLabel.TabIndex = 4;
@@ -97,7 +96,7 @@ namespace Away_Day_Planner.Views
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(360, 313);
+            this.loginButton.Location = new System.Drawing.Point(369, 255);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
             this.loginButton.TabIndex = 5;
@@ -105,20 +104,10 @@ namespace Away_Day_Planner.Views
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // registerHereLabel
-            // 
-            this.registerHereLabel.AutoSize = true;
-            this.registerHereLabel.Location = new System.Drawing.Point(312, 279);
-            this.registerHereLabel.Name = "registerHereLabel";
-            this.registerHereLabel.Size = new System.Drawing.Size(133, 13);
-            this.registerHereLabel.TabIndex = 6;
-            this.registerHereLabel.TabStop = true;
-            this.registerHereLabel.Text = "New user? Reigster HERE";
-            // 
             // loginHeading
             // 
             this.loginHeading.AutoSize = true;
-            this.loginHeading.Location = new System.Drawing.Point(330, 139);
+            this.loginHeading.Location = new System.Drawing.Point(341, 128);
             this.loginHeading.Name = "loginHeading";
             this.loginHeading.Size = new System.Drawing.Size(124, 13);
             this.loginHeading.TabIndex = 7;
@@ -131,7 +120,6 @@ namespace Away_Day_Planner.Views
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.loginHeading);
-            this.Controls.Add(this.registerHereLabel);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
@@ -155,7 +143,6 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.LinkLabel registerHereLabel;
         private System.Windows.Forms.Label loginHeading;
     }
 }

@@ -9,7 +9,6 @@ namespace Away_Day_Planner.Views
 {
     public interface IRegisterView
     {
-        void register(CreateRegisterPresenter createRegisterPresenter);
         void register(RegisterUserPresenter registerUserPresenter);
     }
 }

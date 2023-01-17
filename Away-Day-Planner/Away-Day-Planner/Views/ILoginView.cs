@@ -9,7 +9,7 @@ namespace Away_Day_Planner.Views
 {
     public interface ILoginView
     {
-        void register(CreateLoginPresenter createLoginPresenter);
+        
         void register(LoginUserPresenter loginUserPresenter);
     }
 }

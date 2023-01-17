@@ -16,5 +16,15 @@ namespace Away_Day_Planner.Views
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roleDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
