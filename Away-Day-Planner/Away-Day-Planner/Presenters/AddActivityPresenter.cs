@@ -30,7 +30,6 @@ namespace Away_Day_Planner.Views
             for(int i=0; i<activityTemplates.Length; i++)
             {
                 activityNames[i] = activityTemplates[i].name;
-                Console.WriteLine("Name " + activityTemplates[i].name);
             }
 
             addActivityView.setActivityTemplateList(activityNames);
@@ -42,11 +41,22 @@ namespace Away_Day_Planner.Views
             for (int i = 0; i < rewardTemplates.Length; i++)
             {
                 rewardNames[i] = rewardTemplates[i].name;
-                Console.WriteLine("Name " + rewardTemplates[i].name);
             }
 
             addActivityView.setRewardTemplateList(rewardNames);
             addActivityView.setCustomRewardTemplateList(rewardNames);
+
+            //Populate additions dropdown
+            AdditionTemplate[] additionTemplates = eventModel.getAdditionTemplates();
+            String[] additionNames = new string[additionTemplates.Length];
+
+            for (int i = 0; i < additionTemplates.Length; i++)
+            {
+                additionNames[i] = additionTemplates[i].name;
+            }
+
+            addActivityView.setAdditionTemplateList(additionNames);
+            addActivityView.setCustomAdditionTemplateList(additionNames);
         }
     }
 }

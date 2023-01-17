@@ -60,5 +60,15 @@ namespace Away_Day_Planner.Views
         {
             comboBoxCustomActivityRewardsRequired.DataSource = rewardNames;
         }
+
+        public void setAdditionTemplateList(string[] additionNames)
+        {
+            comboBoxAdditions.DataSource = additionNames;
+        }
+
+        public void setCustomAdditionTemplateList(string[] additionNames)
+        {
+            comboBoxCustomActivityAdditions.DataSource = additionNames;
+        }
     }
 }

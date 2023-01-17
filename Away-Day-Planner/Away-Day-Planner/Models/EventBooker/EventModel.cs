@@ -75,5 +75,11 @@ namespace Away_Day_Planner.Models.EventBooker
             RewardTemplate[] rewardTemplates = databaseAbstraction.getRewardTemplates();
             return rewardTemplates;
         }
+
+        public AdditionTemplate[] getAdditionTemplates()
+        {
+            AdditionTemplate[] additionTemplates = databaseAbstraction.getAdditionTemplates();
+            return additionTemplates;
+        }
     }
 }
