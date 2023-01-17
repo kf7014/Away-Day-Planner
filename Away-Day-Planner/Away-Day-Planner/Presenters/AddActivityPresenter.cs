@@ -57,6 +57,22 @@ namespace Away_Day_Planner.Views
 
             addActivityView.setAdditionTemplateList(additionNames);
             addActivityView.setCustomAdditionTemplateList(additionNames);
+
+            updateActivityPricing();
+        }
+
+        public void updateActivityPricing()
+        {
+            int activityId = addActivityView.selectedActivity;
+            int rewardId = addActivityView.selectedReward;
+            int additionId = addActivityView.selectedAddition;
+
+            ActivityTemplate selectedActivity = eventModel.getActivityTemplate(activityId + 1);
+            RewardTemplate selectedReward = eventModel.getRewardTemplate(rewardId + 1);
+            AdditionTemplate selectedAddition = eventModel.getAdditionTemplate(additionId + 1);
+
+            decimal totalPrice = (selectedActivity.price + selectedReward.price + selectedAddition.price);
+            addActivityView.totalPrice = totalPrice.ToString();
         }
     }
 }

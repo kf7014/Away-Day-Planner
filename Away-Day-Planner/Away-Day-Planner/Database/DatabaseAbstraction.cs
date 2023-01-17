@@ -88,5 +88,26 @@ namespace Away_Day_Planner.Database
             databaseInterface.DisposeContext(result.Item2);
             return additionTemplates;
         }
+        public ActivityTemplate getActivityTemplate(int activityId)
+        {
+            Tuple<ActivityTemplate, DbContext> result = databaseInterface.Get<ActivityTemplate>(activityId).ToTuple();
+            ActivityTemplate activityTemplate = result.Item1;
+            databaseInterface.DisposeContext(result.Item2);
+            return activityTemplate;
+        }
+        public RewardTemplate getRewardTemplate(int rewardId)
+        {
+            Tuple<RewardTemplate, DbContext> result = databaseInterface.Get<RewardTemplate>(rewardId).ToTuple();
+            RewardTemplate rewardTemplate = result.Item1;
+            databaseInterface.DisposeContext(result.Item2);
+            return rewardTemplate;
+        }
+        public AdditionTemplate getAdditionTemplate(int additionId)
+        {
+            Tuple<AdditionTemplate, DbContext> result = databaseInterface.Get<AdditionTemplate>(additionId).ToTuple();
+            AdditionTemplate additionTemplate = result.Item1;
+            databaseInterface.DisposeContext(result.Item2);
+            return additionTemplate;
+        }     
     }
 }

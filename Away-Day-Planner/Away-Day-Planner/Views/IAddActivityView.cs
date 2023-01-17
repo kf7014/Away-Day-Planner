@@ -15,5 +15,9 @@ namespace Away_Day_Planner.Views
         void setCustomRewardTemplateList(string[] rewardNames);
         void setAdditionTemplateList(string[] additionNames);
         void setCustomAdditionTemplateList(string[] additionNames);
+        int selectedActivity { set; get; }
+        int selectedReward { set; get; }
+        int selectedAddition { set; get; }
+        String totalPrice { set; get; }
     }
 }

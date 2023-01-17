@@ -88,7 +88,6 @@ namespace Away_Day_Planner.Views
             this.checkBoxFacilitator.TabIndex = 4;
             this.checkBoxFacilitator.Text = "Facilitator Required? : ";
             this.checkBoxFacilitator.UseVisualStyleBackColor = true;
-            this.checkBoxFacilitator.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // comboBoxRewardsRequired
             // 
@@ -97,7 +96,6 @@ namespace Away_Day_Planner.Views
             this.comboBoxRewardsRequired.Name = "comboBoxRewardsRequired";
             this.comboBoxRewardsRequired.Size = new System.Drawing.Size(177, 21);
             this.comboBoxRewardsRequired.TabIndex = 5;
-            this.comboBoxRewardsRequired.SelectedIndexChanged += new System.EventHandler(this.comboBoxRewardsRequired_SelectedIndexChanged);
             // 
             // labelRewardsRequired
             // 

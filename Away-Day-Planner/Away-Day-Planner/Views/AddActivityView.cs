@@ -18,14 +18,25 @@ namespace Away_Day_Planner.Views
             InitializeComponent();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        public int selectedActivity
         {
-
+            get { return comboBoxSelectActivity.SelectedIndex; }
+            set { comboBoxSelectActivity.SelectedIndex = value; }
         }
-
-        private void comboBoxRewardsRequired_SelectedIndexChanged(object sender, EventArgs e)
+        public int selectedReward
         {
-
+            get { return comboBoxRewardsRequired.SelectedIndex; }
+            set { comboBoxRewardsRequired.SelectedIndex = value; }
+        }
+        public int selectedAddition
+        {
+            get { return comboBoxAdditions.SelectedIndex; }
+            set { comboBoxAdditions.SelectedIndex = value; }
+        }
+        public String totalPrice
+        {
+            get { return labelPriceValue.Text; }
+            set { labelPriceValue.Text = value.ToString(); }
         }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)

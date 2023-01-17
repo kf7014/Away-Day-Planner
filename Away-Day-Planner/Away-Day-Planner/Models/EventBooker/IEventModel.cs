@@ -15,5 +15,8 @@ namespace Away_Day_Planner.Models.EventBooker
         ActivityTemplate[] getActivityTemplates();
         RewardTemplate[] getRewardTemplates();
         AdditionTemplate[] getAdditionTemplates();
+        ActivityTemplate getActivityTemplate(int activityId);
+        RewardTemplate getRewardTemplate(int rewardId);
+        AdditionTemplate getAdditionTemplate(int additionId);
     }
 }
