@@ -30,11 +30,12 @@ namespace Away_Day_Planner.EventChain
             SetSuccessors();
         }
 
-        public void SetEvent(IEvent e) { _Event = e; }
-        public IEvent GetEvent() { return _Event; }
-        public IHandler GetBase() { return _Base; }
-        public IHandler GetEntry() { return GetBase(); }
-        public IHandler GetStart() { return GetBase(); }
+        public void SetEvent(IEvent e) => _Event = e;
+        public IEvent GetEvent() => _Event;
+        public IHandler GetBase() => _Base;
+        public IHandler GetEntry() => GetBase();
+        public IHandler GetStart() => GetBase();
+        public IList<IHandler> GetHandlers() => Handlers;
 
         private void SetSuccessors() 
         { 
