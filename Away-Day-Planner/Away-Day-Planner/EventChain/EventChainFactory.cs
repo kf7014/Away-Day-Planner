@@ -17,6 +17,7 @@ namespace Away_Day_Planner.EventChain
         private GeneralEventHandler NewEventHandler()           => Activator.CreateInstance<GeneralEventHandler>();
         private CancelledEventHandler NewCancelledHandler()     => Activator.CreateInstance<CancelledEventHandler>();
         private PaymentEventHandler NewPaymentHandler()         => Activator.CreateInstance<PaymentEventHandler>();
+        private ArchivedEventHandler NewArchivedHandler()       => Activator.CreateInstance<ArchivedEventHandler>();
 
         private IEvent _Event = null;
         private IHandler _Base = null;
@@ -35,13 +36,12 @@ namespace Away_Day_Planner.EventChain
         public IHandler GetEntry() { return GetBase(); }
         public IHandler GetStart() { return GetBase(); }
 
-
         private void SetSuccessors() 
         { 
             /*
              Layout and order of successors:
 
-             Base ---> Prelim ---> General ---> Payment
+             Base ---> Prelim ---> General ---> Payment ---> Archived
                |          |           |           ^
                |          |           |           |
                -----------------------------> Cancelled            
@@ -54,6 +54,7 @@ namespace Away_Day_Planner.EventChain
             GeneralEventHandler _general = NewEventHandler();
             CancelledEventHandler _cancel = NewCancelledHandler();
             PaymentEventHandler _pay= NewPaymentHandler();
+            ArchivedEventHandler _archive= NewArchivedHandler();
 
             _base.SetCancelledSuccessor(_cancel);
             _prelim.SetCancelledSuccessor(_cancel);
@@ -63,6 +64,7 @@ namespace Away_Day_Planner.EventChain
             _prelim.SetSuccessor(_general);
             _general.SetSuccessor(_pay);
             _cancel.SetSuccessor(_pay);
+            _pay.SetSuccessor(_archive);
 
             _base.SetEvent(_Event);
             _Base = _base;
@@ -72,6 +74,7 @@ namespace Away_Day_Planner.EventChain
             Handlers.Add(_general);
             Handlers.Add(_pay);
             Handlers.Add(_cancel);
+            Handlers.Add(_archive);
 
             _Event.EventState = EVENT_STATE.BASE;
             _Event.HandlerList = (List<IHandler>) Handlers;
