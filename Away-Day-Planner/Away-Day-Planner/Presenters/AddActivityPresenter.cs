@@ -24,20 +24,36 @@ namespace Away_Day_Planner.Views
         private void populateScreen()
         {
             //Populate template activities dropdown
+            populateTemplateActivities();
+
+            //Populate rewards dropdown
+            populateRewardsDropdown();
+
+            //Populate additions dropdown
+            populateAdditionsDropdown();
+
+            //Update price field on form with choices' total price
+            updateActivityPricing();
+        }
+
+        private void populateTemplateActivities()
+        {
             ActivityTemplate[] activityTemplates = eventModel.getActivityTemplates();
             String[] activityNames = new string[activityTemplates.Length];
-            
-            for(int i=0; i<activityTemplates.Length; i++)
+
+            for (int i = 0; i < activityTemplates.Length; i++)
             {
                 activityNames[i] = activityTemplates[i].name;
             }
 
             addActivityView.setActivityTemplateList(activityNames);
+        }
 
-            //Populate rewards dropdown
+        private void populateRewardsDropdown()
+        {
             RewardTemplate[] rewardTemplates = eventModel.getRewardTemplates();
             String[] rewardNames = new string[rewardTemplates.Length];
-            
+
             for (int i = 0; i < rewardTemplates.Length; i++)
             {
                 rewardNames[i] = rewardTemplates[i].name;
@@ -45,8 +61,10 @@ namespace Away_Day_Planner.Views
 
             addActivityView.setRewardTemplateList(rewardNames);
             addActivityView.setCustomRewardTemplateList(rewardNames);
+        }
 
-            //Populate additions dropdown
+        private void populateAdditionsDropdown()
+        {
             AdditionTemplate[] additionTemplates = eventModel.getAdditionTemplates();
             String[] additionNames = new string[additionTemplates.Length];
 
@@ -57,8 +75,6 @@ namespace Away_Day_Planner.Views
 
             addActivityView.setAdditionTemplateList(additionNames);
             addActivityView.setCustomAdditionTemplateList(additionNames);
-
-            updateActivityPricing();
         }
 
         public void updateActivityPricing()
@@ -71,8 +87,28 @@ namespace Away_Day_Planner.Views
             RewardTemplate selectedReward = eventModel.getRewardTemplate(rewardId + 1);
             AdditionTemplate selectedAddition = eventModel.getAdditionTemplate(additionId + 1);
 
-            decimal totalPrice = (selectedActivity.price + selectedReward.price + selectedAddition.price);
-            addActivityView.totalPrice = totalPrice.ToString();
+            if(selectedActivity != null && selectedReward != null && selectedAddition != null)
+            {
+                decimal totalPrice = (selectedActivity.price + selectedReward.price + selectedAddition.price);
+                addActivityView.totalPrice = totalPrice.ToString();
+            }
+
+
+        }
+
+        public void comboBoxSelectActivityChangedEvent()
+        {
+            updateActivityPricing();
+        }
+
+        public void comboBoxRewardsRequiredChangedEvent()
+        {
+            updateActivityPricing();
+        }
+
+        public void comboBoxAdditionsRequiredChangedEvent()
+        {
+            updateActivityPricing();
         }
     }
 }

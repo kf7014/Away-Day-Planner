@@ -81,5 +81,20 @@ namespace Away_Day_Planner.Views
         {
             comboBoxCustomActivityAdditions.DataSource = additionNames;
         }
+
+        private void comboBoxSelectActivity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addActivityPresenter.comboBoxSelectActivityChangedEvent();
+        }
+
+        private void comboBoxRewardsRequired_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addActivityPresenter.comboBoxRewardsRequiredChangedEvent();
+        }
+
+        private void comboBoxAdditions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addActivityPresenter.comboBoxAdditionsRequiredChangedEvent();
+        }
     }
 }
