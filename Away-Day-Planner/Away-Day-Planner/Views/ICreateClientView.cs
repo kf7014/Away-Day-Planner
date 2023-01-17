@@ -14,5 +14,8 @@ namespace Away_Day_Planner.Views
         String ClientName { get; set; }
         decimal NumberOfHoursAway { get; set; }
         bool HadClientDispute { get; set; }
+        String ErrorMessageName { get; set; }
+        String ErrorMessageDistanceAway { get; set; }
+        String ErrorMessageDispute { get; set; }
     }
 }
