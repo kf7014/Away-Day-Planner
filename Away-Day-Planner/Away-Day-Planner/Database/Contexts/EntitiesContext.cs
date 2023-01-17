@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Models.Login;
 
 namespace Away_Day_Planner.Database.Contexts
 {
@@ -27,6 +28,7 @@ namespace Away_Day_Planner.Database.Contexts
         public virtual DbSet<Date> Dates { get; set; }
         public virtual DbSet<Reward> Rewards { get; set; }
         public virtual DbSet<Addition> Additions { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         public EntitiesContext() : base("name=connection-string"){}
 

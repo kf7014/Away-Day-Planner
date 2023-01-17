@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Models.Login;
 
 namespace Away_Day_Planner.Database
 {
@@ -155,6 +156,16 @@ namespace Away_Day_Planner.Database
             AdditionTemplate additionTemplate = result.Item1;
             databaseInterface.DisposeContext(result.Item2);
             return additionTemplate;
-        }     
+        }
+
+        public void addNewUser(String firstName, String lastName, String username, String userEmail, byte[] userPassword, String userRole)
+        {
+            User newUser = new User(firstName, lastName, username, userEmail, userPassword, userRole);
+            Console.WriteLine("New user added");
+            databaseInterface.Add(newUser);
+        }
+
+
+
     }
 }

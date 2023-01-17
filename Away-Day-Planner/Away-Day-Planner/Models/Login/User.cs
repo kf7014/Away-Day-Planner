@@ -10,6 +10,16 @@ namespace Away_Day_Planner.Models.Login
 {
     public class User : IUser 
     {
+        public User(string firstName, string lastName, string username, string userEmail, byte[] userPassword, string userRole)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.username = username;
+            this.userEmail = userEmail;
+            this.userPassword = userPassword;
+            this.userRole = userRole;
+        }
+
         private int USERID;
         [Required, Key]
         public int userID { get => USERID; set => USERID = value; }
@@ -30,12 +40,13 @@ namespace Away_Day_Planner.Models.Login
         [MinLength(10), MaxLength(50, ErrorMessage = "Email should be in between 10 and 50 characters long.")]
         public string userEmail { get => USEREMAIL; set => USEREMAIL = value; }
 
-        private string USERPASSWORD;
+        private byte[] USERPASSWORD;
         [MinLength(8), MaxLength(50, ErrorMessage = "Password should be in between 8 and 50 characters long.")]
-        public string userPassword { get => USERPASSWORD; set => USERPASSWORD = value; }
+        public byte[] userPassword { get => USERPASSWORD; set => USERPASSWORD = value; }
 
         private string USERROLE;
         [MinLength(5), MaxLength(10)]
         public string userRole { get => USERROLE; set => USERROLE = value; }
+
     }
 }

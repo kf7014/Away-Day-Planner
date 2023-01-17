@@ -33,18 +33,18 @@ namespace Away_Day_Planner.Views
             this.registerTitle = new System.Windows.Forms.Label();
             this.registerNewUserButton = new System.Windows.Forms.Button();
             this.backRegisterButton = new System.Windows.Forms.Button();
-            this.firstNameLabel = new System.Windows.Forms.Label();
-            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.firstNameText = new System.Windows.Forms.Label();
+            this.lastNameText = new System.Windows.Forms.Label();
             this.staffFirstName = new System.Windows.Forms.TextBox();
             this.staffLastName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.emailText = new System.Windows.Forms.Label();
+            this.usernameText = new System.Windows.Forms.Label();
             this.staffEmail = new System.Windows.Forms.TextBox();
             this.staffUsername = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.roleDropDown = new System.Windows.Forms.ComboBox();
-            this.userPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.roleText = new System.Windows.Forms.Label();
+            this.staffRole = new System.Windows.Forms.ComboBox();
+            this.staffPassword = new System.Windows.Forms.TextBox();
+            this.passwordText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // registerHeading
@@ -74,6 +74,7 @@ namespace Away_Day_Planner.Views
             this.registerNewUserButton.TabIndex = 10;
             this.registerNewUserButton.Text = "Register New User";
             this.registerNewUserButton.UseVisualStyleBackColor = true;
+            this.registerNewUserButton.Click += new System.EventHandler(this.registerNewUserButton_Click);
             // 
             // backRegisterButton
             // 
@@ -84,23 +85,23 @@ namespace Away_Day_Planner.Views
             this.backRegisterButton.Text = "Back";
             this.backRegisterButton.UseVisualStyleBackColor = true;
             // 
-            // firstNameLabel
+            // firstNameText
             // 
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(188, 180);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(63, 13);
-            this.firstNameLabel.TabIndex = 12;
-            this.firstNameLabel.Text = "First Name: ";
+            this.firstNameText.AutoSize = true;
+            this.firstNameText.Location = new System.Drawing.Point(188, 180);
+            this.firstNameText.Name = "firstNameText";
+            this.firstNameText.Size = new System.Drawing.Size(63, 13);
+            this.firstNameText.TabIndex = 12;
+            this.firstNameText.Text = "First Name: ";
             // 
-            // lastNameLabel
+            // lastNameText
             // 
-            this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(187, 214);
-            this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(64, 13);
-            this.lastNameLabel.TabIndex = 13;
-            this.lastNameLabel.Text = "Last Name: ";
+            this.lastNameText.AutoSize = true;
+            this.lastNameText.Location = new System.Drawing.Point(187, 214);
+            this.lastNameText.Name = "lastNameText";
+            this.lastNameText.Size = new System.Drawing.Size(64, 13);
+            this.lastNameText.TabIndex = 13;
+            this.lastNameText.Text = "Last Name: ";
             // 
             // staffFirstName
             // 
@@ -116,24 +117,23 @@ namespace Away_Day_Planner.Views
             this.staffLastName.Size = new System.Drawing.Size(111, 20);
             this.staffLastName.TabIndex = 15;
             // 
-            // label1
+            // emailText
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(203, 283);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "E-mail: ";
+            this.emailText.AutoSize = true;
+            this.emailText.Location = new System.Drawing.Point(203, 283);
+            this.emailText.Name = "emailText";
+            this.emailText.Size = new System.Drawing.Size(41, 13);
+            this.emailText.TabIndex = 16;
+            this.emailText.Text = "E-mail: ";
             // 
-            // label2
+            // usernameText
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(409, 180);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Username:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.usernameText.AutoSize = true;
+            this.usernameText.Location = new System.Drawing.Point(409, 180);
+            this.usernameText.Name = "usernameText";
+            this.usernameText.Size = new System.Drawing.Size(58, 13);
+            this.usernameText.TabIndex = 17;
+            this.usernameText.Text = "Username:";
             // 
             // staffEmail
             // 
@@ -149,43 +149,41 @@ namespace Away_Day_Planner.Views
             this.staffUsername.Size = new System.Drawing.Size(111, 20);
             this.staffUsername.TabIndex = 19;
             // 
-            // label3
+            // roleText
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(432, 214);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Role: ";
+            this.roleText.AutoSize = true;
+            this.roleText.Location = new System.Drawing.Point(432, 214);
+            this.roleText.Name = "roleText";
+            this.roleText.Size = new System.Drawing.Size(35, 13);
+            this.roleText.TabIndex = 20;
+            this.roleText.Text = "Role: ";
             // 
-            // roleDropDown
+            // staffRole
             // 
-            this.roleDropDown.FormattingEnabled = true;
-            this.roleDropDown.Items.AddRange(new object[] {
+            this.staffRole.FormattingEnabled = true;
+            this.staffRole.Items.AddRange(new object[] {
             "Staff",
             ""});
-            this.roleDropDown.Location = new System.Drawing.Point(473, 211);
-            this.roleDropDown.Name = "roleDropDown";
-            this.roleDropDown.Size = new System.Drawing.Size(111, 21);
-            this.roleDropDown.TabIndex = 21;
-            this.roleDropDown.SelectedIndexChanged += new System.EventHandler(this.roleDropDown_SelectedIndexChanged);
+            this.staffRole.Location = new System.Drawing.Point(473, 211);
+            this.staffRole.Name = "staffRole";
+            this.staffRole.Size = new System.Drawing.Size(111, 21);
+            this.staffRole.TabIndex = 21;
             // 
-            // userPassword
+            // staffPassword
             // 
-            this.userPassword.Location = new System.Drawing.Point(258, 245);
-            this.userPassword.Name = "userPassword";
-            this.userPassword.Size = new System.Drawing.Size(111, 20);
-            this.userPassword.TabIndex = 22;
-            this.userPassword.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.staffPassword.Location = new System.Drawing.Point(258, 245);
+            this.staffPassword.Name = "staffPassword";
+            this.staffPassword.Size = new System.Drawing.Size(111, 20);
+            this.staffPassword.TabIndex = 22;
             // 
-            // label4
+            // passwordText
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(190, 248);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Password:";
+            this.passwordText.AutoSize = true;
+            this.passwordText.Location = new System.Drawing.Point(190, 248);
+            this.passwordText.Name = "passwordText";
+            this.passwordText.Size = new System.Drawing.Size(56, 13);
+            this.passwordText.TabIndex = 23;
+            this.passwordText.Text = "Password:";
             // 
             // RegisterView
             // 
@@ -193,18 +191,18 @@ namespace Away_Day_Planner.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.userPassword);
-            this.Controls.Add(this.roleDropDown);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.passwordText);
+            this.Controls.Add(this.staffPassword);
+            this.Controls.Add(this.staffRole);
+            this.Controls.Add(this.roleText);
             this.Controls.Add(this.staffUsername);
             this.Controls.Add(this.staffEmail);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.usernameText);
+            this.Controls.Add(this.emailText);
             this.Controls.Add(this.staffLastName);
             this.Controls.Add(this.staffFirstName);
-            this.Controls.Add(this.lastNameLabel);
-            this.Controls.Add(this.firstNameLabel);
+            this.Controls.Add(this.lastNameText);
+            this.Controls.Add(this.firstNameText);
             this.Controls.Add(this.backRegisterButton);
             this.Controls.Add(this.registerNewUserButton);
             this.Controls.Add(this.registerHeading);
@@ -222,17 +220,17 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label registerTitle;
         private System.Windows.Forms.Button registerNewUserButton;
         private System.Windows.Forms.Button backRegisterButton;
-        private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.Label firstNameText;
+        private System.Windows.Forms.Label lastNameText;
         private System.Windows.Forms.TextBox staffFirstName;
         private System.Windows.Forms.TextBox staffLastName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label emailText;
+        private System.Windows.Forms.Label usernameText;
         private System.Windows.Forms.TextBox staffEmail;
         private System.Windows.Forms.TextBox staffUsername;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox roleDropDown;
-        private System.Windows.Forms.TextBox userPassword;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label roleText;
+        private System.Windows.Forms.ComboBox staffRole;
+        private System.Windows.Forms.TextBox staffPassword;
+        private System.Windows.Forms.Label passwordText;
     }
 }

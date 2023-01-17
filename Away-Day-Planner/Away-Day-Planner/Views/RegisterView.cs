@@ -7,39 +7,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Away_Day_Planner.Presenters;
+
 
 namespace Away_Day_Planner.Views
 {
-    public partial class RegisterView : Form
+    public partial class RegisterView : Form, IRegisterView
     {
+        private RegisterUserPresenter registerUserPresenter;
         public RegisterView()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        public void register(RegisterUserPresenter registerUserPresenter)
         {
+            this.registerUserPresenter = registerUserPresenter;
 
         }
 
-        private void roleDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        //retrieving data from form//
+        public String firstName
         {
-
+            get { return staffFirstName.Text; }
+            set { staffFirstName.Text = value; }
+        }
+        public String lastName
+        {
+            get { return staffLastName.Text; }
+            set { staffLastName.Text = value; }
+        }
+        public String userPassword
+        {
+            get { return staffPassword.Text; }
+            set { staffPassword.Text = value; }
+        }
+        public String userEmail
+        {
+            get { return staffEmail.Text; }
+            set { staffEmail.Text = value; }
+        }
+        public String username
+        {
+            get { return staffUsername.Text; }
+            set { staffUsername.Text = value; }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public String userRole
         {
-
+            get { return staffRole.Text; }
+            set { staffRole.Text = value; }
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void registerNewUserButton_Click(object sender, EventArgs e)
         {
-
+            registerUserPresenter.registerNewUserEvent();
         }
+        //registerNewUserButton
+        //end of retrieving data from form//
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
