@@ -15,7 +15,12 @@ namespace Away_Day_Planner.EventChain.Handlers
         }
         public override void HandleEvent()
         {
-            Event.CurrentHandler = Successor;
+            ChangeEventState();
+            Successor.HandleEvent();
+        }
+        public override void ChangeEventState()
+        {
+            Event.EventState = EVENT_STATE.PRELIMINARY;
         }
     }
 }

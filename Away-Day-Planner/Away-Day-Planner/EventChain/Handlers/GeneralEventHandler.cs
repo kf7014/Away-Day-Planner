@@ -10,12 +10,17 @@ namespace Away_Day_Planner.EventChain.Handlers
     {
         public void AddOption()
         {
-
         }
+
+        public override void ChangeEventState()
+        {
+            Event.EventState = EVENT_STATE.PAYMENT;
+        }
+
         public override void HandleEvent()
         {
-            Event.CurrentHandler = this;
-            Event.EventState = EVENT_STATE.EVENT;
+            ChangeEventState();
+            Successor.HandleEvent();
         }
     }
 }
