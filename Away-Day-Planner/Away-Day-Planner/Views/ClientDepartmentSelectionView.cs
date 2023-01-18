@@ -88,5 +88,16 @@ namespace Away_Day_Planner.Views
         {
             clientDepartmentSelectionPresenter.listBoxClientSelectionEvent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            //on click take user to register new user view
+            RegisterView registerView = new RegisterView();
+            this.Hide();
+            registerView.ShowDialog();
+            this.Show();
+            
+        }
     }
 }

@@ -11,9 +11,9 @@ namespace Away_Day_Planner.Presenters
     public class RegisterUserPresenter
     {
         private IRegisterView createRegisterView;
-        private ILoginModel LoginModel;
+        private ILoginRegistrationModel LoginModel;
 
-        public RegisterUserPresenter(IRegisterView createRegisterView, ILoginModel LoginModel)
+        public RegisterUserPresenter(IRegisterView createRegisterView, ILoginRegistrationModel LoginModel)
         {
             this.createRegisterView = createRegisterView;
             this.LoginModel = LoginModel;
@@ -28,7 +28,7 @@ namespace Away_Day_Planner.Presenters
             String username = createRegisterView.username;
             String userEmail = createRegisterView.userEmail;
             String userPassword = createRegisterView.userPassword;
-            String userRole = createRegisterView.userRole;
+
 
 
             bool validationError = false;
@@ -37,7 +37,7 @@ namespace Away_Day_Planner.Presenters
             bool usernameError = false;
             bool emailError = false;
             bool passwordError = false;
-            bool userRoleError = false;
+
 
 
             //validation
@@ -162,35 +162,11 @@ namespace Away_Day_Planner.Presenters
                     createRegisterView.ErrorMessagePassword = "";
                 }
 
-                //user role
-                if (userRole.Length < 2)
-                {
-                    createRegisterView.ErrorMessageRole = "Role must be longer than 2 characters";
-                    userRoleError = false;
-                    validationError = true;
-                }
-                else if (userRole.Length > 20)
-                {
-                    createRegisterView.ErrorMessageRole = "Role must be shorter than 20 characters";
-                    userRoleError = false;
-                    validationError = true;
 
-                }
-                else if (userRole == null)
-                {
-                    createRegisterView.ErrorMessageRole = "Role name cannot be empty";
-                    userRoleError = false;
-                    validationError = true;
-                }
-                else if (userRoleError == false)
-                {
-                    createRegisterView.ErrorMessageRole = "";
-                }
-                //Console.WriteLine(userRole.Length);
             
             if (validationError == false)
             {
-                LoginModel.addNewUser(firstName, lastName, username, userEmail, userPassword, userRole);
+                LoginModel.addNewUser(firstName, lastName, username, userEmail, userPassword);
                 return true;
             }
             else

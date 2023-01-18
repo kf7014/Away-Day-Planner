@@ -17,19 +17,9 @@ namespace Away_Day_Planner.Views
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void registerHereLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
+           
         }
     }
 }

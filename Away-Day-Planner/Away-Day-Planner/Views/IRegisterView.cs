@@ -16,14 +16,14 @@ namespace Away_Day_Planner.Views
         String username { get; set; }
         String userEmail { get; set; }
         String userPassword { get; set; }
-        String userRole { get; set; }
+
         //error messages
         String ErrorMessageFirstName { get; set; }
         String ErrorMessageLastName { get; set; }
         String ErrorMessageUsername { get; set; }
         String ErrorMessageEmail { get; set; }
         String ErrorMessagePassword { get; set; }
-        String ErrorMessageRole { get; set; }
+
       
     }
 }

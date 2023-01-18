@@ -53,6 +53,7 @@ namespace Away_Day_Planner.Views
             // 
             this.userPassword.Location = new System.Drawing.Point(323, 215);
             this.userPassword.Name = "userPassword";
+            this.userPassword.PasswordChar = '*';
             this.userPassword.Size = new System.Drawing.Size(180, 20);
             this.userPassword.TabIndex = 1;
             this.userPassword.Visible = false;
@@ -66,7 +67,6 @@ namespace Away_Day_Planner.Views
             this.title.Size = new System.Drawing.Size(318, 46);
             this.title.TabIndex = 2;
             this.title.Text = "Away-Day-Planner";
-            this.title.Click += new System.EventHandler(this.label1_Click);
             // 
             // usernameTooltip
             // 
@@ -102,7 +102,7 @@ namespace Away_Day_Planner.Views
             this.loginButton.TabIndex = 5;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.button1_Click);
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // loginHeading
             // 

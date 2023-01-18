@@ -137,11 +137,9 @@
     <Compile Include="Models\EventBooker\IReward.cs" />
     <Compile Include="Models\EventBooker\Reward.cs" />
     <Compile Include="Models\EventBooker\RewardTemplate.cs" />
-    <Compile Include="Models\Login\ILoginModel.cs" />
-    <Compile Include="Models\Login\IRole.cs" />
+    <Compile Include="Models\Login\ILoginRegistrationModel.cs" />
     <Compile Include="Models\Login\IUser.cs" />
-    <Compile Include="Models\Login\LoginModel.cs" />
-    <Compile Include="Models\Login\Role.cs" />
+    <Compile Include="Models\Login\LoginRegistrationModel.cs" />
     <Compile Include="Models\Login\User.cs" />
     <Compile Include="Presenters\AddActivityPresenter.cs" />
     <Compile Include="Presenters\ClientDepartmentSelectionPresenter.cs" />
@@ -152,6 +150,7 @@
     <Compile Include="Presenters\RegisterUserPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\HashingProvider.cs" />
     <Compile Include="Utilities\ArgumentParser.cs" />
     <Compile Include="Utilities\AppSettings.cs" />
     <Compile Include="Utilities\ErrorList.cs" />
@@ -205,12 +204,6 @@
     <Compile Include="Views\RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202301171702284_test.resx">
-      <DependentUpon>202301171702284_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301171726068_test1.resx">
-      <DependentUpon>202301171726068_test1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -257,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Security\" />
+    <Folder Include="Testing\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

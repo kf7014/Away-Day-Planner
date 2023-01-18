@@ -10,14 +10,14 @@ namespace Away_Day_Planner.Models.Login
 {
     public class User : IUser 
     {
-        public User(string firstName, string lastName, string username, string userEmail, String userPassword, string userRole)
+        public User(string firstName, string lastName, string username, string userEmail, String userPassword)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.username = username;
             this.userEmail = userEmail;
             this.userPassword = userPassword;
-            this.userRole = userRole;
+
         }
 
         private int USERID;
@@ -44,9 +44,7 @@ namespace Away_Day_Planner.Models.Login
         [MinLength(8), MaxLength(50)]
         public String userPassword { get => USERPASSWORD; set => USERPASSWORD = value; }
 
-        private string USERROLE;
-        [MinLength(2), MaxLength(20)]
-        public string userRole { get => USERROLE; set => USERROLE = value; }
+
 
     }
 }

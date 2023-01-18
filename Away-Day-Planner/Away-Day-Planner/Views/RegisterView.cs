@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Away_Day_Planner.Presenters;
+using Away_Day_Planner.Models.Login;
 
 
 namespace Away_Day_Planner.Views
 {
     public partial class RegisterView : Form, IRegisterView
     {
+        private ClientDepartmentSelectionView clientDepartmentSelectionView;
         private RegisterUserPresenter registerUserPresenter;
         public RegisterView()
         {
@@ -53,11 +55,7 @@ namespace Away_Day_Planner.Views
             set { staffUsername.Text = value; }
         }
 
-        public String userRole
-        {
-            get { return staffRole.Text; }
-            set { staffRole.Text = value; }
-        }
+
         //error messages
         public String ErrorMessageFirstName
         {
@@ -89,16 +87,35 @@ namespace Away_Day_Planner.Views
             set { errorMessagePassword.Text = value; }
         }
 
-        public String ErrorMessageRole
-        {
-            get { return errorMessageRole.Text; }
-            set { errorMessageRole.Text = value; }
-        }
+
 
 
         private void registerNewUserButton_Click(object sender, EventArgs e)
         {
-            registerUserPresenter.registerNewUserEvent();
+            //register new user
+            bool success = registerUserPresenter.registerNewUserEvent();
+            if (success)
+            {
+                //on click take user to client department selection view
+                ClientDepartmentSelectionView clientDepartmentSelectionView = new ClientDepartmentSelectionView();
+                this.Hide();
+                clientDepartmentSelectionView.ShowDialog();
+            }
+
+            
+        }
+
+        private void RegisterView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backRegisterButton_Click(object sender, EventArgs e)
+        {
+            //on click take user to client department selection view
+            ClientDepartmentSelectionView clientDepartmentSelectionView = new ClientDepartmentSelectionView();
+            this.Hide();
+            clientDepartmentSelectionView.ShowDialog();
         }
 
 
