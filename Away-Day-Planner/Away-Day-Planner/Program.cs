@@ -32,9 +32,7 @@ namespace Away_Day_Planner
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Create Model, View and Presenter for ClientDepartmentSelection
-            //ClientDepartmentSelectionView clientDepartmentSelectionView = new ClientDepartmentSelectionView();
-            //ClientModel clientModel = new ClientModel();
-            //ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter = new ClientDepartmentSelectionPresenter(clientDepartmentSelectionView, clientModel);
+           
 
             LoginView loginView = new LoginView();
             LoginRegistrationModel loginRegistrationModel = new LoginRegistrationModel();

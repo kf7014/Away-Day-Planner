@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.Login;
 using Away_Day_Planner.Presenters;
 
@@ -63,7 +64,11 @@ namespace Away_Day_Planner.Views
             bool success = loginUserPresenter.loginUserEvent();
             if (success)
             {
+
                 ClientDepartmentSelectionView clientDepartmentSelectionView = new ClientDepartmentSelectionView();
+
+                ClientModel clientModel = new ClientModel();
+                ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter = new ClientDepartmentSelectionPresenter(clientDepartmentSelectionView, clientModel);
                 this.Hide();
                 clientDepartmentSelectionView.ShowDialog();
             }
