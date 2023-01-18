@@ -73,5 +73,28 @@ namespace Away_Day_Planner.Presenters
             populateScreen();
         }
 
+
+        public bool buttonConfirmClickEvent()
+        {
+            bool validationErrors = false;
+            if (clientDepartmentSelectionView.selectedClientIndex < 0)
+            {
+                validationErrors = true;
+            }
+            if (clientDepartmentSelectionView.selectedDepartmentIndex < 0)
+            {
+                validationErrors = true;
+            }
+
+            if(validationErrors == true)
+            {
+                clientDepartmentSelectionView.ErrorConfirmSelection = "Must select client and department";
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
+
     }
 }
