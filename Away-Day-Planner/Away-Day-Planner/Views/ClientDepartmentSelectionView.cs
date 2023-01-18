@@ -32,6 +32,11 @@ namespace Away_Day_Planner.Views
             set { }
             get { return listBoxDepartment.SelectedIndex; }
         }
+        public String ErrorConfirmSelection
+        {
+            set { labelConfirmSelectionError.Text = value; }
+            get { return labelConfirmSelectionError.Text; }
+        }
 
         private void buttonCreateClient_Click(object sender, EventArgs e)
         {

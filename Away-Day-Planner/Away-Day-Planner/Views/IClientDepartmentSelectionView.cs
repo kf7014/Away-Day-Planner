@@ -15,5 +15,6 @@ namespace Away_Day_Planner.Views
         void setDepartmentList(string[] names);
         int selectedClientIndex { get; set; }
         int selectedDepartmentIndex { get; set; }
+        String ErrorConfirmSelection { get; set; }
     }
 }

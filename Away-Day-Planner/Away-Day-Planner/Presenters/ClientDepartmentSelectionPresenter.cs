@@ -88,6 +88,7 @@ namespace Away_Day_Planner.Presenters
 
             if(validationErrors == true)
             {
+                clientDepartmentSelectionView.ErrorConfirmSelection = "Must select client and department";
                 return false;
             } else
             {

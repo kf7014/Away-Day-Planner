@@ -37,6 +37,7 @@ namespace Away_Day_Planner.Views
             this.labelOrChoice = new System.Windows.Forms.Label();
             this.buttonCreateClient = new System.Windows.Forms.Button();
             this.buttonCreateDepartment = new System.Windows.Forms.Button();
+            this.labelConfirmSelectionError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelSelectClient
@@ -113,11 +114,21 @@ namespace Away_Day_Planner.Views
             this.buttonCreateDepartment.UseVisualStyleBackColor = true;
             this.buttonCreateDepartment.Click += new System.EventHandler(this.buttonCreateDepartment_Click);
             // 
+            // labelConfirmSelectionError
+            // 
+            this.labelConfirmSelectionError.AutoSize = true;
+            this.labelConfirmSelectionError.ForeColor = System.Drawing.Color.Red;
+            this.labelConfirmSelectionError.Location = new System.Drawing.Point(69, 360);
+            this.labelConfirmSelectionError.Name = "labelConfirmSelectionError";
+            this.labelConfirmSelectionError.Size = new System.Drawing.Size(0, 13);
+            this.labelConfirmSelectionError.TabIndex = 8;
+            // 
             // ClientDepartmentSelectionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelConfirmSelectionError);
             this.Controls.Add(this.buttonCreateDepartment);
             this.Controls.Add(this.buttonCreateClient);
             this.Controls.Add(this.labelOrChoice);
@@ -143,5 +154,6 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label labelOrChoice;
         private System.Windows.Forms.Button buttonCreateClient;
         private System.Windows.Forms.Button buttonCreateDepartment;
+        private System.Windows.Forms.Label labelConfirmSelectionError;
     }
 }
