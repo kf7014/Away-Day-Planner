@@ -64,7 +64,7 @@ namespace Away_Day_Planner.Models.EventBooker
             set { IsBooked = value; }
         }
 
-        public Event(int noOfAttendees)
+        public Event()
         {
             this.activitiesList = new List<IActivity>();
             this.availableDaysFlexibilityList = new List<IDate>();

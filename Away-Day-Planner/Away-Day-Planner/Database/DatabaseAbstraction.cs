@@ -33,10 +33,18 @@ namespace Away_Day_Planner.Database
             databaseInterface.Add(newDepartment);
         }
 
-        public void addNewEvent(int noOfAttendees)
+        public void addNewEvent()
         {
-            Event _event = new Event(noOfAttendees);
+            Event _event = new Event();
             databaseInterface.Add(_event);
+        }
+
+        public Event[] getAllEvents()
+        {
+            Tuple<DbSet<Event>, DbContext> result = databaseInterface.GetAll<Event>().ToTuple();
+            Event[] events = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return events;
         }
 
         public Client[] getAllClients()

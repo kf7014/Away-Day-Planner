@@ -35,12 +35,12 @@ namespace Away_Day_Planner.Models.EventBooker
             //TODO: Demo code to be replaced by db stuff
 
             //facilitatorTeams = new List<FacilitatorTeam>();
-            eventList = new List<Event>();
+            //eventList = new List<Event>();
 
             //Populate dummy data        
-            eventList.Add(new Event(0));
+            //eventList.Add(new Event());
 
-            eventList[0].activitiesList.Add(new Activity(0, "Test Activity", "Meal", 10, true, false, facilitatorTeams));
+            //eventList[0].activitiesList.Add(new Activity(0, "Test Activity", "Meal", 10, true, false, facilitatorTeams));
             
         }
 
@@ -98,9 +98,15 @@ namespace Away_Day_Planner.Models.EventBooker
             return additionTemplate;
         }
 
-        public void addNewEvent(int noOfAttendees)
+        public void addNewEvent()
         {
-            databaseAbstraction.addNewEvent(noOfAttendees);
+            databaseAbstraction.addNewEvent();
+        }
+
+        public Event[] getAllEvents()
+        {
+            Event[] events = databaseAbstraction.getAllEvents();
+            return events;
         }
     }
 }

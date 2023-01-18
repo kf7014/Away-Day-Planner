@@ -29,17 +29,20 @@ namespace Away_Day_Planner.Presenters
             //Customise event form title to match client and department
             setTitle();
 
-            //Populate activityList box
+            ////Populate activityList box
             //Currently uses hardcoded event ID, NEEDS CHANGING
-            IActivity[] activityList = eventModel.getEventActivityList(0);
-            String[] activityListNames = new string[activityList.Length];
-            for(int i=0; i<activityList.Length; i++)
-            {
-                activityListNames[i] = activityList[i].name;
-            }
+            //IActivity[] activityList = eventModel.getEventActivityList(0);
+            //String[] activityListNames = new string[activityList.Length];
+            //for(int i=0; i<activityList.Length; i++)
+            //{
+            //    activityListNames[i] = activityList[i].name;
+            //}
 
             //Sets activityList datasource in view
-            eventBookerView.setActivityList(activityListNames);
+            //eventBookerView.setActivityList(activityListNames);
+
+            //TODO
+            setActivityList();
         }
 
         //Customise event form title to match client and department
@@ -57,6 +60,33 @@ namespace Away_Day_Planner.Presenters
             Department department = (Department)departments[eventModel.departmentId];
 
             eventBookerView.pageTitle = "Booking event for " + client.name + " and Department " + department.name;
+        }
+
+        private void setActivityList()
+        {
+            Event[] events = eventModel.getAllEvents();
+            Event currentEvent = events[0];
+            for(int i=0; i<events.Length; i++)
+            {
+                if(events[i].id > currentEvent.id)
+                {
+                    currentEvent = events[i];
+                }
+            }
+
+            Console.WriteLine("Current Event is " + currentEvent.id);
+
+            IActivity[] eventActivities = currentEvent.activitiesList.ToArray();
+            String[] activityNames = new string[currentEvent.activitiesList.Count];
+            for(int i=0; i < eventActivities.Length; i++)
+            {
+                String activityName = eventActivities[i].name;
+                activityNames[i] = activityName;   
+            }
+            eventBookerView.setActivityList(activityNames);
+
+
+
         }
     }
 }
