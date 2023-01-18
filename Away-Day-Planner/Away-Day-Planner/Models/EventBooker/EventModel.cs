@@ -34,7 +34,7 @@ namespace Away_Day_Planner.Models.EventBooker
         {
             //TODO: Demo code to be replaced by db stuff
 
-            facilitatorTeams = new List<FacilitatorTeam>();
+            //facilitatorTeams = new List<FacilitatorTeam>();
             eventList = new List<Event>();
 
             //Populate dummy data        
@@ -96,6 +96,11 @@ namespace Away_Day_Planner.Models.EventBooker
         {
             AdditionTemplate additionTemplate = databaseAbstraction.getAdditionTemplate(additionId);
             return additionTemplate;
+        }
+
+        public void addNewEvent(int noOfAttendees)
+        {
+            databaseAbstraction.addNewEvent(noOfAttendees);
         }
     }
 }

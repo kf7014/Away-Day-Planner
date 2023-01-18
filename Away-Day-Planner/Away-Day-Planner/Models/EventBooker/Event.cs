@@ -64,10 +64,14 @@ namespace Away_Day_Planner.Models.EventBooker
             set { IsBooked = value; }
         }
 
-        public Event(int id)
+        public Event(int noOfAttendees)
         {
-            Id = id;
-            ActivitiesList = new List<IActivity>();
+            this.activitiesList = new List<IActivity>();
+            this.availableDaysFlexibilityList = new List<IDate>();
+            this.bookingDate = null;
+            this.price = 0;
+            this.noOfAttendees = 0;
+            this.isBooked = false;
         }
         public double DaysTillEvent(DateTime currentTime)
         {
