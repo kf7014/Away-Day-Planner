@@ -28,7 +28,7 @@ namespace Away_Day_Planner.Views
 
         }
 
-        //retrieving data from form//
+        //retrieving data from form and setting it//
         public String firstName
         {
             get { return staffFirstName.Text; }
@@ -56,7 +56,7 @@ namespace Away_Day_Planner.Views
         }
 
 
-        //error messages
+        //error messages for data validation
         public String ErrorMessageFirstName
         {
             get { return errorMessageFirstName.Text; }

@@ -20,6 +20,11 @@ namespace Away_Day_Planner.Models.Login
 
         }
 
+        public User()
+        {
+
+        }
+
         private int USERID;
         [Required, Key]
         public int userID { get => USERID; set => USERID = value; }

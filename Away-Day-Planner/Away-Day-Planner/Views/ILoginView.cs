@@ -11,5 +11,13 @@ namespace Away_Day_Planner.Views
     {
         
         void register(LoginUserPresenter loginUserPresenter);
+
+        String loginUsername { get; set; }
+        String loginPassword { get; set; }
+
+        String LoginErrorMessagePassword { get; set; }
+        String LoginErrorMessageUsername { get; set; }
+
+   
     }
 }

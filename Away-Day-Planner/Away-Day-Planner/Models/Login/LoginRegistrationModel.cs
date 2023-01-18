@@ -15,5 +15,23 @@ namespace Away_Day_Planner.Models.Login
             databaseAbstraction.addNewUser(firstName, lastName, username, userEmail, userPassword);
           
         }
+
+        public User getUserFromLogin(string username,  string userPassword)
+        {
+           User[] users = databaseAbstraction.getAllUsers();
+            for (int x=0 ; x < users.Length ; x++)
+            {
+                if (users[x].username == username && users[x].userPassword == userPassword)
+                {
+                    return users[x];
+                }
+            }
+            return null;
+        }
+
+
+
+
     }
+    
 }

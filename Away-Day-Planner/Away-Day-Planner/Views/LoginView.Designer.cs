@@ -39,6 +39,8 @@ namespace Away_Day_Planner.Views
             this.passwordLabel = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
             this.loginHeading = new System.Windows.Forms.Label();
+            this.loginErrorMessageUsername = new System.Windows.Forms.Label();
+            this.loginErrorMessagePassword = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userLogin
@@ -112,12 +114,32 @@ namespace Away_Day_Planner.Views
             this.loginHeading.TabIndex = 7;
             this.loginHeading.Text = "Login to Booking System";
             // 
+            // loginErrorMessageUsername
+            // 
+            this.loginErrorMessageUsername.AutoSize = true;
+            this.loginErrorMessageUsername.ForeColor = System.Drawing.Color.Red;
+            this.loginErrorMessageUsername.Location = new System.Drawing.Point(330, 161);
+            this.loginErrorMessageUsername.Name = "loginErrorMessageUsername";
+            this.loginErrorMessageUsername.Size = new System.Drawing.Size(0, 13);
+            this.loginErrorMessageUsername.TabIndex = 25;
+            // 
+            // loginErrorMessagePassword
+            // 
+            this.loginErrorMessagePassword.AutoSize = true;
+            this.loginErrorMessagePassword.ForeColor = System.Drawing.Color.Red;
+            this.loginErrorMessagePassword.Location = new System.Drawing.Point(330, 199);
+            this.loginErrorMessagePassword.Name = "loginErrorMessagePassword";
+            this.loginErrorMessagePassword.Size = new System.Drawing.Size(0, 13);
+            this.loginErrorMessagePassword.TabIndex = 26;
+            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loginErrorMessagePassword);
+            this.Controls.Add(this.loginErrorMessageUsername);
             this.Controls.Add(this.loginHeading);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordLabel);
@@ -143,5 +165,7 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label loginHeading;
+        private System.Windows.Forms.Label loginErrorMessageUsername;
+        private System.Windows.Forms.Label loginErrorMessagePassword;
     }
 }

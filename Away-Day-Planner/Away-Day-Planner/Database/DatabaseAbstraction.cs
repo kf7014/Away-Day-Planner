@@ -16,7 +16,7 @@ namespace Away_Day_Planner.Database
 
         public DatabaseAbstraction()
         {
-            
+
         }
 
         public void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute)
@@ -83,7 +83,7 @@ namespace Away_Day_Planner.Database
 
         public Client[] getAllClients()
         {
-            Tuple<DbSet<Client>,DbContext> result = databaseInterface.GetAll<Client>().ToTuple();
+            Tuple<DbSet<Client>, DbContext> result = databaseInterface.GetAll<Client>().ToTuple();
             Client[] clients = result.Item1.ToArray();
             databaseInterface.DisposeContext(result.Item2);
             return clients;
@@ -91,7 +91,7 @@ namespace Away_Day_Planner.Database
 
         public Client getClient(int clientId)
         {
-            Tuple<Client,DbContext> result = databaseInterface.Get<Client>(clientId).ToTuple();
+            Tuple<Client, DbContext> result = databaseInterface.Get<Client>(clientId).ToTuple();
             Client client = result.Item1;
             databaseInterface.DisposeContext(result.Item2);
             return client;
@@ -102,7 +102,7 @@ namespace Away_Day_Planner.Database
             Tuple<DbSet<Department>, DbContext> result = databaseInterface.GetAll<Department>().ToTuple();
             Department[] departments = result.Item1.ToArray();
             List<Department> clientDepartments = new List<Department>();
-            foreach(Department department in departments)
+            foreach (Department department in departments)
             {
                 if (department.ClientFK == clientId)
                 {
@@ -165,7 +165,15 @@ namespace Away_Day_Planner.Database
             databaseInterface.Add(newUser);
         }
 
+        public User[] getAllUsers()
+        {
+            Tuple<DbSet<User>, DbContext> result = databaseInterface.GetAll<User>().ToTuple();
+            User[] users = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return users;
 
+        }
 
     }
+
 }
