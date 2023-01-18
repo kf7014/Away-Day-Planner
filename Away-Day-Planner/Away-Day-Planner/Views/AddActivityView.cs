@@ -38,12 +38,33 @@ namespace Away_Day_Planner.Views
             get { return labelPriceValue.Text; }
             set { labelPriceValue.Text = value.ToString(); }
         }
+        public String selectedActivityName
+        {
+            get { return comboBoxSelectActivity.Text; }
+            set { comboBoxSelectActivity.Text = value; }
+        }
+        public String selectedRewardName
+        {
+            get { return comboBoxRewardsRequired.Text; }
+            set { comboBoxRewardsRequired.Text = value; }
+        }
+        public String selectedAdditionName
+        {
+            get { return comboBoxAdditions.Text; }
+            set { comboBoxAdditions.Text = value; }
+        }
+
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
             //NEEDS FORM SECURITY ADDING
+            bool success = addActivityPresenter.buttonAddActivityClickEvent();
+            if (success)
+            {
+                this.Close();
+            }
 
-            this.Close();
+            
         }
 
         private void buttonAddCustomActivity_Click(object sender, EventArgs e)

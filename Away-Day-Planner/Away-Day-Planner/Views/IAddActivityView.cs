@@ -18,6 +18,9 @@ namespace Away_Day_Planner.Views
         int selectedActivity { set; get; }
         int selectedReward { set; get; }
         int selectedAddition { set; get; }
+        String selectedActivityName { set; get; }
+        String selectedRewardName { set; get; }
+        String selectedAdditionName { set; get; }
         String totalPrice { set; get; }
     }
 }

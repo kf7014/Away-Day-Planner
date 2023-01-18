@@ -96,6 +96,27 @@ namespace Away_Day_Planner.Views
 
         }
 
+        public bool buttonAddActivityClickEvent()
+        {
+            String selectedActivityName = addActivityView.selectedActivityName;
+            String selectedRewardName = addActivityView.selectedRewardName;
+            String selectedAdditionName = addActivityView.selectedAdditionName;
+
+            bool validationErrors = false;
+
+            if(validationErrors == false)
+            {
+                int clientId = eventModel.clientId;
+                int departmentId = eventModel.departmentId;
+
+                //TODO: Add new activity
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
         public void comboBoxSelectActivityChangedEvent()
         {
             updateActivityPricing();
