@@ -27,7 +27,11 @@ namespace Away_Day_Planner.Views
             set { }
             get { return listBoxClient.SelectedIndex; }
         }
-
+        public int selectedDepartmentIndex
+        {
+            set { }
+            get { return listBoxDepartment.SelectedIndex; }
+        }
 
         private void buttonCreateClient_Click(object sender, EventArgs e)
         {
@@ -41,16 +45,21 @@ namespace Away_Day_Planner.Views
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
+            bool success = clientDepartmentSelectionPresenter.buttonConfirmClickEvent();
 
-            //Create Model and View for EventBooker
-            EventModel eventModel = new EventModel();
-            ClientModel clientModel = new ClientModel();
-            eventModel.setParents(listBoxClient.SelectedIndex, listBoxDepartment.SelectedIndex);
-            EventBookerView eventBookerView = new EventBookerView();
-            EventBookerPresenter eventBookerPresenter = new EventBookerPresenter(eventBookerView, eventModel, clientModel);
-            this.Hide();
-            eventBookerView.ShowDialog();
-            this.Show();
+            if (success)
+            {
+                //Create Model and View for EventBooker
+                EventModel eventModel = new EventModel();
+                ClientModel clientModel = new ClientModel();
+                eventModel.setParents(listBoxClient.SelectedIndex, listBoxDepartment.SelectedIndex);
+                EventBookerView eventBookerView = new EventBookerView();
+                EventBookerPresenter eventBookerPresenter = new EventBookerPresenter(eventBookerView, eventModel, clientModel);
+                this.Hide();
+                eventBookerView.ShowDialog();
+                this.Show();
+            }
+            
         }
 
         public void register(ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter)
