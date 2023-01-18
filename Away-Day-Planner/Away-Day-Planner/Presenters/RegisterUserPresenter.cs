@@ -11,12 +11,12 @@ namespace Away_Day_Planner.Presenters
     public class RegisterUserPresenter
     {
         private IRegisterView createRegisterView;
-        private ILoginRegistrationModel LoginModel;
+        private ILoginRegistrationModel LoginRegistrationModel;
 
-        public RegisterUserPresenter(IRegisterView createRegisterView, ILoginRegistrationModel LoginModel)
+        public RegisterUserPresenter(IRegisterView createRegisterView, ILoginRegistrationModel LoginRegistrationModel)
         {
             this.createRegisterView = createRegisterView;
-            this.LoginModel = LoginModel;
+            this.LoginRegistrationModel = LoginRegistrationModel;
             createRegisterView.register(this);
         }
 
@@ -61,6 +61,12 @@ namespace Away_Day_Planner.Presenters
                     firstNameError = true;
                     validationError = true;
                 }
+                else if (firstName == String.Empty)
+                {
+                    createRegisterView.ErrorMessageFirstName = "First name cannot be empty";
+                    firstNameError = true;
+                    validationError = true;
+                }
                 else if (firstNameError == false)
                 {
                     createRegisterView.ErrorMessageFirstName = "";
@@ -85,10 +91,16 @@ namespace Away_Day_Planner.Presenters
                     lastNameError = false;
                     validationError = true;
                 }
-                else if (lastNameError == false)
+                else if (lastName == String.Empty)
                 {
-                    createRegisterView.ErrorMessageLastName = "";
+                    createRegisterView.ErrorMessageFirstName = "First name cannot be empty";
+                    firstNameError = true;
+                    validationError = true;
                 }
+                else if (lastNameError == false)
+                    {
+                        createRegisterView.ErrorMessageLastName = "";
+                    }
 
                 //username
                 if (username.Length < 5)
@@ -107,6 +119,12 @@ namespace Away_Day_Planner.Presenters
                 {
                     createRegisterView.ErrorMessageUsername = "Username cannot be empty";
                     usernameError = false;
+                    validationError = true;
+                }
+                else if (username == String.Empty)
+                {
+                    createRegisterView.ErrorMessageFirstName = "First name cannot be empty";
+                    firstNameError = true;
                     validationError = true;
                 }
                 else if (usernameError == false)
@@ -133,6 +151,12 @@ namespace Away_Day_Planner.Presenters
                     emailError = false;
                     validationError = true;
                 }
+                else if (userEmail == String.Empty)
+                {
+                    createRegisterView.ErrorMessageFirstName = "First name cannot be empty";
+                    firstNameError = true;
+                    validationError = true;
+                }
                 else if (emailError == false)
                 {
                     createRegisterView.ErrorMessageEmail = "";
@@ -157,6 +181,12 @@ namespace Away_Day_Planner.Presenters
                     passwordError = false;
                     validationError = true;
                 }
+                else if (userPassword == String.Empty)
+                {
+                    createRegisterView.ErrorMessageFirstName = "First name cannot be empty";
+                    firstNameError = true;
+                    validationError = true;
+                }
                 else if (passwordError == false)
                 {
                     createRegisterView.ErrorMessagePassword = "";
@@ -166,7 +196,7 @@ namespace Away_Day_Planner.Presenters
             
             if (validationError == false)
             {
-                LoginModel.addNewUser(firstName, lastName, username, userEmail, userPassword);
+                LoginRegistrationModel.addNewUser(firstName, lastName, username, userEmail, userPassword);
                 return true;
             }
             else

@@ -29,7 +29,7 @@ namespace Away_Day_Planner.Database.Contexts
         public virtual DbSet<Reward> Rewards { get; set; }
         public virtual DbSet<Addition> Additions { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
+
 
         public EntitiesContext() : base("name=connection-string"){}
 

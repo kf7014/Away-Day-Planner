@@ -19,7 +19,9 @@ namespace Away_Day_Planner.Views
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-           
+            ClientDepartmentSelectionView clientDepartmentSelectionView = new ClientDepartmentSelectionView();
+            this.Hide();
+            clientDepartmentSelectionView.ShowDialog();
         }
     }
 }

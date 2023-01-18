@@ -56,7 +56,6 @@ namespace Away_Day_Planner.Views
             this.userPassword.PasswordChar = '*';
             this.userPassword.Size = new System.Drawing.Size(180, 20);
             this.userPassword.TabIndex = 1;
-            this.userPassword.Visible = false;
             // 
             // title
             // 
