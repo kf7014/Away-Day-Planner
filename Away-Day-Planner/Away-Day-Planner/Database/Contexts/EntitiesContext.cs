@@ -25,6 +25,8 @@ namespace Away_Day_Planner.Database.Contexts
         public virtual DbSet<RewardTemplate> RewardTemplates { get; set; }
         public virtual DbSet<AdditionTemplate> AdditionTemplates { get; set; }
         public virtual DbSet<Date> Dates { get; set; }
+        public virtual DbSet<Reward> Rewards { get; set; }
+        public virtual DbSet<Addition> Additions { get; set; }
 
         public EntitiesContext() : base("name=connection-string"){}
 

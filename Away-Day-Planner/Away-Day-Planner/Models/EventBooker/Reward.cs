@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
-    public class AdditionTemplate : IAddition
+    public class Reward : IReward
     {
         private int Id;
         [Key]
@@ -32,5 +32,9 @@ namespace Away_Day_Planner.Models.EventBooker
             get { return Price; }
             set { Price = value; }
         }
+
+        public virtual Activity Activity { get; set; }
+        [ForeignKey("Activity")]
+        public int ActivityFK { get; set; }
     }
 }

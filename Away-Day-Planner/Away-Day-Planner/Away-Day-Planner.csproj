@@ -97,6 +97,7 @@
     <Compile Include="Models\ClientDepartment\IDepartment.cs" />
     <Compile Include="Models\EventBooker\Activity.cs" />
     <Compile Include="Models\EventBooker\ActivityTemplate.cs" />
+    <Compile Include="Models\EventBooker\Addition.cs" />
     <Compile Include="Models\EventBooker\AdditionTemplate.cs" />
     <Compile Include="Models\EventBooker\Contractor.cs" />
     <Compile Include="Models\EventBooker\ContractorModel.cs" />
@@ -111,14 +112,15 @@
     <Compile Include="Models\EventBooker\FacilitatorTeamModel.cs" />
     <Compile Include="Models\EventBooker\IActivity.cs" />
     <Compile Include="Models\EventBooker\IActivityTemplate.cs" />
-    <Compile Include="Models\EventBooker\IAdditionTemplate.cs" />
+    <Compile Include="Models\EventBooker\IAddition.cs" />
     <Compile Include="Models\EventBooker\IContractorModel.cs" />
     <Compile Include="Models\EventBooker\IDate.cs" />
     <Compile Include="Models\EventBooker\IEventModel.cs" />
     <Compile Include="Models\EventBooker\IFacilitatorModel.cs" />
     <Compile Include="Models\EventBooker\IFacilitatorTeamModel.cs" />
     <Compile Include="Models\EventBooker\IPerson.cs" />
-    <Compile Include="Models\EventBooker\IRewardTemplate.cs" />
+    <Compile Include="Models\EventBooker\IReward.cs" />
+    <Compile Include="Models\EventBooker\Reward.cs" />
     <Compile Include="Models\EventBooker\RewardTemplate.cs" />
     <Compile Include="Presenters\AddActivityPresenter.cs" />
     <Compile Include="Presenters\ClientDepartmentSelectionPresenter.cs" />
