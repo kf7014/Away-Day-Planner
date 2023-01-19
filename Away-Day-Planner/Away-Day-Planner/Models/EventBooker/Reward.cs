@@ -43,5 +43,10 @@ namespace Away_Day_Planner.Models.EventBooker
             this.price = price;
             this.ActivityFK = activityFK;
         }
+
+        public Reward()
+        {
+
+        }
     }
 }
