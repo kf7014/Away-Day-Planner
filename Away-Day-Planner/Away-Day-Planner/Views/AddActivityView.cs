@@ -75,7 +75,6 @@ namespace Away_Day_Planner.Views
             get { return labelCustomPriceValue.Text; }
             set { labelCustomPriceValue.Text = value; }
         }
-
         public string ErrorSelectActivity
         {
             get { return labelErrorSelectActivity.Text; }
@@ -112,8 +111,11 @@ namespace Away_Day_Planner.Views
 
         private void buttonAddCustomActivity_Click(object sender, EventArgs e)
         {
-            addActivityPresenter.buttonAddCustomActivityClickEvent();
-            this.Close();
+            bool success = addActivityPresenter.buttonAddCustomActivityClickEvent();
+            if (success)
+            {
+                this.Close();
+            }
         }
 
         public void register(AddActivityPresenter addActivityPresenter)

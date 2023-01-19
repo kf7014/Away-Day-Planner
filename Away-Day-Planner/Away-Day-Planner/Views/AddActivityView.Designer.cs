@@ -78,6 +78,7 @@ namespace Away_Day_Planner.Views
             // 
             // comboBoxSelectActivity
             // 
+            this.comboBoxSelectActivity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelectActivity.FormattingEnabled = true;
             this.comboBoxSelectActivity.Location = new System.Drawing.Point(74, 110);
             this.comboBoxSelectActivity.Name = "comboBoxSelectActivity";
@@ -98,6 +99,7 @@ namespace Away_Day_Planner.Views
             // 
             // comboBoxRewardsRequired
             // 
+            this.comboBoxRewardsRequired.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRewardsRequired.FormattingEnabled = true;
             this.comboBoxRewardsRequired.Location = new System.Drawing.Point(175, 183);
             this.comboBoxRewardsRequired.Name = "comboBoxRewardsRequired";
@@ -125,6 +127,7 @@ namespace Away_Day_Planner.Views
             // 
             // comboBoxAdditions
             // 
+            this.comboBoxAdditions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAdditions.FormattingEnabled = true;
             this.comboBoxAdditions.Location = new System.Drawing.Point(175, 220);
             this.comboBoxAdditions.Name = "comboBoxAdditions";
@@ -170,6 +173,7 @@ namespace Away_Day_Planner.Views
             // 
             // comboBoxCustomActivityAdditions
             // 
+            this.comboBoxCustomActivityAdditions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCustomActivityAdditions.FormattingEnabled = true;
             this.comboBoxCustomActivityAdditions.Location = new System.Drawing.Point(516, 220);
             this.comboBoxCustomActivityAdditions.Name = "comboBoxCustomActivityAdditions";
@@ -187,6 +191,7 @@ namespace Away_Day_Planner.Views
             // 
             // comboBoxCustomActivityRewardsRequired
             // 
+            this.comboBoxCustomActivityRewardsRequired.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCustomActivityRewardsRequired.FormattingEnabled = true;
             this.comboBoxCustomActivityRewardsRequired.Location = new System.Drawing.Point(516, 183);
             this.comboBoxCustomActivityRewardsRequired.Name = "comboBoxCustomActivityRewardsRequired";
