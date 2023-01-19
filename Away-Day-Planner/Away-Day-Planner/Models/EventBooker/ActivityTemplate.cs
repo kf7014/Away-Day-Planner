@@ -26,13 +26,6 @@ namespace Away_Day_Planner.Models.EventBooker
             set { Name = value; }
         }
 
-        private String Type;
-        [Required, MinLength(2), MaxLength(50)]
-        public String type
-        {
-            get { return Type; }
-            set { Type = value; }
-        }
 
         private Decimal Price;
         public Decimal price

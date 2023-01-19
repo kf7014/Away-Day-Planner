@@ -80,8 +80,6 @@ namespace Away_Day_Planner.Views
             {
                 this.clientKeys = new int[0];
             }
-            
-            Console.WriteLine(clientKeys);
         }
     }
 }

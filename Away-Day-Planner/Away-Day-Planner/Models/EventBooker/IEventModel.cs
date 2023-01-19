@@ -18,5 +18,12 @@ namespace Away_Day_Planner.Models.EventBooker
         ActivityTemplate getActivityTemplate(int activityId);
         RewardTemplate getRewardTemplate(int rewardId);
         AdditionTemplate getAdditionTemplate(int additionId);
+        void addNewEvent();
+        void addNewActivity(String name, Decimal price, bool facilitatorRequired, int eventFK);
+        void addNewReward(String name, Decimal price, int activityFK);
+        void addNewAddition(String name, Decimal price, int activityFK);
+        Event[] getAllEvents();
+        int getCurrentEventId();
+        int getCurrentActivityId();
     }
 }

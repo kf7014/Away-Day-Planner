@@ -29,17 +29,8 @@ namespace Away_Day_Planner.Presenters
             //Customise event form title to match client and department
             setTitle();
 
-            //Populate activityList box
-            //Currently uses hardcoded event ID, NEEDS CHANGING
-            IActivity[] activityList = eventModel.getEventActivityList(0);
-            String[] activityListNames = new string[activityList.Length];
-            for(int i=0; i<activityList.Length; i++)
-            {
-                activityListNames[i] = activityList[i].name;
-            }
-
-            //Sets activityList datasource in view
-            eventBookerView.setActivityList(activityListNames);
+            //TODO
+            setActivityList();
         }
 
         //Customise event form title to match client and department
@@ -52,11 +43,27 @@ namespace Away_Day_Planner.Presenters
             Client client = clientModel.getClient(clientId + 1);
             IDepartment[] departments = clientModel.getClientDepartments(clientId + 1);
 
-            Console.WriteLine("Test: " + eventModel.departmentId);
-
             Department department = (Department)departments[eventModel.departmentId];
 
             eventBookerView.pageTitle = "Booking event for " + client.name + " and Department " + department.name;
+        }
+
+        private void setActivityList()
+        {
+            int currentEventId = eventModel.getCurrentEventId();
+            IActivity[] activities = eventModel.getEventActivityList(currentEventId);
+            String[] activityNames = new string[activities.Length];
+            for(int i=0; i < activities.Length; i++)
+            {
+                String activityName = activities[i].name;
+                activityNames[i] = activityName;
+            }
+            eventBookerView.setActivityList(activityNames);
+        }
+
+        public void buttonAddActivityEvent()
+        {
+            populateScreen();
         }
     }
 }

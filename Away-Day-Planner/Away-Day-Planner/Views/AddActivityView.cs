@@ -38,19 +38,84 @@ namespace Away_Day_Planner.Views
             get { return labelPriceValue.Text; }
             set { labelPriceValue.Text = value.ToString(); }
         }
+        public String selectedActivityName
+        {
+            get { return comboBoxSelectActivity.Text; }
+            set { comboBoxSelectActivity.Text = value; }
+        }
+        public String selectedRewardName
+        {
+            get { return comboBoxRewardsRequired.Text; }
+            set { comboBoxRewardsRequired.Text = value; }
+        }
+        public String selectedAdditionName
+        {
+            get { return comboBoxAdditions.Text; }
+            set { comboBoxAdditions.Text = value; }
+        }
+        public bool facilitatorRequired
+        {
+            get { return checkBoxFacilitator.Checked; }
+            set { checkBoxFacilitator.Checked = value; }
+        }
+
+
+        public string selectedCustomActivityName
+        {
+            get { return textBoxCustomActivityName.Text; }
+            set { textBoxCustomActivityName.Text = value; }
+        }
+        public bool facilitatorRequiredCustom
+        {
+            get { return checkBoxCustomActivityFacilitator.Checked; }
+            set { checkBoxCustomActivityFacilitator.Checked = value; }
+        }
+        public string totalCustomPrice
+        {
+            get { return labelCustomPriceValue.Text; }
+            set { labelCustomPriceValue.Text = value; }
+        }
+        public string ErrorSelectActivity
+        {
+            get { return labelErrorSelectActivity.Text; }
+            set { labelErrorSelectActivity.Text = value; }
+        }
+        public string ErrorFacilitatorRequired
+        {
+            get { return labelErrorFacilitatorRequired.Text; }
+            set { labelErrorFacilitatorRequired.Text = value; }
+        }
+        public string ErrorRewards
+        {
+            get { return labelErrorRewardsRequired.Text; }
+            set { labelErrorRewardsRequired.Text = value; }
+        }
+        public string ErrorAdditions
+        {
+            get { return labelErrorAdditions.Text; }
+            set { labelErrorAdditions.Text = value; }
+        }
+            
+
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
-            //NEEDS FORM SECURITY ADDING
+            bool success = addActivityPresenter.buttonAddActivityClickEvent();
+            if (success)
+            {
+                this.Close();
+            }
 
-            this.Close();
+            
         }
 
         private void buttonAddCustomActivity_Click(object sender, EventArgs e)
         {
-            //NEEDS FORM SECURITY ADDING
-
-            this.Close();
+            bool success = addActivityPresenter.buttonAddCustomActivityClickEvent();
+            if (success)
+            {
+                this.Close();
+            }
         }
 
         public void register(AddActivityPresenter addActivityPresenter)

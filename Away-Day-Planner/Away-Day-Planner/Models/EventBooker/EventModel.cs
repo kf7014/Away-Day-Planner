@@ -34,27 +34,35 @@ namespace Away_Day_Planner.Models.EventBooker
         {
             //TODO: Demo code to be replaced by db stuff
 
-            facilitatorTeams = new List<FacilitatorTeam>();
-            eventList = new List<Event>();
+            //facilitatorTeams = new List<FacilitatorTeam>();
+            //eventList = new List<Event>();
 
             //Populate dummy data        
-            eventList.Add(new Event(0));
+            //eventList.Add(new Event());
 
-            eventList[0].activitiesList.Add(new Activity(0, "Test Activity", "Meal", 10, true, false, facilitatorTeams));
+            //eventList[0].activitiesList.Add(new Activity(0, "Test Activity", "Meal", 10, true, false, facilitatorTeams));
             
         }
 
         //Get all activities for specified event
         public IActivity[] getEventActivityList(int eventId)
         {
-            for(int i=0; i<eventList.Count; i++)
+            Activity[] activities = databaseAbstraction.getAllActivities();
+            List<Activity> currentActivities = new List<Activity>();
+
+            int currentEvent = getCurrentEventId();
+
+            for(int i=0; i<activities.Length; i++)
             {
-                if(eventList[i].id == eventId)
+                if(activities[i].EventFK == currentEvent)
                 {
-                    return eventList[i].activitiesList.ToArray();
+                    currentActivities.Add(activities[i]);
                 }
             }
-            return null;
+
+            IActivity[] currentActivitiesArray = currentActivities.ToArray();
+            return currentActivitiesArray;
+
         }
 
         //Sets clientId and departmentId to that of parent which event is being set to
@@ -96,6 +104,68 @@ namespace Away_Day_Planner.Models.EventBooker
         {
             AdditionTemplate additionTemplate = databaseAbstraction.getAdditionTemplate(additionId);
             return additionTemplate;
+        }
+
+        public void addNewEvent()
+        {
+            databaseAbstraction.addNewEvent();
+        }
+
+        public void addNewActivity(String name, Decimal price, bool facilitatorRequired, int eventFK)
+        {
+            databaseAbstraction.addNewActivity(name, price, facilitatorRequired, eventFK);
+        }
+
+        public void addNewReward(String name, Decimal price, int activityFK)
+        {
+            databaseAbstraction.addNewReward(name, price, activityFK);
+        }
+
+        public void addNewAddition(String name, Decimal price, int activityFK)
+        {
+            databaseAbstraction.addNewAddition(name, price, activityFK);
+        }
+
+        public Event[] getAllEvents()
+        {
+            Event[] events = databaseAbstraction.getAllEvents();
+            return events;
+        }
+
+        public IActivity[] getAllActivities()
+        {
+            IActivity[] activities = databaseAbstraction.getAllActivities();
+            return activities;
+        }
+
+        public int getCurrentEventId()
+        {
+            Event[] events = getAllEvents();
+            Event currentEvent = events[0];
+            for (int i = 0; i < events.Length; i++)
+            {
+                if (events[i].id > currentEvent.id)
+                {
+                    currentEvent = events[i];
+                }
+            }
+
+            return currentEvent.id;
+        }
+
+        public int getCurrentActivityId()
+        {
+            IActivity[] activities = getAllActivities();
+            IActivity currentActivity = activities[0];
+            for (int i = 0; i < activities.Length; i++)
+            {
+                if (activities[i].id > currentActivity.id)
+                {
+                    currentActivity = activities[i];
+                }
+            }
+
+            return currentActivity.id;
         }
     }
 }

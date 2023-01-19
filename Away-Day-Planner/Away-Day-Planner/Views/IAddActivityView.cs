@@ -18,6 +18,16 @@ namespace Away_Day_Planner.Views
         int selectedActivity { set; get; }
         int selectedReward { set; get; }
         int selectedAddition { set; get; }
+        String selectedActivityName { set; get; }
+        String selectedRewardName { set; get; }
+        String selectedAdditionName { set; get; }
         String totalPrice { set; get; }
+        bool facilitatorRequired { set; get; }
+        string selectedCustomActivityName { set; get; }
+        bool facilitatorRequiredCustom { set; get; }
+        string totalCustomPrice { set; get; }
+        string ErrorSelectActivity { set; get; }
+        string ErrorRewards { set; get; }
+        string ErrorAdditions { set; get; }
     }
 }
