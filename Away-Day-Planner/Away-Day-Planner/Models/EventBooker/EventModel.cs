@@ -47,14 +47,22 @@ namespace Away_Day_Planner.Models.EventBooker
         //Get all activities for specified event
         public IActivity[] getEventActivityList(int eventId)
         {
-            for(int i=0; i<eventList.Count; i++)
+            Activity[] activities = databaseAbstraction.getAllActivities();
+            List<Activity> currentActivities = new List<Activity>();
+
+            int currentEvent = getCurrentEventId();
+
+            for(int i=0; i<activities.Length; i++)
             {
-                if(eventList[i].id == eventId)
+                if(activities[i].EventFK == currentEvent)
                 {
-                    return eventList[i].activitiesList.ToArray();
+                    currentActivities.Add(activities[i]);
                 }
             }
-            return null;
+
+            IActivity[] currentActivitiesArray = currentActivities.ToArray();
+            return currentActivitiesArray;
+
         }
 
         //Sets clientId and departmentId to that of parent which event is being set to
@@ -124,9 +132,9 @@ namespace Away_Day_Planner.Models.EventBooker
             return events;
         }
 
-        public Activity[] getAllActivities()
+        public IActivity[] getAllActivities()
         {
-            Activity[] activities = databaseAbstraction.getAllActivities();
+            IActivity[] activities = databaseAbstraction.getAllActivities();
             return activities;
         }
 
@@ -147,8 +155,8 @@ namespace Away_Day_Planner.Models.EventBooker
 
         public int getCurrentActivityId()
         {
-            Activity[] activities = getAllActivities();
-            Activity currentActivity = activities[0];
+            IActivity[] activities = getAllActivities();
+            IActivity currentActivity = activities[0];
             for (int i = 0; i < activities.Length; i++)
             {
                 if (activities[i].id > currentActivity.id)

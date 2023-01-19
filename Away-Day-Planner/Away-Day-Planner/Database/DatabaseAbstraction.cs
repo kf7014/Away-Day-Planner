@@ -21,7 +21,6 @@ namespace Away_Day_Planner.Database
         public void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute)
         {
             Client newClient = new Client(clientName, noOfHoursAway, hasClientDispute);
-            Console.WriteLine("Client supposed to be added");
             databaseInterface.Add(newClient); 
         }
 
@@ -63,6 +62,14 @@ namespace Away_Day_Planner.Database
             Event[] events = result.Item1.ToArray();
             databaseInterface.DisposeContext(result.Item2);
             return events;
+        }
+
+        public Event getEvent(int eventId)
+        {
+            Tuple<Event, DbContext> result = databaseInterface.Get<Event>(eventId).ToTuple();
+            Event _event = result.Item1;
+            databaseInterface.DisposeContext(result.Item2);
+            return _event;
         }
 
         public Activity[] getAllActivities()

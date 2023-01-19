@@ -38,7 +38,8 @@ namespace Away_Day_Planner.Views
             AddActivityView addActivityView = new AddActivityView();
             EventModel eventModel = new EventModel();
             AddActivityPresenter addActivityPresenter = new AddActivityPresenter(addActivityView, eventModel);
-            addActivityView.ShowDialog();         
+            addActivityView.ShowDialog();
+            eventBookerPresenter.buttonAddActivityEvent();
         }
 
         public void setActivityList(String[] activityListNames)
