@@ -73,6 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CORChain\Handlers\CancelledFeeChain.cs" />
+    <Compile Include="CORChain\Handlers\DayHandler15.cs" />
+    <Compile Include="CORChain\Handlers\DayHandler30.cs" />
+    <Compile Include="CORChain\Handlers\DayHandler60.cs" />
     <Compile Include="Database\DatabaseAbstraction.cs" />
     <Compile Include="Database\DatabaseInterface.cs" />
     <Compile Include="Database\Contexts\EntitiesContext.cs" />
@@ -80,15 +84,9 @@
     <Compile Include="Database\IObjWithID.cs" />
     <Compile Include="Database\IResults.cs" />
     <Compile Include="Database\Results.cs" />
-    <Compile Include="EventChain\EventChainFactory.cs" />
-    <Compile Include="EventChain\Handlers\ArchivedEventHandler.cs" />
-    <Compile Include="EventChain\Handlers\CancelledEventHandler.cs" />
-    <Compile Include="EventChain\Handlers\GeneralEventHandler.cs" />
-    <Compile Include="EventChain\Handlers\Handler.cs" />
-    <Compile Include="EventChain\Handlers\IHandler.cs" />
-    <Compile Include="EventChain\Handlers\PaymentEventHandler.cs" />
-    <Compile Include="EventChain\Handlers\PreliminaryEventHandler.cs" />
-    <Compile Include="EventChain\IEvent.cs" />
+    <Compile Include="CORChain\Handlers\Handler.cs" />
+    <Compile Include="CORChain\Handlers\IHandler.cs" />
+    <Compile Include="CORChain\IEvent.cs" />
     <Compile Include="Models\ClientDepartment\Client.cs" />
     <Compile Include="Models\ClientDepartment\ClientModel.cs" />
     <Compile Include="Models\ClientDepartment\Department.cs" />

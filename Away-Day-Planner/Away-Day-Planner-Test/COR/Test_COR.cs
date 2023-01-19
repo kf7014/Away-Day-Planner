@@ -1,6 +1,6 @@
 ﻿using Away_Day_Planner.Models.EventBooker;
 using Away_Day_Planner_Test.COR.TestObjects;
-using Away_Day_Planner.EventChain;
+using Away_Day_Planner.CORChain;
 using System;
 
 namespace Away_Day_Planner_Test.COR

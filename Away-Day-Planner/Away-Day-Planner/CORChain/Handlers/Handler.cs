@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Away_Day_Planner.EventChain.Handlers
+namespace Away_Day_Planner.CORChain.Handlers
 {
     public abstract class Handler : IHandler
     {
