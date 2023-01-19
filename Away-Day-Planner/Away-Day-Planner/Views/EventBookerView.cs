@@ -31,6 +31,11 @@ namespace Away_Day_Planner.Views
             get { return labelTotalPriceValue.Text; }
             set { labelTotalPriceValue.Text = value; }
         }
+        public DateTime selectedDate
+        {
+            get { return dateTimePickerDate.Value; }
+            set { dateTimePickerDate.Value = value; }
+        }
 
         public EventBookerView()
         {
@@ -55,6 +60,11 @@ namespace Away_Day_Planner.Views
         public void setActivityList(String[] activityListNames)
         {
             listBoxActivities.DataSource = activityListNames;
+        }
+
+        private void buttonConfirmBooking_Click(object sender, EventArgs e)
+        {
+            eventBookerPresenter.buttonConfirmBookingEvent(); 
         }
     }
 }

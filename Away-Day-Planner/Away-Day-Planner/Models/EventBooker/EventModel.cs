@@ -179,5 +179,17 @@ namespace Away_Day_Planner.Models.EventBooker
 
             return currentActivity.id;
         }
+
+        public Date[] getAllStoredDates()
+        {
+            Date[] storedDates = databaseAbstraction.getAllStoredDates();
+            return storedDates;
+        }
+
+        public BookedFacilitatorTeamDate[] getAllBookedFacilitatorTeamDates()
+        {
+            BookedFacilitatorTeamDate[] bookedFacilitatorTeamDates = databaseAbstraction.getBookedFacilitatorTeams();
+            return bookedFacilitatorTeamDates;
+        }
     }
 }

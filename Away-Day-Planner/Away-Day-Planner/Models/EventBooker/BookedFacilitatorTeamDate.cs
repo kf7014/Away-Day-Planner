@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
-    class BookedFacilitatorTeamDate : IDate
+    public class BookedFacilitatorTeamDate : IDate
     {
         private int Id;
         [Key]

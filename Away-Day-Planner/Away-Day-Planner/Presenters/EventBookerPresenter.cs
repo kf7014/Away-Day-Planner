@@ -101,11 +101,55 @@ namespace Away_Day_Planner.Presenters
             eventBookerView.setActivityList(activityNames);
         }
 
-
-
         public void buttonAddActivityEvent()
         {
             populateScreen();
+        }
+
+        public void buttonConfirmBookingEvent()
+        {
+            ///////Get all BookedFacilitatorTeamDates, and check if selectedDate matches if a facilitator is required on any activity
+            DateTime selectedDate = eventBookerView.selectedDate;
+            bool dateAlreadyBooked = false;
+
+            //Get client info
+            int clientId = eventModel.clientId;
+            Client client = clientModel.getClient(clientId + 1);
+            int clientDistance = client.noOfHoursAway;
+
+            //IF FACILITATOR IS REQUIRED ON AN ACTIVITY
+            IDate[] bookedFacilitatorDates = eventModel.getAllBookedFacilitatorTeamDates();
+
+            //If Client is 2 hours away or closer check if facilitator teams are booked on that day
+            if (clientDistance <= 2)
+            {
+                for(int i=0; i< bookedFacilitatorDates.Length; i++)
+                {
+                    if(bookedFacilitatorDates[i].dateTime == selectedDate)
+                    {
+                        dateAlreadyBooked = true;
+                        Console.WriteLine("Facilitators unavailable that day");
+                    }
+                }
+                //If client is further away than 2 hours check if facilitator is booked on day before and after
+            } else if (clientDistance > 2)
+            {
+                for (int i = 0; i < bookedFacilitatorDates.Length; i++)
+                {
+                    //Get day before selected date
+                    DateTime selectedDatePreviousDay = selectedDate;
+                    selectedDatePreviousDay = DateTime.Now.AddDays(-1);
+                    //Get day after selected date
+                    DateTime selectedDateNextDay = selectedDate;
+                    selectedDateNextDay = DateTime.Now.AddDays(+1);
+
+                    if (selectedDate == bookedFacilitatorDates[i].dateTime || selectedDatePreviousDay == bookedFacilitatorDates[i].dateTime || selectedDateNextDay == bookedFacilitatorDates[i].dateTime)
+                    {
+                        dateAlreadyBooked = true;
+                        Console.WriteLine("Facilitators unavailable");
+                    }
+                }
+            }
         }
     }
 }

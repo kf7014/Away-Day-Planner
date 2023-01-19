@@ -111,6 +111,7 @@ namespace Away_Day_Planner.Views
             this.buttonConfirmBooking.TabIndex = 8;
             this.buttonConfirmBooking.Text = "Confirm Booking";
             this.buttonConfirmBooking.UseVisualStyleBackColor = true;
+            this.buttonConfirmBooking.Click += new System.EventHandler(this.buttonConfirmBooking_Click);
             // 
             // labelDistanceValue
             // 

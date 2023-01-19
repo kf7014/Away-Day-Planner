@@ -14,5 +14,6 @@ namespace Away_Day_Planner.Views
         string pageTitle { get; set; }
         string clientDistance { get; set; }
         string totalPrice { get; set; }
+        DateTime selectedDate { get; set; }
     }
 }

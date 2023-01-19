@@ -190,6 +190,23 @@ namespace Away_Day_Planner.Database
             return additionTemplate;
         }
 
+        public Date[] getAllStoredDates()
+        {
+            Tuple<DbSet<Date>, DbContext> result = databaseInterface.GetAll<Date>().ToTuple();
+            Date[] dates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return dates;
+        }
+
+        public BookedFacilitatorTeamDate[] getBookedFacilitatorTeams()
+        {
+            Tuple<DbSet<BookedFacilitatorTeamDate>, DbContext> result = databaseInterface.GetAll<BookedFacilitatorTeamDate>().ToTuple();
+            BookedFacilitatorTeamDate[] bookedFacilitatorTeamDates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return bookedFacilitatorTeamDates;
+        }
+        }
+
         public void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword)
         {
             User newUser = new User(firstName, lastName, username, userEmail, userPassword);

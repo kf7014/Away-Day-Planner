@@ -23,6 +23,8 @@ namespace Away_Day_Planner.Models.EventBooker
         void addNewReward(String name, Decimal price, int activityFK);
         void addNewAddition(String name, Decimal price, int activityFK);
         Event[] getAllEvents();
+        Date[] getAllStoredDates();
+        BookedFacilitatorTeamDate[] getAllBookedFacilitatorTeamDates();
         int getCurrentEventId();
         int getCurrentActivityId();
         Addition[] getActivityAdditions(int activityId);
