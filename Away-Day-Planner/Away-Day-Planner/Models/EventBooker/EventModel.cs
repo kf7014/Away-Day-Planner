@@ -124,6 +124,12 @@ namespace Away_Day_Planner.Models.EventBooker
             return events;
         }
 
+        public Activity[] getAllActivities()
+        {
+            Activity[] activities = databaseAbstraction.getAllActivities();
+            return activities;
+        }
+
         public int getCurrentEventId()
         {
             Event[] events = getAllEvents();
@@ -137,6 +143,21 @@ namespace Away_Day_Planner.Models.EventBooker
             }
 
             return currentEvent.id;
+        }
+
+        public int getCurrentActivityId()
+        {
+            Activity[] activities = getAllActivities();
+            Activity currentActivity = activities[0];
+            for (int i = 0; i < activities.Length; i++)
+            {
+                if (activities[i].id > currentActivity.id)
+                {
+                    currentActivity = activities[i];
+                }
+            }
+
+            return currentActivity.id;
         }
     }
 }

@@ -65,6 +65,14 @@ namespace Away_Day_Planner.Database
             return events;
         }
 
+        public Activity[] getAllActivities()
+        {
+            Tuple<DbSet<Activity>, DbContext> result = databaseInterface.GetAll<Activity>().ToTuple();
+            Activity[] activities = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return activities;
+        }
+
         public Client[] getAllClients()
         {
             Tuple<DbSet<Client>,DbContext> result = databaseInterface.GetAll<Client>().ToTuple();

@@ -70,5 +70,10 @@ namespace Away_Day_Planner.Models.EventBooker
             this.IsBooked = false;
             this.EventFK = eventFK;
         }
+
+        public Activity()
+        {
+
+        }
     }
 }
