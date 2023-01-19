@@ -64,7 +64,9 @@ namespace Away_Day_Planner.Presenters
 
         private void setActivityList()
         {
+
             Event[] events = eventModel.getAllEvents();
+            //TODO: Handle in model
             Event currentEvent = events[0];
             for(int i=0; i<events.Length; i++)
             {

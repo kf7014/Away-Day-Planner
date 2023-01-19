@@ -10,7 +10,6 @@ namespace Away_Day_Planner.Models.EventBooker
     {
         int id { get; set; }
         String name { get; set; }
-        String type { get; set; }
         Decimal price { get; set; }
     }
 }

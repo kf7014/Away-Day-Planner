@@ -103,10 +103,40 @@ namespace Away_Day_Planner.Models.EventBooker
             databaseAbstraction.addNewEvent();
         }
 
+        public void addNewActivity(String name, Decimal price, bool facilitatorRequired, int eventFK)
+        {
+            databaseAbstraction.addNewActivity(name, price, facilitatorRequired, eventFK);
+        }
+
+        public void addNewReward(String name, Decimal price, int activityFK)
+        {
+            databaseAbstraction.addNewReward(name, price, activityFK);
+        }
+
+        public void addNewAddition(String name, Decimal price, int activityFK)
+        {
+            databaseAbstraction.addNewAddition(name, price, activityFK);
+        }
+
         public Event[] getAllEvents()
         {
             Event[] events = databaseAbstraction.getAllEvents();
             return events;
+        }
+
+        public int getCurrentEventId()
+        {
+            Event[] events = getAllEvents();
+            Event currentEvent = events[0];
+            for (int i = 0; i < events.Length; i++)
+            {
+                if (events[i].id > currentEvent.id)
+                {
+                    currentEvent = events[i];
+                }
+            }
+
+            return currentEvent.id;
         }
     }
 }

@@ -36,5 +36,12 @@ namespace Away_Day_Planner.Models.EventBooker
         public virtual Activity Activity { get; set; }
         [ForeignKey("Activity")]
         public int ActivityFK { get; set; }
+
+        public Addition(String name, Decimal price, int activityFK)
+        {
+            this.name = name;
+            this.price = price;
+            this.ActivityFK = activityFK;
+        }
     }
 }

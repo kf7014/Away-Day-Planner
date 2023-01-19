@@ -39,6 +39,24 @@ namespace Away_Day_Planner.Database
             databaseInterface.Add(_event);
         }
 
+        public void addNewReward(String name, Decimal price, int activityFK)
+        {
+            Reward reward = new Reward(name, price, activityFK);
+            databaseInterface.Add(reward);
+        }
+
+        public void addNewAddition(String name, Decimal price, int activityFK)
+        {
+            Addition addition = new Addition(name, price, activityFK);
+            databaseInterface.Add(addition);
+        }
+
+        public void addNewActivity(String name, Decimal price, bool facilitatorRequired, int eventFK)
+        {
+            Activity activity = new Activity(name, price, facilitatorRequired, eventFK);
+            databaseInterface.Add(activity);
+        }
+
         public Event[] getAllEvents()
         {
             Tuple<DbSet<Event>, DbContext> result = databaseInterface.GetAll<Event>().ToTuple();

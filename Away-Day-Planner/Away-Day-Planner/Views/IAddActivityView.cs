@@ -22,5 +22,6 @@ namespace Away_Day_Planner.Views
         String selectedRewardName { set; get; }
         String selectedAdditionName { set; get; }
         String totalPrice { set; get; }
+        bool facilitatorRequired { set; get; }
     }
 }

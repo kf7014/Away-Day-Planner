@@ -26,14 +26,6 @@ namespace Away_Day_Planner.Models.EventBooker
             set { Name = value; }
         }
 
-        private String Type;
-        [Required, MinLength(2), MaxLength(50)]
-        public String type
-        {
-            get { return Type; }
-            set { Type = value; }
-        }
-
         private Decimal Price;
         public Decimal price
         {
@@ -70,15 +62,13 @@ namespace Away_Day_Planner.Models.EventBooker
         public int EventFK { get; set; }
 
 
-        public Activity(int id, String name, String type, Decimal price, Boolean facilitatorRequired, Boolean isBooked, ICollection<FacilitatorTeam> facilitatorTeam)
+        public Activity(String name, Decimal price, Boolean facilitatorRequired, int eventFK)
         {
-            Id = id;
-            Name = name;
-            Type = type;
-            Price = price;
-            FacilitatorRequired = facilitatorRequired;
-            IsBooked = isBooked;
-            AllocatedFacilitatorTeams = facilitatorTeam;
+            this.Name = name;
+            this.Price = price;
+            this.FacilitatorRequired = facilitatorRequired;
+            this.IsBooked = false;
+            this.EventFK = eventFK;
         }
     }
 }

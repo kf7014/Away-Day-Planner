@@ -53,7 +53,11 @@ namespace Away_Day_Planner.Views
             get { return comboBoxAdditions.Text; }
             set { comboBoxAdditions.Text = value; }
         }
-
+        public bool facilitatorRequired
+        {
+            get { return checkBoxFacilitator.Checked; }
+            set { checkBoxFacilitator.Checked = value; }
+        }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {

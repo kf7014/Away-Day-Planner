@@ -102,14 +102,48 @@ namespace Away_Day_Planner.Views
             String selectedRewardName = addActivityView.selectedRewardName;
             String selectedAdditionName = addActivityView.selectedAdditionName;
 
+            int selectedActivityId = addActivityView.selectedActivity;
+            int selectedRewardId = addActivityView.selectedReward;
+            int selectedAdditionId = addActivityView.selectedAddition;
+
+            ActivityTemplate activityTemplate = eventModel.getActivityTemplate(selectedActivityId + 1);
+            RewardTemplate rewardTemplate = eventModel.getRewardTemplate(selectedRewardId + 1);
+            AdditionTemplate additionTemplate = eventModel.getAdditionTemplate(selectedAdditionId + 1);
+
+            bool facilitatorRequired = addActivityView.facilitatorRequired;
+
             bool validationErrors = false;
 
             if(validationErrors == false)
             {
                 int clientId = eventModel.clientId;
                 int departmentId = eventModel.departmentId;
+                int eventId = eventModel.getCurrentEventId();
 
                 //TODO: Add new activity
+
+                eventModel.addNewActivity(activityTemplate.name, activityTemplate.price, facilitatorRequired, eventId);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 return true;
             } else
             {
