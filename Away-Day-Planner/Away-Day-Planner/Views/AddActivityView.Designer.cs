@@ -273,9 +273,8 @@ namespace Away_Day_Planner.Views
             this.labelErrorSelectActivity.ForeColor = System.Drawing.Color.Red;
             this.labelErrorSelectActivity.Location = new System.Drawing.Point(102, 362);
             this.labelErrorSelectActivity.Name = "labelErrorSelectActivity";
-            this.labelErrorSelectActivity.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorSelectActivity.Size = new System.Drawing.Size(0, 13);
             this.labelErrorSelectActivity.TabIndex = 25;
-            this.labelErrorSelectActivity.Text = "label1";
             // 
             // labelErrorFacilitatorRequired
             // 
@@ -283,9 +282,8 @@ namespace Away_Day_Planner.Views
             this.labelErrorFacilitatorRequired.ForeColor = System.Drawing.Color.Red;
             this.labelErrorFacilitatorRequired.Location = new System.Drawing.Point(102, 386);
             this.labelErrorFacilitatorRequired.Name = "labelErrorFacilitatorRequired";
-            this.labelErrorFacilitatorRequired.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorFacilitatorRequired.Size = new System.Drawing.Size(0, 13);
             this.labelErrorFacilitatorRequired.TabIndex = 26;
-            this.labelErrorFacilitatorRequired.Text = "label1";
             // 
             // labelErrorRewardsRequired
             // 
@@ -293,9 +291,8 @@ namespace Away_Day_Planner.Views
             this.labelErrorRewardsRequired.ForeColor = System.Drawing.Color.Red;
             this.labelErrorRewardsRequired.Location = new System.Drawing.Point(102, 411);
             this.labelErrorRewardsRequired.Name = "labelErrorRewardsRequired";
-            this.labelErrorRewardsRequired.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorRewardsRequired.Size = new System.Drawing.Size(0, 13);
             this.labelErrorRewardsRequired.TabIndex = 27;
-            this.labelErrorRewardsRequired.Text = "label1";
             // 
             // labelErrorAdditions
             // 
@@ -303,9 +300,8 @@ namespace Away_Day_Planner.Views
             this.labelErrorAdditions.ForeColor = System.Drawing.Color.Red;
             this.labelErrorAdditions.Location = new System.Drawing.Point(398, 362);
             this.labelErrorAdditions.Name = "labelErrorAdditions";
-            this.labelErrorAdditions.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorAdditions.Size = new System.Drawing.Size(0, 13);
             this.labelErrorAdditions.TabIndex = 28;
-            this.labelErrorAdditions.Text = "label1";
             // 
             // AddActivityView
             // 
