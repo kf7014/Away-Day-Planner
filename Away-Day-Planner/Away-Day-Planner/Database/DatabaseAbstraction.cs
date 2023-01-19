@@ -113,6 +113,38 @@ namespace Away_Day_Planner.Database
             return clientDepartments.ToArray();
         }
 
+        public Addition[] getActivityAdditions(int activityId)
+        {
+            Tuple<DbSet<Addition>, DbContext> result = databaseInterface.GetAll<Addition>().ToTuple();
+            Addition[] additions = result.Item1.ToArray();
+            List<Addition> activityAdditions = new List<Addition>();
+            foreach (Addition addition in additions)
+            {
+                if (addition.ActivityFK == activityId)
+                {
+                    activityAdditions.Add(addition);
+                }
+            }
+
+            return activityAdditions.ToArray();
+        }
+
+        public Reward[] getActivityRewards(int rewardId)
+        {
+            Tuple<DbSet<Reward>, DbContext> result = databaseInterface.GetAll<Reward>().ToTuple();
+            Reward[] rewards = result.Item1.ToArray();
+            List<Reward> activityRewards = new List<Reward>();
+            foreach (Reward reward in rewards)
+            {
+                if (reward.ActivityFK == rewardId)
+                {
+                    activityRewards.Add(reward);
+                }
+            }
+
+            return activityRewards.ToArray();
+        }
+
         public ActivityTemplate[] getActivityTemplates()
         {
             Tuple<DbSet<ActivityTemplate>, DbContext> result = databaseInterface.GetAll<ActivityTemplate>().ToTuple();
