@@ -38,6 +38,8 @@ namespace Away_Day_Planner.Views
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonConfirmBooking = new System.Windows.Forms.Button();
             this.labelDistanceValue = new System.Windows.Forms.Label();
+            this.labelTotalPriceValue = new System.Windows.Forms.Label();
+            this.labelTotalPrice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxActivities
@@ -119,11 +121,31 @@ namespace Away_Day_Planner.Views
             this.labelDistanceValue.TabIndex = 9;
             this.labelDistanceValue.Text = "Distance Away (Hours) : ";
             // 
+            // labelTotalPriceValue
+            // 
+            this.labelTotalPriceValue.AutoSize = true;
+            this.labelTotalPriceValue.Location = new System.Drawing.Point(560, 228);
+            this.labelTotalPriceValue.Name = "labelTotalPriceValue";
+            this.labelTotalPriceValue.Size = new System.Drawing.Size(13, 13);
+            this.labelTotalPriceValue.TabIndex = 11;
+            this.labelTotalPriceValue.Text = "0";
+            // 
+            // labelTotalPrice
+            // 
+            this.labelTotalPrice.AutoSize = true;
+            this.labelTotalPrice.Location = new System.Drawing.Point(422, 228);
+            this.labelTotalPrice.Name = "labelTotalPrice";
+            this.labelTotalPrice.Size = new System.Drawing.Size(61, 13);
+            this.labelTotalPrice.TabIndex = 10;
+            this.labelTotalPrice.Text = "Total Price:";
+            // 
             // EventBookerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelTotalPriceValue);
+            this.Controls.Add(this.labelTotalPrice);
             this.Controls.Add(this.labelDistanceValue);
             this.Controls.Add(this.buttonConfirmBooking);
             this.Controls.Add(this.labelTitle);
@@ -151,5 +173,7 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonConfirmBooking;
         private System.Windows.Forms.Label labelDistanceValue;
+        private System.Windows.Forms.Label labelTotalPriceValue;
+        private System.Windows.Forms.Label labelTotalPrice;
     }
 }

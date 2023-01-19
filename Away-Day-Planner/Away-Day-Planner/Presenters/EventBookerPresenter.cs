@@ -70,6 +70,8 @@ namespace Away_Day_Planner.Presenters
             eventBookerView.setActivityList(activityNames);
         }
 
+
+
         public void buttonAddActivityEvent()
         {
             populateScreen();

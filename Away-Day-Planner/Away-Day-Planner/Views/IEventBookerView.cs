@@ -11,7 +11,8 @@ namespace Away_Day_Planner.Views
     {
         void register(EventBookerPresenter eventBookerPresenter);
         void setActivityList(String[] activityListNames);
-        String pageTitle { get; set; }
-        String clientDistance { get; set; }
+        string pageTitle { get; set; }
+        string clientDistance { get; set; }
+        string totalPrice { get; set; }
     }
 }
