@@ -52,6 +52,10 @@ namespace Away_Day_Planner.Views
             this.buttonAddCustomActivity = new System.Windows.Forms.Button();
             this.labelCustomPriceValue = new System.Windows.Forms.Label();
             this.labelCustomPrice = new System.Windows.Forms.Label();
+            this.labelErrorSelectActivity = new System.Windows.Forms.Label();
+            this.labelErrorFacilitatorRequired = new System.Windows.Forms.Label();
+            this.labelErrorRewardsRequired = new System.Windows.Forms.Label();
+            this.labelErrorAdditions = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelAddActivity
@@ -263,11 +267,55 @@ namespace Away_Day_Planner.Views
             this.labelCustomPrice.TabIndex = 23;
             this.labelCustomPrice.Text = "Price (£) : ";
             // 
+            // labelErrorSelectActivity
+            // 
+            this.labelErrorSelectActivity.AutoSize = true;
+            this.labelErrorSelectActivity.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorSelectActivity.Location = new System.Drawing.Point(102, 362);
+            this.labelErrorSelectActivity.Name = "labelErrorSelectActivity";
+            this.labelErrorSelectActivity.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorSelectActivity.TabIndex = 25;
+            this.labelErrorSelectActivity.Text = "label1";
+            // 
+            // labelErrorFacilitatorRequired
+            // 
+            this.labelErrorFacilitatorRequired.AutoSize = true;
+            this.labelErrorFacilitatorRequired.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorFacilitatorRequired.Location = new System.Drawing.Point(102, 386);
+            this.labelErrorFacilitatorRequired.Name = "labelErrorFacilitatorRequired";
+            this.labelErrorFacilitatorRequired.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorFacilitatorRequired.TabIndex = 26;
+            this.labelErrorFacilitatorRequired.Text = "label1";
+            // 
+            // labelErrorRewardsRequired
+            // 
+            this.labelErrorRewardsRequired.AutoSize = true;
+            this.labelErrorRewardsRequired.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorRewardsRequired.Location = new System.Drawing.Point(102, 411);
+            this.labelErrorRewardsRequired.Name = "labelErrorRewardsRequired";
+            this.labelErrorRewardsRequired.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorRewardsRequired.TabIndex = 27;
+            this.labelErrorRewardsRequired.Text = "label1";
+            // 
+            // labelErrorAdditions
+            // 
+            this.labelErrorAdditions.AutoSize = true;
+            this.labelErrorAdditions.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorAdditions.Location = new System.Drawing.Point(398, 362);
+            this.labelErrorAdditions.Name = "labelErrorAdditions";
+            this.labelErrorAdditions.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorAdditions.TabIndex = 28;
+            this.labelErrorAdditions.Text = "label1";
+            // 
             // AddActivityView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelErrorAdditions);
+            this.Controls.Add(this.labelErrorRewardsRequired);
+            this.Controls.Add(this.labelErrorFacilitatorRequired);
+            this.Controls.Add(this.labelErrorSelectActivity);
             this.Controls.Add(this.labelCustomPriceValue);
             this.Controls.Add(this.labelCustomPrice);
             this.Controls.Add(this.buttonAddCustomActivity);
@@ -323,5 +371,9 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Button buttonAddCustomActivity;
         private System.Windows.Forms.Label labelCustomPriceValue;
         private System.Windows.Forms.Label labelCustomPrice;
+        private System.Windows.Forms.Label labelErrorSelectActivity;
+        private System.Windows.Forms.Label labelErrorFacilitatorRequired;
+        private System.Windows.Forms.Label labelErrorRewardsRequired;
+        private System.Windows.Forms.Label labelErrorAdditions;
     }
 }

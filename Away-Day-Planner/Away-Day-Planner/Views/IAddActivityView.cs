@@ -26,5 +26,8 @@ namespace Away_Day_Planner.Views
         string selectedCustomActivityName { set; get; }
         bool facilitatorRequiredCustom { set; get; }
         string totalCustomPrice { set; get; }
+        string ErrorSelectActivity { set; get; }
+        string ErrorRewards { set; get; }
+        string ErrorAdditions { set; get; }
     }
 }

@@ -76,6 +76,28 @@ namespace Away_Day_Planner.Views
             set { labelCustomPriceValue.Text = value; }
         }
 
+        public string ErrorSelectActivity
+        {
+            get { return labelErrorSelectActivity.Text; }
+            set { labelErrorSelectActivity.Text = value; }
+        }
+        public string ErrorFacilitatorRequired
+        {
+            get { return labelErrorFacilitatorRequired.Text; }
+            set { labelErrorFacilitatorRequired.Text = value; }
+        }
+        public string ErrorRewards
+        {
+            get { return labelErrorRewardsRequired.Text; }
+            set { labelErrorRewardsRequired.Text = value; }
+        }
+        public string ErrorAdditions
+        {
+            get { return labelErrorAdditions.Text; }
+            set { labelErrorAdditions.Text = value; }
+        }
+            
+
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
