@@ -163,6 +163,12 @@ namespace Away_Day_Planner.Views
                 //Add new activity
                 eventModel.addNewActivity(customActivityName, customActivityPrice, facilitatorRequired, eventId);
 
+                //Get ID of activity rewards and additions will be added to
+                int currentActivity = eventModel.getCurrentActivityId();
+
+                //Add rewards and additions to their respective tables, linked to the activity
+                eventModel.addNewReward(rewardTemplate.name, rewardTemplate.price, currentActivity);
+                eventModel.addNewAddition(additionTemplate.name, additionTemplate.price, currentActivity);
             }
         }
 
