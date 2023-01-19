@@ -21,6 +21,11 @@ namespace Away_Day_Planner.Views
             get { return labelTitle.Text; }
             set { labelTitle.Text = value; }
         }
+        public String clientDistance
+        {
+            get { return labelDistanceValue.Text; }
+            set { labelDistanceValue.Text = value; }
+        }
 
         public EventBookerView()
         {

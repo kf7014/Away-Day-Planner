@@ -34,10 +34,10 @@ namespace Away_Day_Planner.Views
             this.labelDate = new System.Windows.Forms.Label();
             this.labelDistance = new System.Windows.Forms.Label();
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
-            this.textBoxDistanceAway = new System.Windows.Forms.TextBox();
             this.buttonAddActivity = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonConfirmBooking = new System.Windows.Forms.Button();
+            this.labelDistanceValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxActivities
@@ -82,13 +82,6 @@ namespace Away_Day_Planner.Views
             this.dateTimePickerDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerDate.TabIndex = 4;
             // 
-            // textBoxDistanceAway
-            // 
-            this.textBoxDistanceAway.Location = new System.Drawing.Point(563, 177);
-            this.textBoxDistanceAway.Name = "textBoxDistanceAway";
-            this.textBoxDistanceAway.Size = new System.Drawing.Size(200, 20);
-            this.textBoxDistanceAway.TabIndex = 5;
-            // 
             // buttonAddActivity
             // 
             this.buttonAddActivity.Location = new System.Drawing.Point(65, 350);
@@ -117,15 +110,24 @@ namespace Away_Day_Planner.Views
             this.buttonConfirmBooking.Text = "Confirm Booking";
             this.buttonConfirmBooking.UseVisualStyleBackColor = true;
             // 
+            // labelDistanceValue
+            // 
+            this.labelDistanceValue.AutoSize = true;
+            this.labelDistanceValue.Location = new System.Drawing.Point(560, 180);
+            this.labelDistanceValue.Name = "labelDistanceValue";
+            this.labelDistanceValue.Size = new System.Drawing.Size(124, 13);
+            this.labelDistanceValue.TabIndex = 9;
+            this.labelDistanceValue.Text = "Distance Away (Hours) : ";
+            // 
             // EventBookerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelDistanceValue);
             this.Controls.Add(this.buttonConfirmBooking);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonAddActivity);
-            this.Controls.Add(this.textBoxDistanceAway);
             this.Controls.Add(this.dateTimePickerDate);
             this.Controls.Add(this.labelDistance);
             this.Controls.Add(this.labelDate);
@@ -145,9 +147,9 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Label labelDistance;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
-        private System.Windows.Forms.TextBox textBoxDistanceAway;
         private System.Windows.Forms.Button buttonAddActivity;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonConfirmBooking;
+        private System.Windows.Forms.Label labelDistanceValue;
     }
 }

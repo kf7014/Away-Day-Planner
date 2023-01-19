@@ -28,8 +28,9 @@ namespace Away_Day_Planner.Presenters
         {
             //Customise event form title to match client and department
             setTitle();
-
-            //TODO
+            //Populate client distance label
+            setDistance();
+            //Populate activity list for event
             setActivityList();
         }
 
@@ -46,6 +47,14 @@ namespace Away_Day_Planner.Presenters
             Department department = (Department)departments[eventModel.departmentId];
 
             eventBookerView.pageTitle = "Booking event for " + client.name + " and Department " + department.name;
+        }
+
+        private void setDistance()
+        {
+            int clientId = eventModel.clientId;
+            Client client = clientModel.getClient(clientId + 1);
+            int clientDistance = client.noOfHoursAway;
+            eventBookerView.clientDistance = clientDistance.ToString();
         }
 
         private void setActivityList()
