@@ -59,9 +59,26 @@ namespace Away_Day_Planner.Views
             set { checkBoxFacilitator.Checked = value; }
         }
 
+
+        public string selectedCustomActivityName
+        {
+            get { return textBoxCustomActivityName.Text; }
+            set { textBoxCustomActivityName.Text = value; }
+        }
+        public bool facilitatorRequiredCustom
+        {
+            get { return checkBoxCustomActivityFacilitator.Checked; }
+            set { checkBoxCustomActivityFacilitator.Checked = value; }
+        }
+        public string totalCustomPrice
+        {
+            get { return labelCustomPriceValue.Text; }
+            set { labelCustomPriceValue.Text = value; }
+        }
+
+
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
-            //NEEDS FORM SECURITY ADDING
             bool success = addActivityPresenter.buttonAddActivityClickEvent();
             if (success)
             {
@@ -73,8 +90,7 @@ namespace Away_Day_Planner.Views
 
         private void buttonAddCustomActivity_Click(object sender, EventArgs e)
         {
-            //NEEDS FORM SECURITY ADDING
-
+            addActivityPresenter.buttonAddCustomActivityClickEvent();
             this.Close();
         }
 

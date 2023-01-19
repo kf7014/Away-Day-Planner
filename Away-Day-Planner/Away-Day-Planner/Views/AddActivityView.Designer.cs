@@ -50,6 +50,8 @@ namespace Away_Day_Planner.Views
             this.textBoxCustomActivityName = new System.Windows.Forms.TextBox();
             this.buttonAddActivity = new System.Windows.Forms.Button();
             this.buttonAddCustomActivity = new System.Windows.Forms.Button();
+            this.labelCustomPriceValue = new System.Windows.Forms.Label();
+            this.labelCustomPrice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelAddActivity
@@ -243,11 +245,31 @@ namespace Away_Day_Planner.Views
             this.buttonAddCustomActivity.UseVisualStyleBackColor = true;
             this.buttonAddCustomActivity.Click += new System.EventHandler(this.buttonAddCustomActivity_Click);
             // 
+            // labelCustomPriceValue
+            // 
+            this.labelCustomPriceValue.AutoSize = true;
+            this.labelCustomPriceValue.Location = new System.Drawing.Point(513, 257);
+            this.labelCustomPriceValue.Name = "labelCustomPriceValue";
+            this.labelCustomPriceValue.Size = new System.Drawing.Size(13, 13);
+            this.labelCustomPriceValue.TabIndex = 24;
+            this.labelCustomPriceValue.Text = "0";
+            // 
+            // labelCustomPrice
+            // 
+            this.labelCustomPrice.AutoSize = true;
+            this.labelCustomPrice.Location = new System.Drawing.Point(412, 257);
+            this.labelCustomPrice.Name = "labelCustomPrice";
+            this.labelCustomPrice.Size = new System.Drawing.Size(55, 13);
+            this.labelCustomPrice.TabIndex = 23;
+            this.labelCustomPrice.Text = "Price (£) : ";
+            // 
             // AddActivityView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelCustomPriceValue);
+            this.Controls.Add(this.labelCustomPrice);
             this.Controls.Add(this.buttonAddCustomActivity);
             this.Controls.Add(this.buttonAddActivity);
             this.Controls.Add(this.textBoxCustomActivityName);
@@ -299,5 +321,7 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.TextBox textBoxCustomActivityName;
         private System.Windows.Forms.Button buttonAddActivity;
         private System.Windows.Forms.Button buttonAddCustomActivity;
+        private System.Windows.Forms.Label labelCustomPriceValue;
+        private System.Windows.Forms.Label labelCustomPrice;
     }
 }

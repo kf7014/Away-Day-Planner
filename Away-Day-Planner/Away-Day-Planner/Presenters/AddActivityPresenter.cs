@@ -93,7 +93,11 @@ namespace Away_Day_Planner.Views
                 addActivityView.totalPrice = totalPrice.ToString();
             }
 
-
+            if(selectedReward != null && selectedAddition != null)
+            {
+                decimal totalCustomPrice = selectedReward.price + selectedAddition.price;
+                addActivityView.totalCustomPrice = totalCustomPrice.ToString();
+            }
         }
 
         public bool buttonAddActivityClickEvent()
@@ -110,16 +114,20 @@ namespace Away_Day_Planner.Views
 
             bool validationErrors = false;
 
+            //TODO: VALIDATION GOES HERE
+
             if(validationErrors == false)
             {
+                //Get ID of event activity is being added to
                 int eventId = eventModel.getCurrentEventId();
 
-                //TODO: Add new activity
-
+                //Add new activity
                 eventModel.addNewActivity(activityTemplate.name, activityTemplate.price, facilitatorRequired, eventId);
 
+                //Get ID of activity rewards and additions will be added to
                 int currentActivity = eventModel.getCurrentActivityId();
 
+                //Add rewards and additions to their respective tables, linked to the activity
                 eventModel.addNewReward(rewardTemplate.name, rewardTemplate.price, currentActivity);
                 eventModel.addNewAddition(additionTemplate.name, additionTemplate.price, currentActivity);
 
@@ -127,6 +135,34 @@ namespace Away_Day_Planner.Views
             } else
             {
                 return false;
+            }
+        }
+
+        public void buttonAddCustomActivityClickEvent()
+        {
+            int selectedRewardId = addActivityView.selectedReward;
+            int selectedAdditionId = addActivityView.selectedAddition;
+
+            String customActivityName = addActivityView.selectedCustomActivityName;
+            bool facilitatorRequired = addActivityView.facilitatorRequiredCustom;
+            Decimal customActivityPrice;
+            Decimal.TryParse(addActivityView.totalCustomPrice, out customActivityPrice);
+            RewardTemplate rewardTemplate = eventModel.getRewardTemplate(selectedRewardId + 1);
+            AdditionTemplate additionTemplate = eventModel.getAdditionTemplate(selectedAdditionId + 1);
+
+
+            bool validationErrors = false;
+
+            //TODO: VALIDATION GOES HERE
+
+            if (validationErrors == false)
+            {
+                //Get ID of event activity is being added to
+                int eventId = eventModel.getCurrentEventId();
+
+                //Add new activity
+                eventModel.addNewActivity(customActivityName, customActivityPrice, facilitatorRequired, eventId);
+
             }
         }
 
@@ -144,5 +180,7 @@ namespace Away_Day_Planner.Views
         {
             updateActivityPricing();
         }
+
+        
     }
 }

@@ -23,5 +23,8 @@ namespace Away_Day_Planner.Views
         String selectedAdditionName { set; get; }
         String totalPrice { set; get; }
         bool facilitatorRequired { set; get; }
+        string selectedCustomActivityName { set; get; }
+        bool facilitatorRequiredCustom { set; get; }
+        string totalCustomPrice { set; get; }
     }
 }
