@@ -116,11 +116,17 @@ namespace Away_Day_Planner.Views
 
             //VALIDATION
             //validate activity selection
-            if (activityTemplate.name.Length < 2)
+            if(activityTemplate == null)
+            {
+                addActivityView.ErrorSelectActivity = "Activity name cannot be null";
+                validationErrors = true;
+            } 
+            else if (activityTemplate.name.Length < 2)
             {
                 addActivityView.ErrorSelectActivity = "Activity name must be longer than 2 characters";
                 validationErrors = true;
-            } else if (activityTemplate.name.Length > 50)
+            } 
+            else if (activityTemplate.name.Length > 50)
             {
                 addActivityView.ErrorSelectActivity = "Activity name must be shorter than 50 characters";
                 validationErrors = true;
@@ -132,7 +138,12 @@ namespace Away_Day_Planner.Views
             }
 
             //validate reward selection
-            if (rewardTemplate.name.Length < 2)
+            if (rewardTemplate == null)
+            {
+                addActivityView.ErrorRewards = "Reward name cannot be null";
+                validationErrors = true;
+            } 
+            else if (rewardTemplate.name.Length < 2)
             {
                 addActivityView.ErrorRewards = "Reward name must be longer than 2 characters";
                 validationErrors = true;
@@ -149,7 +160,12 @@ namespace Away_Day_Planner.Views
             }
 
             //validate addition selection
-            if (additionTemplate.name.Length < 2)
+            if (additionTemplate == null)
+            {
+                addActivityView.ErrorAdditions = "Addition name cannot be null";
+                validationErrors = true;
+            }
+            else if (additionTemplate.name.Length < 2)
             {
                 addActivityView.ErrorAdditions = "Addition name must be longer than 2 characters";
                 validationErrors = true;
@@ -221,7 +237,11 @@ namespace Away_Day_Planner.Views
             }
 
             //validate reward selection
-            if (rewardTemplate.name.Length < 2)
+            if (rewardTemplate == null)
+            {
+                addActivityView.ErrorRewards = "Reward name cannot be null";
+                validationErrors = true;
+            } else if (rewardTemplate.name.Length < 2)
             {
                 addActivityView.ErrorRewards = "Reward name must be longer than 2 characters";
                 validationErrors = true;
@@ -238,7 +258,12 @@ namespace Away_Day_Planner.Views
             }
 
             //validate addition selection
-            if (additionTemplate.name.Length < 2)
+            if (additionTemplate == null)
+            {
+                addActivityView.ErrorAdditions = "Addition name cannot be null";
+                validationErrors = true;
+            }
+            else if (additionTemplate.name.Length < 2)
             {
                 addActivityView.ErrorAdditions = "Addition name must be longer than 2 characters";
                 validationErrors = true;
