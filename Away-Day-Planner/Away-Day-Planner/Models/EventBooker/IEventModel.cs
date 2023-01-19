@@ -25,5 +25,7 @@ namespace Away_Day_Planner.Models.EventBooker
         Event[] getAllEvents();
         int getCurrentEventId();
         int getCurrentActivityId();
+        Activity[] getActivityAdditions(int activityId);
+        Reward[] getActivityRewards(int activityId);
     }
 }

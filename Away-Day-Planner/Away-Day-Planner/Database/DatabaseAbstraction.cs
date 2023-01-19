@@ -129,14 +129,14 @@ namespace Away_Day_Planner.Database
             return activityAdditions.ToArray();
         }
 
-        public Reward[] getActivityRewards(int rewardId)
+        public Reward[] getActivityRewards(int activityId)
         {
             Tuple<DbSet<Reward>, DbContext> result = databaseInterface.GetAll<Reward>().ToTuple();
             Reward[] rewards = result.Item1.ToArray();
             List<Reward> activityRewards = new List<Reward>();
             foreach (Reward reward in rewards)
             {
-                if (reward.ActivityFK == rewardId)
+                if (reward.ActivityFK == activityId)
                 {
                     activityRewards.Add(reward);
                 }

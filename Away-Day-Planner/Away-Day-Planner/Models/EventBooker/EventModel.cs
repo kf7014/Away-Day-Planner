@@ -106,6 +106,18 @@ namespace Away_Day_Planner.Models.EventBooker
             return additionTemplate;
         }
 
+        public Reward[] getActivityRewards(int activityId)
+        {
+            Reward[] activityRewards = databaseAbstraction.getActivityRewards(activityId);
+            return activityRewards;
+        }
+
+        public Addition[] getActivityAdditions(int activityId)
+        {
+            Addition[] activityAdditions = databaseAbstraction.getActivityAdditions(activityId);
+            return activityAdditions;
+        }
+
         public void addNewEvent()
         {
             databaseAbstraction.addNewEvent();
