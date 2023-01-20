@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Away_Day_Planner.Utilities
 {
     // Settings that are available globally within the application
-    internal class AppSettings : ApplicationSettingsBase
+    public class AppSettings : ApplicationSettingsBase
     {
         // Thread safety implementation
         private static object _lock = new object();

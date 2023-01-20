@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using Away_Day_Planner.EventChain;
-using Away_Day_Planner.EventChain.Handlers;
+using Away_Day_Planner.CORChain;
+using Away_Day_Planner.CORChain.Handlers;
 
 namespace Away_Day_Planner.Models.EventBooker
 {

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Away_Day_Planner.Utilities
+namespace Away_Day_Planner_Test.COR
 {
-    internal class Logger
+    internal class Test_Event
     {
-        public static void Log<T>(T log){}
     }
 }

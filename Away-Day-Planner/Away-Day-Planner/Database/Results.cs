@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Away_Day_Planner.Database
 {
-    internal class Results : IResults
+    public class Results : IResults
     {
         //Null Object if a results object is created but no results actually added
-        public static IResults Empty = NullResults();
+        public static Results Empty = NullResults();
 
         // Size of the results object (How many results it is currently storing)
         public int Size { private set; get; }
@@ -29,7 +29,7 @@ namespace Away_Day_Planner.Database
             return _null;
         }
 
-        public Results(){}
+        private Results(){}
 
         // Constructor, allows for a result object to be created with a list straight away
         public Results(IList resultList)

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace Away_Day_Planner.Utilities
 {
     // Parses command line argument "app.exe -v -xyz"
-    internal class ArgumentParser
+    public class ArgumentParser
     {
-        private readonly ArrayList argument_array = new ArrayList();
+        public readonly ArrayList argument_array = new ArrayList();
 
         // Defines what arguments are valid
-        private enum VALID_ARG
+        public enum VALID_ARG
         {
             VERBOSE,
             LOGGING
@@ -34,7 +34,7 @@ namespace Away_Day_Planner.Utilities
 
         public ArgumentParser(string[] argument_array) 
         {
-            this.ParseArguments(argument_array);
+            ParseArguments(argument_array);
         }
         // Parses the arguments from the arg string into an array which can then be interpreted by other methods
         private void ParseArguments(string[] arr)
@@ -67,7 +67,7 @@ namespace Away_Day_Planner.Utilities
             return argument_array;
         }
         // Returns the arguments array as a string of its contents
-        public string ArgumentsAsString() 
+        public string GetArgumentsAsString() 
         {
             if (argument_array.Count is 0) return "Empty";
             else return String.Join(", ", argument_array.ToArray());
