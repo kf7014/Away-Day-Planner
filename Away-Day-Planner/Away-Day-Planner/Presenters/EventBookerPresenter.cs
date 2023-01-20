@@ -68,20 +68,20 @@ namespace Away_Day_Planner.Presenters
             Decimal totalPrice = 0;
 
             for(int i=0; i<eventActivities.Length; i++)
-            {  
+            {
+                
                 IAddition[] activityAdditions = eventModel.getActivityAdditions(eventActivities[i].id);
                 IReward[] activityRewards = eventModel.getActivityRewards(eventActivities[i].id);
-                
+
                 totalPrice += eventActivities[i].price;
 
-                for(int j=1; j<activityAdditions.Length; j++)
+                foreach (IAddition addition in activityAdditions)
                 {
-                    totalPrice += activityAdditions[i].price;
+                    totalPrice += addition.price;
                 }
-
-                for (int j=1; j < activityRewards.Length; j++)
+                foreach (IReward reward in activityRewards)
                 {
-                    totalPrice += activityRewards[i].price;
+                    totalPrice += reward.price;
                 }
             }
 

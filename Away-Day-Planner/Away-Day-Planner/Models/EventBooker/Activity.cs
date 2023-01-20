@@ -58,7 +58,7 @@ namespace Away_Day_Planner.Models.EventBooker
 
         public virtual FacilitatorTeam FacilitatorTeam { get; set; }
         [ForeignKey("FacilitatorTeam")]
-        public int FacilitatorTeamFK { get; set; }
+        public int? FacilitatorTeamFK { get; set; }
 
         public virtual Event Event { get; set; }
         [ForeignKey("Event")]
