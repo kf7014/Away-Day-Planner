@@ -108,8 +108,12 @@ namespace Away_Day_Planner.Presenters
 
         public void buttonConfirmBookingEvent()
         {
-            ///////Get all BookedFacilitatorTeamDates, and check if selectedDate matches if a facilitator is required on any activity
+            ////Get all BookedFacilitatorTeamDates, and check if selectedDate matches if a facilitator is required on any activity
             DateTime selectedDate = eventBookerView.selectedDate;
+            //Get day after selected date
+            DateTime selectedDateNextDay = selectedDate;
+            selectedDateNextDay = selectedDate.AddDays(1);
+
             bool dateAlreadyBooked = false;
 
             //Get client info
@@ -117,33 +121,28 @@ namespace Away_Day_Planner.Presenters
             Client client = clientModel.getClient(clientId + 1);
             int clientDistance = client.noOfHoursAway;
 
-            //IF FACILITATOR IS REQUIRED ON AN ACTIVITY
+            //TODO: IF FACILITATOR IS REQUIRED ON AN ACTIVITY
             IDate[] bookedFacilitatorDates = eventModel.getAllBookedFacilitatorTeamDates();
 
             //If Client is 2 hours away or closer check if facilitator teams are booked on that day
             if (clientDistance <= 2)
             {
+                Console.WriteLine("bookedFacilitatorDates[0].dateTime: " + bookedFacilitatorDates[0].dateTime);
+                Console.WriteLine(selectedDate);
                 for(int i=0; i< bookedFacilitatorDates.Length; i++)
                 {
-                    if(bookedFacilitatorDates[i].dateTime == selectedDate)
+                    if (bookedFacilitatorDates[i].dateTime.Date == selectedDate.Date)
                     {
                         dateAlreadyBooked = true;
                         Console.WriteLine("Facilitators unavailable that day");
                     }
                 }
-                //If client is further away than 2 hours check if facilitator is booked on day before and after
+                //If client is further away than 2 hours check if facilitator is booked on after due to travel
             } else if (clientDistance > 2)
             {
                 for (int i = 0; i < bookedFacilitatorDates.Length; i++)
-                {
-                    //Get day before selected date
-                    DateTime selectedDatePreviousDay = selectedDate;
-                    selectedDatePreviousDay = DateTime.Now.AddDays(-1);
-                    //Get day after selected date
-                    DateTime selectedDateNextDay = selectedDate;
-                    selectedDateNextDay = DateTime.Now.AddDays(+1);
-
-                    if (selectedDate == bookedFacilitatorDates[i].dateTime || selectedDatePreviousDay == bookedFacilitatorDates[i].dateTime || selectedDateNextDay == bookedFacilitatorDates[i].dateTime)
+                {                  
+                    if (selectedDate.Date == bookedFacilitatorDates[i].dateTime.Date || selectedDateNextDay.Date == bookedFacilitatorDates[i].dateTime.Date)
                     {
                         dateAlreadyBooked = true;
                         Console.WriteLine("Facilitators unavailable");
