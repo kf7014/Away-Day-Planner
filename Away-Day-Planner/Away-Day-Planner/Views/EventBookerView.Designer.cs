@@ -50,17 +50,20 @@ namespace Away_Day_Planner.Views
             // listBoxActivities
             // 
             this.listBoxActivities.FormattingEnabled = true;
-            this.listBoxActivities.Location = new System.Drawing.Point(65, 78);
+            this.listBoxActivities.ItemHeight = 16;
+            this.listBoxActivities.Location = new System.Drawing.Point(87, 96);
+            this.listBoxActivities.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBoxActivities.Name = "listBoxActivities";
-            this.listBoxActivities.Size = new System.Drawing.Size(255, 251);
+            this.listBoxActivities.Size = new System.Drawing.Size(339, 308);
             this.listBoxActivities.TabIndex = 0;
             // 
             // labelRequestedActivities
             // 
             this.labelRequestedActivities.AutoSize = true;
-            this.labelRequestedActivities.Location = new System.Drawing.Point(62, 50);
+            this.labelRequestedActivities.Location = new System.Drawing.Point(83, 62);
+            this.labelRequestedActivities.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRequestedActivities.Name = "labelRequestedActivities";
-            this.labelRequestedActivities.Size = new System.Drawing.Size(104, 13);
+            this.labelRequestedActivities.Size = new System.Drawing.Size(136, 17);
             this.labelRequestedActivities.TabIndex = 1;
             this.labelRequestedActivities.Text = "Requested Activities";
             // 
@@ -69,16 +72,17 @@ namespace Away_Day_Planner.Views
             this.labelDate.AutoSize = true;
             this.labelDate.Location = new System.Drawing.Point(422, 142);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(36, 13);
+            this.labelDate.Size = new System.Drawing.Size(46, 17);
             this.labelDate.TabIndex = 2;
             this.labelDate.Text = "Date :";
             // 
             // labelDistance
             // 
             this.labelDistance.AutoSize = true;
-            this.labelDistance.Location = new System.Drawing.Point(422, 180);
+            this.labelDistance.Location = new System.Drawing.Point(563, 222);
+            this.labelDistance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDistance.Name = "labelDistance";
-            this.labelDistance.Size = new System.Drawing.Size(124, 13);
+            this.labelDistance.Size = new System.Drawing.Size(164, 17);
             this.labelDistance.TabIndex = 3;
             this.labelDistance.Text = "Distance Away (Hours) : ";
             // 
@@ -94,9 +98,10 @@ namespace Away_Day_Planner.Views
             // 
             // buttonAddActivity
             // 
-            this.buttonAddActivity.Location = new System.Drawing.Point(65, 350);
+            this.buttonAddActivity.Location = new System.Drawing.Point(87, 431);
+            this.buttonAddActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddActivity.Name = "buttonAddActivity";
-            this.buttonAddActivity.Size = new System.Drawing.Size(125, 23);
+            this.buttonAddActivity.Size = new System.Drawing.Size(167, 28);
             this.buttonAddActivity.TabIndex = 6;
             this.buttonAddActivity.Text = "Add New Activity";
             this.buttonAddActivity.UseVisualStyleBackColor = true;
@@ -105,17 +110,19 @@ namespace Away_Day_Planner.Views
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(339, 22);
+            this.labelTitle.Location = new System.Drawing.Point(452, 27);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(167, 13);
+            this.labelTitle.Size = new System.Drawing.Size(215, 17);
             this.labelTitle.TabIndex = 7;
             this.labelTitle.Text = "Booking Event For CLIENTNAME";
             // 
             // buttonConfirmBooking
             // 
-            this.buttonConfirmBooking.Location = new System.Drawing.Point(592, 367);
+            this.buttonConfirmBooking.Location = new System.Drawing.Point(789, 452);
+            this.buttonConfirmBooking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonConfirmBooking.Name = "buttonConfirmBooking";
-            this.buttonConfirmBooking.Size = new System.Drawing.Size(156, 47);
+            this.buttonConfirmBooking.Size = new System.Drawing.Size(208, 58);
             this.buttonConfirmBooking.TabIndex = 8;
             this.buttonConfirmBooking.Text = "Confirm Booking";
             this.buttonConfirmBooking.UseVisualStyleBackColor = true;
@@ -197,7 +204,7 @@ namespace Away_Day_Planner.Views
             // 
             // EventBookerView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelSuccess);
@@ -215,6 +222,7 @@ namespace Away_Day_Planner.Views
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.labelRequestedActivities);
             this.Controls.Add(this.listBoxActivities);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EventBookerView";
             this.Text = "Away Day Planner";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoOfAttendees)).EndInit();

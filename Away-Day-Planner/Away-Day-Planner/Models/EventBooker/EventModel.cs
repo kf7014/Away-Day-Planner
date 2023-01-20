@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using Away_Day_Planner.Views;
 using Away_Day_Planner.Models.EventBooker;
 using Away_Day_Planner.Database;
