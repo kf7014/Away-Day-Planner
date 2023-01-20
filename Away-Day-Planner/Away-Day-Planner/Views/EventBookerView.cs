@@ -36,6 +36,11 @@ namespace Away_Day_Planner.Views
             get { return dateTimePickerDate.Value; }
             set { dateTimePickerDate.Value = value; }
         }
+        public int noOfAttendees
+        {
+            get { return (int)numericUpDownNoOfAttendees.Value; }
+            set {}
+        }
 
         public EventBookerView()
         {

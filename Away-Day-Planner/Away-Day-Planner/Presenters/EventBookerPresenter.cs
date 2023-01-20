@@ -115,7 +115,7 @@ namespace Away_Day_Planner.Presenters
                 Console.WriteLine("Update Event with following info:");
                 Console.WriteLine("Booking day: " + eventBookerView.selectedDate.Date);
                 Console.WriteLine("Price: " + eventBookerView.totalPrice);
-                Console.WriteLine("Number of attendees: " + "NOT DONE YET");
+                Console.WriteLine("Number of attendees: " + eventBookerView.noOfAttendees);
                 Console.WriteLine("Is Booked: True");
             }
         }

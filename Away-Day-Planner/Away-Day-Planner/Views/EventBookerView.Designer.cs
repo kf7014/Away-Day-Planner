@@ -40,6 +40,9 @@ namespace Away_Day_Planner.Views
             this.labelDistanceValue = new System.Windows.Forms.Label();
             this.labelTotalPriceValue = new System.Windows.Forms.Label();
             this.labelTotalPrice = new System.Windows.Forms.Label();
+            this.labelNoOfAttendees = new System.Windows.Forms.Label();
+            this.numericUpDownNoOfAttendees = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoOfAttendees)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxActivities
@@ -118,14 +121,13 @@ namespace Away_Day_Planner.Views
             this.labelDistanceValue.AutoSize = true;
             this.labelDistanceValue.Location = new System.Drawing.Point(560, 180);
             this.labelDistanceValue.Name = "labelDistanceValue";
-            this.labelDistanceValue.Size = new System.Drawing.Size(124, 13);
+            this.labelDistanceValue.Size = new System.Drawing.Size(0, 13);
             this.labelDistanceValue.TabIndex = 9;
-            this.labelDistanceValue.Text = "Distance Away (Hours) : ";
             // 
             // labelTotalPriceValue
             // 
             this.labelTotalPriceValue.AutoSize = true;
-            this.labelTotalPriceValue.Location = new System.Drawing.Point(560, 228);
+            this.labelTotalPriceValue.Location = new System.Drawing.Point(560, 262);
             this.labelTotalPriceValue.Name = "labelTotalPriceValue";
             this.labelTotalPriceValue.Size = new System.Drawing.Size(13, 13);
             this.labelTotalPriceValue.TabIndex = 11;
@@ -134,17 +136,50 @@ namespace Away_Day_Planner.Views
             // labelTotalPrice
             // 
             this.labelTotalPrice.AutoSize = true;
-            this.labelTotalPrice.Location = new System.Drawing.Point(422, 228);
+            this.labelTotalPrice.Location = new System.Drawing.Point(422, 262);
             this.labelTotalPrice.Name = "labelTotalPrice";
             this.labelTotalPrice.Size = new System.Drawing.Size(61, 13);
             this.labelTotalPrice.TabIndex = 10;
             this.labelTotalPrice.Text = "Total Price:";
+            // 
+            // labelNoOfAttendees
+            // 
+            this.labelNoOfAttendees.AutoSize = true;
+            this.labelNoOfAttendees.Location = new System.Drawing.Point(422, 219);
+            this.labelNoOfAttendees.Name = "labelNoOfAttendees";
+            this.labelNoOfAttendees.Size = new System.Drawing.Size(89, 13);
+            this.labelNoOfAttendees.TabIndex = 12;
+            this.labelNoOfAttendees.Text = "No Of Attendees:";
+            // 
+            // numericUpDownNoOfAttendees
+            // 
+            this.numericUpDownNoOfAttendees.Location = new System.Drawing.Point(560, 217);
+            this.numericUpDownNoOfAttendees.Maximum = new decimal(new int[] {
+            400,
+            0,
+            0,
+            0});
+            this.numericUpDownNoOfAttendees.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownNoOfAttendees.Name = "numericUpDownNoOfAttendees";
+            this.numericUpDownNoOfAttendees.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownNoOfAttendees.TabIndex = 13;
+            this.numericUpDownNoOfAttendees.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // EventBookerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numericUpDownNoOfAttendees);
+            this.Controls.Add(this.labelNoOfAttendees);
             this.Controls.Add(this.labelTotalPriceValue);
             this.Controls.Add(this.labelTotalPrice);
             this.Controls.Add(this.labelDistanceValue);
@@ -158,6 +193,7 @@ namespace Away_Day_Planner.Views
             this.Controls.Add(this.listBoxActivities);
             this.Name = "EventBookerView";
             this.Text = "Away Day Planner";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoOfAttendees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +212,7 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label labelDistanceValue;
         private System.Windows.Forms.Label labelTotalPriceValue;
         private System.Windows.Forms.Label labelTotalPrice;
+        private System.Windows.Forms.Label labelNoOfAttendees;
+        private System.Windows.Forms.NumericUpDown numericUpDownNoOfAttendees;
     }
 }
