@@ -112,6 +112,11 @@ namespace Away_Day_Planner.Presenters
             if (chosenDateAvailable)
             {
                 //TODO: Update event
+                Console.WriteLine("Update Event with following info:");
+                Console.WriteLine("Booking day: " + eventBookerView.selectedDate.Date);
+                Console.WriteLine("Price: " + eventBookerView.totalPrice);
+                Console.WriteLine("Number of attendees: " + "NOT DONE YET");
+                Console.WriteLine("Is Booked: True");
             }
         }
 
@@ -131,42 +136,71 @@ namespace Away_Day_Planner.Presenters
             Client client = clientModel.getClient(clientId + 1);
             int clientDistance = client.noOfHoursAway;
 
-            //TODO: IF FACILITATOR IS REQUIRED ON AN ACTIVITY
-            IDate[] bookedFacilitatorDates = eventModel.getAllBookedFacilitatorTeamDates();
-
-            //If Client is 2 hours away or closer check if facilitator teams are booked on that day
-            if (clientDistance <= 2)
+            //IF FACILITATOR IS REQUIRED ON AN ACTIVITY
+            if (checkFacilitatorNeeded(eventModel.getCurrentEventId()))
             {
-                Console.WriteLine("bookedFacilitatorDates[0].dateTime: " + bookedFacilitatorDates[0].dateTime);
-                Console.WriteLine(selectedDate);
-                for (int i = 0; i < bookedFacilitatorDates.Length; i++)
+                IDate[] bookedFacilitatorDates = eventModel.getAllBookedFacilitatorTeamDates();
+
+                //If Client is 2 hours away or closer check if facilitator teams are booked on that day
+                if (clientDistance <= 2)
                 {
-                    if (bookedFacilitatorDates[i].dateTime.Date == selectedDate.Date)
+                    for (int i = 0; i < bookedFacilitatorDates.Length; i++)
                     {
-                        dateAlreadyBooked = true;
-                        Console.WriteLine("Facilitators unavailable that day");
+                        if (bookedFacilitatorDates[i].dateTime.Date == selectedDate.Date)
+                        {
+                            Console.WriteLine("Facilitators unavailable that day");
+                            dateAlreadyBooked = true;                          
+                        }
+                    }
+                }//If client is further away than 2 hours check if facilitator is booked on after due to travel
+                else if (clientDistance > 2)
+                {
+                    for (int i = 0; i < bookedFacilitatorDates.Length; i++)
+                    {
+                        if (selectedDate.Date == bookedFacilitatorDates[i].dateTime.Date || selectedDateNextDay.Date == bookedFacilitatorDates[i].dateTime.Date)
+                        {
+                            dateAlreadyBooked = true;
+                            Console.WriteLine("Facilitators unavailable");
+                        }
                     }
                 }
-            }//If client is further away than 2 hours check if facilitator is booked on after due to travel
-            else if (clientDistance > 2)
-            {
-                for (int i = 0; i < bookedFacilitatorDates.Length; i++)
+
+                //Returns true if date is available
+                if (dateAlreadyBooked)
                 {
-                    if (selectedDate.Date == bookedFacilitatorDates[i].dateTime.Date || selectedDateNextDay.Date == bookedFacilitatorDates[i].dateTime.Date)
-                    {
-                        dateAlreadyBooked = true;
-                        Console.WriteLine("Facilitators unavailable");
-                    }
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            } else
+            {
+                //Facilitator not required on any activities
+                Console.WriteLine("Facilitator not needed");
+                return true;
+            }   
+        }
+
+        public bool checkFacilitatorNeeded(int eventId)
+        {
+            bool facilitatorNeeded = false;
+
+            IActivity[] activitiesList = eventModel.getEventActivityList(eventId);
+            foreach(IActivity activity in activitiesList)
+            {
+                if(activity.facilitatorRequired == true)
+                {
+                    facilitatorNeeded = true;
                 }
             }
 
-            //Returns true if date is available
-            if (dateAlreadyBooked)
-            {
-                return false;
-            } else
+            if(facilitatorNeeded == true)
             {
                 return true;
+            } else
+            {
+                return false;
             }
         }
     }
