@@ -108,6 +108,16 @@ namespace Away_Day_Planner.Presenters
 
         public void buttonConfirmBookingEvent()
         {
+            bool chosenDateAvailable = checkDateAvailability();
+            if (chosenDateAvailable)
+            {
+                //TODO: Update event
+            }
+        }
+
+
+        public bool checkDateAvailability()
+        {
             ////Get all BookedFacilitatorTeamDates, and check if selectedDate matches if a facilitator is required on any activity
             DateTime selectedDate = eventBookerView.selectedDate;
             //Get day after selected date
@@ -129,7 +139,7 @@ namespace Away_Day_Planner.Presenters
             {
                 Console.WriteLine("bookedFacilitatorDates[0].dateTime: " + bookedFacilitatorDates[0].dateTime);
                 Console.WriteLine(selectedDate);
-                for(int i=0; i< bookedFacilitatorDates.Length; i++)
+                for (int i = 0; i < bookedFacilitatorDates.Length; i++)
                 {
                     if (bookedFacilitatorDates[i].dateTime.Date == selectedDate.Date)
                     {
@@ -137,17 +147,26 @@ namespace Away_Day_Planner.Presenters
                         Console.WriteLine("Facilitators unavailable that day");
                     }
                 }
-                //If client is further away than 2 hours check if facilitator is booked on after due to travel
-            } else if (clientDistance > 2)
+            }//If client is further away than 2 hours check if facilitator is booked on after due to travel
+            else if (clientDistance > 2)
             {
                 for (int i = 0; i < bookedFacilitatorDates.Length; i++)
-                {                  
+                {
                     if (selectedDate.Date == bookedFacilitatorDates[i].dateTime.Date || selectedDateNextDay.Date == bookedFacilitatorDates[i].dateTime.Date)
                     {
                         dateAlreadyBooked = true;
                         Console.WriteLine("Facilitators unavailable");
                     }
                 }
+            }
+
+            //Returns true if date is available
+            if (dateAlreadyBooked)
+            {
+                return false;
+            } else
+            {
+                return true;
             }
         }
     }
