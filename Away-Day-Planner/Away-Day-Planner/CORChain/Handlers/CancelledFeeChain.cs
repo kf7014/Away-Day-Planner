@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Away_Day_Planner.CORChain.Handlers
 {
-    internal class CancelledFeeChain
+    public class CancelledFeeChain
     {
-        private static Handler CreateSuccessorChain()
+        public static Handler CreateSuccessorChain()
         {
             DayHandler60 dh60 = new DayHandler60();
             DayHandler30 dh30 = new DayHandler30();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Away_Day_Planner.CORChain.Handlers
 {
-    internal class DayHandler60 : Handler
+    public class DayHandler60 : Handler
     {
         public override void HandleEvent(IEvent Event)
         {

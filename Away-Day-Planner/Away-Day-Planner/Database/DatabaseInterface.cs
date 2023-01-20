@@ -36,7 +36,7 @@ namespace Away_Day_Planner.Database
         {
             using (var context = GetContext())
             {
-                if (AppSettings.Instance.VERBOSE) Util.Print("Adding " + entity.ToString(), "Database");
+                if (AppSettings.Instance.VERBOSE) Util.Print_Tag("Adding " + entity.ToString(), "Database");
                 if (entity == null) throw Errors["NullEntity"];
                 context.Set<T>().Add(entity);
                 SaveChanges(context);
@@ -48,7 +48,7 @@ namespace Away_Day_Planner.Database
         {
             using(var context = GetContext())
             {
-                if (AppSettings.Instance.VERBOSE) Util.Print("Adding " + entity.ToString(), "Database");
+                if (AppSettings.Instance.VERBOSE) Util.Print_Tag("Adding " + entity.ToString(), "Database");
                 if (entity == null) throw Errors["NullEntity"];
                 dbs.Add(entity);
                 SaveChanges(context);
@@ -59,7 +59,7 @@ namespace Away_Day_Planner.Database
         {
             using (var context = GetContext())
             {
-                if (AppSettings.Instance.VERBOSE) Util.Print("Removing " + entity.ToString(), "Database");
+                if (AppSettings.Instance.VERBOSE) Util.Print_Tag("Removing " + entity.ToString(), "Database");
                 if (entity == null) throw Errors["NullEntity"];
                 context.Set<T>().Remove(entity);
                 SaveChanges(context);
@@ -232,11 +232,11 @@ namespace Away_Day_Planner.Database
                 {
                     foreach (var e in ex.EntityValidationErrors)
                     {
-                        Util.Print(e.Entry.Entity.GetType().Name, "EntityType");
+                        Util.Print_Tag(e.Entry.Entity.GetType().Name, "EntityType");
                         Util.Print(e.Entry.State, "ValidationErrors");
                         foreach (var ve in e.ValidationErrors)
                         {
-                            Util.Print("Property: " + ve.PropertyName + " Error: " + ve.ErrorMessage, "    -Property Errors");
+                            Util.Print_Tag("Property: " + ve.PropertyName + " Error: " + ve.ErrorMessage, "    -Property Errors");
                         }
                     }
                 }

@@ -127,7 +127,6 @@
     <Compile Include="Utilities\ArgumentParser.cs" />
     <Compile Include="Utilities\AppSettings.cs" />
     <Compile Include="Utilities\ErrorList.cs" />
-    <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Utilities\Util.cs" />
     <Compile Include="Views\AddActivityView.cs">
       <SubType>Form</SubType>
