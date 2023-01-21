@@ -127,7 +127,7 @@ namespace Away_Day_Planner.Presenters
 
                 //TODO: Update Event
                 //eventModel.updateEvent(currentEventId, newEvent);
-                //Console.WriteLine("Event should be added");
+                eventBookerView.SuccessMessage = "Event successfully booked!";
             }
         }
 

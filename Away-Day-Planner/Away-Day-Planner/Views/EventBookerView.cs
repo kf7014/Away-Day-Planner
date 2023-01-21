@@ -46,6 +46,11 @@ namespace Away_Day_Planner.Views
             get { return labelErrorDateSelected.Text; }
             set { labelErrorDateSelected.Text = value; }
         }
+        public string SuccessMessage
+        {
+            get { return labelSuccess.Text; }
+            set { labelSuccess.Text = value; }
+        }
 
         public EventBookerView()
         {
