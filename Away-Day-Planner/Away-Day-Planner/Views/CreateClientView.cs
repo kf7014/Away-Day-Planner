@@ -64,5 +64,10 @@ namespace Away_Day_Planner.Views
                 this.Close();
             } 
         }
+
+        private void CreateClientView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

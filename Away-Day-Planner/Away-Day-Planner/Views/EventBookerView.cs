@@ -84,5 +84,10 @@ namespace Away_Day_Planner.Views
         {
             eventBookerPresenter.buttonConfirmBookingEvent(); 
         }
+
+        private void EventBookerView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

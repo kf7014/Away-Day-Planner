@@ -52,7 +52,7 @@ namespace Away_Day_Planner.Views
             this.listBoxActivities.FormattingEnabled = true;
             this.listBoxActivities.ItemHeight = 16;
             this.listBoxActivities.Location = new System.Drawing.Point(87, 96);
-            this.listBoxActivities.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxActivities.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxActivities.Name = "listBoxActivities";
             this.listBoxActivities.Size = new System.Drawing.Size(339, 308);
             this.listBoxActivities.TabIndex = 0;
@@ -99,7 +99,7 @@ namespace Away_Day_Planner.Views
             // buttonAddActivity
             // 
             this.buttonAddActivity.Location = new System.Drawing.Point(87, 431);
-            this.buttonAddActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAddActivity.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddActivity.Name = "buttonAddActivity";
             this.buttonAddActivity.Size = new System.Drawing.Size(167, 28);
             this.buttonAddActivity.TabIndex = 6;
@@ -120,7 +120,7 @@ namespace Away_Day_Planner.Views
             // buttonConfirmBooking
             // 
             this.buttonConfirmBooking.Location = new System.Drawing.Point(789, 452);
-            this.buttonConfirmBooking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonConfirmBooking.Margin = new System.Windows.Forms.Padding(4);
             this.buttonConfirmBooking.Name = "buttonConfirmBooking";
             this.buttonConfirmBooking.Size = new System.Drawing.Size(208, 58);
             this.buttonConfirmBooking.TabIndex = 8;
@@ -222,7 +222,7 @@ namespace Away_Day_Planner.Views
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.labelRequestedActivities);
             this.Controls.Add(this.listBoxActivities);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EventBookerView";
             this.Text = "Away Day Planner";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoOfAttendees)).EndInit();

@@ -17,6 +17,9 @@ namespace Away_Day_Planner.Views
     public partial class pdfDisplayView : Form, IpdfDisplayView
     {
         private pdfDisplayPresenter pdfDisplayPresenter;
+
+        public object GenerateInvoiceClick { get; private set; }
+
         public pdfDisplayView()
         {
             InitializeComponent();
@@ -30,19 +33,22 @@ namespace Away_Day_Planner.Views
         private void generatePDF_Click(object sender, EventArgs e)
         {
             {
-                
-                string path = AppDomain.CurrentDomain.BaseDirectory + "Invoice.pdf";
+                /*string path = AppDomain.CurrentDomain.BaseDirectory + "Invoice.pdf";
                 string clientName = "NAME HOLDER";
                 Document doc = new Document();
                 PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
                 doc.Open();
                 doc.Add(new Paragraph("Initial cost Estimate for: " + clientName));
                 doc.Add(new Paragraph("Activitys chosen : Cost"));
-                
                 doc.Add(new Paragraph());
-                doc.Close();
-                webBrowser1.Navigate(path);
+                doc.Close();*/
+                //webBrowser1.Navigate(path);
+                
             }
+        }
+        public void ShowInvoice(string filePath)
+        {
+            webBrowser1.Navigate(filePath);
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
