@@ -38,7 +38,7 @@ namespace Away_Day_Planner.Views
             this.buttonCreateClient = new System.Windows.Forms.Button();
             this.buttonCreateDepartment = new System.Windows.Forms.Button();
             this.labelConfirmSelectionError = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAddNewUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelSelectClient
@@ -115,16 +115,6 @@ namespace Away_Day_Planner.Views
             this.buttonCreateDepartment.UseVisualStyleBackColor = true;
             this.buttonCreateDepartment.Click += new System.EventHandler(this.buttonCreateDepartment_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(675, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 29);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Add new user";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // labelConfirmSelectionError
             // 
             this.labelConfirmSelectionError.AutoSize = true;
@@ -134,13 +124,23 @@ namespace Away_Day_Planner.Views
             this.labelConfirmSelectionError.Size = new System.Drawing.Size(0, 13);
             this.labelConfirmSelectionError.TabIndex = 8;
             // 
+            // buttonAddNewUser
+            // 
+            this.buttonAddNewUser.Location = new System.Drawing.Point(675, 12);
+            this.buttonAddNewUser.Name = "buttonAddNewUser";
+            this.buttonAddNewUser.Size = new System.Drawing.Size(113, 29);
+            this.buttonAddNewUser.TabIndex = 8;
+            this.buttonAddNewUser.Text = "Add new user";
+            this.buttonAddNewUser.UseVisualStyleBackColor = true;
+            this.buttonAddNewUser.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ClientDepartmentSelectionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelConfirmSelectionError);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.buttonCreateDepartment);
             this.Controls.Add(this.buttonCreateClient);
             this.Controls.Add(this.labelOrChoice);
@@ -167,6 +167,6 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Button buttonCreateClient;
         private System.Windows.Forms.Button buttonCreateDepartment;
         private System.Windows.Forms.Label labelConfirmSelectionError;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAddNewUser;
     }
 }
