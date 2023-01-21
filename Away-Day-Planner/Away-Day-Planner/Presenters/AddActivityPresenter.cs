@@ -210,8 +210,7 @@ namespace Away_Day_Planner.Views
 
             String customActivityName = addActivityView.selectedCustomActivityName;
             bool facilitatorRequired = addActivityView.facilitatorRequiredCustom;
-            Decimal customActivityPrice;
-            Decimal.TryParse(addActivityView.totalCustomPrice, out customActivityPrice);
+            Decimal customActivityPrice = 0;
             RewardTemplate rewardTemplate = eventModel.getRewardTemplate(selectedRewardId + 1);
             AdditionTemplate additionTemplate = eventModel.getAdditionTemplate(selectedAdditionId + 1);
 
@@ -294,6 +293,7 @@ namespace Away_Day_Planner.Views
                 //Add rewards and additions to their respective tables, linked to the activity
                 eventModel.addNewReward(rewardTemplate.name, rewardTemplate.price, currentActivity);
                 eventModel.addNewAddition(additionTemplate.name, additionTemplate.price, currentActivity);
+
                 return true;
             }  else
             {

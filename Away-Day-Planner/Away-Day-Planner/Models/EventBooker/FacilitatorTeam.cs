@@ -18,6 +18,14 @@ namespace Away_Day_Planner.Models.EventBooker
             set { Id = value; }
         }
 
+        private String Name;
+        [Required, MinLength(2), MaxLength(50)]
+        public String name
+        {
+            get { return Name; }
+            set { Name = value; }
+        }
+
         private ICollection<IPerson> FacilitatorsList;
         public ICollection<IPerson> facilitatorsList
         {
@@ -31,9 +39,5 @@ namespace Away_Day_Planner.Models.EventBooker
             get { return BookedDays; }
             set { BookedDays = value; }
         }
-
-        public virtual Activity Activity { get; set; }
-        [ForeignKey("Activity")]
-        public int ActivityFK { get; set; }
     }
 }
