@@ -55,6 +55,9 @@ namespace Away_Day_Planner.Views
         public EventBookerView()
         {
             InitializeComponent();
+            DateTime today = DateTime.Now;
+            dateTimePickerDate.MinDate = today;
+            dateTimePickerDate.MaxDate = today.AddYears(2);
         }
 
         public void register(EventBookerPresenter eventBookerPresenter)

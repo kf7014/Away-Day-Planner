@@ -67,7 +67,7 @@ namespace Away_Day_Planner.Views
             // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(510, 109);
+            this.labelDate.Location = new System.Drawing.Point(422, 142);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(36, 13);
             this.labelDate.TabIndex = 2;
@@ -84,10 +84,13 @@ namespace Away_Day_Planner.Views
             // 
             // dateTimePickerDate
             // 
-            this.dateTimePickerDate.Location = new System.Drawing.Point(563, 106);
+            this.dateTimePickerDate.Location = new System.Drawing.Point(475, 139);
+            this.dateTimePickerDate.MaxDate = new System.DateTime(2025, 1, 21, 0, 0, 0, 0);
+            this.dateTimePickerDate.MinDate = new System.DateTime(2023, 1, 21, 0, 0, 0, 0);
             this.dateTimePickerDate.Name = "dateTimePickerDate";
-            this.dateTimePickerDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDate.Size = new System.Drawing.Size(217, 20);
             this.dateTimePickerDate.TabIndex = 4;
+            this.dateTimePickerDate.Value = new System.DateTime(2023, 1, 21, 0, 0, 0, 0);
             // 
             // buttonAddActivity
             // 
