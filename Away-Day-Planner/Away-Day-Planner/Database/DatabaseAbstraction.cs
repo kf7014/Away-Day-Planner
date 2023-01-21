@@ -228,5 +228,11 @@ namespace Away_Day_Planner.Database
             Event oldEvent = getEvent(eventId);
             databaseInterface.Update<Event>(oldEvent, newEvent);
         }
+
+        public void addEventDate(IDate eventDate)
+        {
+            Date newEventDate = (Date)eventDate;
+            databaseInterface.Add(newEventDate);
+        }
     }
 }
