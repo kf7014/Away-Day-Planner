@@ -29,8 +29,11 @@ namespace Away_Day_Planner.Models.Login
             return null;
         }
 
-
-
+        public User[] getAllUsers()
+        {
+            User[] users = databaseAbstraction.getAllUsers();
+            return users;
+        }
 
     }
     

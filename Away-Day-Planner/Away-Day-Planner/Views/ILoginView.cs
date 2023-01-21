@@ -17,7 +17,8 @@ namespace Away_Day_Planner.Views
 
         String LoginErrorMessagePassword { get; set; }
         String LoginErrorMessageUsername { get; set; }
+        String LoginErrorInvalidDetails { get; set; }
 
-   
+
     }
 }

@@ -173,7 +173,6 @@ namespace Away_Day_Planner.Database
             return users;
 
         }
-
     }
 
 }

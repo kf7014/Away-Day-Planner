@@ -54,7 +54,11 @@ namespace Away_Day_Planner.Views
             set { loginErrorMessagePassword.Text = value; }
         }
 
-
+        public String LoginErrorInvalidDetails
+        {
+            get { return labelErrorInvalidDetails.Text; }
+            set { labelErrorInvalidDetails.Text = value; }
+        }
 
 
 
@@ -71,6 +75,7 @@ namespace Away_Day_Planner.Views
                 ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter = new ClientDepartmentSelectionPresenter(clientDepartmentSelectionView, clientModel);
                 this.Hide();
                 clientDepartmentSelectionView.ShowDialog();
+                this.Show();
             }
         }
     }

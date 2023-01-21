@@ -41,6 +41,7 @@ namespace Away_Day_Planner.Views
             this.loginHeading = new System.Windows.Forms.Label();
             this.loginErrorMessageUsername = new System.Windows.Forms.Label();
             this.loginErrorMessagePassword = new System.Windows.Forms.Label();
+            this.labelErrorInvalidDetails = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userLogin
@@ -132,12 +133,22 @@ namespace Away_Day_Planner.Views
             this.loginErrorMessagePassword.Size = new System.Drawing.Size(0, 13);
             this.loginErrorMessagePassword.TabIndex = 26;
             // 
+            // labelErrorInvalidDetails
+            // 
+            this.labelErrorInvalidDetails.AutoSize = true;
+            this.labelErrorInvalidDetails.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorInvalidDetails.Location = new System.Drawing.Point(295, 347);
+            this.labelErrorInvalidDetails.Name = "labelErrorInvalidDetails";
+            this.labelErrorInvalidDetails.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorInvalidDetails.TabIndex = 27;
+            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelErrorInvalidDetails);
             this.Controls.Add(this.loginErrorMessagePassword);
             this.Controls.Add(this.loginErrorMessageUsername);
             this.Controls.Add(this.loginHeading);
@@ -167,5 +178,6 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label loginHeading;
         private System.Windows.Forms.Label loginErrorMessageUsername;
         private System.Windows.Forms.Label loginErrorMessagePassword;
+        private System.Windows.Forms.Label labelErrorInvalidDetails;
     }
 }
