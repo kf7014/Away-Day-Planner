@@ -46,7 +46,7 @@ namespace Away_Day_Planner.Views
             get { return labelErrorDateSelected.Text; }
             set { labelErrorDateSelected.Text = value; }
         }
-        public string SuccessMessage
+        public string SuccessFailMessage
         {
             get { return labelSuccess.Text; }
             set { labelSuccess.Text = value; }

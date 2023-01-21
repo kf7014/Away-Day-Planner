@@ -17,6 +17,6 @@ namespace Away_Day_Planner.Views
         DateTime selectedDate { get; set; }
         int noOfAttendees { get; }
         string ErrorDate { get; set; }
-        string SuccessMessage { get; set; }
+        string SuccessFailMessage { get; set; }
     }
 }

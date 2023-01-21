@@ -111,23 +111,32 @@ namespace Away_Day_Planner.Presenters
             bool chosenDateAvailable = checkDateAvailability();
             if (chosenDateAvailable)
             {
-                //TODO: Update event
-                Console.WriteLine("Update Event with following info:");
-                Console.WriteLine("Booking day: " + eventBookerView.selectedDate.Date);
-                Console.WriteLine("Price: " + eventBookerView.totalPrice);
-                Console.WriteLine("Number of attendees: " + eventBookerView.noOfAttendees);
-                Console.WriteLine("Is Booked: True");
-
                 int currentEventId = eventModel.getCurrentEventId();
                 int eventNoOfAttendees = eventBookerView.noOfAttendees;
                 Date eventDate = new Date(eventBookerView.selectedDate.Date);
                 Decimal eventPrice = Decimal.Parse(eventBookerView.totalPrice);
 
-                Event newEvent = new Event(eventNoOfAttendees, eventDate, eventPrice);
+                if(eventModel.getEventActivityList(currentEventId).Length != 0)
+                {
+                    //TODO: Update event
+                    Console.WriteLine("Update Event with following info:");
+                    Console.WriteLine("Booking day: " + eventBookerView.selectedDate.Date);
+                    Console.WriteLine("Price: " + eventBookerView.totalPrice);
+                    Console.WriteLine("Number of attendees: " + eventBookerView.noOfAttendees);
+                    Console.WriteLine("Is Booked: True");
 
-                //TODO: Update Event
-                //eventModel.updateEvent(currentEventId, newEvent);
-                eventBookerView.SuccessMessage = "Event successfully booked!";
+                    Event newEvent = new Event(eventNoOfAttendees, eventDate, eventPrice);
+
+                    //TODO: Update Event
+                    //eventModel.updateEvent(currentEventId, newEvent);
+                    eventBookerView.SuccessFailMessage = "Event successfully booked!";
+                } else
+                {
+                    eventBookerView.SuccessFailMessage = "Activities need to be added";
+                }
+
+
+                
             }
         }
 
