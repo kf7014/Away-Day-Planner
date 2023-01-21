@@ -113,6 +113,38 @@ namespace Away_Day_Planner.Database
             return clientDepartments.ToArray();
         }
 
+        public Addition[] getActivityAdditions(int activityId)
+        {
+            Tuple<DbSet<Addition>, DbContext> result = databaseInterface.GetAll<Addition>().ToTuple();
+            Addition[] additions = result.Item1.ToArray();
+            List<Addition> activityAdditions = new List<Addition>();
+            foreach (Addition addition in additions)
+            {
+                if (addition.ActivityFK == activityId)
+                {
+                    activityAdditions.Add(addition);
+                }
+            }
+
+            return activityAdditions.ToArray();
+        }
+
+        public Reward[] getActivityRewards(int activityId)
+        {
+            Tuple<DbSet<Reward>, DbContext> result = databaseInterface.GetAll<Reward>().ToTuple();
+            Reward[] rewards = result.Item1.ToArray();
+            List<Reward> activityRewards = new List<Reward>();
+            foreach (Reward reward in rewards)
+            {
+                if (reward.ActivityFK == activityId)
+                {
+                    activityRewards.Add(reward);
+                }
+            }
+
+            return activityRewards.ToArray();
+        }
+
         public ActivityTemplate[] getActivityTemplates()
         {
             Tuple<DbSet<ActivityTemplate>, DbContext> result = databaseInterface.GetAll<ActivityTemplate>().ToTuple();
@@ -158,6 +190,23 @@ namespace Away_Day_Planner.Database
             return additionTemplate;
         }
 
+        public Date[] getAllStoredDates()
+        {
+            Tuple<DbSet<Date>, DbContext> result = databaseInterface.GetAll<Date>().ToTuple();
+            Date[] dates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return dates;
+        }
+
+        public BookedFacilitatorTeamDate[] getBookedFacilitatorTeams()
+        {
+            Tuple<DbSet<BookedFacilitatorTeamDate>, DbContext> result = databaseInterface.GetAll<BookedFacilitatorTeamDate>().ToTuple();
+            BookedFacilitatorTeamDate[] bookedFacilitatorTeamDates = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return bookedFacilitatorTeamDates;
+        }
+     
+
         public void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword)
         {
             User newUser = new User(firstName, lastName, username, userEmail, userPassword);
@@ -173,6 +222,11 @@ namespace Away_Day_Planner.Database
             return users;
 
         }
-    }
 
+        public void updateEvent(int eventId, Event newEvent)
+        {
+            Event oldEvent = getEvent(eventId);
+            databaseInterface.Update<Event>(oldEvent, newEvent);
+        }
+    }
 }

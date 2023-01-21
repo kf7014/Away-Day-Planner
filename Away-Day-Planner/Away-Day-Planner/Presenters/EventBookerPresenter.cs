@@ -28,9 +28,12 @@ namespace Away_Day_Planner.Presenters
         {
             //Customise event form title to match client and department
             setTitle();
-
-            //TODO
+            //Populate client distance label
+            setDistance();
+            //Populate activity list for event
             setActivityList();
+            //Populate total price field for each activity within the event
+            setPrice();
         }
 
         //Customise event form title to match client and department
@@ -46,6 +49,43 @@ namespace Away_Day_Planner.Presenters
             Department department = (Department)departments[eventModel.departmentId];
 
             eventBookerView.pageTitle = "Booking event for " + client.name + " and Department " + department.name;
+        }
+
+        private void setDistance()
+        {
+            int clientId = eventModel.clientId;
+            Client client = clientModel.getClient(clientId + 1);
+            int clientDistance = client.noOfHoursAway;
+            eventBookerView.clientDistance = clientDistance.ToString();
+        }
+
+        private void setPrice()
+        {
+            int clientId = eventModel.clientId;
+            int eventId = eventModel.getCurrentEventId();
+            IActivity[] eventActivities = eventModel.getEventActivityList(eventId);
+
+            Decimal totalPrice = 0;
+
+            for(int i=0; i<eventActivities.Length; i++)
+            {
+                
+                IAddition[] activityAdditions = eventModel.getActivityAdditions(eventActivities[i].id);
+                IReward[] activityRewards = eventModel.getActivityRewards(eventActivities[i].id);
+
+                totalPrice += eventActivities[i].price;
+
+                foreach (IAddition addition in activityAdditions)
+                {
+                    totalPrice += addition.price;
+                }
+                foreach (IReward reward in activityRewards)
+                {
+                    totalPrice += reward.price;
+                }
+            }
+
+            eventBookerView.totalPrice = totalPrice.ToString();
         }
 
         private void setActivityList()
@@ -64,6 +104,127 @@ namespace Away_Day_Planner.Presenters
         public void buttonAddActivityEvent()
         {
             populateScreen();
+        }
+
+        public void buttonConfirmBookingEvent()
+        {
+            bool chosenDateAvailable = checkDateAvailability();
+            if (chosenDateAvailable)
+            {
+                int currentEventId = eventModel.getCurrentEventId();
+                int eventNoOfAttendees = eventBookerView.noOfAttendees;
+                Date eventDate = new Date(eventBookerView.selectedDate.Date);
+                Decimal eventPrice = Decimal.Parse(eventBookerView.totalPrice);
+
+                if(eventModel.getEventActivityList(currentEventId).Length != 0)
+                {
+                    //TODO: Update event
+                    Console.WriteLine("Update Event with following info:");
+                    Console.WriteLine("Booking day: " + eventBookerView.selectedDate.Date);
+                    Console.WriteLine("Price: " + eventBookerView.totalPrice);
+                    Console.WriteLine("Number of attendees: " + eventBookerView.noOfAttendees);
+                    Console.WriteLine("Is Booked: True");
+
+                    Event newEvent = new Event(eventNoOfAttendees, eventDate, eventPrice);
+
+                    //TODO: Update Event
+                    //eventModel.updateEvent(currentEventId, newEvent);
+                    eventBookerView.SuccessFailMessage = "Event successfully booked!";
+                } else
+                {
+                    eventBookerView.SuccessFailMessage = "Activities need to be added";
+                }
+
+
+                
+            }
+        }
+
+
+        public bool checkDateAvailability()
+        {
+            ////Get all BookedFacilitatorTeamDates, and check if selectedDate matches if a facilitator is required on any activity
+            DateTime selectedDate = eventBookerView.selectedDate;
+            //Get day after selected date
+            DateTime selectedDateNextDay = selectedDate;
+            selectedDateNextDay = selectedDate.AddDays(1);
+
+            bool dateAlreadyBooked = false;
+
+            //Get client info
+            int clientId = eventModel.clientId;
+            Client client = clientModel.getClient(clientId + 1);
+            int clientDistance = client.noOfHoursAway;
+
+            //IF FACILITATOR IS REQUIRED ON AN ACTIVITY
+            if (checkFacilitatorNeeded(eventModel.getCurrentEventId()))
+            {
+                IDate[] bookedFacilitatorDates = eventModel.getAllBookedFacilitatorTeamDates();
+
+                //If Client is 2 hours away or closer check if facilitator teams are booked on that day
+                if (clientDistance <= 2)
+                {
+                    for (int i = 0; i < bookedFacilitatorDates.Length; i++)
+                    {
+                        if (bookedFacilitatorDates[i].dateTime.Date == selectedDate.Date)
+                        {
+                            Console.WriteLine("Facilitators unavailable that day");
+                            eventBookerView.ErrorDate = "Facilitators unavailable that day";
+                            dateAlreadyBooked = true;                          
+                        }
+                    }
+                }//If client is further away than 2 hours check if facilitator is booked on after due to travel
+                else if (clientDistance > 2)
+                {
+                    for (int i = 0; i < bookedFacilitatorDates.Length; i++)
+                    {
+                        if (selectedDate.Date == bookedFacilitatorDates[i].dateTime.Date || selectedDateNextDay.Date == bookedFacilitatorDates[i].dateTime.Date)
+                        {
+                            dateAlreadyBooked = true;
+                            Console.WriteLine("Facilitators unavailable");
+                            eventBookerView.ErrorDate = "Facilitators unavailable that day";
+                        }
+                    }
+                }
+
+                //Returns true if date is available
+                if (dateAlreadyBooked)
+                {
+                    return false;
+                }
+                else
+                {
+                    eventBookerView.ErrorDate = "";
+                    return true;
+                }
+            } else
+            {
+                //Facilitator not required on any activities
+                Console.WriteLine("Facilitator not needed");
+                return true;
+            }   
+        }
+
+        public bool checkFacilitatorNeeded(int eventId)
+        {
+            bool facilitatorNeeded = false;
+
+            IActivity[] activitiesList = eventModel.getEventActivityList(eventId);
+            foreach(IActivity activity in activitiesList)
+            {
+                if(activity.facilitatorRequired == true)
+                {
+                    facilitatorNeeded = true;
+                }
+            }
+
+            if(facilitatorNeeded == true)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
     }
 }

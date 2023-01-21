@@ -105,8 +105,6 @@ namespace Away_Day_Planner.Views
             {
                 this.Close();
             }
-
-            
         }
 
         private void buttonAddCustomActivity_Click(object sender, EventArgs e)
@@ -136,12 +134,10 @@ namespace Away_Day_Planner.Views
         {
             comboBoxCustomActivityRewardsRequired.DataSource = rewardNames;
         }
-
         public void setAdditionTemplateList(string[] additionNames)
         {
             comboBoxAdditions.DataSource = additionNames;
         }
-
         public void setCustomAdditionTemplateList(string[] additionNames)
         {
             comboBoxCustomActivityAdditions.DataSource = additionNames;

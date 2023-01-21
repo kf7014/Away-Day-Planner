@@ -73,6 +73,16 @@ namespace Away_Day_Planner.Models.EventBooker
             this.noOfAttendees = 0;
             this.isBooked = false;
         }
+        public Event(int noOfAttendees, IDate bookingDate, Decimal price)
+        {
+            this.activitiesList = new List<IActivity>();
+            this.availableDaysFlexibilityList = new List<IDate>();
+            this.bookingDate = bookingDate;
+            this.price = price;
+            this.noOfAttendees = noOfAttendees;
+            this.isBooked = true;
+        }
+
         public double DaysTillEvent(DateTime currentTime)
         {
             return (BookingDate.dateTime - currentTime).TotalDays;

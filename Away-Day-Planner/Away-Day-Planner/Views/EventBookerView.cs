@@ -21,10 +21,43 @@ namespace Away_Day_Planner.Views
             get { return labelTitle.Text; }
             set { labelTitle.Text = value; }
         }
+        public String clientDistance
+        {
+            get { return labelDistanceValue.Text; }
+            set { labelDistanceValue.Text = value; }
+        }
+        public string totalPrice
+        {
+            get { return labelTotalPriceValue.Text; }
+            set { labelTotalPriceValue.Text = value; }
+        }
+        public DateTime selectedDate
+        {
+            get { return dateTimePickerDate.Value; }
+            set { dateTimePickerDate.Value = value; }
+        }
+        public int noOfAttendees
+        {
+            get { return (int)numericUpDownNoOfAttendees.Value; }
+            set {}
+        }
+        public string ErrorDate
+        {
+            get { return labelErrorDateSelected.Text; }
+            set { labelErrorDateSelected.Text = value; }
+        }
+        public string SuccessFailMessage
+        {
+            get { return labelSuccess.Text; }
+            set { labelSuccess.Text = value; }
+        }
 
         public EventBookerView()
         {
             InitializeComponent();
+            DateTime today = DateTime.Now;
+            dateTimePickerDate.MinDate = today;
+            dateTimePickerDate.MaxDate = today.AddYears(2);
         }
 
         public void register(EventBookerPresenter eventBookerPresenter)
@@ -45,6 +78,11 @@ namespace Away_Day_Planner.Views
         public void setActivityList(String[] activityListNames)
         {
             listBoxActivities.DataSource = activityListNames;
+        }
+
+        private void buttonConfirmBooking_Click(object sender, EventArgs e)
+        {
+            eventBookerPresenter.buttonConfirmBookingEvent(); 
         }
     }
 }

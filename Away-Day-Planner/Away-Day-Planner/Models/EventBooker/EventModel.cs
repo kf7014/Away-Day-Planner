@@ -106,6 +106,18 @@ namespace Away_Day_Planner.Models.EventBooker
             return additionTemplate;
         }
 
+        public Reward[] getActivityRewards(int activityId)
+        {
+            Reward[] activityRewards = databaseAbstraction.getActivityRewards(activityId);
+            return activityRewards;
+        }
+
+        public Addition[] getActivityAdditions(int activityId)
+        {
+            Addition[] activityAdditions = databaseAbstraction.getActivityAdditions(activityId);
+            return activityAdditions;
+        }
+
         public void addNewEvent()
         {
             databaseAbstraction.addNewEvent();
@@ -166,6 +178,23 @@ namespace Away_Day_Planner.Models.EventBooker
             }
 
             return currentActivity.id;
+        }
+
+        public Date[] getAllStoredDates()
+        {
+            Date[] storedDates = databaseAbstraction.getAllStoredDates();
+            return storedDates;
+        }
+
+        public BookedFacilitatorTeamDate[] getAllBookedFacilitatorTeamDates()
+        {
+            BookedFacilitatorTeamDate[] bookedFacilitatorTeamDates = databaseAbstraction.getBookedFacilitatorTeams();
+            return bookedFacilitatorTeamDates;
+        }
+
+        public void updateEvent(int eventId, Event newEvent)
+        {
+            databaseAbstraction.updateEvent(eventId, newEvent);
         }
     }
 }

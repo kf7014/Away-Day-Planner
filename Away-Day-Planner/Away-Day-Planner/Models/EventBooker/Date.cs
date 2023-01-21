@@ -28,5 +28,10 @@ namespace Away_Day_Planner.Models.EventBooker
         public virtual Event Event { get; set; }
         [ForeignKey("Event")]
         public int EventFK { get; set; }
+
+        public Date(DateTime dateTime)
+        {
+            this.dateTime = dateTime;
+        }
     }
 }
