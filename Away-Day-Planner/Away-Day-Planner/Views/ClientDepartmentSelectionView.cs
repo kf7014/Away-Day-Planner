@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Away_Day_Planner.Presenters;
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Models.Login;
+
 
 namespace Away_Day_Planner.Views
 {
@@ -87,6 +89,19 @@ namespace Away_Day_Planner.Views
         private void listBoxClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             clientDepartmentSelectionPresenter.listBoxClientSelectionEvent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            //on click take user to register new user view
+            RegisterView registerView = new RegisterView();
+            LoginRegistrationModel loginRegistrationModel = new LoginRegistrationModel();
+            RegisterUserPresenter registerUserPresenter = new RegisterUserPresenter(registerView ,loginRegistrationModel);
+            this.Hide();
+            registerView.ShowDialog();
+            this.Show();
+            
         }
     }
 }

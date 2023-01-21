@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Models.Login;
 
 namespace Away_Day_Planner.Database
 {
@@ -15,7 +16,7 @@ namespace Away_Day_Planner.Database
 
         public DatabaseAbstraction()
         {
-            
+
         }
 
         public void addNewClient(String clientName, int noOfHoursAway, bool hasClientDispute)
@@ -82,7 +83,7 @@ namespace Away_Day_Planner.Database
 
         public Client[] getAllClients()
         {
-            Tuple<DbSet<Client>,DbContext> result = databaseInterface.GetAll<Client>().ToTuple();
+            Tuple<DbSet<Client>, DbContext> result = databaseInterface.GetAll<Client>().ToTuple();
             Client[] clients = result.Item1.ToArray();
             databaseInterface.DisposeContext(result.Item2);
             return clients;
@@ -90,7 +91,7 @@ namespace Away_Day_Planner.Database
 
         public Client getClient(int clientId)
         {
-            Tuple<Client,DbContext> result = databaseInterface.Get<Client>(clientId).ToTuple();
+            Tuple<Client, DbContext> result = databaseInterface.Get<Client>(clientId).ToTuple();
             Client client = result.Item1;
             databaseInterface.DisposeContext(result.Item2);
             return client;
@@ -101,7 +102,7 @@ namespace Away_Day_Planner.Database
             Tuple<DbSet<Department>, DbContext> result = databaseInterface.GetAll<Department>().ToTuple();
             Department[] departments = result.Item1.ToArray();
             List<Department> clientDepartments = new List<Department>();
-            foreach(Department department in departments)
+            foreach (Department department in departments)
             {
                 if (department.ClientFK == clientId)
                 {
@@ -155,6 +156,23 @@ namespace Away_Day_Planner.Database
             AdditionTemplate additionTemplate = result.Item1;
             databaseInterface.DisposeContext(result.Item2);
             return additionTemplate;
-        }     
+        }
+
+        public void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword)
+        {
+            User newUser = new User(firstName, lastName, username, userEmail, userPassword);
+            Console.WriteLine("New user added");
+            databaseInterface.Add(newUser);
+        }
+
+        public User[] getAllUsers()
+        {
+            Tuple<DbSet<User>, DbContext> result = databaseInterface.GetAll<User>().ToTuple();
+            User[] users = result.Item1.ToArray();
+            databaseInterface.DisposeContext(result.Item2);
+            return users;
+
+        }
     }
+
 }

@@ -84,6 +84,24 @@
     <Compile Include="Database\IObjWithID.cs" />
     <Compile Include="Database\IResults.cs" />
     <Compile Include="Database\Results.cs" />
+    <Compile Include="EventChain\EventChainFactory.cs" />
+    <Compile Include="EventChain\Handlers\BaseEventHandler.cs" />
+    <Compile Include="EventChain\Handlers\CancelledEventHandler.cs" />
+    <Compile Include="EventChain\Handlers\GeneralEventHandler.cs" />
+    <Compile Include="EventChain\Handlers\Handler.cs" />
+    <Compile Include="EventChain\Handlers\IHandler.cs" />
+    <Compile Include="EventChain\Handlers\PaymentEventHandler.cs" />
+    <Compile Include="EventChain\Handlers\PreliminaryEventHandler.cs" />
+    <Compile Include="EventChain\IEvent.cs" />
+    <Compile Include="Migrations\202301171702284_test.cs" />
+    <Compile Include="Migrations\202301171702284_test.designer.cs">
+      <DependentUpon>202301171702284_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301171726068_test1.cs" />
+    <Compile Include="Migrations\202301171726068_test1.designer.cs">
+      <DependentUpon>202301171726068_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CORChain\Handlers\Handler.cs" />
     <Compile Include="CORChain\Handlers\IHandler.cs" />
     <Compile Include="CORChain\IEvent.cs" />
@@ -119,13 +137,20 @@
     <Compile Include="Models\EventBooker\IReward.cs" />
     <Compile Include="Models\EventBooker\Reward.cs" />
     <Compile Include="Models\EventBooker\RewardTemplate.cs" />
+    <Compile Include="Models\Login\ILoginRegistrationModel.cs" />
+    <Compile Include="Models\Login\IUser.cs" />
+    <Compile Include="Models\Login\LoginRegistrationModel.cs" />
+    <Compile Include="Models\Login\User.cs" />
     <Compile Include="Presenters\AddActivityPresenter.cs" />
     <Compile Include="Presenters\ClientDepartmentSelectionPresenter.cs" />
     <Compile Include="Presenters\CreateClientPresenter.cs" />
     <Compile Include="Presenters\CreateDepartmentPresenter.cs" />
     <Compile Include="Presenters\EventBookerPresenter.cs" />
+    <Compile Include="Presenters\LoginUserPresenter.cs" />
+    <Compile Include="Presenters\RegisterUserPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\HashingProvider.cs" />
     <Compile Include="Utilities\ArgumentParser.cs" />
     <Compile Include="Utilities\AppSettings.cs" />
     <Compile Include="Utilities\ErrorList.cs" />
@@ -165,6 +190,20 @@
     <Compile Include="Views\ICreateClientView.cs" />
     <Compile Include="Views\ICreateDepartmentView.cs" />
     <Compile Include="Views\IEventBookerView.cs" />
+    <Compile Include="Views\ILoginView.cs" />
+    <Compile Include="Views\IRegisterView.cs" />
+    <Compile Include="Views\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RegisterView.Designer.cs">
+      <DependentUpon>RegisterView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -189,6 +228,12 @@
     <EmbeddedResource Include="Views\EventBookerView.resx">
       <DependentUpon>EventBookerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegisterView.resx">
+      <DependentUpon>RegisterView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -205,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Security\" />
+    <Folder Include="Testing\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

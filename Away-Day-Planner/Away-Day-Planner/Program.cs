@@ -11,6 +11,8 @@ using Away_Day_Planner.Utilities;
 using Away_Day_Planner.Database;
 using System.Security.Cryptography.X509Certificates;
 using System.Data.Entity;
+using Away_Day_Planner.Presenters;
+using Away_Day_Planner.Models.Login;
 
 namespace Away_Day_Planner
 {
@@ -30,12 +32,16 @@ namespace Away_Day_Planner
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Create Model, View and Presenter for ClientDepartmentSelection
-            ClientDepartmentSelectionView clientDepartmentSelectionView = new ClientDepartmentSelectionView();
-            ClientModel clientModel = new ClientModel();
-            ClientDepartmentSelectionPresenter clientDepartmentSelectionPresenter = new ClientDepartmentSelectionPresenter(clientDepartmentSelectionView, clientModel);
+           
 
+            LoginView loginView = new LoginView();
+            LoginRegistrationModel loginRegistrationModel = new LoginRegistrationModel();
+            LoginUserPresenter loginUserPresenter = new LoginUserPresenter(loginView, loginRegistrationModel);
+
+           
+           
             //System point of entry
-            Application.Run(clientDepartmentSelectionView);  
+            Application.Run(loginView);  
         }
     }
 }
