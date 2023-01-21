@@ -94,8 +94,8 @@ namespace Away_Day_Planner.Database
 
             using(var context = GetContext())
             {
-                Delete(old_entity);
-                Add(new_entity);
+                context.Entry(old_entity).State = EntityState.Modified;
+                old_entity = new_entity;
                 SaveChanges(context);
             }
         }
@@ -103,8 +103,9 @@ namespace Away_Day_Planner.Database
         {
             using (var context = GetContext())
             {
-                Delete<T>(id);
-                Add(new_entity);
+                T currentEntity = Get<T>(id).Item1;
+                context.Entry(currentEntity).State = EntityState.Modified;
+                currentEntity = new_entity;
                 SaveChanges(context);
             }
         }
