@@ -127,16 +127,13 @@ namespace Away_Day_Planner.Presenters
 
                     Event newEvent = new Event(eventNoOfAttendees, eventDate, eventPrice);
 
-                    //TODO: Update Event
-                    //eventModel.updateEvent(currentEventId, newEvent);
+                    //TODO: Update Event 
+                    eventModel.updateEvent(currentEventId, newEvent);
                     eventBookerView.SuccessFailMessage = "Event successfully booked!";
                 } else
                 {
                     eventBookerView.SuccessFailMessage = "Activities need to be added";
                 }
-
-
-                
             }
         }
 

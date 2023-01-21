@@ -61,8 +61,16 @@ namespace Away_Day_Planner.Database
             {
                 if (AppSettings.Instance.VERBOSE) Util.Print_Tag("Removing " + entity.ToString(), "Database");
                 if (entity == null) throw Errors["NullEntity"];
+                context.Set<T>().Attach(entity);
                 context.Set<T>().Remove(entity);
                 SaveChanges(context);
+            }
+        }
+        public void Delete<T>(int id) where T : class
+        {
+            using (var context = GetContext())
+            {
+                Delete(Get<T>(id).Item1);
             }
         }
         // Deletes a specific entity from a specified DbSet
@@ -91,27 +99,15 @@ namespace Away_Day_Planner.Database
                 SaveChanges(context);
             }
         }
-        public void Update<T>(T old_entity, T new_entity, DbSet<T> dbs) where T : class
+        public void Update<T>(int id, T new_entity) where T : class
         {
-            if (old_entity.GetType() != new_entity.GetType()) throw Errors["TypeMismatch"];
-            if (old_entity == null || new_entity == null) throw Errors["NullEntity"];
-
             using (var context = GetContext())
             {
-                Delete(old_entity, dbs);
-                Add(new_entity, dbs);
+                Delete<T>(id);
+                Add(new_entity);
                 SaveChanges(context);
             }
         }
-        // Returns An entity by its ID.
-        //public (T, DbContext) Get<T>(T e_type, int id) where T : Type
-        //{
-        //    DbContext context = GetContext();
-        //    if (e_type == null) throw Errors["InvalidType"];
-        //    if (id < 0) throw Errors["NegativeID"];
-        //    return (context.Set<T>().Find(id), context);
-        //}
-
         public (T, DbContext) Get<T>(int id) where T : class
         {
             DbContext context = GetContext();
@@ -187,12 +183,6 @@ namespace Away_Day_Planner.Database
             {
                 return (int)context.Set<T>().Max(x => x.id);
             }
-        }
-        public int GetNextID<T>(T e_type, DbSet<T> dbs) where T : Type
-        {
-            if (e_type == null) throw Errors["InvalidType"];
-            if (e_type.GetField("id") == null) throw Errors["NoID"];
-            return (int)dbs.Max(x => x.GetField("id").GetValue(null));
         }
         // Enforces a save for any entities in transaction
         public void SaveChanges() 
