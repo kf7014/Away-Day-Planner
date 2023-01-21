@@ -117,6 +117,17 @@ namespace Away_Day_Planner.Presenters
                 Console.WriteLine("Price: " + eventBookerView.totalPrice);
                 Console.WriteLine("Number of attendees: " + eventBookerView.noOfAttendees);
                 Console.WriteLine("Is Booked: True");
+
+                int currentEventId = eventModel.getCurrentEventId();
+                int eventNoOfAttendees = eventBookerView.noOfAttendees;
+                Date eventDate = new Date(eventBookerView.selectedDate.Date);
+                Decimal eventPrice = Decimal.Parse(eventBookerView.totalPrice);
+
+                Event newEvent = new Event(eventNoOfAttendees, eventDate, eventPrice);
+
+                //TODO: Update Event
+                //eventModel.updateEvent(currentEventId, newEvent);
+                //Console.WriteLine("Event should be added");
             }
         }
 
@@ -149,6 +160,7 @@ namespace Away_Day_Planner.Presenters
                         if (bookedFacilitatorDates[i].dateTime.Date == selectedDate.Date)
                         {
                             Console.WriteLine("Facilitators unavailable that day");
+                            eventBookerView.ErrorDate = "Facilitators unavailable that day";
                             dateAlreadyBooked = true;                          
                         }
                     }
@@ -161,6 +173,7 @@ namespace Away_Day_Planner.Presenters
                         {
                             dateAlreadyBooked = true;
                             Console.WriteLine("Facilitators unavailable");
+                            eventBookerView.ErrorDate = "Facilitators unavailable that day";
                         }
                     }
                 }
@@ -172,6 +185,7 @@ namespace Away_Day_Planner.Presenters
                 }
                 else
                 {
+                    eventBookerView.ErrorDate = "";
                     return true;
                 }
             } else

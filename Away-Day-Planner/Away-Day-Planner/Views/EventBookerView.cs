@@ -41,6 +41,11 @@ namespace Away_Day_Planner.Views
             get { return (int)numericUpDownNoOfAttendees.Value; }
             set {}
         }
+        public string ErrorDate
+        {
+            get { return labelErrorDateSelected.Text; }
+            set { labelErrorDateSelected.Text = value; }
+        }
 
         public EventBookerView()
         {

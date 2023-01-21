@@ -42,6 +42,7 @@ namespace Away_Day_Planner.Views
             this.labelTotalPrice = new System.Windows.Forms.Label();
             this.labelNoOfAttendees = new System.Windows.Forms.Label();
             this.numericUpDownNoOfAttendees = new System.Windows.Forms.NumericUpDown();
+            this.labelErrorDateSelected = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoOfAttendees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,11 +174,21 @@ namespace Away_Day_Planner.Views
             0,
             0});
             // 
+            // labelErrorDateSelected
+            // 
+            this.labelErrorDateSelected.AutoSize = true;
+            this.labelErrorDateSelected.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorDateSelected.Location = new System.Drawing.Point(510, 142);
+            this.labelErrorDateSelected.Name = "labelErrorDateSelected";
+            this.labelErrorDateSelected.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorDateSelected.TabIndex = 14;
+            // 
             // EventBookerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelErrorDateSelected);
             this.Controls.Add(this.numericUpDownNoOfAttendees);
             this.Controls.Add(this.labelNoOfAttendees);
             this.Controls.Add(this.labelTotalPriceValue);
@@ -214,5 +225,6 @@ namespace Away_Day_Planner.Views
         private System.Windows.Forms.Label labelTotalPrice;
         private System.Windows.Forms.Label labelNoOfAttendees;
         private System.Windows.Forms.NumericUpDown numericUpDownNoOfAttendees;
+        private System.Windows.Forms.Label labelErrorDateSelected;
     }
 }

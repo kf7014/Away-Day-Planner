@@ -191,5 +191,10 @@ namespace Away_Day_Planner.Models.EventBooker
             BookedFacilitatorTeamDate[] bookedFacilitatorTeamDates = databaseAbstraction.getBookedFacilitatorTeams();
             return bookedFacilitatorTeamDates;
         }
+
+        public void updateEvent(int eventId, Event newEvent)
+        {
+            databaseAbstraction.updateEvent(eventId, newEvent);
+        }
     }
 }

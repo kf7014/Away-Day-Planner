@@ -16,5 +16,6 @@ namespace Away_Day_Planner.Views
         string totalPrice { get; set; }
         DateTime selectedDate { get; set; }
         int noOfAttendees { get; }
+        string ErrorDate { get; set; }
     }
 }
