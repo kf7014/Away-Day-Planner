@@ -82,6 +82,7 @@ namespace Away_Day_Planner_Test.COR
             Assert.AreEqual(e.price, 1 * 0.75M);
             Assert.AreEqual(e.EventState, EVENT_STATE.CANCELLED);
         }
+        [TestMethod]
         public void ID_06CR_Assert_Less_Than_15_Days()
         {
             int dayDiff = 7;
