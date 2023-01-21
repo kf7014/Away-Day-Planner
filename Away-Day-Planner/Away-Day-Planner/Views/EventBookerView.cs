@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Models.ClientDepartment;
 
 namespace Away_Day_Planner.Views
 {
@@ -87,7 +88,8 @@ namespace Away_Day_Planner.Views
             {
                 PdfDisplayView pdfDisplayView = new PdfDisplayView();
                 EventModel eventModel = new EventModel();
-                PdfDisplayPresenter pdfDisplayPresenter = new PdfDisplayPresenter(pdfDisplayView, eventModel);
+                ClientModel clientModel = new ClientModel();
+                PdfDisplayPresenter pdfDisplayPresenter = new PdfDisplayPresenter(pdfDisplayView, eventModel, clientModel);
                 pdfDisplayView.ShowDialog();
             }
         }

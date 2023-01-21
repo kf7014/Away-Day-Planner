@@ -27,6 +27,7 @@ namespace Away_Day_Planner.Models.EventBooker
         BookedFacilitatorTeamDate[] getAllBookedFacilitatorTeamDates();
         int getCurrentEventId();
         int getCurrentActivityId();
+        IActivity[] getAllActivities();
         Addition[] getActivityAdditions(int activityId);
         Reward[] getActivityRewards(int activityId);
         void updateEvent(int eventId, Event newEvent);
