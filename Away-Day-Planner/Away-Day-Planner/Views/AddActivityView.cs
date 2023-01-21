@@ -157,5 +157,10 @@ namespace Away_Day_Planner.Views
         {
             addActivityPresenter.comboBoxAdditionsRequiredChangedEvent();
         }
+
+        private void AddActivityView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -61,18 +61,20 @@ namespace Away_Day_Planner.Views
             // labelAddActivity
             // 
             this.labelAddActivity.AutoSize = true;
-            this.labelAddActivity.Location = new System.Drawing.Point(349, 34);
+            this.labelAddActivity.Location = new System.Drawing.Point(465, 42);
+            this.labelAddActivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAddActivity.Name = "labelAddActivity";
-            this.labelAddActivity.Size = new System.Drawing.Size(63, 13);
+            this.labelAddActivity.Size = new System.Drawing.Size(81, 17);
             this.labelAddActivity.TabIndex = 0;
             this.labelAddActivity.Text = "Add Activity";
             // 
             // labelSelectActivity
             // 
             this.labelSelectActivity.AutoSize = true;
-            this.labelSelectActivity.Location = new System.Drawing.Point(172, 84);
+            this.labelSelectActivity.Location = new System.Drawing.Point(229, 103);
+            this.labelSelectActivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSelectActivity.Name = "labelSelectActivity";
-            this.labelSelectActivity.Size = new System.Drawing.Size(83, 13);
+            this.labelSelectActivity.Size = new System.Drawing.Size(107, 17);
             this.labelSelectActivity.TabIndex = 1;
             this.labelSelectActivity.Text = "Select Activity : ";
             // 
@@ -80,9 +82,10 @@ namespace Away_Day_Planner.Views
             // 
             this.comboBoxSelectActivity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelectActivity.FormattingEnabled = true;
-            this.comboBoxSelectActivity.Location = new System.Drawing.Point(74, 110);
+            this.comboBoxSelectActivity.Location = new System.Drawing.Point(99, 135);
+            this.comboBoxSelectActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxSelectActivity.Name = "comboBoxSelectActivity";
-            this.comboBoxSelectActivity.Size = new System.Drawing.Size(278, 21);
+            this.comboBoxSelectActivity.Size = new System.Drawing.Size(369, 24);
             this.comboBoxSelectActivity.TabIndex = 2;
             this.comboBoxSelectActivity.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectActivity_SelectedIndexChanged);
             // 
@@ -90,9 +93,10 @@ namespace Away_Day_Planner.Views
             // 
             this.checkBoxFacilitator.AutoSize = true;
             this.checkBoxFacilitator.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxFacilitator.Location = new System.Drawing.Point(71, 151);
+            this.checkBoxFacilitator.Location = new System.Drawing.Point(95, 186);
+            this.checkBoxFacilitator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxFacilitator.Name = "checkBoxFacilitator";
-            this.checkBoxFacilitator.Size = new System.Drawing.Size(132, 17);
+            this.checkBoxFacilitator.Size = new System.Drawing.Size(173, 21);
             this.checkBoxFacilitator.TabIndex = 4;
             this.checkBoxFacilitator.Text = "Facilitator Required? : ";
             this.checkBoxFacilitator.UseVisualStyleBackColor = true;
@@ -101,27 +105,30 @@ namespace Away_Day_Planner.Views
             // 
             this.comboBoxRewardsRequired.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRewardsRequired.FormattingEnabled = true;
-            this.comboBoxRewardsRequired.Location = new System.Drawing.Point(175, 183);
+            this.comboBoxRewardsRequired.Location = new System.Drawing.Point(233, 225);
+            this.comboBoxRewardsRequired.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxRewardsRequired.Name = "comboBoxRewardsRequired";
-            this.comboBoxRewardsRequired.Size = new System.Drawing.Size(177, 21);
+            this.comboBoxRewardsRequired.Size = new System.Drawing.Size(235, 24);
             this.comboBoxRewardsRequired.TabIndex = 5;
             this.comboBoxRewardsRequired.SelectedIndexChanged += new System.EventHandler(this.comboBoxRewardsRequired_SelectedIndexChanged);
             // 
             // labelRewardsRequired
             // 
             this.labelRewardsRequired.AutoSize = true;
-            this.labelRewardsRequired.Location = new System.Drawing.Point(71, 187);
+            this.labelRewardsRequired.Location = new System.Drawing.Point(95, 230);
+            this.labelRewardsRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRewardsRequired.Name = "labelRewardsRequired";
-            this.labelRewardsRequired.Size = new System.Drawing.Size(101, 13);
+            this.labelRewardsRequired.Size = new System.Drawing.Size(133, 17);
             this.labelRewardsRequired.TabIndex = 6;
             this.labelRewardsRequired.Text = "Rewards Required: ";
             // 
             // labelAdditions
             // 
             this.labelAdditions.AutoSize = true;
-            this.labelAdditions.Location = new System.Drawing.Point(71, 224);
+            this.labelAdditions.Location = new System.Drawing.Point(95, 276);
+            this.labelAdditions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAdditions.Name = "labelAdditions";
-            this.labelAdditions.Size = new System.Drawing.Size(56, 13);
+            this.labelAdditions.Size = new System.Drawing.Size(74, 17);
             this.labelAdditions.TabIndex = 8;
             this.labelAdditions.Text = "Additions: ";
             // 
@@ -129,45 +136,50 @@ namespace Away_Day_Planner.Views
             // 
             this.comboBoxAdditions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAdditions.FormattingEnabled = true;
-            this.comboBoxAdditions.Location = new System.Drawing.Point(175, 220);
+            this.comboBoxAdditions.Location = new System.Drawing.Point(233, 271);
+            this.comboBoxAdditions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxAdditions.Name = "comboBoxAdditions";
-            this.comboBoxAdditions.Size = new System.Drawing.Size(177, 21);
+            this.comboBoxAdditions.Size = new System.Drawing.Size(235, 24);
             this.comboBoxAdditions.TabIndex = 7;
             this.comboBoxAdditions.SelectedIndexChanged += new System.EventHandler(this.comboBoxAdditions_SelectedIndexChanged);
             // 
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(71, 257);
+            this.labelPrice.Location = new System.Drawing.Point(95, 316);
+            this.labelPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(55, 13);
+            this.labelPrice.Size = new System.Drawing.Size(74, 17);
             this.labelPrice.TabIndex = 9;
             this.labelPrice.Text = "Price (£) : ";
             // 
             // labelPriceValue
             // 
             this.labelPriceValue.AutoSize = true;
-            this.labelPriceValue.Location = new System.Drawing.Point(172, 257);
+            this.labelPriceValue.Location = new System.Drawing.Point(229, 316);
+            this.labelPriceValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPriceValue.Name = "labelPriceValue";
-            this.labelPriceValue.Size = new System.Drawing.Size(13, 13);
+            this.labelPriceValue.Size = new System.Drawing.Size(16, 17);
             this.labelPriceValue.TabIndex = 10;
             this.labelPriceValue.Text = "0";
             // 
             // labelOrChoice
             // 
             this.labelOrChoice.AutoSize = true;
-            this.labelOrChoice.Location = new System.Drawing.Point(362, 84);
+            this.labelOrChoice.Location = new System.Drawing.Point(483, 103);
+            this.labelOrChoice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOrChoice.Name = "labelOrChoice";
-            this.labelOrChoice.Size = new System.Drawing.Size(35, 13);
+            this.labelOrChoice.Size = new System.Drawing.Size(45, 17);
             this.labelOrChoice.TabIndex = 11;
             this.labelOrChoice.Text = "<OR>";
             // 
             // labelCustomActivityAdditions
             // 
             this.labelCustomActivityAdditions.AutoSize = true;
-            this.labelCustomActivityAdditions.Location = new System.Drawing.Point(412, 224);
+            this.labelCustomActivityAdditions.Location = new System.Drawing.Point(549, 276);
+            this.labelCustomActivityAdditions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCustomActivityAdditions.Name = "labelCustomActivityAdditions";
-            this.labelCustomActivityAdditions.Size = new System.Drawing.Size(56, 13);
+            this.labelCustomActivityAdditions.Size = new System.Drawing.Size(74, 17);
             this.labelCustomActivityAdditions.TabIndex = 18;
             this.labelCustomActivityAdditions.Text = "Additions: ";
             // 
@@ -175,17 +187,19 @@ namespace Away_Day_Planner.Views
             // 
             this.comboBoxCustomActivityAdditions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCustomActivityAdditions.FormattingEnabled = true;
-            this.comboBoxCustomActivityAdditions.Location = new System.Drawing.Point(516, 220);
+            this.comboBoxCustomActivityAdditions.Location = new System.Drawing.Point(688, 271);
+            this.comboBoxCustomActivityAdditions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxCustomActivityAdditions.Name = "comboBoxCustomActivityAdditions";
-            this.comboBoxCustomActivityAdditions.Size = new System.Drawing.Size(177, 21);
+            this.comboBoxCustomActivityAdditions.Size = new System.Drawing.Size(235, 24);
             this.comboBoxCustomActivityAdditions.TabIndex = 17;
             // 
             // labelCustomActivityRewardsRequired
             // 
             this.labelCustomActivityRewardsRequired.AutoSize = true;
-            this.labelCustomActivityRewardsRequired.Location = new System.Drawing.Point(412, 187);
+            this.labelCustomActivityRewardsRequired.Location = new System.Drawing.Point(549, 230);
+            this.labelCustomActivityRewardsRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCustomActivityRewardsRequired.Name = "labelCustomActivityRewardsRequired";
-            this.labelCustomActivityRewardsRequired.Size = new System.Drawing.Size(101, 13);
+            this.labelCustomActivityRewardsRequired.Size = new System.Drawing.Size(133, 17);
             this.labelCustomActivityRewardsRequired.TabIndex = 16;
             this.labelCustomActivityRewardsRequired.Text = "Rewards Required: ";
             // 
@@ -193,18 +207,20 @@ namespace Away_Day_Planner.Views
             // 
             this.comboBoxCustomActivityRewardsRequired.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCustomActivityRewardsRequired.FormattingEnabled = true;
-            this.comboBoxCustomActivityRewardsRequired.Location = new System.Drawing.Point(516, 183);
+            this.comboBoxCustomActivityRewardsRequired.Location = new System.Drawing.Point(688, 225);
+            this.comboBoxCustomActivityRewardsRequired.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxCustomActivityRewardsRequired.Name = "comboBoxCustomActivityRewardsRequired";
-            this.comboBoxCustomActivityRewardsRequired.Size = new System.Drawing.Size(177, 21);
+            this.comboBoxCustomActivityRewardsRequired.Size = new System.Drawing.Size(235, 24);
             this.comboBoxCustomActivityRewardsRequired.TabIndex = 15;
             // 
             // checkBoxCustomActivityFacilitator
             // 
             this.checkBoxCustomActivityFacilitator.AutoSize = true;
             this.checkBoxCustomActivityFacilitator.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxCustomActivityFacilitator.Location = new System.Drawing.Point(412, 151);
+            this.checkBoxCustomActivityFacilitator.Location = new System.Drawing.Point(549, 186);
+            this.checkBoxCustomActivityFacilitator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxCustomActivityFacilitator.Name = "checkBoxCustomActivityFacilitator";
-            this.checkBoxCustomActivityFacilitator.Size = new System.Drawing.Size(132, 17);
+            this.checkBoxCustomActivityFacilitator.Size = new System.Drawing.Size(173, 21);
             this.checkBoxCustomActivityFacilitator.TabIndex = 14;
             this.checkBoxCustomActivityFacilitator.Text = "Facilitator Required? : ";
             this.checkBoxCustomActivityFacilitator.UseVisualStyleBackColor = true;
@@ -212,33 +228,37 @@ namespace Away_Day_Planner.Views
             // labelAddCustomActivity
             // 
             this.labelAddCustomActivity.AutoSize = true;
-            this.labelAddCustomActivity.Location = new System.Drawing.Point(513, 84);
+            this.labelAddCustomActivity.Location = new System.Drawing.Point(684, 103);
+            this.labelAddCustomActivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAddCustomActivity.Name = "labelAddCustomActivity";
-            this.labelAddCustomActivity.Size = new System.Drawing.Size(110, 13);
+            this.labelAddCustomActivity.Size = new System.Drawing.Size(144, 17);
             this.labelAddCustomActivity.TabIndex = 12;
             this.labelAddCustomActivity.Text = "Add Custom Activity : ";
             // 
             // labelActivityName
             // 
             this.labelActivityName.AutoSize = true;
-            this.labelActivityName.Location = new System.Drawing.Point(414, 113);
+            this.labelActivityName.Location = new System.Drawing.Point(552, 139);
+            this.labelActivityName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelActivityName.Name = "labelActivityName";
-            this.labelActivityName.Size = new System.Drawing.Size(78, 13);
+            this.labelActivityName.Size = new System.Drawing.Size(101, 17);
             this.labelActivityName.TabIndex = 19;
             this.labelActivityName.Text = "Activity Name :";
             // 
             // textBoxCustomActivityName
             // 
-            this.textBoxCustomActivityName.Location = new System.Drawing.Point(499, 110);
+            this.textBoxCustomActivityName.Location = new System.Drawing.Point(665, 135);
+            this.textBoxCustomActivityName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxCustomActivityName.Name = "textBoxCustomActivityName";
-            this.textBoxCustomActivityName.Size = new System.Drawing.Size(196, 20);
+            this.textBoxCustomActivityName.Size = new System.Drawing.Size(260, 22);
             this.textBoxCustomActivityName.TabIndex = 20;
             // 
             // buttonAddActivity
             // 
-            this.buttonAddActivity.Location = new System.Drawing.Point(146, 316);
+            this.buttonAddActivity.Location = new System.Drawing.Point(195, 389);
+            this.buttonAddActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddActivity.Name = "buttonAddActivity";
-            this.buttonAddActivity.Size = new System.Drawing.Size(109, 39);
+            this.buttonAddActivity.Size = new System.Drawing.Size(145, 48);
             this.buttonAddActivity.TabIndex = 21;
             this.buttonAddActivity.Text = "Add Activity";
             this.buttonAddActivity.UseVisualStyleBackColor = true;
@@ -246,9 +266,10 @@ namespace Away_Day_Planner.Views
             // 
             // buttonAddCustomActivity
             // 
-            this.buttonAddCustomActivity.Location = new System.Drawing.Point(514, 316);
+            this.buttonAddCustomActivity.Location = new System.Drawing.Point(685, 389);
+            this.buttonAddCustomActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddCustomActivity.Name = "buttonAddCustomActivity";
-            this.buttonAddCustomActivity.Size = new System.Drawing.Size(109, 39);
+            this.buttonAddCustomActivity.Size = new System.Drawing.Size(145, 48);
             this.buttonAddCustomActivity.TabIndex = 22;
             this.buttonAddCustomActivity.Text = "Add Custom Activity";
             this.buttonAddCustomActivity.UseVisualStyleBackColor = true;
@@ -257,18 +278,20 @@ namespace Away_Day_Planner.Views
             // labelCustomPriceValue
             // 
             this.labelCustomPriceValue.AutoSize = true;
-            this.labelCustomPriceValue.Location = new System.Drawing.Point(513, 257);
+            this.labelCustomPriceValue.Location = new System.Drawing.Point(684, 316);
+            this.labelCustomPriceValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCustomPriceValue.Name = "labelCustomPriceValue";
-            this.labelCustomPriceValue.Size = new System.Drawing.Size(13, 13);
+            this.labelCustomPriceValue.Size = new System.Drawing.Size(16, 17);
             this.labelCustomPriceValue.TabIndex = 24;
             this.labelCustomPriceValue.Text = "0";
             // 
             // labelCustomPrice
             // 
             this.labelCustomPrice.AutoSize = true;
-            this.labelCustomPrice.Location = new System.Drawing.Point(412, 257);
+            this.labelCustomPrice.Location = new System.Drawing.Point(549, 316);
+            this.labelCustomPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCustomPrice.Name = "labelCustomPrice";
-            this.labelCustomPrice.Size = new System.Drawing.Size(55, 13);
+            this.labelCustomPrice.Size = new System.Drawing.Size(74, 17);
             this.labelCustomPrice.TabIndex = 23;
             this.labelCustomPrice.Text = "Price (£) : ";
             // 
@@ -276,43 +299,47 @@ namespace Away_Day_Planner.Views
             // 
             this.labelErrorSelectActivity.AutoSize = true;
             this.labelErrorSelectActivity.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorSelectActivity.Location = new System.Drawing.Point(102, 362);
+            this.labelErrorSelectActivity.Location = new System.Drawing.Point(136, 446);
+            this.labelErrorSelectActivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelErrorSelectActivity.Name = "labelErrorSelectActivity";
-            this.labelErrorSelectActivity.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorSelectActivity.Size = new System.Drawing.Size(0, 17);
             this.labelErrorSelectActivity.TabIndex = 25;
             // 
             // labelErrorFacilitatorRequired
             // 
             this.labelErrorFacilitatorRequired.AutoSize = true;
             this.labelErrorFacilitatorRequired.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorFacilitatorRequired.Location = new System.Drawing.Point(102, 386);
+            this.labelErrorFacilitatorRequired.Location = new System.Drawing.Point(136, 475);
+            this.labelErrorFacilitatorRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelErrorFacilitatorRequired.Name = "labelErrorFacilitatorRequired";
-            this.labelErrorFacilitatorRequired.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorFacilitatorRequired.Size = new System.Drawing.Size(0, 17);
             this.labelErrorFacilitatorRequired.TabIndex = 26;
             // 
             // labelErrorRewardsRequired
             // 
             this.labelErrorRewardsRequired.AutoSize = true;
             this.labelErrorRewardsRequired.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorRewardsRequired.Location = new System.Drawing.Point(102, 411);
+            this.labelErrorRewardsRequired.Location = new System.Drawing.Point(136, 506);
+            this.labelErrorRewardsRequired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelErrorRewardsRequired.Name = "labelErrorRewardsRequired";
-            this.labelErrorRewardsRequired.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorRewardsRequired.Size = new System.Drawing.Size(0, 17);
             this.labelErrorRewardsRequired.TabIndex = 27;
             // 
             // labelErrorAdditions
             // 
             this.labelErrorAdditions.AutoSize = true;
             this.labelErrorAdditions.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorAdditions.Location = new System.Drawing.Point(398, 362);
+            this.labelErrorAdditions.Location = new System.Drawing.Point(531, 446);
+            this.labelErrorAdditions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelErrorAdditions.Name = "labelErrorAdditions";
-            this.labelErrorAdditions.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorAdditions.Size = new System.Drawing.Size(0, 17);
             this.labelErrorAdditions.TabIndex = 28;
             // 
             // AddActivityView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.labelErrorAdditions);
             this.Controls.Add(this.labelErrorRewardsRequired);
             this.Controls.Add(this.labelErrorFacilitatorRequired);
@@ -340,8 +367,10 @@ namespace Away_Day_Planner.Views
             this.Controls.Add(this.comboBoxSelectActivity);
             this.Controls.Add(this.labelSelectActivity);
             this.Controls.Add(this.labelAddActivity);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddActivityView";
             this.Text = "Away Day Planner";
+            this.Load += new System.EventHandler(this.AddActivityView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

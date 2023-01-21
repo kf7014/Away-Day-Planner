@@ -83,6 +83,13 @@ namespace Away_Day_Planner.Views
         private void buttonConfirmBooking_Click(object sender, EventArgs e)
         {
             eventBookerPresenter.buttonConfirmBookingEvent(); 
+            if(eventBookerPresenter.checkDateAvailability())
+            {
+                PdfDisplayView pdfDisplayView = new PdfDisplayView();
+                EventModel eventModel = new EventModel();
+                PdfDisplayPresenter pdfDisplayPresenter = new PdfDisplayPresenter(pdfDisplayView, eventModel);
+                pdfDisplayView.ShowDialog();
+            }
         }
     }
 }
