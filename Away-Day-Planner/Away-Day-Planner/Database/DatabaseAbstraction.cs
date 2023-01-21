@@ -205,7 +205,7 @@ namespace Away_Day_Planner.Database
             databaseInterface.DisposeContext(result.Item2);
             return bookedFacilitatorTeamDates;
         }
-        }
+     
 
         public void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword)
         {
@@ -222,8 +222,6 @@ namespace Away_Day_Planner.Database
             return users;
 
         }
-    }
-
 
         public void updateEvent(int eventId, Event newEvent)
         {
