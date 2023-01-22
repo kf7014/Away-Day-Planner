@@ -38,15 +38,15 @@ namespace Away_Day_Planner
             LoginView loginView = new LoginView();
             LoginRegistrationModel loginRegistrationModel = new LoginRegistrationModel();
             LoginUserPresenter loginUserPresenter = new LoginUserPresenter(loginView, loginRegistrationModel);
+            ////System point of entry
+            Application.Run(loginView);  
 
-
-            Hashing.HashPassword("TestPassword");
-            //System point of entry
-            //Application.Run(loginView);  
-
-            RegisterView registerView = new RegisterView();
-            RegisterUserPresenter registerUserPresenter = new RegisterUserPresenter(registerView, loginRegistrationModel);
-            Application.Run(registerView);
+            ////Uncomment this paragraph and comment one above to go straight to registration page.
+            //RegisterView registerView = new RegisterView();
+            //LoginRegistrationModel loginRegistrationModel = new LoginRegistrationModel();
+            //RegisterUserPresenter registerUserPresenter = new RegisterUserPresenter(registerView, loginRegistrationModel);
+            ////Alternative system point of entry to go straight to register user
+            //Application.Run(registerView);
         }
     }
 }
