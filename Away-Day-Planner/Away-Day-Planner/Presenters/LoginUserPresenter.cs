@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Away_Day_Planner.Views;
 using Away_Day_Planner.Models.Login;
+using Away_Day_Planner.Security;
 
 namespace Away_Day_Planner.Presenters
 {
@@ -80,11 +81,17 @@ namespace Away_Day_Planner.Presenters
                 User[] users = loginRegistrationModel.getAllUsers();
                 foreach (User user in users)
                 {
+                    String hashedPassword = user.userPassword;
+                    Tuple<string, byte[]> salt = new Tuple <string, byte[]>(user.userPassword, user.userSalt);
+
+                    bool passwordMatch = Hashing.checkHashMatch(loginPassword, hashedPassword, salt);
+                    
+
                     if (user.username == loginUsername)
                     {
-                        if (user.userPassword == loginPassword)
+                        if (passwordMatch)
                         {
-                            User userLoggedIn = loginRegistrationModel.getUserFromLogin(loginUsername, loginPassword);
+                            User userLoggedIn = loginRegistrationModel.getUserFromLogin(loginUsername, hashedPassword);
                             createLoginView.LoginErrorInvalidDetails = "";
                             Console.WriteLine(userLoggedIn.username);
                             return true;

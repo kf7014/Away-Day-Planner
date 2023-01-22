@@ -13,6 +13,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Data.Entity;
 using Away_Day_Planner.Presenters;
 using Away_Day_Planner.Models.Login;
+using Away_Day_Planner.Security;
 
 namespace Away_Day_Planner
 {
@@ -38,10 +39,14 @@ namespace Away_Day_Planner
             LoginRegistrationModel loginRegistrationModel = new LoginRegistrationModel();
             LoginUserPresenter loginUserPresenter = new LoginUserPresenter(loginView, loginRegistrationModel);
 
-           
-           
+
+            Hashing.HashPassword("TestPassword");
             //System point of entry
-            Application.Run(loginView);  
+            //Application.Run(loginView);  
+
+            RegisterView registerView = new RegisterView();
+            RegisterUserPresenter registerUserPresenter = new RegisterUserPresenter(registerView, loginRegistrationModel);
+            Application.Run(registerView);
         }
     }
 }

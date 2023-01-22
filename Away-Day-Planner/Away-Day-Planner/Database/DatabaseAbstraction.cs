@@ -207,9 +207,9 @@ namespace Away_Day_Planner.Database
         }
      
 
-        public void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword)
+        public void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword, Byte[] userSalt)
         {
-            User newUser = new User(firstName, lastName, username, userEmail, userPassword);
+            User newUser = new User(firstName, lastName, username, userEmail, userPassword, userSalt);
             Console.WriteLine("New user added");
             databaseInterface.Add(newUser);
         }

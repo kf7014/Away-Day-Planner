@@ -1,4 +1,5 @@
 ﻿using Away_Day_Planner.Models.Login;
+using Away_Day_Planner.Security;
 using Away_Day_Planner.Views;
 using System;
 using System.Text.RegularExpressions;
@@ -241,7 +242,10 @@ namespace Away_Day_Planner.Presenters
 
             if (validationError == false)
             {
-                LoginRegistrationModel.addNewUser(firstName, lastName, username, userEmail, userPassword);
+                Tuple<string, byte[]> hashSalt = Hashing.HashPassword(userPassword);
+
+
+                LoginRegistrationModel.addNewUser(firstName, lastName, username, userEmail, hashSalt.Item1, hashSalt.Item2);
                 return true;
             }
             else
