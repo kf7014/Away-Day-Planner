@@ -17,7 +17,6 @@ using Away_Day_Planner.Utilities;
 using Away_Day_Planner.Database;
 using System.Security.Cryptography.X509Certificates;
 using System.Data.Entity;
-using Away_Day_Planner.Presenters;
 using Away_Day_Planner.Models.Login;
 using Away_Day_Planner.Security;
 

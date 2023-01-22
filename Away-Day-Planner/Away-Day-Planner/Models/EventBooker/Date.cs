@@ -35,9 +35,10 @@ namespace Away_Day_Planner.Models.EventBooker
         [ForeignKey("Event")]
         public int EventFK { get; set; }
 
-        public Date(DateTime dateTime)
+        public Date(DateTime dateTime, int eventFK)
         {
             this.dateTime = dateTime;
+            this.EventFK = eventFK;
         }
     }
 }
