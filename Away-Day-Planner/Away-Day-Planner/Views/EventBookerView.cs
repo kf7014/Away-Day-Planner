@@ -16,6 +16,7 @@ namespace Away_Day_Planner.Views
     public partial class EventBookerView : Form, IEventBookerView
     {
         private EventBookerPresenter eventBookerPresenter;
+        private PdfDisplayPresenter PdfDisplayPresenter;
 
         public String pageTitle
         {
@@ -66,6 +67,10 @@ namespace Away_Day_Planner.Views
             this.eventBookerPresenter = eventBookerPresenter;
             
         }
+        public void register(PdfDisplayPresenter pdfDisplayPresenter)
+        {
+            this.PdfDisplayPresenter = pdfDisplayPresenter;
+        }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
@@ -89,7 +94,7 @@ namespace Away_Day_Planner.Views
                 PdfDisplayView pdfDisplayView = new PdfDisplayView();
                 EventModel eventModel = new EventModel();
                 ClientModel clientModel = new ClientModel();
-                PdfDisplayPresenter pdfDisplayPresenter = new PdfDisplayPresenter(pdfDisplayView, eventModel, clientModel);
+                PdfDisplayPresenter presenter = PdfDisplayPresenter.Instance(pdfDisplayView, eventModel, clientModel);
                 pdfDisplayView.ShowDialog();
             }
         }

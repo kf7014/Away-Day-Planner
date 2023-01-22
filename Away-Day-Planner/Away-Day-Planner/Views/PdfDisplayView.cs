@@ -31,6 +31,7 @@ namespace Away_Day_Planner.Views
         private void GenerateInvoice_Click(object sender, EventArgs e)
         {
             PdfDisplayPresenter.GeneratePDF();
+            GenerateInvoice.Visible = false;
         }
         public void ShowInvoice(string filePath)
         {

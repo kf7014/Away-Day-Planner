@@ -14,13 +14,12 @@ namespace Away_Day_Planner.Presenters
 {
     public class PdfDisplayPresenter
     {
+        private static PdfDisplayPresenter _instance;
         private readonly IEventModel EventModel;
         private readonly IClientModel ClientModel;
         private readonly IPdfDisplayView pdfDisplayView;
 
-
-
-        public PdfDisplayPresenter(IPdfDisplayView pdfDisplayView, IEventModel eventModel, IClientModel clientModel)
+        private PdfDisplayPresenter(IPdfDisplayView pdfDisplayView, IEventModel eventModel, IClientModel clientModel)
         {
             this.pdfDisplayView = pdfDisplayView;
             this.EventModel = eventModel;
@@ -28,7 +27,14 @@ namespace Away_Day_Planner.Presenters
             pdfDisplayView.register(this);
         }
 
-
+        public static PdfDisplayPresenter Instance(IPdfDisplayView pdfDisplayView, IEventModel eventModel, IClientModel clientModel)
+        {
+            if (_instance == null)
+            {
+                _instance = new PdfDisplayPresenter(pdfDisplayView, eventModel, clientModel);
+            }
+            return _instance;
+        }
 
         public void GeneratePDFClick()
         {
@@ -54,7 +60,6 @@ namespace Away_Day_Planner.Presenters
                 }
                 
             }
-            
             using (FileStream stream = new FileStream("invoice.pdf", FileMode.Create))
             {
                 Document pdfDoc = new Document();
