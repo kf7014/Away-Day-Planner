@@ -2,7 +2,6 @@
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
 using Away_Day_Planner.Utilities;
-using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -89,7 +88,7 @@ namespace Away_Day_Planner.Database
             Updates an entity
             Assumes immutable data structure, removes old entity and adds new entity.
          */
-        public void Update<T>(T old_entity, T new_entity) where T : class
+        public void Update<T>(T old_entity, T new_entity) where T : class, IObjWithID
         {
             if (old_entity.GetType() != new_entity.GetType()) throw Errors["TypeMismatch"];
             if (old_entity == null || new_entity == null) throw Errors["NullEntity"];
@@ -97,20 +96,25 @@ namespace Away_Day_Planner.Database
             using(var context = GetContext())
             {
                 T currentEntity = old_entity;
+
+                currentEntity.id = new_entity.id;
+
                 context.Entry(currentEntity).State = EntityState.Modified;
                 context.Entry(currentEntity).CurrentValues.SetValues(new_entity);
                 context.SaveChanges();
             }
         }
-        public void Update<T>(int id, T new_entity) where T : class
+        public void Update<T>(int id, T new_entity) where T : class, IObjWithID
         {
             using (var context = GetContext())
             {
                 T currentEntity = Get<T>(id).Item1;
+
+                currentEntity.id = new_entity.id;
+
                 context.Entry(currentEntity).State = EntityState.Modified;
                 context.Entry(currentEntity).CurrentValues.SetValues(new_entity);
                 context.SaveChanges();
-
             }
         }
         public (T, DbContext) Get<T>(int id) where T : class

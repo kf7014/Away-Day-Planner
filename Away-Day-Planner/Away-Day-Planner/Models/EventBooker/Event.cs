@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Away_Day_Planner.CORChain;
 using Away_Day_Planner.CORChain.Handlers;
+using Away_Day_Planner.Database;
 
 namespace Away_Day_Planner.Models.EventBooker
 {
-    public class Event : IEvent
+    public class Event : IEvent, IObjWithID
     {
         public EVENT_STATE EventState { get; set; }
 
