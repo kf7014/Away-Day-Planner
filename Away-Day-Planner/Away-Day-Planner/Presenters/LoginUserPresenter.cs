@@ -25,7 +25,7 @@ namespace Away_Day_Planner.Presenters
         {
             String loginUsername = createLoginView.loginUsername;
             String loginPassword = createLoginView.loginPassword;
-
+         
             bool validationError = false;
             bool loginPasswordError = false;
             bool loginUsernameError = false;
