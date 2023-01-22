@@ -10,7 +10,7 @@ namespace Away_Day_Planner.Models.Login
     {
 
         //adding new user
-        void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword);
+        void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword, byte[] userSalt);
         User getUserFromLogin(string username, string userPassword);
         User[] getAllUsers();
     }

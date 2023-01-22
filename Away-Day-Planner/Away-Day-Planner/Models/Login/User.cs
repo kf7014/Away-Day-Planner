@@ -10,13 +10,14 @@ namespace Away_Day_Planner.Models.Login
 {
     public class User : IUser 
     {
-        public User(string firstName, string lastName, string username, string userEmail, String userPassword)
+        public User(string firstName, string lastName, string username, string userEmail, string userPassword, byte[] userSalt)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.username = username;
             this.userEmail = userEmail;
             this.userPassword = userPassword;
+            this.userSalt = userSalt;
 
         }
 
@@ -49,8 +50,8 @@ namespace Away_Day_Planner.Models.Login
         [MinLength(8), MaxLength(50)]
         public String userPassword { get => USERPASSWORD; set => USERPASSWORD = value; }
 
-        private string USERHASH;
+        private byte[] USERSALT;
         [MinLength(8), MaxLength(50)]
-        public string userHash { get => USERHASH; set => USERHASH = value; }
+        public byte[] userSalt { get => USERSALT; set => USERSALT = value; }
     }
 }

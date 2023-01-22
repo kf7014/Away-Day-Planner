@@ -245,7 +245,7 @@ namespace Away_Day_Planner.Presenters
                 Tuple<string, byte[]> hashSalt = Hashing.HashPassword(userPassword);
 
 
-                LoginRegistrationModel.addNewUser(firstName, lastName, username, userEmail, hashSalt.Item1);
+                LoginRegistrationModel.addNewUser(firstName, lastName, username, userEmail, hashSalt.Item1, hashSalt.Item2);
                 return true;
             }
             else
