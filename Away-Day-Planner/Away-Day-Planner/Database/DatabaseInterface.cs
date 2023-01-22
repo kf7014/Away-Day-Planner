@@ -5,9 +5,11 @@ using Away_Day_Planner.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Reflection;
 
 namespace Away_Day_Planner.Database
 {
@@ -114,6 +116,17 @@ namespace Away_Day_Planner.Database
 
                 context.Entry(currentEntity).State = EntityState.Modified;
                 context.Entry(currentEntity).CurrentValues.SetValues(new_entity);
+                context.SaveChanges();
+            }
+        }
+        public void Update<T>(T obj, string field, object value) where T : class, IObjWithID
+        {
+            Type objType = obj.GetType();
+            PropertyInfo propertyInfo= objType.GetProperty(field);
+            using (var context = GetContext())
+            {
+                context.Set<T>().Attach(obj);
+                propertyInfo.SetValue(obj, value);
                 context.SaveChanges();
             }
         }
