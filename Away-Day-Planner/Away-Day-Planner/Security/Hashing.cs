@@ -11,7 +11,6 @@ namespace Away_Day_Planner.Security
 {
     public class Hashing
     {
-        DatabaseAbstraction databaseAbstraction;
         public static Tuple<string, byte[]> HashPassword(String password)
         {
             Byte[] salt = new Byte[24];
@@ -28,6 +27,23 @@ namespace Away_Day_Planner.Security
             Console.WriteLine("Hash: " + hashSalt.Item1);
 
             return hashSalt; // Size of PBKDF2-HMAC-SHA-1 Hash 
+        }
+
+        public static bool checkHashMatch(String plaintextPassword, String hashedPassword, byte[] salt)
+        {
+            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(plaintextPassword, salt, 1000);
+
+            Console.WriteLine(Convert.ToBase64String(pbkdf2.GetBytes(20)));
+
+            if(Convert.ToBase64String(pbkdf2.GetBytes(20)) == hashedPassword)
+            {
+                Console.WriteLine(true);
+                return true;
+            } else
+            {
+                Console.WriteLine(false);
+                return false;
+            }
         }
     }
 }
