@@ -65,6 +65,11 @@ namespace Away_Day_Planner.Models.EventBooker
 
         }
 
+        public Event getEvent(int eventId)
+        {
+            return databaseAbstraction.getEvent(eventId);
+        }
+
         //Sets clientId and departmentId to that of parent which event is being set to
         public void setParents(int clientId, int departmentId)
         {
@@ -192,9 +197,9 @@ namespace Away_Day_Planner.Models.EventBooker
             return bookedFacilitatorTeamDates;
         }
 
-        public void updateEvent(int eventId, Event newEvent)
+        public void updateEvent(Event _event, String field, object value)
         {
-            databaseAbstraction.updateEvent(eventId, newEvent);
+            databaseAbstraction.updateEvent(_event, field, value);
         }
         public void pdfPopulation()
         {

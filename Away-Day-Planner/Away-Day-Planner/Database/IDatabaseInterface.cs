@@ -18,6 +18,8 @@ namespace Away_Day_Planner.Database
         (DbSet<T>, DbContext) GetAll<T>() where T : class;
         IResults GetRange<T>(T e_type, int start_id, int stop_id) where T : Type;
         void Update<T>(T old_entity, T new_entity) where T : class, IObjWithID;
+        void Update<T>(int id, T new_entity) where T : class, IObjWithID;
+        void Update<T>(T obj, string field, object value) where T : class, IObjWithID;
         void Delete<T>(T e_type) where T : class;
         int GetNextID<T>() where T : class, IObjWithID;
         void ClearSet<T>() where T : class;

@@ -117,7 +117,6 @@ namespace Away_Day_Planner.Presenters
 
                 if (eventModel.getEventActivityList(currentEventId).Length != 0)
                 {
-                    //TODO: Update event
                     Console.WriteLine("Update Event with following info:");
                     Console.WriteLine("Booking day: " + eventBookerView.selectedDate.Date);
                     Console.WriteLine("Price: " + eventBookerView.totalPrice);
@@ -126,8 +125,13 @@ namespace Away_Day_Planner.Presenters
 
                     Event newEvent = new Event(eventNoOfAttendees, eventPrice);
 
+
                     //TODO: Update Event 
-                    eventModel.updateEvent(currentEventId, newEvent);
+                    Event eventToUpdate = eventModel.getEvent(currentEventId);
+                    eventModel.updateEvent(eventToUpdate, "price", eventPrice);
+                    eventModel.updateEvent(eventToUpdate, "noOfAttendees", eventNoOfAttendees);
+                    eventModel.updateEvent(eventToUpdate, "isBooked", true);
+
                     int newEventId = eventModel.getCurrentEventId();
                     eventModel.addNewDate(eventBookerView.selectedDate.Date, newEventId);
 
