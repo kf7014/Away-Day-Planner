@@ -1,4 +1,10 @@
-﻿using Away_Day_Planner.CORChain.Handlers;
+﻿/*
+* Aaron Beattie   - W19017261
+* Sandra Czernik  - W19009595
+* Kieran Robinson - W19002952
+* Scott Donaldson - W19019810
+*/
+using Away_Day_Planner.CORChain.Handlers;
 using Away_Day_Planner.Models.EventBooker;
 using System;
 using System.Collections.Generic;
