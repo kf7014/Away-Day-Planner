@@ -9,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Away_Day_Planner.Models.EventBooker;
+using Away_Day_Planner.Models.ClientDepartment;
 
 namespace Away_Day_Planner.Views
 {
     public partial class EventBookerView : Form, IEventBookerView
     {
         private EventBookerPresenter eventBookerPresenter;
+        private PdfDisplayPresenter PdfDisplayPresenter;
 
         public String pageTitle
         {
@@ -65,6 +67,10 @@ namespace Away_Day_Planner.Views
             this.eventBookerPresenter = eventBookerPresenter;
             
         }
+        public void register(PdfDisplayPresenter pdfDisplayPresenter)
+        {
+            this.PdfDisplayPresenter = pdfDisplayPresenter;
+        }
 
         private void buttonAddActivity_Click(object sender, EventArgs e)
         {
@@ -83,6 +89,14 @@ namespace Away_Day_Planner.Views
         private void buttonConfirmBooking_Click(object sender, EventArgs e)
         {
             eventBookerPresenter.buttonConfirmBookingEvent(); 
+            if(eventBookerPresenter.checkDateAvailability())
+            {
+                PdfDisplayView pdfDisplayView = new PdfDisplayView();
+                EventModel eventModel = new EventModel();
+                ClientModel clientModel = new ClientModel();
+                PdfDisplayPresenter presenter = PdfDisplayPresenter.Instance(pdfDisplayView, eventModel, clientModel);
+                pdfDisplayView.ShowDialog();
+            }
         }
     }
 }

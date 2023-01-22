@@ -13,6 +13,7 @@ namespace Away_Day_Planner.Models.EventBooker
         Decimal price { get; set; }
         Boolean facilitatorRequired { get; set; }
         Boolean isBooked { get; set; }
+        int EventFK { get; set; }
         ICollection<FacilitatorTeam> allocatedFacilitatorTeams { get; set; }
 
 

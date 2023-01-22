@@ -116,7 +116,7 @@ namespace Away_Day_Planner.Presenters
                 Date eventDate = new Date(eventBookerView.selectedDate.Date);
                 Decimal eventPrice = Decimal.Parse(eventBookerView.totalPrice);
 
-                if(eventModel.getEventActivityList(currentEventId).Length != 0)
+                if (eventModel.getEventActivityList(currentEventId).Length != 0)
                 {
                     //TODO: Update event
                     Console.WriteLine("Update Event with following info:");
@@ -130,7 +130,8 @@ namespace Away_Day_Planner.Presenters
                     //TODO: Update Event 
                     eventModel.updateEvent(currentEventId, newEvent);
                     eventBookerView.SuccessFailMessage = "Event successfully booked!";
-                } else
+                }
+                else
                 {
                     eventBookerView.SuccessFailMessage = "Activities need to be added";
                 }

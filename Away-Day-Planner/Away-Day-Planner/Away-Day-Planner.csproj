@@ -51,11 +51,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
@@ -87,6 +93,11 @@
     <Compile Include="CORChain\Handlers\Handler.cs" />
     <Compile Include="CORChain\Handlers\IHandler.cs" />
     <Compile Include="CORChain\IEvent.cs" />
+    <Compile Include="Migrations\202301211824493_Migration.cs" />
+    <Compile Include="Migrations\202301211824493_Migration.designer.cs">
+      <DependentUpon>202301211824493_Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ClientDepartment\Client.cs" />
     <Compile Include="Models\ClientDepartment\ClientModel.cs" />
     <Compile Include="Models\ClientDepartment\Department.cs" />
@@ -129,6 +140,7 @@
     <Compile Include="Presenters\CreateDepartmentPresenter.cs" />
     <Compile Include="Presenters\EventBookerPresenter.cs" />
     <Compile Include="Presenters\LoginUserPresenter.cs" />
+    <Compile Include="Presenters\PdfDisplayPresenter.cs" />
     <Compile Include="Presenters\RegisterUserPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,6 +179,13 @@
     <Compile Include="Views\EventBookerView.Designer.cs">
       <DependentUpon>EventBookerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\IPdfDisplayView.cs" />
+    <Compile Include="Views\PdfDisplayView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PdfDisplayView.Designer.cs">
+      <DependentUpon>PdfDisplayView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\IAddActivityView.cs" />
     <Compile Include="Views\IClientDepartmentSelectionView.cs" />
     <Compile Include="Views\ICreateClientView.cs" />
@@ -186,6 +205,9 @@
     <Compile Include="Views\RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202301211824493_Migration.resx">
+      <DependentUpon>202301211824493_Migration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -209,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EventBookerView.resx">
       <DependentUpon>EventBookerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PdfDisplayView.resx">
+      <DependentUpon>PdfDisplayView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
@@ -246,12 +271,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\Entity_Database.mdf">
+    <Content Include="Database\Database_Entiry.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database\Entity_Database_log.ldf">
+    <Content Include="Database\Database_Entiry_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Entity_Database.mdf</DependentUpon>
+      <DependentUpon>Database_Entiry.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -196,5 +196,9 @@ namespace Away_Day_Planner.Models.EventBooker
         {
             databaseAbstraction.updateEvent(eventId, newEvent);
         }
+        public void pdfPopulation()
+        {
+            
+        }
     }
 }
