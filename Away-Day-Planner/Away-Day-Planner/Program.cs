@@ -42,7 +42,11 @@ namespace Away_Day_Planner
 
             Hashing.HashPassword("TestPassword");
             //System point of entry
-            Application.Run(loginView);  
+            //Application.Run(loginView);  
+
+            RegisterView registerView = new RegisterView();
+            RegisterUserPresenter registerUserPresenter = new RegisterUserPresenter(registerView, loginRegistrationModel);
+            Application.Run(registerView);
         }
     }
 }

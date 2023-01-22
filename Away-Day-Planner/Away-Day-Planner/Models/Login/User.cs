@@ -49,7 +49,8 @@ namespace Away_Day_Planner.Models.Login
         [MinLength(8), MaxLength(50)]
         public String userPassword { get => USERPASSWORD; set => USERPASSWORD = value; }
 
-
-
+        private string USERHASH;
+        [MinLength(8), MaxLength(50)]
+        public string userHash { get => USERHASH; set => USERHASH = value; }
     }
 }
