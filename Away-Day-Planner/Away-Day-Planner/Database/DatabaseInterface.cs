@@ -2,9 +2,11 @@
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
 using Away_Day_Planner.Utilities;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 
@@ -94,9 +96,10 @@ namespace Away_Day_Planner.Database
 
             using(var context = GetContext())
             {
-                context.Entry(old_entity).State = EntityState.Modified;
-                old_entity = new_entity;
-                SaveChanges(context);
+                T currentEntity = old_entity;
+                context.Entry(currentEntity).State = EntityState.Modified;
+                context.Entry(currentEntity).CurrentValues.SetValues(new_entity);
+                context.SaveChanges();
             }
         }
         public void Update<T>(int id, T new_entity) where T : class
@@ -105,8 +108,9 @@ namespace Away_Day_Planner.Database
             {
                 T currentEntity = Get<T>(id).Item1;
                 context.Entry(currentEntity).State = EntityState.Modified;
-                currentEntity = new_entity;
-                SaveChanges(context);
+                context.Entry(currentEntity).CurrentValues.SetValues(new_entity);
+                context.SaveChanges();
+
             }
         }
         public (T, DbContext) Get<T>(int id) where T : class
