@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Away_Day_Planner.Models.ClientDepartment;
 using Away_Day_Planner.Models.EventBooker;
 using Away_Day_Planner.Models.Login;
+using Away_Day_Planner.Security;
 
 namespace Away_Day_Planner.Database
 {
@@ -209,7 +210,18 @@ namespace Away_Day_Planner.Database
 
         public void addNewUser(String firstName, String lastName, String username, String userEmail, String userPassword)
         {
-            User newUser = new User(firstName, lastName, username, userEmail, userPassword);
+            byte[] generatedSalt = Hashing.generateSalt();
+            byte[] passwordByteArray = Encoding.ASCII.GetBytes(userPassword);
+            byte[] hashedUserPassword = Hashing.createHash(passwordByteArray, generatedSalt);
+            
+
+            String generatedSaltString = Encoding.ASCII.GetString(generatedSalt);
+            String hashedUserPasswordString = Encoding.ASCII.GetString(hashedUserPassword);
+
+            Console.WriteLine("Salt string: " + generatedSaltString);
+            Console.WriteLine("Hashed user password: " + hashedUserPasswordString);
+
+            User newUser = new User(firstName, lastName, username, userEmail, hashedUserPasswordString, generatedSaltString);
             Console.WriteLine("New user added");
             databaseInterface.Add(newUser);
         }
