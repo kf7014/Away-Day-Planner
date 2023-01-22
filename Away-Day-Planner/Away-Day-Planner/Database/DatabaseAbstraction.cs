@@ -223,10 +223,15 @@ namespace Away_Day_Planner.Database
 
         }
 
-        public void updateEvent(int eventId, Event newEvent)
+        public void updateEvent(Event _event, String field, object value)
         {
-            Event oldEvent = getEvent(eventId);
-            databaseInterface.Update<Event>(oldEvent, newEvent);
+            databaseInterface.Update<Event>(_event, field, value);
+        }
+
+        public void addNewDate(DateTime eventDate, int newEventId)
+        {
+            Date newDate = new Date(eventDate, newEventId);
+            databaseInterface.Add(newDate);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Away_Day_Planner.Models.EventBooker
         void addNewActivity(String name, Decimal price, bool facilitatorRequired, int eventFK);
         void addNewReward(String name, Decimal price, int activityFK);
         void addNewAddition(String name, Decimal price, int activityFK);
+        Event getEvent(int eventId);
         Event[] getAllEvents();
         Date[] getAllStoredDates();
         BookedFacilitatorTeamDate[] getAllBookedFacilitatorTeamDates();
@@ -30,6 +31,7 @@ namespace Away_Day_Planner.Models.EventBooker
         IActivity[] getAllActivities();
         Addition[] getActivityAdditions(int activityId);
         Reward[] getActivityRewards(int activityId);
-        void updateEvent(int eventId, Event newEvent);
+        void updateEvent(Event _event, String field, object value);
+        void addNewDate(DateTime eventDate, int newEventId);
     }
 }
