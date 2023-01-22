@@ -28,7 +28,7 @@ namespace Away_Day_Planner.Presenters
             pdfDisplayView.register(this);
         }
 
-        
+
 
         public void GeneratePDFClick()
         {
@@ -36,6 +36,7 @@ namespace Away_Day_Planner.Presenters
         }
         public void GeneratePDF()
         {
+            
             int clientID = EventModel.clientId + 1;
             int eventID = EventModel.getCurrentEventId();
             String filePath = AppDomain.CurrentDomain.BaseDirectory + "Invoice.pdf";
@@ -43,7 +44,17 @@ namespace Away_Day_Planner.Presenters
             String companyName = client.name;
             IActivity[] activityList = EventModel.getAllActivities();
 
-
+            Event[] events = EventModel.getAllEvents();
+            Event currentEvent = events[0];
+            for (int i = 0; i < events.Length; i++)
+            {
+                if (events[i].id == eventID)
+                {
+                    currentEvent = events[i];
+                }
+                
+            }
+            
             using (FileStream stream = new FileStream("invoice.pdf", FileMode.Create))
             {
                 Document pdfDoc = new Document();
@@ -59,10 +70,15 @@ namespace Away_Day_Planner.Presenters
                         pdfDoc.Add(new Paragraph(currentActivity.name + "              " + currentActivity.price));
                     }
 
-                }
+            }
+
+                pdfDoc.Add(new Paragraph("The base cost of this package is: " + currentEvent.price));
+                pdfDoc.Add(new Paragraph("Plus our service charge of 50%: " +(currentEvent.price*(decimal)0.5)));
+                pdfDoc.Add(new Paragraph("For a total package cost of: " + (currentEvent.price * (decimal)1.5)));
                 pdfDoc.Close();
             }
-            pdfDisplayView.ShowInvoice(filePath);
+        pdfDisplayView.ShowInvoice(filePath);
         }
     }
 }
+
