@@ -25,7 +25,7 @@ namespace Away_Day_Planner.Presenters
         {
             String loginUsername = createLoginView.loginUsername;
             String loginPassword = createLoginView.loginPassword;
-
+         
             bool validationError = false;
             bool loginPasswordError = false;
             bool loginUsernameError = false;
@@ -43,10 +43,9 @@ namespace Away_Day_Planner.Presenters
                 validationError = true;
             } else
             {
-                loginUsernameError = true;
                 createLoginView.LoginErrorMessageUsername = "";
+                loginUsernameError = false;
             }
-
             if (loginPassword == null)
             {
                 createLoginView.LoginErrorMessagePassword = "Password cannot be empty";
