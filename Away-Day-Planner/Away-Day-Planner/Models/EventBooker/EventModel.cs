@@ -201,9 +201,10 @@ namespace Away_Day_Planner.Models.EventBooker
             
         }
 
-        public void addEventDate(IDate eventDate)
+        public void addNewDate(DateTime eventDate, int newEventId)
         {
-            databaseAbstraction.addEventDate(eventDate);
+            databaseAbstraction.addNewDate(eventDate, newEventId);
         }
+
     }
 }

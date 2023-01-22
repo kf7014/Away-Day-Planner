@@ -229,10 +229,10 @@ namespace Away_Day_Planner.Database
             databaseInterface.Update<Event>(oldEvent, newEvent);
         }
 
-        public void addEventDate(IDate eventDate)
+        public void addNewDate(DateTime eventDate, int newEventId)
         {
-            Date newEventDate = (Date)eventDate;
-            databaseInterface.Add(newEventDate);
+            Date newDate = new Date(eventDate, newEventId);
+            databaseInterface.Add(newDate);
         }
     }
 }

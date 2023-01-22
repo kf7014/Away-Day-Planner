@@ -31,6 +31,6 @@ namespace Away_Day_Planner.Models.EventBooker
         Addition[] getActivityAdditions(int activityId);
         Reward[] getActivityRewards(int activityId);
         void updateEvent(int eventId, Event newEvent);
-        void addEventDate(IDate eventDate);
+        void addNewDate(DateTime eventDate, int newEventId);
     }
 }
