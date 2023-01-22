@@ -21,27 +21,24 @@ namespace Away_Day_Planner.Security
 
             Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, salt, 1000);
 
-            Console.WriteLine(Convert.ToBase64String(pbkdf2.GetBytes(20)));
-
             Tuple<string, byte[]> hashSalt = new Tuple<string, byte[]>(Convert.ToBase64String(pbkdf2.GetBytes(20)), salt);
-            Console.WriteLine("Hash: " + hashSalt.Item1);
-
-            return hashSalt; // Size of PBKDF2-HMAC-SHA-1 Hash 
+            return hashSalt;
         }
 
-        public static bool checkHashMatch(String plaintextPassword, String hashedPassword, byte[] salt)
+        public static bool checkHashMatch(String plaintextPassword, string hashedPassword, Tuple<string, byte[]> hashSalt)
         {
-            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(plaintextPassword, salt, 1000);
+            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(plaintextPassword, hashSalt.Item2, 1000);
+            byte[] hash = pbkdf2.GetBytes(20);
+            String newHashedPassword = Convert.ToBase64String(hash);
 
-            Console.WriteLine(Convert.ToBase64String(pbkdf2.GetBytes(20)));
-
-            if(Convert.ToBase64String(pbkdf2.GetBytes(20)) == hashedPassword)
+            if (newHashedPassword == hashSalt.Item1)
             {
-                Console.WriteLine(true);
+                Console.WriteLine("True");
                 return true;
-            } else
+            }
+            else
             {
-                Console.WriteLine(false);
+                Console.WriteLine("False");
                 return false;
             }
         }

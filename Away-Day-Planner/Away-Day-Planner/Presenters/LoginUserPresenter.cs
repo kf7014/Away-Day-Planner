@@ -82,9 +82,9 @@ namespace Away_Day_Planner.Presenters
                 foreach (User user in users)
                 {
                     String hashedPassword = user.userPassword;
-                    Byte[] salt = user.userSalt;
+                    Tuple<string, byte[]> salt = new Tuple <string, byte[]>(user.userPassword, user.userSalt);
 
-                    bool passwordMatch = Hashing.checkHashMatch(loginUsername, hashedPassword, salt);
+                    bool passwordMatch = Hashing.checkHashMatch(loginPassword, hashedPassword, salt);
                     
 
                     if (user.username == loginUsername)
