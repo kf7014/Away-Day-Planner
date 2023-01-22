@@ -112,7 +112,7 @@ namespace Away_Day_Planner.Database
             {
                 T currentEntity = Get<T>(id).Item1;
 
-                currentEntity.id = new_entity.id;
+                new_entity.id = currentEntity.id;
 
                 context.Entry(currentEntity).State = EntityState.Modified;
                 context.Entry(currentEntity).CurrentValues.SetValues(new_entity);
