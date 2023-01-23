@@ -26,6 +26,7 @@ namespace Away_Day_Planner.Presenters
             createClientView.register(this);
         }
 
+        //Runs when add client button is pressed
         public bool buttonAddClientClickEvent()
         {
             String clientName = createClientView.ClientName;
@@ -34,6 +35,7 @@ namespace Away_Day_Planner.Presenters
 
             bool validationErrors = false;           
 
+            //Client name validation
             if(clientName.Length < 2)
             {
                 createClientView.ErrorMessageName = "Client name must be longer than 2 characters";
@@ -48,6 +50,7 @@ namespace Away_Day_Planner.Presenters
                 validationErrors = true;
             }
 
+            //Client distance validation
             if(noOfHoursAway < 0)
             {
                 createClientView.ErrorMessageDistanceAway = "Distance must be positive";
@@ -58,7 +61,7 @@ namespace Away_Day_Planner.Presenters
                 validationErrors = true;
             }
 
-
+            //If no validation errors add client to DB
             if(validationErrors == false)
             {
                 clientModel.addNewClient(clientName, noOfHoursAway, hadClientDispute);
@@ -67,11 +70,6 @@ namespace Away_Day_Planner.Presenters
             {
                 return false;
             }
-            
-        }
-
-        private void clientNameError()
-        {
             
         }
     }

@@ -57,6 +57,7 @@ namespace Away_Day_Planner.Presenters
             eventBookerView.pageTitle = "Booking event for " + client.name + " and Department " + department.name;
         }
 
+        //Display the distance of the client the event is being booked for on the form
         private void setDistance()
         {
             int clientId = eventModel.clientId;
@@ -65,6 +66,7 @@ namespace Away_Day_Planner.Presenters
             eventBookerView.clientDistance = clientDistance.ToString();
         }
 
+        //Display the price of all activities within the event on the form
         private void setPrice()
         {
             int clientId = eventModel.clientId;
@@ -107,11 +109,13 @@ namespace Away_Day_Planner.Presenters
             eventBookerView.setActivityList(activityNames);
         }
 
+        //Updates UI on buttonAddActivity is pressed to reflect changes
         public void buttonAddActivityEvent()
         {
             populateScreen();
         }
 
+        //Runs when confirm booking button is pressed
         public void buttonConfirmBookingEvent()
         {
             bool chosenDateAvailable = checkDateAvailability();
@@ -123,16 +127,10 @@ namespace Away_Day_Planner.Presenters
 
                 if (eventModel.getEventActivityList(currentEventId).Length != 0)
                 {
-                    Console.WriteLine("Update Event with following info:");
-                    Console.WriteLine("Booking day: " + eventBookerView.selectedDate.Date);
-                    Console.WriteLine("Price: " + eventBookerView.totalPrice);
-                    Console.WriteLine("Number of attendees: " + eventBookerView.noOfAttendees);
-                    Console.WriteLine("Is Booked: True");
-
                     Event newEvent = new Event(eventNoOfAttendees, eventPrice);
 
 
-                    //TODO: Update Event 
+                    //Update Event 
                     Event eventToUpdate = eventModel.getEvent(currentEventId);
                     eventModel.updateEvent(eventToUpdate, "price", eventPrice);
                     eventModel.updateEvent(eventToUpdate, "noOfAttendees", eventNoOfAttendees);
@@ -159,6 +157,7 @@ namespace Away_Day_Planner.Presenters
             DateTime selectedDateNextDay = selectedDate;
             selectedDateNextDay = selectedDate.AddDays(1);
 
+            //Set initial validation failure flag to false
             bool dateAlreadyBooked = false;
 
             //Get client info
@@ -191,7 +190,6 @@ namespace Away_Day_Planner.Presenters
                         if (selectedDate.Date == bookedFacilitatorDates[i].dateTime.Date || selectedDateNextDay.Date == bookedFacilitatorDates[i].dateTime.Date)
                         {
                             dateAlreadyBooked = true;
-                            Console.WriteLine("Facilitators unavailable");
                             eventBookerView.ErrorDate = "Facilitators unavailable that day";
                         }
                     }
@@ -210,11 +208,11 @@ namespace Away_Day_Planner.Presenters
             } else
             {
                 //Facilitator not required on any activities
-                Console.WriteLine("Facilitator not needed");
                 return true;
             }   
         }
 
+        //Check if an event has an activity that will require facilitators to be booked
         public bool checkFacilitatorNeeded(int eventId)
         {
             bool facilitatorNeeded = false;

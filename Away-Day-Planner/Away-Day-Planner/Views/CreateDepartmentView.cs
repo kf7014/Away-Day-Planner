@@ -22,6 +22,7 @@ namespace Away_Day_Planner.Views
         private CreateDepartmentPresenter createDepartmentPresenter;
         private int[] clientKeys;
 
+        //Getters and setters for form elements
         public String ClientName
         {
             set { comboBoxClientSelection.Text = value; }

@@ -17,6 +17,7 @@ namespace Away_Day_Planner.Security
 {
     public class Hashing
     {
+        //Hashes password using PBKDF2
         public static Tuple<string, byte[]> HashPassword(String password)
         {
             Byte[] salt = new Byte[24];
@@ -31,6 +32,7 @@ namespace Away_Day_Planner.Security
             return hashSalt;
         }
 
+        //Checks if input password matches hash password
         public static bool checkHashMatch(String plaintextPassword, string hashedPassword, Tuple<string, byte[]> hashSalt)
         {
             Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(plaintextPassword, hashSalt.Item2, 1000);

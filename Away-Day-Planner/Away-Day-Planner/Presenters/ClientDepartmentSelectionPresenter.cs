@@ -27,6 +27,7 @@ namespace Away_Day_Planner.Presenters
             populateScreen();
         }
 
+        //Update UI
         private void populateScreen()
         {
             //Populate clientList box
@@ -44,6 +45,7 @@ namespace Away_Day_Planner.Presenters
             listBoxClientSelectionEvent();
         }
 
+        //Update shown departments when a new client within the list is selected
         public void listBoxClientSelectionEvent()
         {
             IDepartment[] departmentList = clientModel.getClientDepartments(clientDepartmentSelectionView.selectedClientIndex + 1);
@@ -61,6 +63,7 @@ namespace Away_Day_Planner.Presenters
             clientDepartmentSelectionView.setDepartmentList(departmentNames);
         }
 
+        //Load Create Client form when button is pressed
         public void buttonCreateClientClickEvent()
         {
             CreateClientView createClientView = new CreateClientView();
@@ -70,6 +73,7 @@ namespace Away_Day_Planner.Presenters
             populateScreen();
         }
 
+        //Load Create Department form when button is pressed
         public void buttonCreateDepartmentClickEvent()
         {
             CreateDepartmentView createDepartmentView = new CreateDepartmentView();
@@ -82,6 +86,7 @@ namespace Away_Day_Planner.Presenters
 
         public bool buttonConfirmClickEvent()
         {
+            //Validation
             bool validationErrors = false;
             if (clientDepartmentSelectionView.selectedClientIndex < 0)
             {
@@ -92,6 +97,7 @@ namespace Away_Day_Planner.Presenters
                 validationErrors = true;
             }
 
+            //If no validation errors, return true
             if(validationErrors == true)
             {
                 clientDepartmentSelectionView.ErrorConfirmSelection = "Must select client and department";

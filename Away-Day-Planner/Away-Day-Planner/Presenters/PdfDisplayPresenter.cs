@@ -68,6 +68,7 @@ namespace Away_Day_Planner.Presenters
             }
             using (FileStream stream = new FileStream("invoice.pdf", FileMode.Create))
             {
+                //PDF Generation
                 Document pdfDoc = new Document();
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();

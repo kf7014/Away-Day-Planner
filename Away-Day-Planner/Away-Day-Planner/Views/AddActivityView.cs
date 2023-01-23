@@ -24,7 +24,7 @@ namespace Away_Day_Planner.Views
         {
             InitializeComponent();
         }
-
+        //Getters and setters for form elements
         public int selectedActivity
         {
             get { return comboBoxSelectActivity.SelectedIndex; }

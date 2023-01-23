@@ -24,6 +24,7 @@ namespace Away_Day_Planner.Views
         private EventBookerPresenter eventBookerPresenter;
         private PdfDisplayPresenter PdfDisplayPresenter;
 
+        //Getters and setters for form elements
         public String pageTitle
         {
             get { return labelTitle.Text; }

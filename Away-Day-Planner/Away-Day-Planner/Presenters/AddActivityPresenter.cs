@@ -42,6 +42,7 @@ namespace Away_Day_Planner.Views
             updateActivityPricing();
         }
 
+        //Populate list of preset activities that can be chosen from
         private void populateTemplateActivities()
         {
             ActivityTemplate[] activityTemplates = eventModel.getActivityTemplates();
@@ -55,6 +56,7 @@ namespace Away_Day_Planner.Views
             addActivityView.setActivityTemplateList(activityNames);
         }
 
+        //Populate list of preset rewards that can be chosen from
         private void populateRewardsDropdown()
         {
             RewardTemplate[] rewardTemplates = eventModel.getRewardTemplates();
@@ -69,6 +71,7 @@ namespace Away_Day_Planner.Views
             addActivityView.setCustomRewardTemplateList(rewardNames);
         }
 
+        //Populate list of preset additions that can be chosen from
         private void populateAdditionsDropdown()
         {
             AdditionTemplate[] additionTemplates = eventModel.getAdditionTemplates();
@@ -83,6 +86,7 @@ namespace Away_Day_Planner.Views
             addActivityView.setCustomAdditionTemplateList(additionNames);
         }
 
+        //Update current price of activity to reflect selected options
         public void updateActivityPricing()
         {
             int activityId = addActivityView.selectedActivity;
@@ -106,6 +110,7 @@ namespace Away_Day_Planner.Views
             }
         }
 
+        //Runs when Add Activity button is pressed
         public bool buttonAddActivityClickEvent()
         {
             int selectedActivityId = addActivityView.selectedActivity;

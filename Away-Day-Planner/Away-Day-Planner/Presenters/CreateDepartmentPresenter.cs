@@ -27,6 +27,7 @@ namespace Away_Day_Planner.Presenters
             populateScreen();
         }
 
+        //Update UI
         private void populateScreen()
         {
             //Populate combobox with clients
@@ -39,13 +40,11 @@ namespace Away_Day_Planner.Presenters
                 names[i] = list[i].name;
                 keys[i] = list[i].id;
             }
-
             
-            createDepartmentView.setClientList(names, keys);
-            
-
+            createDepartmentView.setClientList(names, keys);          
         }
 
+        //Runs when add department button is pressed
         public bool buttonAddDepartmentClickEvent()
         {
             String clientName = createDepartmentView.ClientName;        
@@ -53,6 +52,7 @@ namespace Away_Day_Planner.Presenters
 
             bool validationErrors = false;
 
+            //Client selection validation
             if(clientName == null)
             {
                 createDepartmentView.ErrorMessageClientSelection = "Client cannot be null";
@@ -78,6 +78,7 @@ namespace Away_Day_Planner.Presenters
                 validationErrors = true;
             }
 
+            //Add department to DB if no validation errors
             if(validationErrors == false)
             {
                 int selectedClientId = createDepartmentView.SelectedClientId;

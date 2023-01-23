@@ -20,6 +20,8 @@ namespace Away_Day_Planner.Views
     public partial class CreateClientView : Form, ICreateClientView
     {
         private CreateClientPresenter createClientPresenter;
+
+        //Getters and setters for form elements
         public String ClientName
         {
             set { textBoxClientName.Text = value; }

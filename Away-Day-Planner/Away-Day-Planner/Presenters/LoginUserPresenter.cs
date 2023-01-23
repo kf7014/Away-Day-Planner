@@ -19,7 +19,6 @@ namespace Away_Day_Planner.Presenters
     {
         private ILoginView createLoginView;
         private ILoginRegistrationModel loginRegistrationModel;
-        //private LoginView loginView;
 
         public LoginUserPresenter(ILoginView createLoginView, ILoginRegistrationModel LoginRegistrationModel)
         {
@@ -37,6 +36,7 @@ namespace Away_Day_Planner.Presenters
             bool loginPasswordError = false;
             bool loginUsernameError = false;
 
+            //Username validation
             if (loginUsername == null)
             {
                 createLoginView.LoginErrorMessageUsername = "Username cannot be empty";
@@ -53,6 +53,7 @@ namespace Away_Day_Planner.Presenters
                 createLoginView.LoginErrorMessageUsername = "";
                 loginUsernameError = false;
             }
+            //Password validation
             if (loginPassword == null)
             {
                 createLoginView.LoginErrorMessagePassword = "Password cannot be empty";
@@ -71,19 +72,9 @@ namespace Away_Day_Planner.Presenters
             }
 
 
-
+            //No input validation errors, check if login is correct
             if (validationError == false)
             {
-                //TODO
-                //if (validatecredentials(loginUsername,loginPassword))
-                //{
-                //take user to main form
-                // }
-                // else
-                //{
-                //incorrect password
-                // }
-
                 User[] users = loginRegistrationModel.getAllUsers();
                 foreach (User user in users)
                 {

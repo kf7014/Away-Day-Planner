@@ -27,6 +27,7 @@ namespace Away_Day_Planner.Presenters
 
         public bool registerNewUserEvent()
         {
+            //Regex for invalid characters
             String firstNameRegex = @"^([a-zA-Z]+?)([-\s'][a-zA-Z]+)*?$";
             String lastNameRegex = @"^([a-zA-Z]+?)([-\s'][a-zA-Z]+)*?$";
             String usernameRegex = @"^[A-Za-z0-9]*$";
