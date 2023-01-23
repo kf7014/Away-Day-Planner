@@ -196,8 +196,6 @@ namespace Away_Day_Planner.Database
                     { typeof(FacilitatorTeam),          dbc.FacilitatorTeams},
                     { typeof(Facilitator),              dbc.Facilitators},
                     { typeof(Event),                    dbc.Events},
-                    { typeof(Contractor),               dbc.Contractors},
-                    { typeof(EventFlexibilityDate),     dbc.EventFlexibilityDates},
                     { typeof(BookedFacilitatorTeamDate),dbc.BookedFacilitatorTeamDates},
                 };
                 return dict[aClass.GetType()].Cast<T>();

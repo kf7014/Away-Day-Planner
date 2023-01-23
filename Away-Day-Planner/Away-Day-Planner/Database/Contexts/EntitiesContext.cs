@@ -25,8 +25,6 @@ namespace Away_Day_Planner.Database.Contexts
         public virtual DbSet<FacilitatorTeam> FacilitatorTeams { get; set; }
         public virtual DbSet<Facilitator> Facilitators { get; set; }
         public virtual DbSet<Event> Events { get; set; }
-        public virtual DbSet<Contractor> Contractors { get; set; }
-        public virtual DbSet<EventFlexibilityDate> EventFlexibilityDates { get; set; }
         public virtual DbSet<BookedFacilitatorTeamDate> BookedFacilitatorTeamDates { get; set; }
         public virtual DbSet<ActivityTemplate> ActivityTemplates { get; set; }
         public virtual DbSet<RewardTemplate> RewardTemplates { get; set; }

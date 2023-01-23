@@ -43,10 +43,10 @@ namespace Away_Day_Planner
             LoginView loginView = new LoginView();
             LoginRegistrationModel loginRegistrationModel = new LoginRegistrationModel();
             LoginUserPresenter loginUserPresenter = new LoginUserPresenter(loginView, loginRegistrationModel);
-            ////System point of entry
-            Application.Run(loginView);  
+            //System point of entry
+            Application.Run(loginView);
 
-            ////Uncomment this paragraph and comment one above to go straight to registration page.
+            ////Uncomment this paragraph and comment one above to go straight to registration page. Only use to create first user and then use other entry point for rest of system and to create other users
             //RegisterView registerView = new RegisterView();
             //LoginRegistrationModel loginRegistrationModel = new LoginRegistrationModel();
             //RegisterUserPresenter registerUserPresenter = new RegisterUserPresenter(registerView, loginRegistrationModel);
