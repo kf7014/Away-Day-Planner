@@ -48,7 +48,7 @@ namespace Away_Day_Planner.Presenters
         }
         public void GeneratePDF()
         {
-            
+
             int clientID = EventModel.clientId + 1;
             int eventID = EventModel.getCurrentEventId();
             String filePath = AppDomain.CurrentDomain.BaseDirectory + "Invoice.pdf";
@@ -64,7 +64,7 @@ namespace Away_Day_Planner.Presenters
                 {
                     currentEvent = events[i];
                 }
-                
+
             }
             using (FileStream stream = new FileStream("invoice.pdf", FileMode.Create))
             {
@@ -72,23 +72,25 @@ namespace Away_Day_Planner.Presenters
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
                 pdfDoc.Add(new Paragraph("Invoice for " + companyName));
-                pdfDoc.Add(new Paragraph("Activitys selected : Price(£)"));
+                pdfDoc.Add(new Paragraph("The number of attendees you have requested for this event is: " + currentEvent.noOfAttendees));
+                pdfDoc.Add(new Paragraph("Activitys selected        :        Price(£)"));
                 for (int i = 0; i < activityList.Length; i++)
                 {
                     IActivity currentActivity = activityList[i];
                     if (currentActivity.EventFK == eventID)
                     {
-                        pdfDoc.Add(new Paragraph(currentActivity.name + "              " + currentActivity.price));
+                        pdfDoc.Add(new Paragraph(currentActivity.name + "       :       " + currentActivity.price));
+
                     }
 
-            }
-
+                }
                 pdfDoc.Add(new Paragraph("The base cost of this package is: " + currentEvent.price));
-                pdfDoc.Add(new Paragraph("Plus our service charge of 50%: " +(currentEvent.price*(decimal)0.5)));
+                pdfDoc.Add(new Paragraph("Plus our service charge of 50%: " + (currentEvent.price * (decimal)0.5)));
                 pdfDoc.Add(new Paragraph("For a total package cost of: " + (currentEvent.price * (decimal)1.5)));
+                pdfDoc.Add(new Paragraph("As a reminder this is only an initial estimate and nothing is booked \nuntil we recive full conformation from you,\ncontact one of our agents to finalise your booking"));
                 pdfDoc.Close();
             }
-        pdfDisplayView.ShowInvoice(filePath);
+            pdfDisplayView.ShowInvoice(filePath);
         }
     }
 }
